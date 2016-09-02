@@ -9,24 +9,24 @@ class DonationsController < ApplicationController
   end
 
   def show
-    @donation = Donation.find_by(:id params[:id])
+    @donation = Donation.find_by(id: params[:id])
   end
 
   def edit
-    @donation = Donation.find_by(:id params[:id])
+    @donation = Donation.find_by(id: params[:id])
   end
 
   def update
-    @donation = Donation.find_by(:id params[:id])
+    @donation = Donation.find_by(id: params[:id])
 
     if @donation.update(
-      amount_donated: params[:amount_donated]
+      amount_donated: params[:amount_donated],
       charity_name: params[:charity_name])
+    end
   end
-end
 
   def destroy
-    @donation = Donation.find_by(:id params[:id])
+    @donation = Donation.find_by(id: params[:id])
     @donation.destroy
   end
 end

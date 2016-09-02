@@ -9,25 +9,26 @@ class CharitiesController < ApplicationController
   end
 
   def show
-    @charity = Charity.find_by(:id params[:id])
+    @charity = Charity.find_by(id: params[:id])
   end
 
   def edit
-    @charity = Charity.find_by(:id params[:id])
+    @charity = Charity.find_by(id: params[:id])
   end
 
   def update
-    @charity = Charity.find_by(:id params[:id])
+    @charity = Charity.find_by(id: params[:id])
 
     if @charity.update(
       name: params[:name],
       logo: params[:logo],
       description: params[:description]
       )
+    end
   end
 
   def destroy
-    @charity = Charity.find_by(:id params[:id])
+    @charity = Charity.find_by(id: params[:id])
     @charity.destroy
 
     flash[:warning] = "Destroyed!"
