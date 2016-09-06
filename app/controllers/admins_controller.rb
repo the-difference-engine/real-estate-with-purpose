@@ -1,6 +1,6 @@
-class DonationsController < ApplicationController
+class AdminsController < ApplicationController
   def index
-    @donations = Donation.all
+    @donations = Donations.all
   end
 
   def new
