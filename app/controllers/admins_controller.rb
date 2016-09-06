@@ -1,32 +1,31 @@
 class AdminsController < ApplicationController
   def index
-    @donations = Donations.all
+    @admins = Admin.all
   end
 
   def new
-    @donation = Donation.new
+    @admin = Admin.new
   end
 
   def show
-    @donation = Donation.find_by(id: params[:id])
+    @Admin = Admin.find_by(id: params[:id])
   end
 
   def edit
-    @donation = Donation.find_by(id: params[:id])
+    @admin = Admin.find_by(id: params[:id])
   end
 
   def update
-    @donation = Donation.find_by(id: params[:id])
+    @admin = Admin.find_by(id: params[:id])
 
-    if @donation.update(
-      amount_donated: params[:amount_donated],
-      charity_name: params[:charity_name])
+    if @admin.update(
+      name: params[:name]
     end
   end
 
   def destroy
-    @donation = Donation.find_by(id: params[:id])
-    @donation.destroy
+    @admin = Admin.find_by(id: params[:id])
+    @admin.destroy
 
     flash[:warning] = "Destroyed!"
     redirect_to "/"
