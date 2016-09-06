@@ -1,7 +1,6 @@
 class DonationsController < ApplicationController
-
   def index
-    @donations = Donations.all
+    @donations = Donation.all
   end
 
   def new
@@ -28,5 +27,8 @@ class DonationsController < ApplicationController
   def destroy
     @donation = Donation.find_by(id: params[:id])
     @donation.destroy
+
+    flash[:warning] = "Destroyed!"
+    redirect_to "/"
   end
 end
