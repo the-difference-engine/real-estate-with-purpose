@@ -7,6 +7,14 @@ class AdminsController < ApplicationController
     @admin = Admin.new
   end
 
+  def create
+    admin = Admin.create(
+      name: params[:name]
+      )
+
+    redirect_to "/admins/#{admin.id}"
+  end
+
   def show
     @Admin = Admin.find_by(id: params[:id])
   end
