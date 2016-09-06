@@ -1,5 +1,4 @@
 class DonationsController < ApplicationController
-
   def index
     @donations = Donations.all
   end
