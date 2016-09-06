@@ -28,5 +28,8 @@ class DonationsController < ApplicationController
   def destroy
     @donation = Donation.find_by(id: params[:id])
     @donation.destroy
+
+    flash[:warning] = "Destroyed!"
+    redirect_to "/"
   end
 end
