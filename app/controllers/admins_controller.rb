@@ -12,6 +12,7 @@ class AdminsController < ApplicationController
       name: params[:name]
       )
 
+    flash[:success] = 'New Admin Created'
     redirect_to "/admins/#{admin.id}"
   end
 
@@ -29,7 +30,8 @@ class AdminsController < ApplicationController
     if @admin.update(
       name: params[:name]
     end
-    ad
+    
+    flash[:success] = 'Admind Updated'
     redirect_to "/admins/#{admin.id}"
   end
 
