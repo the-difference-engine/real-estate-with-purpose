@@ -28,6 +28,8 @@ class BuyersController < ApplicationController
         name: params[:name]
         )
       end
+      
+      redirect_to '/buyers/#{@buyer.id}'
     end
 
     def destroy
