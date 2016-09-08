@@ -26,7 +26,8 @@ class SellersController < ApplicationController
     @seller = Seller.find_by(id: params[:id])
     @seller.update(name: params[:name])
 
-    
+    flash[:success] = 'Seller Updated'
+    redirect_to '/sellers/#{@seller.id}'
   end
 
   def destroy
