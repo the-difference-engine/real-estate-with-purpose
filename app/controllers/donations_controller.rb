@@ -11,6 +11,7 @@ class DonationsController < ApplicationController
     @donation = Donation.create(amount_donated: params[:amount_donated],
                                 charity_name: params[:charity_name]
                                 )
+    
     flash[:success] = "Donation Created"
     redirect_to '/donations/#{@donation.id}'
   end
@@ -25,11 +26,9 @@ class DonationsController < ApplicationController
 
   def update
     @donation = Donation.find_by(id: params[:id])
-
-    if @donation.update(
-      amount_donated: params[:amount_donated],
-      charity_name: params[:charity_name])
-    end
+    @donation.update(amount_donated: params[:amount_donated],
+                    charity_name: params[:charity_name]
+                    )
 
     flash[:success] = 'Donation Updated'
     redirect_to '/donations/#{@donation.id}'
