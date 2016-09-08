@@ -29,6 +29,8 @@ class AdminsController < ApplicationController
     if @admin.update(
       name: params[:name]
     end
+    
+    redirect_to "/admins/#{admin.id}"
   end
 
   def destroy
