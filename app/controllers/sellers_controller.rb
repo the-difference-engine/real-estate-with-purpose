@@ -24,11 +24,9 @@ class SellersController < ApplicationController
 
   def update
     @seller = Seller.find_by(id: params[:id])
+    @seller.update(name: params[:name])
 
-    if @seller.update(
-      name: params[:name]
-      )
-    end
+    
   end
 
   def destroy
