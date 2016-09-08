@@ -24,11 +24,7 @@ class BuyersController < ApplicationController
 
   def update
     @buyer = Buyer.find_by(id: params[:id])
-
-    if @buyer.update(
-      name: params[:name]
-      )
-    end
+    @buyer.update(name: params[:name])
 
     flash[:success] = 'Buyer Updated'
     redirect_to '/buyers/#{@buyer.id}'
