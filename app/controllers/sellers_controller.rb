@@ -7,6 +7,13 @@ class SellersController < ApplicationController
       @seller = Seller.new
     end
 
+    def create
+      @seller = Seller.create(name: params[:name])
+
+      flash[:success] = 'New Seller Created'
+      redirect_to '/sellers/#{@seller.id}'
+    end
+
     def show
       @seller = Seller.find_by(id: params[:id])
     end
