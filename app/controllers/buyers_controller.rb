@@ -10,6 +10,7 @@ class BuyersController < ApplicationController
     def create
       @buyer = Buyer.create(name: params[:name])
 
+      flash[:success] = "New Buyer Created"
       redirect_to '/buyers/#{@buyer.id}'
     end
 
@@ -28,7 +29,8 @@ class BuyersController < ApplicationController
         name: params[:name]
         )
       end
-      
+
+      flash[:success] = 'Buyer Updated'
       redirect_to '/buyers/#{@buyer.id}'
     end
 
