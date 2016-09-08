@@ -26,7 +26,7 @@ class AdminsController < ApplicationController
     @admin = Admin.find_by(id: params[:id])
     @admin.update(name: params[:name])
     
-    flash[:success] = 'Admind Updated'
+    flash[:success] = 'Admin Updated'
     redirect_to "/admins/#{admin.id}"
   end
 
