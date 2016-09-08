@@ -1,11 +1,20 @@
 class CharitiesController < ApplicationController
-
   def index
     @charities = Charity.all
   end
 
   def new
     @charity = Charity.new
+  end
+
+  def create
+    @charity = Charity.create(name: params[:name],
+                              logo: params[:logo],
+                              description: params[:description]
+                              )
+    
+    flash[:success] = 'Charity Created'
+    redirect_to '/charities/#{@charity.id}'
   end
 
   def show
