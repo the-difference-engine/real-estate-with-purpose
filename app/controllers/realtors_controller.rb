@@ -15,6 +15,7 @@ class RealtorsController < ApplicationController
                               phone_number: params[:phone_number],
                               email: params[:email]
                               )
+    
     flash[:success] = 'New Realtor Created'
     redirect_to '/realtors/#{@realtor.id}'
   end
