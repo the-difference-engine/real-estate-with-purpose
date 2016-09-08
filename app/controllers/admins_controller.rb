@@ -8,9 +8,7 @@ class AdminsController < ApplicationController
   end
 
   def create
-    admin = Admin.create(
-      name: params[:name]
-      )
+    admin = Admin.create(name: params[:name])
 
     flash[:success] = 'New Admin Created'
     redirect_to "/admins/#{admin.id}"
@@ -26,10 +24,7 @@ class AdminsController < ApplicationController
 
   def update
     @admin = Admin.find_by(id: params[:id])
-
-    if @admin.update(
-      name: params[:name]
-    end
+    @admin.update(name: params[:name])
     
     flash[:success] = 'Admind Updated'
     redirect_to "/admins/#{admin.id}"
