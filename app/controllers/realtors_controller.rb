@@ -7,6 +7,18 @@ class RealtorsController < ApplicationController
     @realtor = Realtor.new
   end
 
+  def create
+    @realtor = Realtor.create(headshot: params[:headshot],
+                              bio: params[:bio],
+                              faqs: params[:faqs],
+                              twitter_handle: params[:twitter_handle],
+                              phone_number: params[:phone_number],
+                              email: params[:email]
+                              )
+    flash[:success] = 'New Realtor Created'
+    redirect_to '/realtors/#{@realtor.id}'
+  end
+
   def show
     @realtor = Realtor.find_by(id: params[:id])
   end
