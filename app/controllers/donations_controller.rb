@@ -30,6 +30,8 @@ class DonationsController < ApplicationController
       amount_donated: params[:amount_donated],
       charity_name: params[:charity_name])
     end
+    
+    flash[:success] = 'Donation Updated'
   end
 
   def destroy
