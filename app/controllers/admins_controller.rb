@@ -29,7 +29,7 @@ class AdminsController < ApplicationController
     if @admin.update(
       name: params[:name]
     end
-    
+    ad
     redirect_to "/admins/#{admin.id}"
   end
 

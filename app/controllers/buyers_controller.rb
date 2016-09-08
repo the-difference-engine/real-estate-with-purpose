@@ -7,6 +7,12 @@ class BuyersController < ApplicationController
       @buyer = Buyer.new
     end
 
+    def create
+      @buyer = Buyer.create(name: params[:name])
+
+      redirect_to '/buyers/#{@buyer.id}'
+    end
+
     def show
       @buyer = Buyer.find_by(id: params[:id])
     end
