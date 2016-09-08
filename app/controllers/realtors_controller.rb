@@ -30,13 +30,13 @@ class RealtorsController < ApplicationController
   def update
     @realtor = Realtor.find_by(id: params[:id])
 
-    if @realtor.update(
-      headshot: params[:headshot],
-      bio: params[:bio],
-      faqs: params[:faqs],
-      twitter_handle: params[:twitter_handle],
-      phone_number: params[:phone_number],
-      email: params[:email]
+    if @realtor.update(headshot: params[:headshot],
+                        bio: params[:bio],
+                        faqs: params[:faqs],
+                        twitter_handle: params[:twitter_handle],
+                        phone_number: params[:phone_number],
+                        email: params[:email]
+                        )
     end
   end
 
