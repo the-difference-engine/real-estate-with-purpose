@@ -9,8 +9,18 @@ RSpec.describe AdminsController, type: :controller do
 
   it 'routes get new' do
     expect(:get => 'admins/new').to route_to(
-      :controller => 'admins'),
+      :controller => 'admins',
       :action => 'new')
   end
 
+  # it 'routes get admins/:id' do
+  #   expect(:get => 'admins/:id').to route_to(
+  #     :controller => 'admins')
+  # end
+
 end
+
+
+
+
+
