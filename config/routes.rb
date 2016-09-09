@@ -21,4 +21,12 @@ get '/buyers/:id/edit' => 'buyers#edit'
 patch '/buyers/:id' => 'buyers#update'
 delete '/buyers/:id' => 'buyers#destroy'
 
+#charity routes
+get '/charities' => 'charities#index'
+get '/charities/new' => 'charities#new'
+post '/charities' => 'charities#create'
+get '/charities/:id' => 'charities#show' 
+get '/charities/:id/edit' => 'charities#edit'
+patch '/charities/:id' => 'charities#update'
+delete '/charities/:id' => 'charities#destroy'
 end
