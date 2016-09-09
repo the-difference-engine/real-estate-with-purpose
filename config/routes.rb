@@ -12,4 +12,13 @@ get '/admins/:id/edit' => 'admins#edit'
 patch '/admins/:id' => 'admins#update'
 delete '/admins/:id' => 'admins#destroy'
 
+#buyer routes
+get '/buyers' => 'buyers#index'
+get '/buyers/new' => 'buyers#new'
+post '/buyers' => 'buyers#create'
+get '/buyers/:id' => 'buyers#show' 
+get '/buyers/:id/edit' => 'buyers#edit'
+patch '/buyers/:id' => 'buyers#update'
+delete '/buyers/:id' => 'buyers#destroy'
+
 end
