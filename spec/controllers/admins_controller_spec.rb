@@ -7,4 +7,10 @@ RSpec.describe AdminsController, type: :controller do
       :action => 'index')
   end
 
+  if 'routes get new' do
+    expect(:get => 'admins/new').to route_to(
+      :controller => 'admins'),
+      :action => 'new')
+  end
+
 end
