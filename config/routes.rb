@@ -29,4 +29,13 @@ get '/charities/:id' => 'charities#show'
 get '/charities/:id/edit' => 'charities#edit'
 patch '/charities/:id' => 'charities#update'
 delete '/charities/:id' => 'charities#destroy'
+
+#donation routes
+get '/donations' => 'donations#index'
+get '/donations/new' => 'donations#new'
+post '/donations' => 'donations#create'
+get '/donations/:id' => 'donations#show' 
+get '/donations/:id/edit' => 'donations#edit'
+patch '/donations/:id' => 'donations#update'
+delete '/donations/:id' => 'donations#destroy'
 end
