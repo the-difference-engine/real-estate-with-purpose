@@ -47,4 +47,13 @@ get '/realtors/:id' => 'realtors#show'
 get '/realtors/:id/edit' => 'realtors#edit'
 patch '/realtors/:id' => 'realtors#update'
 delete '/realtors/:id' => 'realtors#destroy'
+
+#seller routes
+get '/sellers' => 'sellers#index'
+get '/sellers/new' => 'sellers#new'
+post '/sellers' => 'sellers#create'
+get '/sellers/:id' => 'sellers#show' 
+get '/sellers/:id/edit' => 'sellers#edit'
+patch '/sellers/:id' => 'sellers#update'
+delete '/sellers/:id' => 'sellers#destroy'
 end
