@@ -38,4 +38,13 @@ get '/donations/:id' => 'donations#show'
 get '/donations/:id/edit' => 'donations#edit'
 patch '/donations/:id' => 'donations#update'
 delete '/donations/:id' => 'donations#destroy'
+
+#realtor routes
+get '/realtors' => 'realtors#index'
+get '/realtors/new' => 'realtors#new'
+post '/realtors' => 'realtors#create'
+get '/realtors/:id' => 'realtors#show' 
+get '/realtors/:id/edit' => 'realtors#edit'
+patch '/realtors/:id' => 'realtors#update'
+delete '/realtors/:id' => 'realtors#destroy'
 end
