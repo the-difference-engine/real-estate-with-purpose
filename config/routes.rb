@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users
-root to: 'home#index'
+root to: 'admins#index'
 
 #admin routes
 get '/admins' => 'admins#index'
