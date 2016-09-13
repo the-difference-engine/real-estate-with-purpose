@@ -1,6 +1,6 @@
 require 'rails_helper'
  
- RSpec.describe BuyersController, type: :controller do
+RSpec.describe BuyersController, type: :controller do
   it 'routes get index' do
     expect(:get => 'buyers').to route_to(
       :controller => 'buyers',
