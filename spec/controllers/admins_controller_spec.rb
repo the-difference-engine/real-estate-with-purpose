@@ -1,11 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe AdminsController, type: :controller do
-
-  # before do
-  #     @admin = FactoryGirl.create(:admin)
-  # end
-
   it 'routes get index' do
     expect(:get => 'admins').to route_to(
       :controller => 'admins',
@@ -45,6 +40,12 @@ RSpec.describe AdminsController, type: :controller do
       :id => '1')
   end
 
+  it 'routes delete admins/:id' do
+    expect(:delete => 'admins/1').to route_to(
+      :controller => 'admins',
+      :action => 'destroy',
+      :id => '1')
+  end
 end
 
 
