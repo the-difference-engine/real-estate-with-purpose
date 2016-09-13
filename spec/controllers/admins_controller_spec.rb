@@ -46,5 +46,4 @@ RSpec.describe AdminsController, type: :controller do
       :action => 'destroy',
       :id => '1')
   end
-
 end
