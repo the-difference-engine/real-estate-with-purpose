@@ -47,8 +47,3 @@ RSpec.describe AdminsController, type: :controller do
       :id => '1')
   end
 end
-
-
-
-
-
