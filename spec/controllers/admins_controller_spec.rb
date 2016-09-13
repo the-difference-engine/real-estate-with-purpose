@@ -38,6 +38,13 @@ RSpec.describe AdminsController, type: :controller do
       :id => '1')
   end
 
+  it 'routes patch admins/:id' do
+    expect(:patch => 'admins/1').to route_to(
+      :controller => 'admins',
+      :action => 'update',
+      :id => '1')
+  end
+
 end
 
 
