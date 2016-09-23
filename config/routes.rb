@@ -56,4 +56,8 @@ get '/sellers/:id' => 'sellers#show'
 get '/sellers/:id/edit' => 'sellers#edit'
 patch '/sellers/:id' => 'sellers#update'
 delete '/sellers/:id' => 'sellers#destroy'
+
+#authentication routes
+get '/signup' => 'users#new'
+post '/users' => 'user#create'
 end
