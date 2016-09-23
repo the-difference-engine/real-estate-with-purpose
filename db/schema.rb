@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160923004520) do
+
+ActiveRecord::Schema.define(version: 20160923004416) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.string   "line_1"
+    t.string   "line_2"
+    t.string   "city",       default: "Chicago"
+    t.string   "state",      default: "IL"
+    t.string   "zip"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
 
   create_table "admins", force: :cascade do |t|
     t.string   "name"
@@ -38,9 +50,9 @@ ActiveRecord::Schema.define(version: 20160923004520) do
   create_table "donations", force: :cascade do |t|
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.string   "amount_donated"
     t.string   "charity_name"
     t.integer  "charity_id"
+    t.float    "amount_donated"
   end
 
   create_table "properties", force: :cascade do |t|
