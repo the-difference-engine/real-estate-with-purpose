@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  # devise_for :users
 root to: 'admins#index'
 
 #admin routes
@@ -57,7 +57,12 @@ get '/sellers/:id/edit' => 'sellers#edit'
 patch '/sellers/:id' => 'sellers#update'
 delete '/sellers/:id' => 'sellers#destroy'
 
-#authentication routes
+#authentication signup routes
 get '/signup' => 'users#new'
-post '/users' => 'user#create'
+post '/users' => 'users#create'
+
+#authentication login/logout routes
+get '/login' => 'sessions#new'
+post '/login' => 'sessions#create'
+get '/logout' => 'sessions#destroy'
 end

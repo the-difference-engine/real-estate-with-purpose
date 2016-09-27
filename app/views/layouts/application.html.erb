@@ -23,6 +23,12 @@
   </h4>
 </div>
 
+<% flash.each do |name, message| %>
+  <div class="alert alert-<%= name != "notice" ? name : "success" %> alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><p><%= message %></p>
+  </div>
+  <% end %>
+
 
       <%= yield %>
 
