@@ -48,9 +48,9 @@ ActiveRecord::Schema.define(version: 20160927012130) do
   create_table "donations", force: :cascade do |t|
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.string   "amount_donated"
     t.string   "charity_name"
     t.integer  "charity_id"
+    t.float    "amount_donated"
   end
 
   create_table "properties", force: :cascade do |t|
