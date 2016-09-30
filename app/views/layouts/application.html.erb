@@ -8,7 +8,30 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
   <body>
-    <%= yield %>
+
+
+<div>
+  <h2> About Real Estate With Purpose</h2>
+  <h4> Real Estate represents more than a financial transaction for four walls and a roof - it is
+    an investment and personal commitment to Chicago's neighborhood and the surrounding community. To
+    that end, 10% of my commission goes to reinvest in the community through the local chairty and
+    organization of my clients choice. 
+  </h4>
+</div>
+
+<% flash.each do |name, message| %>
+  <div class="alert alert-<%= name != "notice" ? name : "success" %> alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><p><%= message %></p>
+  </div>
+  <% end %>
+
+
+      <%= yield %>
+
+
   </body>
 </html>
