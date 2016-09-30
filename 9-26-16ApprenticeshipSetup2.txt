@@ -1,0 +1,1255 @@
+Last login: Sat Sep 24 15:36:16 on ttys000
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Class/Capstone/job_hunter$ cd Dropbox/"Always Sync"/"Design and Tech"/ACLTC/Class
+-bash: cd: Dropbox/Always Sync/Design and Tech/ACLTC/Class: No such file or directory
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Class/Capstone/job_hunter$ git status
+On branch testing
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   app/views/jobs/index.html.erb
+	modified:   app/views/jobs/spreadsheet.html.erb
+
+no changes added to commit (use "git add" and/or "git commit -a")
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Class/Capstone/job_hunter$ almgit "put the index page job list row back into a vertical position"
+[testing a825a4a] put the index page job list row back into a vertical position
+ 2 files changed, 15 insertions(+), 21 deletions(-)
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Class/Capstone/job_hunter$ gp testing
+Counting objects: 7, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (7/7), 585 bytes | 0 bytes/s, done.
+Total 7 (delta 6), reused 0 (delta 0)
+remote: Resolving deltas: 100% (6/6), completed with 6 local objects.
+To https://github.com/KarenIngenuity/job_hunter.git
+   0330469..a825a4a  testing -> testing
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Class/Capstone/job_hunter$ git checkout master
+Switched to branch 'master'
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Class/Capstone/job_hunter$ git pull origin master
+remote: Counting objects: 1, done.
+remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (1/1), done.
+From https://github.com/KarenIngenuity/job_hunter
+ * branch            master     -> FETCH_HEAD
+   4ef7270..fad267c  master     -> origin/master
+Updating 4ef7270..fad267c
+Fast-forward
+ app/assets/javascripts/jobsCtrl.js        |  4 ++-
+ app/assets/stylesheets/style.scss         |  6 ++++
+ app/controllers/api/v1/jobs_controller.rb |  5 +++
+ app/views/api/v1/jobs/index.json.jbuilder |  1 +
+ app/views/api/v1/jobs/show.json.jbuilder  |  1 +
+ app/views/jobs/index.html.erb             | 58 ++++++++-----------------------
+ app/views/jobs/spreadsheet.html.erb       | 13 ++++---
+ app/views/layouts/application.html.erb    |  5 +--
+ config/routes.rb                          |  1 +
+ 9 files changed, 42 insertions(+), 52 deletions(-)
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Class/Capstone/job_hunter$ heroku login
+Enter your Heroku credentials.
+Email: karenjxliu@hotmail.com
+Password (typing will be hidden): 
+Logged in as karenjxliu@hotmail.com
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Class/Capstone/job_hunter$ almgit "added heroku gem"
+[master bd4e536] added heroku gem
+ 1 file changed, 3 insertions(+)
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Class/Capstone/job_hunter$ gp masterCounting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 339 bytes | 0 bytes/s, done.
+Total 3 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/KarenIngenuity/job_hunter.git
+   fad267c..bd4e536  master -> master
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Class/Capstone/job_hunter$ bundle install
+Warning: the running version of Bundler is older than the version that created the lockfile. We suggest you upgrade to the latest version of Bundler by running `gem install bundler`.
+Fetching gem metadata from https://rubygems.org/..........
+Fetching version metadata from https://rubygems.org/...
+Fetching dependency metadata from https://rubygems.org/..
+Resolving dependencies...
+Warning: the running version of Bundler is older than the version that created the lockfile. We suggest you upgrade to the latest version of Bundler by running `gem install bundler`.
+Using rake 11.2.2
+Using i18n 0.7.0
+Using json 1.8.3
+Using minitest 5.9.0
+Using thread_safe 0.3.5
+Using tzinfo 1.2.2
+Using activesupport 4.2.6
+Using builder 3.2.2
+Using erubis 2.7.0
+Using mini_portile2 2.1.0
+Using pkg-config 1.1.7
+Using nokogiri 1.6.8
+Using rails-deprecated_sanitizer 1.0.3
+Using rails-dom-testing 1.0.7
+Using loofah 2.0.3
+Using rails-html-sanitizer 1.0.3
+Using actionview 4.2.6
+Using rack 1.6.4
+Using rack-test 0.6.3
+Using actionpack 4.2.6
+Using globalid 0.3.7
+Using activejob 4.2.6
+Using mime-types-data 3.2016.0521
+Using mime-types 3.1
+Using mail 2.6.4
+Using actionmailer 4.2.6
+Using activemodel 4.2.6
+Using arel 6.0.3
+Using activerecord 4.2.6
+Using bcrypt 3.1.11
+Using debug_inspector 0.0.2
+Using binding_of_caller 0.7.2
+Using bundler 1.10.6
+Using byebug 9.0.5
+Using coderay 1.1.0
+Using coffee-script-source 1.10.0
+Using execjs 2.7.0
+Using coffee-script 2.4.1
+Using thor 0.19.1
+Using railties 4.2.6
+Using coffee-rails 4.1.1
+Using concurrent-ruby 1.0.2
+Using faker 1.6.6
+Using figaro 1.1.1
+Using google-webfonts-rails 0.0.4
+Using rest-client 1.6.7
+Using indeed-ruby 0.0.1
+Using multi_json 1.12.1
+Using jbuilder 2.6.0
+Using jquery-rails 4.1.1
+Using method_source 0.8.2
+Using pg 0.18.4
+Using slop 3.6.0
+Using pry 0.10.3
+Using pry-rails 0.3.4
+Using sprockets 3.7.0
+Using sprockets-rails 3.1.1
+Using rails 4.2.6
+Using rdoc 4.2.2
+Using sass 3.4.22
+Using tilt 2.0.5
+Using sass-rails 5.0.6
+Using sdoc 0.4.1
+Using seed_dump 3.2.4
+Using spring 1.7.2
+Using turbolinks-source 5.0.0
+Using turbolinks 5.0.1
+Using uglifier 3.0.1
+Using web-console 2.3.0
+Bundle complete! 20 Gemfile dependencies, 69 gems now installed.
+Gems in the group production were not installed.
+Use `bundle show [gemname]` to see where a bundled gem is installed.
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Class/Capstone/job_hunter$ heroku create
+Creating app... done, ⬢ serene-beyond-74321
+https://serene-beyond-74321.herokuapp.com/ | https://git.heroku.com/serene-beyond-74321.git
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Class/Capstone/job_hunter$ git push heroku master
+Counting objects: 1357, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (1242/1242), done.
+Writing objects: 100% (1357/1357), 2.36 MiB | 690.00 KiB/s, done.
+Total 1357 (delta 889), reused 0 (delta 0)
+remote: Compressing source files... done.
+remote: Building source:
+remote: 
+remote: -----> Ruby app detected
+remote: -----> Compiling Ruby/Rails
+remote: -----> Using Ruby version: ruby-2.2.4
+remote: -----> Installing dependencies using bundler 1.11.2
+remote:        Running: bundle install --without development:test --path vendor/bundle --binstubs vendor/bundle/bin -j4 --deployment
+remote:        You are trying to install in deployment mode after changing
+remote:        your Gemfile. Run `bundle install` elsewhere and add the
+remote:        updated Gemfile.lock to version control.
+remote:        You have added to the Gemfile:
+remote:        * rails_12factor
+remote:        Bundler Output: You are trying to install in deployment mode after changing
+remote:        your Gemfile. Run `bundle install` elsewhere and add the
+remote:        updated Gemfile.lock to version control.
+remote:        
+remote:        You have added to the Gemfile:
+remote:        * rails_12factor
+remote:  !
+remote:  !     Failed to install gems via Bundler.
+remote:  !
+remote:  !     Push rejected, failed to compile Ruby app.
+remote: 
+remote:  !     Push failed
+remote: Verifying deploy....
+remote: 
+remote: !	Push rejected to serene-beyond-74321.
+remote: 
+To https://git.heroku.com/serene-beyond-74321.git
+ ! [remote rejected] master -> master (pre-receive hook declined)
+error: failed to push some refs to 'https://git.heroku.com/serene-beyond-74321.git'
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Class/Capstone/job_hunter$ heroku keys:add
+Found an SSH public key at /Users/acltc/.ssh/id_rsa.pub
+? Would you like to upload it to Heroku? Yes
+Uploading /Users/acltc/.ssh/id_rsa.pub SSH key... done
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Class/Capstone/job_hunter$ git push heroku master
+Counting objects: 1357, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (1242/1242), done.
+Writing objects: 100% (1357/1357), 2.36 MiB | 499.00 KiB/s, done.
+Total 1357 (delta 889), reused 0 (delta 0)
+remote: Compressing source files... done.
+remote: Building source:
+remote: 
+remote: -----> Ruby app detected
+remote: -----> Compiling Ruby/Rails
+remote: -----> Using Ruby version: ruby-2.2.4
+remote: -----> Installing dependencies using bundler 1.11.2
+remote:        Running: bundle install --without development:test --path vendor/bundle --binstubs vendor/bundle/bin -j4 --deployment
+remote:        You are trying to install in deployment mode after changing
+remote:        your Gemfile. Run `bundle install` elsewhere and add the
+remote:        updated Gemfile.lock to version control.
+remote:        You have added to the Gemfile:
+remote:        * rails_12factor
+remote:        Bundler Output: You are trying to install in deployment mode after changing
+remote:        your Gemfile. Run `bundle install` elsewhere and add the
+remote:        updated Gemfile.lock to version control.
+remote:        
+remote:        You have added to the Gemfile:
+remote:        * rails_12factor
+remote:  !
+remote:  !     Failed to install gems via Bundler.
+remote:  !
+remote:  !     Push rejected, failed to compile Ruby app.
+remote: 
+remote:  !     Push failed
+remote: Verifying deploy...
+remote: 
+remote: !	Push rejected to serene-beyond-74321.
+remote: 
+To https://git.heroku.com/serene-beyond-74321.git
+ ! [remote rejected] master -> master (pre-receive hook declined)
+error: failed to push some refs to 'https://git.heroku.com/serene-beyond-74321.git'
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Class/Capstone/job_hunter$ git remote -v
+heroku	https://git.heroku.com/serene-beyond-74321.git (fetch)
+heroku	https://git.heroku.com/serene-beyond-74321.git (push)
+origin	https://github.com/KarenIngenuity/job_hunter.git (fetch)
+origin	https://github.com/KarenIngenuity/job_hunter.git (push)
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Class/Capstone/job_hunter$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   Gemfile.lock
+
+no changes added to commit (use "git add" and/or "git commit -a")
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Class/Capstone/job_hunter$ git add --all
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Class/Capstone/job_hunter$ git commit -m "gemlock updated"
+[master 9c7b449] gemlock updated
+ 1 file changed, 6 insertions(+)
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Class/Capstone/job_hunter$ git push heroku master
+Counting objects: 1360, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (1245/1245), done.
+Writing objects: 100% (1360/1360), 2.36 MiB | 807.00 KiB/s, done.
+Total 1360 (delta 890), reused 0 (delta 0)
+remote: Compressing source files... done.
+remote: Building source:
+remote: 
+remote: -----> Ruby app detected
+remote: -----> Compiling Ruby/Rails
+remote: -----> Using Ruby version: ruby-2.2.4
+remote: -----> Installing dependencies using bundler 1.11.2
+remote:        Running: bundle install --without development:test --path vendor/bundle --binstubs vendor/bundle/bin -j4 --deployment
+remote:        Fetching gem metadata from https://rubygems.org/.........
+remote:        Fetching version metadata from https://rubygems.org/...
+remote:        Fetching dependency metadata from https://rubygems.org/..
+remote:        Installing rake 11.2.2
+remote:        Installing json 1.8.3 with native extensions
+remote:        Installing i18n 0.7.0
+remote:        Installing minitest 5.9.0
+remote:        Installing thread_safe 0.3.5
+remote:        Installing builder 3.2.2
+remote:        Installing erubis 2.7.0
+remote:        Installing mini_portile2 2.1.0
+remote:        Installing pkg-config 1.1.7
+remote:        Installing rack 1.6.4
+remote:        Installing mime-types-data 3.2016.0521
+remote:        Installing arel 6.0.3
+remote:        Installing bcrypt 3.1.11 with native extensions
+remote:        Installing coderay 1.1.0
+remote:        Installing coffee-script-source 1.10.0
+remote:        Installing execjs 2.7.0
+remote:        Installing thor 0.19.1
+remote:        Installing concurrent-ruby 1.0.2
+remote:        Installing multi_json 1.12.1
+remote:        Installing method_source 0.8.2
+remote:        Using bundler 1.11.2
+remote:        Installing pg 0.18.4 with native extensions
+remote:        Installing slop 3.6.0
+remote:        Installing rails_serve_static_assets 0.0.5
+remote:        Installing rails_stdout_logging 0.0.5
+remote:        Installing sass 3.4.22
+remote:        Installing tilt 2.0.5
+remote:        Installing turbolinks-source 5.0.0
+remote:        Installing tzinfo 1.2.2
+remote:        Installing rdoc 4.2.2
+remote:        Installing nokogiri 1.6.8 with native extensions
+remote:        Installing rack-test 0.6.3
+remote:        Installing mime-types 3.1
+remote:        Installing coffee-script 2.4.1
+remote:        Installing uglifier 3.0.1
+remote:        Installing figaro 1.1.1
+remote:        Installing sprockets 3.7.0
+remote:        Installing pry 0.10.3
+remote:        Installing rails_12factor 0.0.3
+remote:        Installing turbolinks 5.0.1
+remote:        Installing activesupport 4.2.6
+remote:        Installing sdoc 0.4.1
+remote:        Installing mail 2.6.4
+remote:        Installing rest-client 1.6.7
+remote:        Installing pry-rails 0.3.4
+remote:        Installing rails-deprecated_sanitizer 1.0.3
+remote:        Installing globalid 0.3.7
+remote:        Installing activemodel 4.2.6
+remote:        Installing google-webfonts-rails 0.0.4
+remote:        Installing jbuilder 2.6.0
+remote:        Installing indeed-ruby 0.0.1
+remote:        Installing activejob 4.2.6
+remote:        Installing activerecord 4.2.6
+remote:        Installing seed_dump 3.2.4
+remote:        Installing rails-dom-testing 1.0.7
+remote:        Installing loofah 2.0.3
+remote:        Installing rails-html-sanitizer 1.0.3
+remote:        Installing actionview 4.2.6
+remote:        Installing actionpack 4.2.6
+remote:        Installing actionmailer 4.2.6
+remote:        Installing sprockets-rails 3.1.1
+remote:        Installing railties 4.2.6
+remote:        Installing coffee-rails 4.1.1
+remote:        Installing jquery-rails 4.1.1
+remote:        Installing rails 4.2.6
+remote:        Installing sass-rails 5.0.6
+remote:        Bundle complete! 20 Gemfile dependencies, 66 gems now installed.
+remote:        Gems in the groups development and test were not installed.
+remote:        Bundled gems are installed into ./vendor/bundle.
+remote:        Post-install message from rdoc:
+remote:        Depending on your version of ruby, you may need to install ruby rdoc/ri data:
+remote:        <= 1.8.6 : unsupported
+remote:        = 1.8.7 : gem install rdoc-data; rdoc-data --install
+remote:        = 1.9.1 : gem install rdoc-data; rdoc-data --install
+remote:        >= 1.9.2 : nothing to do! Yay!
+remote:        Bundle completed (30.56s)
+remote:        Cleaning up the bundler cache.
+remote: -----> Preparing app for Rails asset pipeline
+remote:        Running: rake assets:precompile
+remote:        I, [2016-09-26T00:10:25.789570 #964]  INFO -- : Writing /tmp/build_db5af0fd918154a74776ce20558877a5/public/assets/Gudea-Regular-a4b5410090a821ea17021627312babdf3d8db0271217fd8c4d9f629ef0a2d90b.ttf
+remote:        I, [2016-09-26T00:10:25.790536 #964]  INFO -- : Writing /tmp/build_db5af0fd918154a74776ce20558877a5/public/assets/Gudea-Regular-a4b5410090a821ea17021627312babdf3d8db0271217fd8c4d9f629ef0a2d90b.ttf.gz
+remote:        I, [2016-09-26T00:10:25.794404 #964]  INFO -- : Writing /tmp/build_db5af0fd918154a74776ce20558877a5/public/assets/PlayfairDisplaySC-BlackItalic-3c15971396fc63535429c2b61c18bae0e1c33e6c1f3ea216ec8e7bf43aeb57d2.ttf
+remote:        I, [2016-09-26T00:10:25.795134 #964]  INFO -- : Writing /tmp/build_db5af0fd918154a74776ce20558877a5/public/assets/PlayfairDisplaySC-BlackItalic-3c15971396fc63535429c2b61c18bae0e1c33e6c1f3ea216ec8e7bf43aeb57d2.ttf.gz
+remote:        I, [2016-09-26T00:10:25.800684 #964]  INFO -- : Writing /tmp/build_db5af0fd918154a74776ce20558877a5/public/assets/Tillana-ExtraBold-a8e1c9d5e156e7c560c824581aeb2f16d4d655f345b707dd36299030d19ceecc.ttf
+remote:        I, [2016-09-26T00:10:25.801549 #964]  INFO -- : Writing /tmp/build_db5af0fd918154a74776ce20558877a5/public/assets/Tillana-ExtraBold-a8e1c9d5e156e7c560c824581aeb2f16d4d655f345b707dd36299030d19ceecc.ttf.gz
+remote:        I, [2016-09-26T00:10:25.812119 #964]  INFO -- : Writing /tmp/build_db5af0fd918154a74776ce20558877a5/public/assets/CircleHunterTiger-3e1c95da5098591afdf92a715ba1b42f0d6459c59d83279fbe3da4cc28dbb431.png
+remote:        I, [2016-09-26T00:10:25.845614 #964]  INFO -- : Writing /tmp/build_db5af0fd918154a74776ce20558877a5/public/assets/HunterTiger-318b84f764ea31d63427879b96e2751a69b76a5333ac8cc8294904357c2f8006.png
+remote:        I, [2016-09-26T00:10:25.849953 #964]  INFO -- : Writing /tmp/build_db5af0fd918154a74776ce20558877a5/public/assets/cute_tiger-ca87a288a01949e35d631969ca12f3a45cfad5642dc8339fb7925183db3e6f36.jpg
+remote:        I, [2016-09-26T00:10:25.852353 #964]  INFO -- : Writing /tmp/build_db5af0fd918154a74776ce20558877a5/public/assets/pw_maze_black-a0e88ecca0b29928ab70610c3c6e3373533b5f1553cbc09b3dfde3d49889f649.png
+remote:        I, [2016-09-26T00:10:25.854500 #964]  INFO -- : Writing /tmp/build_db5af0fd918154a74776ce20558877a5/public/assets/small_steps-6c301353d9c2e9ceb0152f42f06e4295f26350a5500177224878476ba877ff83.png
+remote:        I, [2016-09-26T00:10:32.758074 #964]  INFO -- : Writing /tmp/build_db5af0fd918154a74776ce20558877a5/public/assets/application-be875ac5948331eeb207e9d5d8b320ad5587cd26af8c33f76bf3d12879878a0a.js
+remote:        I, [2016-09-26T00:10:32.758925 #964]  INFO -- : Writing /tmp/build_db5af0fd918154a74776ce20558877a5/public/assets/application-be875ac5948331eeb207e9d5d8b320ad5587cd26af8c33f76bf3d12879878a0a.js.gz
+remote:        I, [2016-09-26T00:10:34.591431 #964]  INFO -- : Writing /tmp/build_db5af0fd918154a74776ce20558877a5/public/assets/application-643482bb56d9d3499d197330a81a6e9a8e3239473c5b838b616fda1759335e3e.css
+remote:        I, [2016-09-26T00:10:34.591607 #964]  INFO -- : Writing /tmp/build_db5af0fd918154a74776ce20558877a5/public/assets/application-643482bb56d9d3499d197330a81a6e9a8e3239473c5b838b616fda1759335e3e.css.gz
+remote:        Asset precompilation completed (10.50s)
+remote:        Cleaning assets
+remote:        Running: rake assets:clean
+remote: 
+remote: ###### WARNING:
+remote:        You have not declared a Ruby version in your Gemfile.
+remote:        To set your Ruby version add this line to your Gemfile:
+remote:        ruby '2.2.4'
+remote:        # See https://devcenter.heroku.com/articles/ruby-versions for more information.
+remote: 
+remote: ###### WARNING:
+remote:        No Procfile detected, using the default web server.
+remote:        We recommend explicitly declaring how to boot your server process via a Procfile.
+remote:        https://devcenter.heroku.com/articles/ruby-default-web-server
+remote: 
+remote: -----> Discovering process types
+remote:        Procfile declares types     -> (none)
+remote:        Default types for buildpack -> console, rake, web, worker
+remote: 
+remote: -----> Compressing...
+remote:        Done: 35.3M
+remote: -----> Launching...
+remote:        Released v5
+remote:        https://serene-beyond-74321.herokuapp.com/ deployed to Heroku
+remote: 
+remote: Verifying deploy... done.
+To https://git.heroku.com/serene-beyond-74321.git
+ * [new branch]      master -> master
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Class/Capstone/job_hunter$ heroku run rake db:migrate
+Running rake db:migrate on ⬢ serene-beyond-74321... up, run.3020
+   (10.4ms)  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+   (5.3ms)  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  ActiveRecord::SchemaMigration Load (1.9ms)  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateJobs (20160804005424)
+   (1.5ms)  BEGIN
+== 20160804005424 CreateJobs: migrating =======================================
+-- create_table(:jobs)
+   (8.0ms)  CREATE TABLE "jobs" ("id" serial primary key, "user_id" integer, "company" character varying, "position" character varying, "source" character varying, "status" character varying, "found_date" timestamp, "listing_url" text, "job_type" character varying, "address" character varying, "city" character varying, "state" character varying, "zip_code" character varying, "phone_number" character varying, "company_website" character varying, "hourly_wage" decimal(9,2), "decimal" decimal(9,2), "salary" decimal(9,2), "applied_date" timestamp, "interview_date" timestamp, "offer_date" timestamp, "rating" integer, "notes" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+   -> 0.0101s
+== 20160804005424 CreateJobs: migrated (0.0103s) ==============================
+
+  SQL (1.6ms)  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160804005424"]]
+   (3.9ms)  COMMIT
+Migrating to ChangeSalaryandWageTo13Precision (20160804011724)
+   (1.4ms)  BEGIN
+== 20160804011724 ChangeSalaryandWageTo13Precision: migrating =================
+-- change_column(:jobs, :hourly_wage, :decimal, {:precision=>13, :scale=>2})
+   (1.8ms)  ALTER TABLE "jobs" ALTER COLUMN "hourly_wage" TYPE decimal(13,2)
+   -> 0.0038s
+-- change_column(:jobs, :salary, :decimal, {:precision=>13, :scale=>2})
+   (1.7ms)  ALTER TABLE "jobs" ALTER COLUMN "salary" TYPE decimal(13,2)
+   -> 0.0019s
+== 20160804011724 ChangeSalaryandWageTo13Precision: migrated (0.0061s) ========
+
+  SQL (1.6ms)  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160804011724"]]
+   (2.2ms)  COMMIT
+Migrating to RemoveDecimalColumnFromJobs (20160804012314)
+   (1.5ms)  BEGIN
+== 20160804012314 RemoveDecimalColumnFromJobs: migrating ======================
+-- remove_column(:jobs, :decimal, :decimal)
+   (1.9ms)  ALTER TABLE "jobs" DROP "decimal"
+   -> 0.0021s
+== 20160804012314 RemoveDecimalColumnFromJobs: migrated (0.0022s) =============
+
+  SQL (1.5ms)  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160804012314"]]
+   (2.2ms)  COMMIT
+Migrating to CreateUsers (20160804020327)
+   (1.6ms)  BEGIN
+== 20160804020327 CreateUsers: migrating ======================================
+-- create_table(:users)
+   (7.2ms)  CREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "phone_number" character varying, "address" character varying, "prospective_address" character varying, "Linkedin_page" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+   -> 0.0080s
+== 20160804020327 CreateUsers: migrated (0.0081s) =============================
+
+  SQL (1.5ms)  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160804020327"]]
+   (3.1ms)  COMMIT
+Migrating to CreateNetworkings (20160804022452)
+   (1.6ms)  BEGIN
+== 20160804022452 CreateNetworkings: migrating ================================
+-- create_table(:networkings)
+   (7.6ms)  CREATE TABLE "networkings" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "date_contacted" timestamp, "email" character varying, "job_id" integer, "emailed" boolean, "phoned" boolean, "letter_sent" boolean, "notes" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+   -> 0.0085s
+== 20160804022452 CreateNetworkings: migrated (0.0086s) =======================
+
+  SQL (1.6ms)  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160804022452"]]
+   (3.0ms)  COMMIT
+Migrating to AddUserIdToNetworkings (20160804022838)
+   (1.5ms)  BEGIN
+== 20160804022838 AddUserIdToNetworkings: migrating ===========================
+-- add_column(:networkings, :user_id, :integer)
+   (1.9ms)  ALTER TABLE "networkings" ADD "user_id" integer
+   -> 0.0038s
+== 20160804022838 AddUserIdToNetworkings: migrated (0.0039s) ==================
+
+  SQL (1.6ms)  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160804022838"]]
+   (2.7ms)  COMMIT
+Migrating to CreateSkills (20160807192734)
+   (1.5ms)  BEGIN
+== 20160807192734 CreateSkills: migrating =====================================
+-- create_table(:skills)
+   (8.7ms)  CREATE TABLE "skills" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+   -> 0.0099s
+== 20160807192734 CreateSkills: migrated (0.0101s) ============================
+
+  SQL (1.5ms)  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160807192734"]]
+   (2.8ms)  COMMIT
+Migrating to CreateJobSkills (20160807193201)
+   (1.5ms)  BEGIN
+== 20160807193201 CreateJobSkills: migrating ==================================
+-- create_table(:job_skills)
+   (4.7ms)  CREATE TABLE "job_skills" ("id" serial primary key, "skill_id" integer, "job_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+   -> 0.0055s
+== 20160807193201 CreateJobSkills: migrated (0.0057s) =========================
+
+  SQL (1.5ms)  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160807193201"]]
+   (3.2ms)  COMMIT
+Migrating to ChangeFoundDateAttributeToDefaultDateTimeNow (20160821191115)
+   (1.4ms)  BEGIN
+== 20160821191115 ChangeFoundDateAttributeToDefaultDateTimeNow: migrating =====
+-- change_column(:jobs, :found_date, :datetime, {:default=>Mon, 26 Sep 2016 00:12:15 +0000})
+   (1.7ms)  ALTER TABLE "jobs" ALTER COLUMN "found_date" TYPE timestamp
+   (1.7ms)  ALTER TABLE "jobs" ALTER COLUMN "found_date" SET DEFAULT '2016-09-26 00:12:15.641522'
+   -> 0.0081s
+== 20160821191115 ChangeFoundDateAttributeToDefaultDateTimeNow: migrated (0.0084s) 
+
+  SQL (1.5ms)  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160821191115"]]
+   (2.2ms)  COMMIT
+Migrating to RemoveDefaultFoundDate (20160821191543)
+   (1.4ms)  BEGIN
+== 20160821191543 RemoveDefaultFoundDate: migrating ===========================
+-- change_column(:jobs, :found_date, :datetime)
+   (2.1ms)  ALTER TABLE "jobs" ALTER COLUMN "found_date" TYPE timestamp
+   -> 0.0036s
+== 20160821191543 RemoveDefaultFoundDate: migrated (0.0037s) ==================
+
+  SQL (1.5ms)  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160821191543"]]
+   (2.4ms)  COMMIT
+Migrating to RemoveDefaultFoundDateAgain (20160821192101)
+   (1.5ms)  BEGIN
+== 20160821192101 RemoveDefaultFoundDateAgain: migrating ======================
+-- change_column_default(:jobs, :found_date, nil)
+   (1.6ms)  ALTER TABLE "jobs" ALTER COLUMN "found_date" DROP DEFAULT
+   -> 0.0064s
+== 20160821192101 RemoveDefaultFoundDateAgain: migrated (0.0065s) =============
+
+  SQL (1.5ms)  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160821192101"]]
+   (2.2ms)  COMMIT
+Migrating to AddUserIDtoJobSkills (20160821213004)
+   (1.7ms)  BEGIN
+== 20160821213004 AddUserIDtoJobSkills: migrating =============================
+-- add_column(:job_skills, :user_id, :integer)
+   (1.8ms)  ALTER TABLE "job_skills" ADD "user_id" integer
+   -> 0.0038s
+== 20160821213004 AddUserIDtoJobSkills: migrated (0.0039s) ====================
+
+  SQL (1.5ms)  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160821213004"]]
+   (2.6ms)  COMMIT
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Class/Capstone/job_hunter$ heroku open
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Class/Capstone/job_hunter$ git status
+On branch master
+nothing to commit, working directory clean
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Class/Capstone/job_hunter$ git branch
+  formatting
+  indeedAPI
+* master
+  networkingsctrl
+  newindex
+  popup-modal
+  seed-dump
+  testing
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Class/Capstone/job_hunter$ git branch auth
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Class/Capstone/job_hunter$ git checkout auth
+Switched to branch 'auth'
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Class/Capstone/job_hunter$ cd ..
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Class/Capstone$ cd ..
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Class$ ls
+Capstone/          Resources/         robots/
+Exercises/         Weekend_Work/      robots-master/
+Rails/             modern-javascript/ teamproject/
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Class$ cd Exercises/
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Class/Exercises$ rails new yummy
+      create  
+      create  README.md
+      create  Rakefile
+      create  config.ru
+      create  .gitignore
+      create  Gemfile
+      create  app
+      create  app/assets/config/manifest.js
+      create  app/assets/javascripts/application.js
+      create  app/assets/javascripts/cable.js
+      create  app/assets/stylesheets/application.css
+      create  app/channels/application_cable/channel.rb
+      create  app/channels/application_cable/connection.rb
+      create  app/controllers/application_controller.rb
+      create  app/helpers/application_helper.rb
+      create  app/jobs/application_job.rb
+      create  app/mailers/application_mailer.rb
+      create  app/models/application_record.rb
+      create  app/views/layouts/application.html.erb
+      create  app/views/layouts/mailer.html.erb
+      create  app/views/layouts/mailer.text.erb
+      create  app/assets/images/.keep
+      create  app/assets/javascripts/channels
+      create  app/assets/javascripts/channels/.keep
+      create  app/controllers/concerns/.keep
+      create  app/models/concerns/.keep
+      create  bin
+      create  bin/bundle
+      create  bin/rails
+      create  bin/rake
+      create  bin/setup
+      create  bin/update
+      create  config
+      create  config/routes.rb
+      create  config/application.rb
+      create  config/environment.rb
+      create  config/secrets.yml
+      create  config/cable.yml
+      create  config/puma.rb
+      create  config/spring.rb
+      create  config/environments
+      create  config/environments/development.rb
+      create  config/environments/production.rb
+      create  config/environments/test.rb
+      create  config/initializers
+      create  config/initializers/application_controller_renderer.rb
+      create  config/initializers/assets.rb
+      create  config/initializers/backtrace_silencers.rb
+      create  config/initializers/cookies_serializer.rb
+      create  config/initializers/cors.rb
+      create  config/initializers/filter_parameter_logging.rb
+      create  config/initializers/inflections.rb
+      create  config/initializers/mime_types.rb
+      create  config/initializers/new_framework_defaults.rb
+      create  config/initializers/session_store.rb
+      create  config/initializers/wrap_parameters.rb
+      create  config/locales
+      create  config/locales/en.yml
+      create  config/boot.rb
+      create  config/database.yml
+      create  db
+      create  db/seeds.rb
+      create  lib
+      create  lib/tasks
+      create  lib/tasks/.keep
+      create  lib/assets
+      create  lib/assets/.keep
+      create  log
+      create  log/.keep
+      create  public
+      create  public/404.html
+      create  public/422.html
+      create  public/500.html
+      create  public/apple-touch-icon-precomposed.png
+      create  public/apple-touch-icon.png
+      create  public/favicon.ico
+      create  public/robots.txt
+      create  test/fixtures
+      create  test/fixtures/.keep
+      create  test/fixtures/files
+      create  test/fixtures/files/.keep
+      create  test/controllers
+      create  test/controllers/.keep
+      create  test/mailers
+      create  test/mailers/.keep
+      create  test/models
+      create  test/models/.keep
+      create  test/helpers
+      create  test/helpers/.keep
+      create  test/integration
+      create  test/integration/.keep
+      create  test/test_helper.rb
+      create  tmp
+      create  tmp/.keep
+      create  tmp/cache
+      create  tmp/cache/assets
+      create  vendor/assets/javascripts
+      create  vendor/assets/javascripts/.keep
+      create  vendor/assets/stylesheets
+      create  vendor/assets/stylesheets/.keep
+      remove  config/initializers/cors.rb
+         run  bundle install
+Fetching gem metadata from https://rubygems.org/..........r.a
+Fetching version metadata from https://rubygems.org/...
+Fetching dependency metadata from https://rubygems.org/..
+Resolving dependencies..................
+Installing rake 11.3.0
+Using concurrent-ruby 1.0.2
+Using i18n 0.7.0
+Installing minitest 5.9.1
+Using thread_safe 0.3.5
+Using tzinfo 1.2.2
+Using activesupport 5.0.0.1
+Using builder 3.2.2
+Using erubis 2.7.0
+Using mini_portile2 2.1.0
+Using pkg-config 1.1.7
+Using nokogiri 1.6.8
+Using rails-dom-testing 2.0.1
+Using loofah 2.0.3
+Using rails-html-sanitizer 1.0.3
+Using actionview 5.0.0.1
+Using rack 2.0.1
+Using rack-test 0.6.3
+Using actionpack 5.0.0.1
+Using nio4r 1.2.1
+Using websocket-extensions 0.1.2
+Using websocket-driver 0.6.4
+Using actioncable 5.0.0.1
+Using globalid 0.3.7
+Using activejob 5.0.0.1
+Using mime-types-data 3.2016.0521
+Using mime-types 3.1
+Using mail 2.6.4
+Using actionmailer 5.0.0.1
+Using activemodel 5.0.0.1
+Installing arel 7.1.2
+Using activerecord 5.0.0.1
+Using bundler 1.10.6
+Using byebug 9.0.5
+Using coffee-script-source 1.10.0
+Using execjs 2.7.0
+Using coffee-script 2.4.1
+Using method_source 0.8.2
+Using thor 0.19.1
+Using railties 5.0.0.1
+Using coffee-rails 4.2.1
+Using debug_inspector 0.0.2
+Using ffi 1.9.14
+Using multi_json 1.12.1
+Using jbuilder 2.6.0
+Using jquery-rails 4.2.1
+Using rb-fsevent 0.9.7
+Using rb-inotify 0.9.7
+Using listen 3.0.8
+Using puma 3.6.0
+Using sprockets 3.7.0
+Installing sprockets-rails 3.2.0
+Using rails 5.0.0.1
+Using sass 3.4.22
+Using tilt 2.0.5
+Using sass-rails 5.0.6
+Using spring 1.7.2
+Using spring-watcher-listen 2.0.0
+Using sqlite3 1.3.11
+Using turbolinks-source 5.0.0
+Using turbolinks 5.0.1
+Using uglifier 3.0.2
+Using web-console 3.3.1
+Bundle complete! 15 Gemfile dependencies, 63 gems now installed.
+Gems in the group production were not installed.
+Use `bundle show [gemname]` to see where a bundled gem is installed.
+         run  bundle exec spring binstub --all
+* bin/rake: spring inserted
+* bin/rails: spring inserted
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Class/Exercises$ rails generate controller Burger
+Usage:
+  rails new APP_PATH [options]
+
+Options:
+  -r, [--ruby=PATH]                                      # Path to the Ruby binary of your choice
+                                                         # Default: /Users/acltc/.rbenv/versions/2.2.3/bin/ruby
+  -m, [--template=TEMPLATE]                              # Path to some application template (can be a filesystem path or URL)
+  -d, [--database=DATABASE]                              # Preconfigure for selected database (options: mysql/oracle/postgresql/sqlite3/frontbase/ibm_db/sqlserver/jdbcmysql/jdbcsqlite3/jdbcpostgresql/jdbc)
+                                                         # Default: sqlite3
+  -j, [--javascript=JAVASCRIPT]                          # Preconfigure for selected JavaScript library
+                                                         # Default: jquery
+      [--skip-gemfile], [--no-skip-gemfile]              # Don't create a Gemfile
+  -B, [--skip-bundle], [--no-skip-bundle]                # Don't run bundle install
+  -G, [--skip-git], [--no-skip-git]                      # Skip .gitignore file
+      [--skip-keeps], [--no-skip-keeps]                  # Skip source control .keep files
+  -M, [--skip-action-mailer], [--no-skip-action-mailer]  # Skip Action Mailer files
+  -O, [--skip-active-record], [--no-skip-active-record]  # Skip Active Record files
+  -P, [--skip-puma], [--no-skip-puma]                    # Skip Puma related files
+  -C, [--skip-action-cable], [--no-skip-action-cable]    # Skip Action Cable files
+  -S, [--skip-sprockets], [--no-skip-sprockets]          # Skip Sprockets files
+      [--skip-spring], [--no-skip-spring]                # Don't install Spring application preloader
+      [--skip-listen], [--no-skip-listen]                # Don't generate configuration that depends on the listen gem
+  -J, [--skip-javascript], [--no-skip-javascript]        # Skip JavaScript files
+      [--skip-turbolinks], [--no-skip-turbolinks]        # Skip turbolinks gem
+  -T, [--skip-test], [--no-skip-test]                    # Skip test files
+      [--dev], [--no-dev]                                # Setup the application with Gemfile pointing to your Rails checkout
+      [--edge], [--no-edge]                              # Setup the application with Gemfile pointing to Rails repository
+      [--rc=RC]                                          # Path to file containing extra configuration options for rails command
+      [--no-rc], [--no-no-rc]                            # Skip loading of extra configuration options from .railsrc file
+      [--api], [--no-api]                                # Preconfigure smaller stack for API only apps
+
+Runtime options:
+  -f, [--force]                    # Overwrite files that already exist
+  -p, [--pretend], [--no-pretend]  # Run but do not make any changes
+  -q, [--quiet], [--no-quiet]      # Suppress status output
+  -s, [--skip], [--no-skip]        # Skip files that already exist
+
+Rails options:
+  -h, [--help], [--no-help]        # Show this help message and quit
+  -v, [--version], [--no-version]  # Show Rails version number and quit
+
+Description:
+    The 'rails new' command creates a new Rails application with a default
+    directory structure and configuration at the path you specify.
+
+    You can specify extra command-line arguments to be used every time
+    'rails new' runs in the .railsrc configuration file in your home directory.
+
+    Note that the arguments specified in the .railsrc file don't affect the
+    defaults values shown above in this help message.
+
+Example:
+    rails new ~/Code/Ruby/weblog
+
+    This generates a skeletal Rails installation in ~/Code/Ruby/weblog.
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Class/Exercises$ rails generate controller Burger
+Usage:
+  rails new APP_PATH [options]
+
+Options:
+  -r, [--ruby=PATH]                                      # Path to the Ruby binary of your choice
+                                                         # Default: /Users/acltc/.rbenv/versions/2.2.3/bin/ruby
+  -m, [--template=TEMPLATE]                              # Path to some application template (can be a filesystem path or URL)
+  -d, [--database=DATABASE]                              # Preconfigure for selected database (options: mysql/oracle/postgresql/sqlite3/frontbase/ibm_db/sqlserver/jdbcmysql/jdbcsqlite3/jdbcpostgresql/jdbc)
+                                                         # Default: sqlite3
+  -j, [--javascript=JAVASCRIPT]                          # Preconfigure for selected JavaScript library
+                                                         # Default: jquery
+      [--skip-gemfile], [--no-skip-gemfile]              # Don't create a Gemfile
+  -B, [--skip-bundle], [--no-skip-bundle]                # Don't run bundle install
+  -G, [--skip-git], [--no-skip-git]                      # Skip .gitignore file
+      [--skip-keeps], [--no-skip-keeps]                  # Skip source control .keep files
+  -M, [--skip-action-mailer], [--no-skip-action-mailer]  # Skip Action Mailer files
+  -O, [--skip-active-record], [--no-skip-active-record]  # Skip Active Record files
+  -P, [--skip-puma], [--no-skip-puma]                    # Skip Puma related files
+  -C, [--skip-action-cable], [--no-skip-action-cable]    # Skip Action Cable files
+  -S, [--skip-sprockets], [--no-skip-sprockets]          # Skip Sprockets files
+      [--skip-spring], [--no-skip-spring]                # Don't install Spring application preloader
+      [--skip-listen], [--no-skip-listen]                # Don't generate configuration that depends on the listen gem
+  -J, [--skip-javascript], [--no-skip-javascript]        # Skip JavaScript files
+      [--skip-turbolinks], [--no-skip-turbolinks]        # Skip turbolinks gem
+  -T, [--skip-test], [--no-skip-test]                    # Skip test files
+      [--dev], [--no-dev]                                # Setup the application with Gemfile pointing to your Rails checkout
+      [--edge], [--no-edge]                              # Setup the application with Gemfile pointing to Rails repository
+      [--rc=RC]                                          # Path to file containing extra configuration options for rails command
+      [--no-rc], [--no-no-rc]                            # Skip loading of extra configuration options from .railsrc file
+      [--api], [--no-api]                                # Preconfigure smaller stack for API only apps
+
+Runtime options:
+  -f, [--force]                    # Overwrite files that already exist
+  -p, [--pretend], [--no-pretend]  # Run but do not make any changes
+  -q, [--quiet], [--no-quiet]      # Suppress status output
+  -s, [--skip], [--no-skip]        # Skip files that already exist
+
+Rails options:
+  -h, [--help], [--no-help]        # Show this help message and quit
+  -v, [--version], [--no-version]  # Show Rails version number and quit
+
+Description:
+    The 'rails new' command creates a new Rails application with a default
+    directory structure and configuration at the path you specify.
+
+    You can specify extra command-line arguments to be used every time
+    'rails new' runs in the .railsrc configuration file in your home directory.
+
+    Note that the arguments specified in the .railsrc file don't affect the
+    defaults values shown above in this help message.
+
+Example:
+    rails new ~/Code/Ruby/weblog
+
+    This generates a skeletal Rails installation in ~/Code/Ruby/weblog.
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Class/Exercises$ rails g controller Burger
+Usage:
+  rails new APP_PATH [options]
+
+Options:
+  -r, [--ruby=PATH]                                      # Path to the Ruby binary of your choice
+                                                         # Default: /Users/acltc/.rbenv/versions/2.2.3/bin/ruby
+  -m, [--template=TEMPLATE]                              # Path to some application template (can be a filesystem path or URL)
+  -d, [--database=DATABASE]                              # Preconfigure for selected database (options: mysql/oracle/postgresql/sqlite3/frontbase/ibm_db/sqlserver/jdbcmysql/jdbcsqlite3/jdbcpostgresql/jdbc)
+                                                         # Default: sqlite3
+  -j, [--javascript=JAVASCRIPT]                          # Preconfigure for selected JavaScript library
+                                                         # Default: jquery
+      [--skip-gemfile], [--no-skip-gemfile]              # Don't create a Gemfile
+  -B, [--skip-bundle], [--no-skip-bundle]                # Don't run bundle install
+  -G, [--skip-git], [--no-skip-git]                      # Skip .gitignore file
+      [--skip-keeps], [--no-skip-keeps]                  # Skip source control .keep files
+  -M, [--skip-action-mailer], [--no-skip-action-mailer]  # Skip Action Mailer files
+  -O, [--skip-active-record], [--no-skip-active-record]  # Skip Active Record files
+  -P, [--skip-puma], [--no-skip-puma]                    # Skip Puma related files
+  -C, [--skip-action-cable], [--no-skip-action-cable]    # Skip Action Cable files
+  -S, [--skip-sprockets], [--no-skip-sprockets]          # Skip Sprockets files
+      [--skip-spring], [--no-skip-spring]                # Don't install Spring application preloader
+      [--skip-listen], [--no-skip-listen]                # Don't generate configuration that depends on the listen gem
+  -J, [--skip-javascript], [--no-skip-javascript]        # Skip JavaScript files
+      [--skip-turbolinks], [--no-skip-turbolinks]        # Skip turbolinks gem
+  -T, [--skip-test], [--no-skip-test]                    # Skip test files
+      [--dev], [--no-dev]                                # Setup the application with Gemfile pointing to your Rails checkout
+      [--edge], [--no-edge]                              # Setup the application with Gemfile pointing to Rails repository
+      [--rc=RC]                                          # Path to file containing extra configuration options for rails command
+      [--no-rc], [--no-no-rc]                            # Skip loading of extra configuration options from .railsrc file
+      [--api], [--no-api]                                # Preconfigure smaller stack for API only apps
+
+Runtime options:
+  -f, [--force]                    # Overwrite files that already exist
+  -p, [--pretend], [--no-pretend]  # Run but do not make any changes
+  -q, [--quiet], [--no-quiet]      # Suppress status output
+  -s, [--skip], [--no-skip]        # Skip files that already exist
+
+Rails options:
+  -h, [--help], [--no-help]        # Show this help message and quit
+  -v, [--version], [--no-version]  # Show Rails version number and quit
+
+Description:
+    The 'rails new' command creates a new Rails application with a default
+    directory structure and configuration at the path you specify.
+
+    You can specify extra command-line arguments to be used every time
+    'rails new' runs in the .railsrc configuration file in your home directory.
+
+    Note that the arguments specified in the .railsrc file don't affect the
+    defaults values shown above in this help message.
+
+Example:
+    rails new ~/Code/Ruby/weblog
+
+    This generates a skeletal Rails installation in ~/Code/Ruby/weblog.
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Class/Exercises$ cd ..
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Class$ cd ..
+~/Dropbox/Always Sync/Design and Tech/ACLTC$ ls
+Apprenticeship/                         Prework/
+Blog/                                   ShareWithACLTC/
+Class/                                  ShorterCopyofSOATeamProject copy.pages
+Media/                                  testing.rb
+My_programs/                            testing3.js
+Official/
+~/Dropbox/Always Sync/Design and Tech/ACLTC$ cd Apprenticeship/
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship$ ls
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship$ git clone https://github.com/the-difference-engine/real-estate-with-purpose.git
+Cloning into 'real-estate-with-purpose'...
+remote: Counting objects: 860, done.
+remote: Compressing objects: 100% (51/51), done.
+remote: Total 860 (delta 26), reused 2 (delta 2), pack-reused 807
+Receiving objects: 100% (860/860), 198.09 KiB | 0 bytes/s, done.
+Resolving deltas: 100% (481/481), done.
+Checking connectivity... done.
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship$ l
+-bash: l: command not found
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship$ ls
+real-estate-with-purpose/
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship$ cd real-estate-with-purpose/
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose$ ls
+Gemfile       Rakefile      config/       lib/          test/
+Gemfile.lock  app/          config.ru     log/          tmp/
+README.md     bin/          db/           public/       vendor/
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+nothing to commit, working directory clean
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose$ git checkout -b feat-property-and-type-model
+Switched to a new branch 'feat-property-and-type-model'
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose$ git status
+On branch feat-property-and-type-model
+nothing to commit, working directory clean
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose$ gti branch
+-bash: gti: command not found
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose$ git branch
+* feat-property-and-type-model
+  master
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose$ git checkout master
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose$ git branch -d feat-property-and-type-model
+Deleted branch feat-property-and-type-model (was 88c634d).
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose$ git branch
+* master
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose$ git fetch
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose$ git branch
+* master
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose$ git fetch -all
+error: did you mean `--all` (with two dashes ?)
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose$ git fetch --all
+Fetching origin
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose$ git branch
+* master
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose$ git checkout qa
+Branch qa set up to track remote branch qa from origin.
+Switched to a new branch 'qa'
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose$ git branch
+  master
+* qa
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose$ git checkout demo
+Branch demo set up to track remote branch demo from origin.
+Switched to a new branch 'demo'
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose$ git branch
+* demo
+  master
+  qa
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose$ git checkout qa
+Switched to branch 'qa'
+Your branch is up-to-date with 'origin/qa'.
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose$ git branch
+  demo
+  master
+* qa
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose$ git checkout -b 'feat-property-and-type-model'
+Switched to a new branch 'feat-property-and-type-model'
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose$ git branch
+  demo
+* feat-property-and-type-model
+  master
+  qa
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose$ git status
+On branch feat-property-and-type-model
+nothing to commit, working directory clean
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose$ git branch
+  demo
+* feat-property-and-type-model
+  master
+  qa
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose$ rails generate model propertyType name
+/Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/bundler-1.10.6/lib/bundler/spec_set.rb:92:in `block in materialize': Could not find activesupport-5.0.0 in any of the sources (Bundler::GemNotFound)
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/bundler-1.10.6/lib/bundler/spec_set.rb:85:in `map!'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/bundler-1.10.6/lib/bundler/spec_set.rb:85:in `materialize'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/bundler-1.10.6/lib/bundler/definition.rb:140:in `specs'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/bundler-1.10.6/lib/bundler/definition.rb:185:in `specs_for'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/bundler-1.10.6/lib/bundler/definition.rb:174:in `requested_specs'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/bundler-1.10.6/lib/bundler/environment.rb:18:in `requested_specs'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/bundler-1.10.6/lib/bundler/runtime.rb:13:in `setup'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/bundler-1.10.6/lib/bundler.rb:127:in `setup'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/bundler-1.10.6/lib/bundler/setup.rb:18:in `<top (required)>'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/spring-1.7.2/lib/spring/commands.rb:33:in `<module:Spring>'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/spring-1.7.2/lib/spring/commands.rb:4:in `<top (required)>'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/spring-1.7.2/lib/spring/server.rb:9:in `<top (required)>'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/spring-1.7.2/lib/spring/client/server.rb:9:in `call'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/spring-1.7.2/lib/spring/client/command.rb:7:in `call'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/spring-1.7.2/lib/spring/client.rb:30:in `run'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/spring-1.7.2/bin/spring:49:in `<main>'
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose$ bundle
+Warning: the running version of Bundler is older than the version that created the lockfile. We suggest you upgrade to the latest version of Bundler by running `gem install bundler`.
+Fetching gem metadata from https://rubygems.org/..........
+Fetching version metadata from https://rubygems.org/...
+Fetching dependency metadata from https://rubygems.org/..
+Warning: the running version of Bundler is older than the version that created the lockfile. We suggest you upgrade to the latest version of Bundler by running `gem install bundler`.
+Using rake 11.2.2
+Using concurrent-ruby 1.0.2
+Using i18n 0.7.0
+Using minitest 5.9.0
+Using thread_safe 0.3.5
+Using tzinfo 1.2.2
+Installing activesupport 5.0.0
+Using builder 3.2.2
+Using erubis 2.7.0
+Using mini_portile2 2.1.0
+Using pkg-config 1.1.7
+Using nokogiri 1.6.8
+Using rails-dom-testing 2.0.1
+Using loofah 2.0.3
+Using rails-html-sanitizer 1.0.3
+Installing actionview 5.0.0
+Using rack 2.0.1
+Using rack-test 0.6.3
+Installing actionpack 5.0.0
+Using nio4r 1.2.1
+Using websocket-extensions 0.1.2
+Using websocket-driver 0.6.4
+Installing actioncable 5.0.0
+Using globalid 0.3.7
+Installing activejob 5.0.0
+Using mime-types-data 3.2016.0521
+Using mime-types 3.1
+Using mail 2.6.4
+Installing actionmailer 5.0.0
+Installing activemodel 5.0.0
+Using arel 7.1.1
+Installing activerecord 5.0.0
+Using execjs 2.7.0
+Using autoprefixer-rails 6.3.6
+Using bcrypt 3.1.11
+Using sass 3.4.22
+Using bootstrap-sass 3.3.6
+Using byebug 9.0.5
+Using coffee-script-source 1.10.0
+Using coffee-script 2.4.1
+Using method_source 0.8.2
+Using thor 0.19.1
+Installing railties 5.0.0
+Using coffee-rails 4.2.1
+Installing database_cleaner 1.5.3
+Using debug_inspector 0.0.2
+Using orm_adapter 0.5.0
+Using responders 2.2.0
+Using warden 1.2.6
+Installing devise 4.2.0
+Using diff-lcs 1.2.5
+Installing factory_girl 4.7.0
+Installing factory_girl_rails 4.7.0
+Using ffi 1.9.14
+Using multi_json 1.12.1
+Using jbuilder 2.6.0
+Using jquery-rails 4.1.1
+Using rb-fsevent 0.9.7
+Using rb-inotify 0.9.7
+Using listen 3.0.8
+Using pg 0.18.4
+Using puma 3.6.0
+Using bundler 1.10.6
+Using sprockets 3.7.0
+Using sprockets-rails 3.1.1
+Installing rails 5.0.0
+Using rspec-support 3.5.0
+Using rspec-core 3.5.2
+Using rspec-expectations 3.5.0
+Using rspec-mocks 3.5.0
+Installing rspec-rails 3.5.1
+Using tilt 2.0.5
+Using sass-rails 5.0.6
+Installing shoulda-matchers 3.1.1
+Using spring 1.7.2
+Using spring-watcher-listen 2.0.0
+Using turbolinks-source 5.0.0
+Using turbolinks 5.0.1
+Using uglifier 3.0.1
+Using web-console 3.3.1
+Bundle complete! 21 Gemfile dependencies, 80 gems now installed.
+Gems in the group production were not installed.
+Use `bundle show [gemname]` to see where a bundled gem is installed.
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose$ rails generate model propertyType name
+Running via Spring preloader in process 14259
+      invoke  active_record
+      create    db/migrate/20160927002021_create_property_types.rb
+      create    app/models/property_type.rb
+      invoke    rspec
+      create      spec/models/property_type_spec.rb
+      invoke      factory_girl
+      create        spec/factories/property_types.rb
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose$ git status
+On branch feat-property-and-type-model
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	app/models/property_type.rb
+	db/migrate/20160927002021_create_property_types.rb
+	spec/factories/property_types.rb
+	spec/models/property_type_spec.rb
+
+nothing added to commit but untracked files present (use "git add" to track)
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose$ almgit "Created property type model"
+[feat-property-and-type-model 63b5e6d] Created property type model
+ 4 files changed, 21 insertions(+)
+ create mode 100644 app/models/property_type.rb
+ create mode 100644 db/migrate/20160927002021_create_property_types.rb
+ create mode 100644 spec/factories/property_types.rb
+ create mode 100644 spec/models/property_type_spec.rb
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose$ rails g model propertyAndType property_type_id:integer property_id:integer
+/Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activerecord-5.0.0/lib/active_record/connection_adapters/postgresql_adapter.rb:675:in `rescue in connect': FATAL:  database "real_estate_with_purpose_development" does not exist
+ (ActiveRecord::NoDatabaseError)
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activerecord-5.0.0/lib/active_record/connection_adapters/postgresql_adapter.rb:671:in `connect'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activerecord-5.0.0/lib/active_record/connection_adapters/postgresql_adapter.rb:217:in `initialize'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activerecord-5.0.0/lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `new'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activerecord-5.0.0/lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activerecord-5.0.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:721:in `new_connection'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activerecord-5.0.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:765:in `checkout_new_connection'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activerecord-5.0.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:744:in `try_to_checkout_new_connection'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activerecord-5.0.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:705:in `acquire_connection'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activerecord-5.0.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:501:in `checkout'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activerecord-5.0.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:364:in `connection'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activerecord-5.0.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:875:in `retrieve_connection'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activerecord-5.0.0/lib/active_record/connection_handling.rb:128:in `retrieve_connection'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activerecord-5.0.0/lib/active_record/connection_handling.rb:91:in `connection'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activerecord-5.0.0/lib/active_record/query_cache.rb:47:in `block in install_executor_hooks'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activesupport-5.0.0/lib/active_support/callbacks.rb:396:in `instance_exec'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activesupport-5.0.0/lib/active_support/callbacks.rb:396:in `block in make_lambda'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activesupport-5.0.0/lib/active_support/callbacks.rb:169:in `call'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activesupport-5.0.0/lib/active_support/callbacks.rb:169:in `block (2 levels) in halting'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activesupport-5.0.0/lib/active_support/callbacks.rb:547:in `call'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activesupport-5.0.0/lib/active_support/callbacks.rb:547:in `block (2 levels) in default_terminator'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activesupport-5.0.0/lib/active_support/callbacks.rb:546:in `catch'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activesupport-5.0.0/lib/active_support/callbacks.rb:546:in `block in default_terminator'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activesupport-5.0.0/lib/active_support/callbacks.rb:170:in `call'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activesupport-5.0.0/lib/active_support/callbacks.rb:170:in `block in halting'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activesupport-5.0.0/lib/active_support/callbacks.rb:454:in `call'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activesupport-5.0.0/lib/active_support/callbacks.rb:454:in `block in call'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activesupport-5.0.0/lib/active_support/callbacks.rb:454:in `each'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activesupport-5.0.0/lib/active_support/callbacks.rb:454:in `call'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activesupport-5.0.0/lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activesupport-5.0.0/lib/active_support/callbacks.rb:750:in `_run_complete_callbacks'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activesupport-5.0.0/lib/active_support/callbacks.rb:90:in `run_callbacks'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activesupport-5.0.0/lib/active_support/execution_wrapper.rb:107:in `complete!'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activesupport-5.0.0/lib/active_support/execution_wrapper.rb:64:in `ensure in block in run!'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activesupport-5.0.0/lib/active_support/execution_wrapper.rb:64:in `block in run!'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activesupport-5.0.0/lib/active_support/execution_wrapper.rb:58:in `tap'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activesupport-5.0.0/lib/active_support/execution_wrapper.rb:58:in `run!'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activesupport-5.0.0/lib/active_support/execution_wrapper.rb:74:in `wrap'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/activesupport-5.0.0/lib/active_support/reloader.rb:45:in `reload!'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/spring-1.7.2/lib/spring/application.rb:154:in `serve'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/spring-1.7.2/lib/spring/application.rb:131:in `block in run'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/spring-1.7.2/lib/spring/application.rb:125:in `loop'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/spring-1.7.2/lib/spring/application.rb:125:in `run'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/spring-1.7.2/lib/spring/application/boot.rb:19:in `<top (required)>'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+	from /Users/acltc/.rbenv/versions/2.2.3/lib/ruby/2.2.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+	from -e:1:in `<main>'
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose$ rake db:migrate
+rake aborted!
+Gem::LoadError: You have already activated rake 11.3.0, but your Gemfile requires rake 11.2.2. Prepending `bundle exec` to your command may solve this.
+/Users/acltc/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose/config/boot.rb:3:in `<top (required)>'
+/Users/acltc/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose/config/application.rb:1:in `require_relative'
+/Users/acltc/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose/config/application.rb:1:in `<top (required)>'
+/Users/acltc/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose/Rakefile:4:in `require_relative'
+/Users/acltc/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose/Rakefile:4:in `<top (required)>'
+LoadError: cannot load such file -- bundler/setup
+/Users/acltc/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose/config/boot.rb:3:in `<top (required)>'
+/Users/acltc/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose/config/application.rb:1:in `require_relative'
+/Users/acltc/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose/config/application.rb:1:in `<top (required)>'
+/Users/acltc/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose/Rakefile:4:in `require_relative'
+/Users/acltc/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose$ bundle exec rake db:migrate
+rake aborted!
+ActiveRecord::NoDatabaseError: FATAL:  database "real_estate_with_purpose_development" does not exist
+
+PG::ConnectionBad: FATAL:  database "real_estate_with_purpose_development" does not exist
+
+Tasks: TOP => db:migrate
+(See full trace by running task with --trace)
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose$ bundle exec rake db:create
+Created database 'real_estate_with_purpose_development'
+Created database 'real_estate_with_purpose_test'
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose$ bundle exec rake db:migrate
+== 20160808234715 CreateCharities: migrating ==================================
+-- create_table(:charities)
+   -> 0.0360s
+== 20160808234715 CreateCharities: migrated (0.0361s) =========================
+
+== 20160808235910 CreateDonations: migrating ==================================
+-- create_table(:donations)
+   -> 0.0094s
+== 20160808235910 CreateDonations: migrated (0.0095s) =========================
+
+== 20160809000508 AddAmountDonatedToDonation: migrating =======================
+-- add_column(:donations, :amount_donated, :string)
+   -> 0.0220s
+== 20160809000508 AddAmountDonatedToDonation: migrated (0.0221s) ==============
+
+== 20160809000524 AddCharityNameToDonation: migrating =========================
+-- add_column(:donations, :charity_name, :string)
+   -> 0.0008s
+== 20160809000524 AddCharityNameToDonation: migrated (0.0009s) ================
+
+== 20160811235718 AddUserableidToUsers: migrating =============================
+-- add_column(:users, :userable_id, :integer)
+rake aborted!
+StandardError: An error has occurred, this and all later migrations canceled:
+
+PG::UndefinedTable: ERROR:  relation "users" does not exist
+: ALTER TABLE "users" ADD "userable_id" integer
+/Users/acltc/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose/db/migrate/20160811235718_add_userableid_to_users.rb:3:in `change'
+ActiveRecord::StatementInvalid: PG::UndefinedTable: ERROR:  relation "users" does not exist
+: ALTER TABLE "users" ADD "userable_id" integer
+/Users/acltc/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose/db/migrate/20160811235718_add_userableid_to_users.rb:3:in `change'
+PG::UndefinedTable: ERROR:  relation "users" does not exist
+/Users/acltc/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose/db/migrate/20160811235718_add_userableid_to_users.rb:3:in `change'
+Tasks: TOP => db:migrate
+(See full trace by running task with --trace)
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose$ rails -v
+Rails 5.0.0
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose$ bundle exec rake db:migrate
+== 20160811235718 AddUserableidToUsers: migrating =============================
+-- add_column(:users, :userable_id, :integer)
+rake aborted!
+StandardError: An error has occurred, this and all later migrations canceled:
+
+PG::UndefinedTable: ERROR:  relation "users" does not exist
+: ALTER TABLE "users" ADD "userable_id" integer
+/Users/acltc/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose/db/migrate/20160811235718_add_userableid_to_users.rb:3:in `change'
+ActiveRecord::StatementInvalid: PG::UndefinedTable: ERROR:  relation "users" does not exist
+: ALTER TABLE "users" ADD "userable_id" integer
+/Users/acltc/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose/db/migrate/20160811235718_add_userableid_to_users.rb:3:in `change'
+PG::UndefinedTable: ERROR:  relation "users" does not exist
+/Users/acltc/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose/db/migrate/20160811235718_add_userableid_to_users.rb:3:in `change'
+Tasks: TOP => db:migrate
+(See full trace by running task with --trace)
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose$ rake db:reset
+rake aborted!
+Gem::LoadError: You have already activated rake 11.3.0, but your Gemfile requires rake 11.2.2. Prepending `bundle exec` to your command may solve this.
+/Users/acltc/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose/config/boot.rb:3:in `<top (required)>'
+/Users/acltc/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose/config/application.rb:1:in `require_relative'
+/Users/acltc/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose/config/application.rb:1:in `<top (required)>'
+/Users/acltc/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose/Rakefile:4:in `require_relative'
+/Users/acltc/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose/Rakefile:4:in `<top (required)>'
+LoadError: cannot load such file -- bundler/setup
+/Users/acltc/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose/config/boot.rb:3:in `<top (required)>'
+/Users/acltc/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose/config/application.rb:1:in `require_relative'
+/Users/acltc/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose/config/application.rb:1:in `<top (required)>'
+/Users/acltc/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose/Rakefile:4:in `require_relative'
+/Users/acltc/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose/Rakefile:4:in `<top (required)>'
+(See full trace by running task with --trace)
+~/Dropbox/Always Sync/Design and Tech/ACLTC/Apprenticeship/real-estate-with-purpose$ 
