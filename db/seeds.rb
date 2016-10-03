@@ -17,6 +17,51 @@ Property.create!([
     {num_bedrooms: 9, num_bathrooms: 2, list_price: 64645, image:'http://www.hotel-r.net/im/hotel/ba/house-22.jpg', overview: 'An amazing house.', misc_details: Faker::Lorem.sentence, details: Faker::Lorem.paragraph(2) },
   ])
 
+Address.create!([{
+  line_1: Faker::Address.street_address,
+  city: Faker::Address.city,
+  state: Faker::Address.state_abbr,
+  zip: Faker::Address.zip,
+  property_id: 1
+  },
+  {
+  line_1: Faker::Address.street_address,
+  city: Faker::Address.city,
+  state: Faker::Address.state_abbr,
+  zip: Faker::Address.zip,
+  property_id: 2
+  },
+  {
+  line_1: Faker::Address.street_address,
+  city: Faker::Address.city,
+  state: Faker::Address.state_abbr,
+  zip: Faker::Address.zip,
+  property_id: 3
+  },  
+  {
+  line_1: Faker::Address.street_address,
+  city: Faker::Address.city,
+  state: Faker::Address.state_abbr,
+  zip: Faker::Address.zip,
+  property_id: 4
+  },
+  {
+  line_1: "222 W Merchandise Mart Plaza",
+  zip: "60654",
+  property_id: 5
+  },
+  {
+  line_1: "218 W Kinzie St",
+  zip: "60654",
+  property_id: 6
+  },
+  {
+  line_1: "205 W Lake St",
+  zip: "60606",
+  property_id: 7
+  }     
+  ])
+
 
 
 
