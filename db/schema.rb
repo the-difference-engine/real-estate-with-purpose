@@ -10,27 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160930004624) do
+ActiveRecord::Schema.define(version: 20161004010904) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "addresses", force: :cascade do |t|
-    t.string   "line_1"
-    t.string   "line_2"
-    t.string   "city",        default: "Chicago"
-    t.string   "state",       default: "IL"
-    t.string   "zip"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.integer  "property_id"
-  end
-
-  create_table "admins", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "buyers", force: :cascade do |t|
     t.string   "name"
@@ -62,8 +45,13 @@ ActiveRecord::Schema.define(version: 20160930004624) do
     t.text     "overview"
     t.text     "details"
     t.text     "misc_details"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.string   "line_1"
+    t.string   "line_2"
+    t.string   "city",          default: "Chicago"
+    t.string   "state",         default: "IL"
+    t.string   "zip"
   end
 
   create_table "property_and_types", force: :cascade do |t|
@@ -105,12 +93,26 @@ ActiveRecord::Schema.define(version: 20160930004624) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "email"
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.integer  "userable_id"
+    t.string   "userable_type"
+    t.string   "password"
+    t.string   "name"
+    t.string   "password_confirmation"
     t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
 end
