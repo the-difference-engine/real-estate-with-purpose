@@ -1,1 +1,17 @@
-index.html.erb
+<h1>All Properties</h1>
+
+<section>
+  <div class="row">
+
+  <% @properties.each do |property| %>
+    <div class="col-sm-4">
+      <%= property.overview %>
+      <p>Price: <%= number_to_currency(property.list_price) %></p>
+      <p>Amount Donated: <%= number_to_currency(property.amount_donated) %></p>
+    </div>
+  <% end %>
+
+  </div>
+</section>
+
+
