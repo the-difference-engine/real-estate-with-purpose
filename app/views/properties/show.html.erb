@@ -1,0 +1,22 @@
+<div class="col-sm-8 col-sm-offset-2">
+  <h2>Address: <%= @property.line_1 %></h2>
+
+  <% if @property.line_2 %>
+    <h2>Line 2: <%= @property.line_2 %></h2>
+  <% end %>
+
+  <h3>List Price: <%= number_to_currency(@property.list_price) %></h3>
+  <h3><%= @property.line_2 %></h3>
+  <h3>Monthly Payment: ### MONTHLY PAYMENT HERE ###</h3>
+  <h3>REWP Donation: <%= number_to_currency(@property.amount_donated) %></h3>
+
+  <img src="<%= @property.image %>" alt="<%= @property.overview %>" class="img-responsive">
+  <h3>Property Overview</h3>
+  <h4><%= @property.overview %></h4>
+  <h3>Property Details</h3>
+  <h4><%= @property.details %></h4>
+  <h3>Miscellaneous Details</h3>
+  <h4>### MLS Fed ###</h4>
+  <h3>Schools</h3>
+  <h4>### MLS Fed ###</h4>
+</div>

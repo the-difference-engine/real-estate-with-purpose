@@ -3,6 +3,15 @@ Rails.application.routes.draw do
   # devise_for :users
 root to: 'admins#index'
 
+#property routes
+get '/properties' => 'properties#index'
+get '/properties/new' => 'properties#new'
+post '/properties' => 'properties#create'
+get '/properties/:id' => 'properties#show' 
+get '/properties/:id/edit' => 'properties#edit'
+patch '/properties/:id' => 'properties#update'
+delete '/properties/:id' => 'properties#destroy'
+
 #admin routes
 get '/admins' => 'admins#index'
 get '/admins/new' => 'admins#new'
