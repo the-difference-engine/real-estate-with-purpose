@@ -1,5 +1,8 @@
 class PropertiesController < ApplicationController
-    def index
+
+  before_action :authenticate_admin!, except: [:index, :new, :create, :show]
+
+  def index
     @properties = Property.all
   end
 
@@ -33,9 +36,6 @@ class PropertiesController < ApplicationController
   end
 
   def update
-    unless current_user && current_user.admin
-      redirect_to '/'
-    end
     @property = Property.find_by(id: params[:id])
     @property.update(num_bedrooms: params[:num_bedrooms],
                     num_bathrooms: params[:num_bathrooms],
@@ -51,9 +51,6 @@ class PropertiesController < ApplicationController
   end
 
   def destroy
-    unless current_user && current_user.admin
-      redirect_to '/'
-    end
     @property = Property.find_by(id: params[:id])
     @property.destroy
 
