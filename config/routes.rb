@@ -12,15 +12,6 @@ get '/properties/:id/edit' => 'properties#edit'
 patch '/properties/:id' => 'properties#update'
 delete '/properties/:id' => 'properties#destroy'
 
-#admin routes
-get '/admins' => 'admins#index'
-get '/admins/new' => 'admins#new'
-post '/admins' => 'admins#create'
-get '/admins/:id' => 'admins#show' 
-get '/admins/:id/edit' => 'admins#edit'
-patch '/admins/:id' => 'admins#update'
-delete '/admins/:id' => 'admins#destroy'
-
 #buyer routes
 get '/buyers' => 'buyers#index'
 get '/buyers/new' => 'buyers#new'
