@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   # devise_for :users
-root to: 'admins#index'
+root to: 'properties#index'
 
 #property routes
 get '/properties' => 'properties#index'
