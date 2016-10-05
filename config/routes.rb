@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
-  # devise_for :users
-root to: 'admins#index'
+root to: 'properties#index'
 
 #property routes
 get '/properties' => 'properties#index'
@@ -11,15 +10,6 @@ get '/properties/:id' => 'properties#show'
 get '/properties/:id/edit' => 'properties#edit'
 patch '/properties/:id' => 'properties#update'
 delete '/properties/:id' => 'properties#destroy'
-
-#admin routes
-get '/admins' => 'admins#index'
-get '/admins/new' => 'admins#new'
-post '/admins' => 'admins#create'
-get '/admins/:id' => 'admins#show' 
-get '/admins/:id/edit' => 'admins#edit'
-patch '/admins/:id' => 'admins#update'
-delete '/admins/:id' => 'admins#destroy'
 
 #buyer routes
 get '/buyers' => 'buyers#index'
