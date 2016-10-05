@@ -26,6 +26,9 @@ class PropertiesController < ApplicationController
   end
 
   def edit
+    unless current_user && current_user.admin
+      redirect_to '/'
+    end
     @property = Property.find_by(id: params[:id])
   end
 
