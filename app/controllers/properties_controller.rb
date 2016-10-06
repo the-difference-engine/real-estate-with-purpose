@@ -17,11 +17,12 @@ class PropertiesController < ApplicationController
                               image: params[:image],
                               overview: params[:overview],
                               details: params[:details],
-                              misc_details: params[:misc_details]
+                              misc_details: params[:misc_details],
+                              line_1: params[:line_1]
                               )
     
     flash[:success] = 'New Property Created'
-    redirect_to '/properties/#{@property.id}'
+    redirect_to "/properties/#{@property.id}"
   end
 
   def show
