@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+  def index
+    @user = User.all
+  end
+
   def new
     render 'new.html.erb'
   end
@@ -20,5 +24,9 @@ class UsersController < ApplicationController
       flash[:warning] = 'Invalid email or password'
       redirect_to '/signup'
     end
+  end
+
+  def show
+    @user = User.find_by(id: params[:id])
   end
 end

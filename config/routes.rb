@@ -66,6 +66,6 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
 
   #user routes (for admins to view)
-  get '/users' => 'users#all'
+  get '/users' => 'users#index'
   get '/users/:id' => 'users#show'
 end
