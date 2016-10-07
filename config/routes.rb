@@ -65,7 +65,7 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
 
-  #user routes
+  #user routes (for admins to view)
   get '/users' => 'users#all'
   get '/users/:id' => 'users#show'
 end
