@@ -2,6 +2,6 @@
 <div class= container>
   <h2><%= @user.first_name %> <%= @user.last_name %></h2>
     <li><h4>Email: <%= @user.email %></h4></li>
-    <%= link_to "Edit", "/users/#{@user.id}/edit", {method: :delete, class: "btn btn-default"} %>
-    <%= link_to "Delete", "/users/#{@user.id}/edit", class: "btn btn-default" %>
+    <%= link_to "Edit", "/users/#{@user.id}/edit", class: "btn btn-default" %>
+    <%= link_to "Delete", "/users/#{@user.id}/destroy", {method: :delete, class: "btn btn-default"} %>
 </div>
