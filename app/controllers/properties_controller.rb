@@ -48,7 +48,7 @@ class PropertiesController < ApplicationController
                     )
 
     flash[:success] = 'Property Updated'
-    redirect_to '/propertys/#{@property.id}'
+    redirect_to "/properties/#{@property.id}"
   end
 
   def destroy
