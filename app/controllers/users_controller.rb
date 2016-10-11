@@ -48,6 +48,10 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    
+    user = User.find_by(id: params[:id])
+    user.destroy
+
+    flash[:warning] = "User removed from database."
+    redirect_to '/users'
   end
 end
