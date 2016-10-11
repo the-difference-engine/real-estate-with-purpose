@@ -21,7 +21,7 @@
   <h4>### MLS Fed ###</h4>
 
   <% if current_user && current_user.admin %>
-    <%= link_to "Edit", "/properties/#{@property.id}/edit", {method: :delete, class: "btn btn-default"} %>
-    <%= link_to "Delete", "/properties/#{@property.id}/edit", class: "btn btn-default" %>
+  <%= link_to "Edit", "/properties/#{@property.id}/edit", class: "btn btn-default" %>
+  <%= link_to "Delete", "/properties/#{@property.id}/", {method: :delete, class: "btn btn-default"} %>
   <% end %>
 </div>
