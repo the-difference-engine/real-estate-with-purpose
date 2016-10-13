@@ -1,0 +1,15 @@
+<h3>Add a Charity</h3>
+
+<%= form_tag "/charities", method: :post do  %>
+  <div>
+    <%= label_tag :name, "Name" %>
+    <%= text_field_tag :name %>
+  </div>
+
+  <div>
+    <%= label_tag :description, "Description" %>
+    <%= text_field_tag :description %>
+  </div>
+  
+  <%= submit_tag "Submit" %>
+<% end %>
