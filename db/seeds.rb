@@ -17,6 +17,12 @@ Property.create!([
     {num_bedrooms: 9, num_bathrooms: 2, list_price: 64645, image:'http://www.hotel-r.net/im/hotel/ba/house-22.jpg', overview: 'An amazing house.', misc_details: Faker::Lorem.sentence, details: Faker::Lorem.paragraph(2), line_1: Faker::Address.street_address, city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip  },
   ])
 
+Charity.create!([
+  {name: "Charity numero uno", logo: "http://clipartsign.com/upload/2016/01/27/happy-face-clip-art-dr-odd.jpg", description: "Charity numero uno loves to create smiley faces"},
+  {name: "Charity numero dos", logo: "http://clipartix.com/wp-content/uploads/2016/06/Free-sad-face-clip-art-image-8-7.jpeg", description: "Charity numero dos loves to create frowny faces"},
+  {name: "Charity numero three", logo: "http://www.clker.com/cliparts/u/O/o/a/8/z/smiley-face-md.png", description: "Charity numero dos loves to create unsure faces"},
+  ])
+
 
 
 

@@ -14,5 +14,15 @@
   </div>
 </div>
 
+  
+
+<% @charities.each do |charity| %>
+  <a href="/charities/<%= charity.id %>" title="View Charity"><img src="<%= charity.logo %>" alt="<%= charity.description %>" class="img-responsive charity_single_image"></a>
+  <p>Name: <%= charity.name %></p>
+  <p>Description: <%= charity.description %></p>
+<% end %>
+
+    
+
 
 

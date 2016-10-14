@@ -1,2 +1,10 @@
 
+  <img src="<%= @charity.logo %>">
+  <h3>Charity: <%= @charity.name %></h3>
+  <h3>Description: <%= @charity.description %></h3>
 
+  <% if current_user && current_user.admin %>
+    <%= link_to "Edit", "/charities/#{@charity.id}/edit", class: "btn btn-default" %>
+    <%= link_to "Delete", "/charities/#{@charity.id}/", {method: :delete, class: "btn btn-default"} %>
+  <% end %>
+ 
