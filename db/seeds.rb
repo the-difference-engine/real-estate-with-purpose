@@ -19,7 +19,7 @@ Property.create!([
 
 Charity.create!([
   {name: "Charity numero uno", logo: "http://clipartsign.com/upload/2016/01/27/happy-face-clip-art-dr-odd.jpg", description: "Charity numero uno loves to create smiley faces"},
-  {name: "Charity numero dos", logo: "http://www.clipartkid.com/images/248 happy-face-sad-face-clip-art-Opdkqc-clipart.jpeg", description: "Charity numero dos loves to create frowny faces"},
+  {name: "Charity numero dos", logo: "http://clipartix.com/wp-content/uploads/2016/06/Free-sad-face-clip-art-image-8-7.jpeg", description: "Charity numero dos loves to create frowny faces"},
   {name: "Charity numero three", logo: "http://www.clker.com/cliparts/u/O/o/a/8/z/smiley-face-md.png", description: "Charity numero dos loves to create unsure faces"},
   ])
 
