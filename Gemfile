@@ -1,5 +1,14 @@
 source 'https://rubygems.org'
 
+gem 'ruby_http_client'
+# 10/10/16
+
+gem 'sendgrid-ruby'
+# 10/10/16
+
+gem 'figaro'
+# 10/10/16
+
 gem 'faker'
 # 9/29/16 
 
