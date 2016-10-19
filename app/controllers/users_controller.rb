@@ -19,6 +19,8 @@ class UsersController < ApplicationController
       password_confirmation: params[:password_confirmation]
       )
     if user.save
+      # Deliver the signup email
+      UserNotifier.send_signup_email(@user).deliver
       session[:user_id] = user.id
       flash[:success] = 'Successfully created account!'
       redirect_to '/'
