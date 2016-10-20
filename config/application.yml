@@ -12,5 +12,3 @@
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
 
 SENDGRID_API_KEY: "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"
-
-# Refer to the key using: #{ENV["myIndeedAPIkey"]}
