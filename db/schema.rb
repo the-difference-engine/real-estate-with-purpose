@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161004011513) do
+ActiveRecord::Schema.define(version: 20161021005530) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,11 @@ ActiveRecord::Schema.define(version: 20161004011513) do
     t.integer  "charity_id"
   end
 
+  create_table "maps", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "properties", force: :cascade do |t|
     t.integer  "num_bedrooms"
     t.integer  "num_bathrooms"
@@ -52,6 +57,7 @@ ActiveRecord::Schema.define(version: 20161004011513) do
     t.string   "city",          default: "Chicago"
     t.string   "state",         default: "IL"
     t.string   "zip"
+    t.string   "api_address"
   end
 
   create_table "property_and_types", force: :cascade do |t|
@@ -97,9 +103,9 @@ ActiveRecord::Schema.define(version: 20161004011513) do
     t.string   "last_name"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.boolean  "admin"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.boolean  "admin",           default: false
   end
 
 end

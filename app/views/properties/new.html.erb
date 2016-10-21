@@ -32,6 +32,22 @@
   <div>
     <%= label_tag :line_1, "Address Line 1" %>
     <%= text_field_tag :line_1 %>
-  </div>           
+  </div> 
+  <div>
+    <%= label_tag :api_address, "Address" %>
+    <%= text_field_tag :api_address %>
+  </div> 
+  <div>
+    <%= label_tag :city, "City" %>
+    <%= text_field_tag :city %>
+  </div>  
+  <div>
+    <%= label_tag :state, "State" %>
+    <%= text_field_tag :state %>
+  </div> 
+  <div>
+    <%= label_tag :zip, "Zip" %>
+    <%= text_field_tag :zip %>
+  </div>            
   <%= submit_tag "Submit" %>
 <% end %>
