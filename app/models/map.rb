@@ -1,9 +1,4 @@
-class Property < ApplicationRecord
-  has_many :addresses
-
-  def amount_donated
-    list_price.to_f * 0.10
-  end
+class Map < ApplicationRecord
 
   def coordinates
      Geocoder.coordinates(full_address)
@@ -18,6 +13,6 @@ class Property < ApplicationRecord
   end
 
   def full_address
-    "#{api_address},+#{city},+#{state}+#{zip}"
+    "#{name},+#{address},+#{city},+#{state}+#{zip_code}"
   end
 end

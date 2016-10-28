@@ -1,5 +1,5 @@
 <div class="col-sm-8 col-sm-offset-2">
-  <h2>Address: <%= @property.line_1 %></h2>
+  <h2>Address: <%= @property.full_address %></h2>
 
   <% if @property.line_2 %>
     <h2>Line 2: <%= @property.line_2 %></h2>
@@ -25,3 +25,11 @@
   <%= link_to "Delete", "/properties/#{@property.id}/", {method: :delete, class: "btn btn-default"} %>
   <% end %>
 </div>
+
+<iframe
+  width="500"
+  height="500"
+  frameborder="0" style="border:0"
+  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD_YLc6hND831FMpDgZn08NH6BXLLS3l-Q
+    &q=<%=@property.full_address%>" allowfullscreen>
+</iframe>

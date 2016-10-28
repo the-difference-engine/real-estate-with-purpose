@@ -18,7 +18,11 @@ class PropertiesController < ApplicationController
                               overview: params[:overview],
                               details: params[:details],
                               misc_details: params[:misc_details],
-                              line_1: params[:line_1]
+                              line_1: params[:line_1],
+                              api_address: params[:api_address],
+                              city: params[:api],
+                              state: params[:state],
+                              zip: params[:zip]
                               )
     
     flash[:success] = 'New Property Created'
