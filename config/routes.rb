@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  root to: 'properties#index'
+  root to: 'homepages#index'
+
+  #homepage route
+  get '/homepages' => 'homepages#index'
 
   #property routes
   get '/properties' => 'properties#index'
