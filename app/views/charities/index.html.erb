@@ -1,0 +1,28 @@
+
+<%= image_tag "REWP.co_Homepage_Evanston-1.png" %>
+
+<h1>Introduction</h1>
+<p>We strive to help those in need!</p>
+
+<h1>Simple Concepts with Big Results</h1>
+
+<div class="row">
+  <div class="col-sm-3">
+    <h2>Total Value Donated</h2>
+    <h2>Local Charities Supported</h2>
+    <h2>AVG Donation Amount</h2>
+  </div>
+</div>
+
+  
+
+<% @charities.each do |charity| %>
+  <a href="/charities/<%= charity.id %>" title="View Charity"><img src="<%= charity.logo %>" alt="<%= charity.description %>" class="img-responsive charity_single_image"></a>
+  <p>Name: <%= charity.name %></p>
+  <p>Description: <%= charity.description %></p>
+<% end %>
+
+    
+
+
+
