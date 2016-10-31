@@ -11,18 +11,19 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.new(
+    @user = User.new(
       first_name: params[:first_name],
       last_name: params[:last_name],
       email: params[:email],
       password: params[:password],
       password_confirmation: params[:password_confirmation]
       )
-    if user.save
+    if @user.save
       # Deliver the signup email
       UserNotifier.send_signup_email(@user).deliver
-      session[:user_id] = user.id
+      session[:user_id] = @user.id
       flash[:success] = 'Successfully created account!'
+      
       redirect_to '/'
     else
       flash[:warning] = 'Invalid email or password'
@@ -50,7 +51,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    user = User.find_by(id: params[:id])
+    @user = User.find_by(id: params[:id])
     user.destroy
 
     flash[:warning] = "User removed from database."
