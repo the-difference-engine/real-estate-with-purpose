@@ -1,5 +1,6 @@
 <div class=container>
   <h1>Edit User</h1>
+
   <%= form_tag "/users/#{@user.id}", method: :patch do %>
     <div>
       <%= label_tag :first_name %>
@@ -14,6 +15,11 @@
     <div>
       <%= label_tag :email %>
       <%= text_field_tag :email, @user.email %>
+    </div>
+
+    <div>
+      <%= label_tag :home_budget %>
+      <%= text_field_tag :home_budget, @user.home_budget %>
     </div>
 
     <br>

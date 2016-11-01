@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :authenticate_admin!, except: [:new, :create, :destroy]
+  before_action :authenticate_admin!, except: [:new, :create, :show, :edit, :update, :destroy]
 
   def index
     @users = User.all
@@ -34,6 +34,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find_by(id: params[:id])
+
   end
 
   def update
@@ -41,7 +42,9 @@ class UsersController < ApplicationController
     @user.update(
                   first_name: params[:first_name],
                   last_name: params[:last_name],
-                  email: params[:email])
+                  email: params[:email],
+                  home_budget: params[:home_budget]
+                  )
 
     flash[:success] = 'User updated!'
     redirect_to "/users/#{@user.id}"
