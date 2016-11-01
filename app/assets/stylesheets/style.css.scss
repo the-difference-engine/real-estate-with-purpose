@@ -9,3 +9,9 @@
   border: solid #575757 4px;
   margin-bottom: 15px;
  }
+
+
+.text_overflow{
+  white-space: nowrap;
+  overflow-x: scroll;
+}
