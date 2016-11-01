@@ -2,6 +2,7 @@
 <html>
   <head>
 
+<<<<<<< d8c46e5427bedf63529764261e7e5673c52bf5cc
     <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -57,19 +58,69 @@
               <li><a href="#">Separated link</a></li>
             </ul>
           </li>
+=======
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/charities">Real Estate With Purpose</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/properties">Properties <span class="sr-only">(current)</span></a></li>
+          <li><a href="/properties/new">Add Property</a></li>
+          <li><a href="/charities/">Charities</a></li>
+         
+        </ul>
+        <form class="navbar-form navbar-left">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+
+        <ul class="nav navbar-nav navbar-right">
+
+        <% if current_user %>
+          <%= link_to 'Edit Profile', "/users/#{current_user.id}/edit" %>
+>>>>>>> added link to edit profile
         <% end %>
 
-      <% if current_user %>
-        <li><%= link_to 'Log Out', '/logout', method: :delete %></li>
-      <% else %>
-        <li><a href="/login">Sign In</a></li>
-        <li><a href="/signup">Sign Up</a></li>
-      <% end %>
-      
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+          <% if current_user && current_user.admin %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin Privileges<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="/properties/new">Add a new property</a></li>
+                <li><a href="/charities/new">Add a new charity</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="/users">View all users</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+            </li>
+          <% end %>
+
+        <% if current_user %>
+          <li><%= link_to 'Log Out', '/logout', method: :delete %></li>
+        <% else %>
+          <li><a href="/login">Sign In</a></li>
+          <li><a href="/signup">Sign Up</a></li>
+        <% end %>
+        
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
 
   <div class="do-item" style="background-image: url('https://hd.unsplash.com/photo-1467385829985-2b0fb82b5193'); height: 42em; background-size: cover; background-position: center;">
   </div>
@@ -90,10 +141,21 @@
 <% flash.each do |name, message| %>
   <div class="alert alert-<%= name != "notice" ? name : "success" %> alert-dismissible" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><p><%= message %></p>
+
+  <div class= container>
+    <h2> About Real Estate With Purpose</h2>
+    <h4> Real Estate represents more than a financial transaction for four walls and a roof - it is
+      an investment and personal commitment to Chicago's neighborhood and the surrounding community. To
+      that end, 10% of my commission goes to reinvest in the community through the local chairty and
+      organization of my clients choice.
+    </h4>
   </div>
-  <% end %>
-      <%= yield %>
-  </body>
 
-
+  <% flash.each do |name, message| %>
+    <div class="alert alert-<%= name != "notice" ? name : "success" %> alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><p><%= message %></p>
+    </div>
+    <% end %>
+        <%= yield %>
+    </body>
 </html>
