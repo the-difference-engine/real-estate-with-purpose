@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :authenticate_admin!, except: [:new, :create, :show, :edit, :destroy]
+  before_action :authenticate_admin!, except: [:new, :create, :show, :edit, :update, :destroy]
 
   def index
     @users = User.all
