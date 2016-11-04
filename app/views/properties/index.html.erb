@@ -1,0 +1,22 @@
+<h1>All Properties</h1>
+
+<section>
+  <div class="row">
+
+  <% @properties.each do |property| %>
+    <div class="col-sm-4">
+      <div class="product_single">
+        <a href="/properties/<%= property.id %>" title="View Property"><img src="<%= property.image %>" alt="<%= property.overview %>" class="img-responsive property_single_image"></a>
+          <p>Price: <%= number_to_currency(property.list_price) %></p>
+          <p>Address: <%= property.line_1 %></p>
+          <p>Num. Bedrooms: <%= property.num_bedrooms %></p>
+          <p>Num. Bathrooms: <%= property.num_bathrooms %></p>
+      </div>
+    </div>
+    
+  <% end %>
+
+  </div>
+</section>
+
+
