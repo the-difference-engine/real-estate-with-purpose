@@ -8,10 +8,9 @@ class DonationsController < ApplicationController
   end
 
   def create
-    @donation = Donation.create(amount_donated: params[:amount_donated],
-                                charity_name: params[:charity_name]
-                                )
-    
+    @donation = Donation.create(
+      amount_donated: params[:amount_donated],
+      charity_name: params[:charity_name])
     flash[:success] = "Donation Created"
     redirect_to '/donations/#{@donation.id}'
   end

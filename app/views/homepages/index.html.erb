@@ -6,3 +6,25 @@
     organization of my clients choice.
   </h4>
 </div>
+
+<div class= container> 
+<h2> Donation Metrics </h2> 
+<h3> Total amount donated </h3>
+<p>
+
+<% if @donations %>
+  <% @donations.each do |donation| %>
+  Charity: <%= donation.charity.name %>
+<br>
+  Amount: <%= donation.amount_donated %>
+  <% end %>
+<% else %>
+  0 Donations
+<% end %>
+</p>
+<br>
+<br>
+<h3> Number of charities donated to </h3>
+<h3> Average donation amount </h3>
+
+</div>
