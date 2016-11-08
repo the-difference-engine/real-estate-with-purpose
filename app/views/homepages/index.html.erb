@@ -12,10 +12,14 @@
 <h3> Total amount donated </h3>
 <p>
 
-<% @donations.each do |donation| %>
-Charity: <%= donation.charity.name %>
+<% if @donations %>
+  <% @donations.each do |donation| %>
+  Charity: <%= donation.charity.name %>
 <br>
-Amount: <%= donation.amount_donated %>
+  Amount: <%= donation.amount_donated %>
+  <% end %>
+<% else %>
+  0 Donations
 <% end %>
 </p>
 <br>
