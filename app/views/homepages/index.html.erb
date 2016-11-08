@@ -27,5 +27,9 @@
 <%= @donations.count %>
 <br>
 <h3> Average donation amount </h3>
-<%= @donation.average_donation %>
+<% if @donation %>
+  <%= @donation.average_donation %>
+<% else %>
+  0 dollars donated
+<% end %>
 </div>
