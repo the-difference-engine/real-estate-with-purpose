@@ -2,7 +2,37 @@
   <h2> About Real Estate With Purpose</h2>
   <h4> Real Estate represents more than a financial transaction for four walls and a roof - it is
     an investment and personal commitment to Chicago's neighborhood and the surrounding community. To
-    that end, 10% of my commission goes to reinvest in the community through the local chairty and
+    that end, 10% of my commission goes to reinvest in the community through the local charity and
     organization of my clients choice.
   </h4>
 </div>
+<<<<<<< HEAD
+=======
+
+<div class= container> 
+<h2> Donation Metrics </h2> 
+<h3> Total amount donated </h3>
+<p>
+
+<% if @donations %>
+  <% @donations.each do |donation| %>
+  Charity: <%= donation.charity.name %>
+<br>
+  Amount: <%= donation.amount_donated %>
+  <% end %>
+<% else %>
+  0 Donations
+<% end %>
+</p>
+<br>
+<h3> Number of charities donated to </h3>
+<%= @donations.count %>
+<br>
+<h3> Average donation amount </h3>
+<% if @donation %>
+  <%= @donation.average_donation %>
+<% else %>
+  0 dollars donated
+<% end %>
+</div>
+>>>>>>> ebfcfcd4f10bd4b1d27195fa279695752689cb69
