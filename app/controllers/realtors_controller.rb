@@ -13,7 +13,8 @@ class RealtorsController < ApplicationController
                               faqs: params[:faqs],
                               twitter_handle: params[:twitter_handle],
                               phone_number: params[:phone_number],
-                              email: params[:email]
+                              email: params[:email],
+                              name: params[:name]
                               )
     
     flash[:success] = 'New Realtor Created'
@@ -35,7 +36,8 @@ class RealtorsController < ApplicationController
                     faqs: params[:faqs],
                     twitter_handle: params[:twitter_handle],
                     phone_number: params[:phone_number],
-                    email: params[:email]
+                    email: params[:email],
+                    name: params[:name]
                     )
 
     flash[:success] = 'Realtor Updated'
