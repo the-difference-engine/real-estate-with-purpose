@@ -1,0 +1,2 @@
+module RetsHelper
+end

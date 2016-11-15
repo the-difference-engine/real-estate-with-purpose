@@ -11,6 +11,11 @@ gem 'figaro'
 
 gem 'faker'
 # 9/29/16 
+gem 'unirest'
+
+gem 'http-cookie'
+gem 'json'
+gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0'
