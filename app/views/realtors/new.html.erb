@@ -1,6 +1,6 @@
 <div class=container>
   <h1>Add Realtor</h1>
-  <%= form_tag 'realtors', method: :post do %>
+  <%= form_tag '/realtors', method: :post do %>
     <div>
       <%= label_tag :name %>
       <%= text_field_tag :name, @realtor.name %>

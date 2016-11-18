@@ -1,4 +1,5 @@
 class RealtorsController < ApplicationController
+
   def index
     @realtors = Realtor.all
   end
@@ -18,7 +19,7 @@ class RealtorsController < ApplicationController
                               )
     
     flash[:success] = 'New Realtor Created'
-    redirect_to '/realtors/#{@realtor.id}'
+    redirect_to "/realtors/#{@realtor.id}"
   end
 
   def show
@@ -41,7 +42,7 @@ class RealtorsController < ApplicationController
                     )
 
     flash[:success] = 'Realtor Updated'
-    redirect_to '/realtors/#{@realtor.id}'
+    redirect_to "/realtors/#{@realtor.id}"
   end
 
   def destroy
