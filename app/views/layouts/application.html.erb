@@ -2,8 +2,8 @@
 <html>
   <head>
 
-    <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -69,6 +69,9 @@
   </div><!-- /.container-fluid -->
 </nav>
 
+<div class="container">
+
+
   <div class="do-item" style="background-image: url('https://hd.unsplash.com/photo-1467385829985-2b0fb82b5193'); height: 42em; background-size: cover; background-position: center;">
   </div>
 
@@ -89,6 +92,7 @@
   <div class="alert alert-<%= name != "notice" ? name : "success" %> alert-dismissible" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><p><%= message %></p>
   </div>
+</div>
   <% end %>
       <%= yield %>
   </body>
