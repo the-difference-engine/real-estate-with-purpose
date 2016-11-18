@@ -4,4 +4,5 @@ class User < ApplicationRecord
   def est_donation_amount
     self.home_budget * 0.025 * 0.7 * 0.1
   end
+
 end
