@@ -1,5 +1,7 @@
 class RealtorsController < ApplicationController
 
+  before_action :authenticate_admin!, except: [:index, :show]
+  
   def index
     @realtors = Realtor.all
   end
