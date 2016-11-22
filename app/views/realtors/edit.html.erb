@@ -1,0 +1,38 @@
+<div class=container>
+  <h1>Edit Realtor</h1>
+  <%= form_tag "/realtors/#{@realtor.id}", method: :patch do %>
+    <div>
+      <%= label_tag :name %>
+      <%= text_field_tag :name, @realtor.name %>
+    </div>
+
+    <div>
+      <%= label_tag :bio %>
+      <%= text_field_tag :bio, @realtor.bio %>
+    </div>
+
+    <div>
+      <%= label_tag :faqs %>
+      <%= text_field_tag :faqs, @realtor.faqs %>
+    </div>
+
+    <div>
+      <%= label_tag :twitter_handle %>
+      <%= text_field_tag :twitter_handle, @realtor.twitter_handle %>
+    </div>
+
+    <div>
+      <%= label_tag :phone_number %>
+      <%= text_field_tag :phone_number, @realtor.phone_number %>
+    </div>
+
+    <div>
+      <%= label_tag :email %>
+      <%= text_field_tag :email, @realtor.email %>
+    </div>
+
+    <br>
+    <%= submit_tag "Submit" %>
+  <% end %>
+  <br>
+</div>
