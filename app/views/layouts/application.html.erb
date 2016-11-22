@@ -19,7 +19,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="/properties">Properties <span class="sr-only">(current)</span></a></li>
-        <li><a href="/properties/new">Add Property</a></li>
+        <li><a href="/properties/new">List With Us</a></li>
         <li><a href="/charities/">Charities</a></li>
         <li><a href="/realtors/">Realtors</a></li>
         <li class="dropdown">
@@ -43,6 +43,8 @@
       </form>
       <ul class="nav navbar-nav navbar-right">
       <% if current_user %>
+        <li><%= link_to 'View Profile', "/users/#{current_user.id}" %></li>
+        <li><%= link_to 'Edit Profile', "/users/#{current_user.id}/edit" %></li>
         <li><%= link_to 'Log Out', '/logout', method: :delete %></li>
       <% else %>
         <li><a href="/login">Sign In</a></li>
@@ -93,6 +95,4 @@
   <% end %>
       <%= yield %>
   </body>
-
-
 </html>

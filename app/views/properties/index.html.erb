@@ -1,120 +1,106 @@
-<h1>All Properties</h1>
+<div class=container>
+  <h1>All Properties</h1>
 
-<section>
-  <div class="row">
+  <h4>Your Home Budget: <%= number_to_currency(current_user.home_budget) %></h4>
+  <h4>Your Estimated Donation Amount: <%= number_to_currency(current_user.est_donation_amount) %></h4>
 
-  <% @properties.each do |property| %>
-    <div class="col-sm-4">
-      <div class="product_single">
-        <a href="/properties/<%= property.id %>" title="View Property"><img src="<%= property.image %>" alt="<%= property.overview %>" class="img-responsive property_single_image"></a>
-          <p>Price: <%= number_to_currency(property.list_price) %></p>
-          <p>Address: <%= property.line_1 %></p>
-          <p>Num. Bedrooms: <%= property.num_bedrooms %></p>
-          <p>Num. Bathrooms: <%= property.num_bathrooms %></p>
+  <section>
+    <div class="row">
+
+    <% @properties.each do |property| %>
+      <div class="col-sm-4">
+        <div class="product_single">
+          <a href="/properties/<%= property.id %>" title="View Property"><img src="<%= property.image %>" alt="<%= property.overview %>" class="img-responsive property_single_image"></a>
+            <p>Price: <%= number_to_currency(property.list_price) %></p>
+            <p>Address: <%= property.line_1 %></p>
+            <p>Num. Bedrooms: <%= property.num_bedrooms %></p>
+            <p>Num. Bathrooms: <%= property.num_bathrooms %></p>
+        </div>
       </div>
+
+    <% end %>
+
     </div>
+  </section>
+   <!-- Properties Grid -->
+  <div>
+          <div class="properties">
+          <div class="row">
+            <div class="col-sm-6 col-md-4">
+              <div class="thumbnail">
+                <img src="https://hd.unsplash.com/photo-1459535653751-d571815e906b">
+                <div class="text_overflow">
+                  <h3 align="center">Pilsen | Chicago </h3>
+                  <p>Beautiful 4 bedroom single family home that can be converted into duplex or 2 flat condo. asldkfj;lkjsdf . alsdkjflkjas;dlfjk.laskdjfl;kjasd. maosdr asdfkj written here damnitt! hello agin we are trying to figure this out!</p>
+                  <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                </div>
+              </div>
 
-  <% end %>
-
-  </div>
-</section>
-
-
- <!-- Properties Grid -->
-<div class = "container">
-        <div class="properties">
-        <div class="row">
-          <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-              <img src="https://hd.unsplash.com/photo-1459535653751-d571815e906b">
-              <div class >
-                <h4 align="center">Pilsen | Chicago </h4>
-                <p align="center">$385,000</p>
-                <p align="center">873 W. 18th St. 60609 </p>
-                <p align="center">4 bedrooms | 2.5 bath</p>
-                <p align="center"><a href="#" class="btn btn-info" role="button">Save</a> <a href="#" class="btn btn-default" role="button">More Info</a></p>
+            </div>
+            <div class="col-sm-6 col-md-4">
+              <div class="thumbnail">
+                <img src="https://hd.unsplash.com/photo-1464029902023-f42eba355bde">
+                <div class="caption">
+                  <h3 align="center"> River North | Chicago </h3>
+                  <p>Spacious 2 bedroom and 2 bathroom condo. This space is fully furnished and comes with free pistachios for life!</p>
+                  <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                </div>
               </div>
             </div>
-
-          </div>
-
-          <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-              <img src="https://hd.unsplash.com/photo-1464029902023-f42eba355bde">
-              <div class>
-                <h4 align="center"> River North | Chicago </h4>
-                <p align="center">$562,000</p>
-                <p align="center">515 W. Ohio St. 60607 </p>
-                <p align="center">3 bedrooms | 2 bath</p>
-                <p align="center"><a href="#" class="btn btn-info" role="button">Save</a> <a href="#" class="btn btn-default" role="button">More Info</a></p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-med-6 col-md-4">
-            <div class="thumbnail">
-              <img src="https://hd.unsplash.com/photo-1464146072230-91cabc968266">
-              <div class>
-                <h4 align="center">Evanston | IL</h4>
-                <p align="center">$720,000</p>
-                <p align="center">515 W. Green St. 60642 </p>
-                <p align="center">6 bedrooms | 7 bath</p>
-                <p align="center"><a href="#" class="btn btn-info" role="button">Save</a> <a href="#" class="btn btn-default" role="button">More Info</a></p>
+            <div class="col-med-6 col-md-4">
+              <div class="thumbnail">
+                <img src="https://hd.unsplash.com/photo-1464146072230-91cabc968266">
+                <div class="caption">
+                  <h3 align="center">Evanston | IL</h3>
+                  <p> Water, trees, space , and 4000 square feet of room to create your dream sanctuary! </p>
+                  <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <!-- End Properties Grid  -->
 
-       <!-- Properties Grid 2 -->
+        <!-- End Properties Grid -->
 
-      <div class>
-        <div class ="propertiestwo">
-        <div class="row">
-          <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-              <img src="https://hd.unsplash.com/photo-1455243732493-b877e31e0fae" alt="...">
-              <div class="caption">
-                <h4 align="center">Fulton Market | Chicago </h4>
-                <p align="center">$420,000</p>
-                <p align="center">700 Kinzie St. 60642 </p>
-                <p align="center">4 bedrooms | 3.5 bath</p>
-                <p align="center"><a href="#" class="btn btn-info" role="button">Save</a> <a href="#" class="btn btn-default" role="button">More Info</a></p>
+        <div>
+          <div class ="propertiestwo">
+          <div class="row">
+            <div class="col-sm-6 col-md-4">
+              <div class="thumbnail">
+                <img src="https://hd.unsplash.com/photo-1455243732493-b877e31e0fae" alt="...">
+                <div class="caption">
+                  <h3 align="center">Fulton Market | Chicago </h3>
+                  <p>All the way up! The view from the top floor of this building overlooks the working class neighborhoods of Chicago!</p>
+                  <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                </div>
               </div>
             </div>
-          </div>
-
-          <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-              <img src="https://hd.unsplash.com/photo-1436812911242-3d475df4bdd1" alt="...">
-              <div class="caption">
-                <h4 align="center">South Loop | Chicago </h4>
-                <p align="center">$25,000</p>
-                <p align="center">825 S. State St. 60607 </p>
-                <p align="center">2 bedrooms | 2 bath</p>
-                <p align="center"><a href="#" class="btn btn-info" role="button">Save</a> <a href="#" class="btn btn-default" role="button">More Info</a></p>
+            <div class="col-sm-6 col-md-4">
+              <div class="thumbnail">
+                <img src="https://hd.unsplash.com/photo-1436812911242-3d475df4bdd1" alt="...">
+                <div class="caption">
+                  <h3 align="center">South Loop | Chicago </h3>
+                  <p> Beautiful corner lot overlooking the Chicago skyline! Quarter mile drop down to the street! </p>
+                  <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                </div>
               </div>
             </div>
-          </div>
-
-          <div class="col-med-6 col-md-4">
-            <div class="hovereffect">
-            <div class="thumbnail">
-              <img src="https://hd.unsplash.com/photo-1430285561322-7808604715df" alt="...">
-              <div class="caption">
-                <h4 align="center">Somewhere | IL</h4>
-                <p align="center">$535,000</p>
-                <p align="center">515 W. Green St. 60600 </p>
-                <p align="center">6 bedrooms | 4 bath</p>
-                <p align="center"><a href="#" class="btn btn-info" role="button">Save</a> <a href="#" class="btn btn-default" role="button">More Info</a></p>
+            <div class="col-med-6 col-md-4">
+              <div class="thumbnail">
+                <img src="https://hd.unsplash.com/photo-1430285561322-7808604715df" alt="...">
+                <div class="caption">
+                  <h3 align="center">Somewhere | IL</h3>
+                  <p> Duplex home! Quiet neighborhood located in a gated community. Turn up! </p>
+                  <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                </div>
               </div>
             </div>
             </div>
           </div>
         </div>
-      </div>
- <!-- End Properties Grid -->
 
-  </body>
-</html>
+    </body>
+  </html>
+
+   <!-- End Properties Grid -->
+</div>
