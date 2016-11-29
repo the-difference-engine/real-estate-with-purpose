@@ -9,6 +9,7 @@ class AddUsers < ActiveRecord::Migration[5.0]
       t.float :home_budget, default: 0.0
 
       t.timestamps
+      
     end
   end
 end
