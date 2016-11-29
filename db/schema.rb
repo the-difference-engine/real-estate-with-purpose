@@ -85,9 +85,9 @@ ActiveRecord::Schema.define(version: 20161108023111) do
   end
 
   create_table "sellers", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+   t.string   "name"
+   t.datetime "created_at", null: false
+   t.datetime "updated_at", null: false
   end
 
   create_table "testimonials", force: :cascade do |t|
@@ -102,9 +102,9 @@ ActiveRecord::Schema.define(version: 20161108023111) do
     t.string   "last_name"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-    t.boolean  "admin"
+    t.boolean  "admin",           default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.float    "home_budget",     default: 0.0
   end
 
