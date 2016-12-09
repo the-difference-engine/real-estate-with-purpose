@@ -1,4 +1,7 @@
 class RealtorsController < ApplicationController
+
+  before_action :authenticate_admin!, except: [:index, :show]
+  
   def index
     @realtors = Realtor.all
   end
@@ -13,11 +16,12 @@ class RealtorsController < ApplicationController
                               faqs: params[:faqs],
                               twitter_handle: params[:twitter_handle],
                               phone_number: params[:phone_number],
-                              email: params[:email]
+                              email: params[:email],
+                              name: params[:name]
                               )
     
     flash[:success] = 'New Realtor Created'
-    redirect_to '/realtors/#{@realtor.id}'
+    redirect_to "/realtors/#{@realtor.id}"
   end
 
   def show
@@ -35,11 +39,12 @@ class RealtorsController < ApplicationController
                     faqs: params[:faqs],
                     twitter_handle: params[:twitter_handle],
                     phone_number: params[:phone_number],
-                    email: params[:email]
+                    email: params[:email],
+                    name: params[:name]
                     )
 
     flash[:success] = 'Realtor Updated'
-    redirect_to '/realtors/#{@realtor.id}'
+    redirect_to "/realtors/#{@realtor.id}"
   end
 
   def destroy

@@ -1,5 +1,10 @@
-<h1>All Properties</h1>
+<div class=container>
+  <h1>All Properties</h1>
 
+
+  <% if current_user %>
+<h4>Your Home Budget: <%= number_to_currency(current_user.home_budget) %></h4><h4>Your Estimated Donation Amount: <%= number_to_currency(current_user.est_donation_amount) %></h4>
+<% end %>
 
  <!-- Properties Grid -->
 <div class = "container">
@@ -21,9 +26,14 @@
           </div>
           <% end %>
 
-        </div>
-      </div>
- <!-- End Properties Grid -->
+   <!-- Properties Grid -->
+  
+          </div>
 
-  </body>
-</html>
+        </div>
+
+    </body>
+  </html>
+
+   <!-- End Properties Grid -->
+</div>
