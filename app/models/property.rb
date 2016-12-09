@@ -62,6 +62,7 @@ class Property < ApplicationRecord
   end
 
   def bath_and_half_bath
+    # Getting the pluralization right
     baths = num_bathrooms.split(".")
     if baths[0] == '1' 
       full_bath = "bath"
