@@ -84,6 +84,12 @@ ActiveRecord::Schema.define(version: 20161209004643) do
     t.string   "name"
   end
 
+  create_table "sellers", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "testimonials", force: :cascade do |t|
     t.string   "quote"
     t.string   "customer"

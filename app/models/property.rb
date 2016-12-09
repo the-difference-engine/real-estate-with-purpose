@@ -44,8 +44,6 @@ class Property < ApplicationRecord
     final_array.each do |listing|
       address_lines = []
       indeces = listing.length - 1
-      p listing[4]
-      p listing[indeces]
       for i in 4..indeces
         address_lines << listing[i]
       end
