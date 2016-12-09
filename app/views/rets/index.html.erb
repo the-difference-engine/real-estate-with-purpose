@@ -1,0 +1,16 @@
+<%= @finalArray.each do |stuff| %>
+  <% indeces = stuff.length - 2 %>
+  <% address = [] %>
+  <% for i in 4..indeces %>
+   <% address << stuff[i] %>
+  <% end %>
+  <h1>Listing price: <%= number_to_currency(stuff[3]) %></h1>
+  <h1>Address: <%= stuff.last %> <%  address.each do |piece| %>
+      <%= piece %>
+    <% end %>
+  </h1>
+  <% baths = stuff[0].split(".") %>
+  <h3>Bedrooms: <%= stuff[1] %></h3>
+  <h3>Bathrooms: <%= baths[0] %> Full<% if baths[1] %>, <%= baths[1] %> Half <% end %></h3>
+  <br>
+<% end %>

@@ -1,0 +1,29 @@
+<h1>All Properties</h1>
+
+
+ <!-- Properties Grid -->
+<div class = "container">
+        <div class="properties">
+        <div class="row">
+        <% @properties.each do |property| %>
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <img src="https://hd.unsplash.com/photo-1459535653751-d571815e906b">
+              <div class >
+              <h4 align="center"> <%= property.city %> | <%= property.state %> </h4>
+              <p align="center"><%= number_to_currency(property.list_price) %></p>
+              <p align="center"><%= property.line_1 %> </p>
+              <p align="center"><%= property.num_bedrooms %> beds | <%= property.bath_and_half_bath %></p>
+                <p align="center"><a href="#" class="btn btn-info" role="button">Save</a> <a href="#" class="btn btn-default" role="button">More Info</a></p>
+              </div>
+            </div>
+        
+          </div>
+          <% end %>
+
+        </div>
+      </div>
+ <!-- End Properties Grid -->
+
+  </body>
+</html>
