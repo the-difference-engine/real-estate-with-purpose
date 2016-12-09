@@ -76,4 +76,8 @@ Rails.application.routes.draw do
   get '/users/:id/edit' => 'users#edit'
   patch '/users/:id' => 'users#update'
   delete '/users/:id' => 'users#destroy'
+
+  #rets routes
+  get '/rets' => 'rets#index'
+  
 end
