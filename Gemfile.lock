@@ -38,14 +38,11 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-<<<<<<< HEAD
     addressable (2.3.8)
     arel (7.1.1)
     autoprefixer-rails (6.3.6)
-=======
     arel (7.1.4)
     autoprefixer-rails (6.5.3)
->>>>>>> c3067f621833f9e47faa75d5b796e903d9c94022
       execjs
     bcrypt (3.1.11)
     bootstrap-sass (3.3.7)
@@ -145,13 +142,10 @@ GEM
     rb-fsevent (0.9.8)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
-<<<<<<< HEAD
     rest-client (1.6.7)
       mime-types (>= 1.16)
     rspec-core (3.5.2)
-=======
     rspec-core (3.5.4)
->>>>>>> c3067f621833f9e47faa75d5b796e903d9c94022
       rspec-support (~> 3.5.0)
     rspec-expectations (3.5.0)
       diff-lcs (>= 1.2.0, < 2.0)

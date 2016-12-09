@@ -102,16 +102,13 @@ ActiveRecord::Schema.define(version: 20161108023111) do
     t.string   "last_name"
     t.string   "email"
     t.string   "password_digest"
-<<<<<<< HEAD
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.boolean  "admin",           default: false
-=======
     t.boolean  "admin",           default: false
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.float    "home_budget",     default: 0.0
->>>>>>> c3067f621833f9e47faa75d5b796e903d9c94022
   end
 
 end
