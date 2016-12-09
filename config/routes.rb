@@ -79,4 +79,5 @@ Rails.application.routes.draw do
 
   #rets routes
   get '/rets' => 'rets#index'
+  
 end

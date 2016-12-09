@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161108023111) do
+ActiveRecord::Schema.define(version: 20161209004643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20161108023111) do
 
   create_table "properties", force: :cascade do |t|
     t.integer  "num_bedrooms"
-    t.integer  "num_bathrooms"
+    t.string   "num_bathrooms"
     t.float    "list_price"
     t.string   "image"
     t.text     "overview"
@@ -84,12 +84,6 @@ ActiveRecord::Schema.define(version: 20161108023111) do
     t.string   "name"
   end
 
-  create_table "sellers", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "testimonials", force: :cascade do |t|
     t.string   "quote"
     t.string   "customer"
@@ -102,9 +96,10 @@ ActiveRecord::Schema.define(version: 20161108023111) do
     t.string   "last_name"
     t.string   "email"
     t.string   "password_digest"
+    t.boolean  "admin",           default: false
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
-    t.boolean  "admin",           default: false
+    t.float    "home_budget",     default: 0.0
   end
 
 end
