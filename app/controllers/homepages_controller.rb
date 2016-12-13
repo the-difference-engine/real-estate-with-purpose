@@ -3,4 +3,9 @@ class HomepagesController < ApplicationController
     @donations = Donation.all
     @donation = Donation.first
   end
+
+  def listwithus
+    
+  end
+
 end
