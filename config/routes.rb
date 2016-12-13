@@ -4,6 +4,7 @@ Rails.application.routes.draw do
    
  #homepage route
   get '/homepages' => 'homepages#index'
+  get '/listwithus' => 'homepages#listwithus'
 
    #property routes
   get '/properties' => 'properties#index'

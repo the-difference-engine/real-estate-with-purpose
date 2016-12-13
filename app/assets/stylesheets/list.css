@@ -1,0 +1,73 @@
+#intro {
+  position: relative;
+  height: 200px;
+  width: 75%;
+  left: 10%;
+  border: solid;
+  background: grey;
+  margin: 10px;
+}
+
+#process {
+  position: relative;
+  height: 500px;
+  width: 75%;
+  left: 10%;
+  border:solid black;
+  margin: 10px;
+}
+
+.step {
+  width: 13%;
+  background-color: #d9e3f7;
+}
+
+.step:hover {
+  background-color: blue;
+}
+
+.step:hover:after {
+  background-color: blue;
+}
+
+.arrow-steps .step {
+  font-size: 14px;
+  text-align: center;
+  color: #666;
+  cursor: default;
+  margin: 0 3px;
+  padding: 10px 10px 10px 30px;
+  float: left;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; 
+  transition: background-color 0.2s ease;
+}
+
+.current {
+  background-color: green;
+}
+
+.content {
+  position: relative;
+  width: 100%;
+  top: 15%;
+}
+
+.step-content {
+  display: inline-block;
+}
+
+#step-description {
+  position: relative;
+  left: 5%;
+  width: 50%;
+}
+
+#step-image img {
+  position: relative;
+  height: 200px;
+}
+
