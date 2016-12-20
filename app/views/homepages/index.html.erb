@@ -1,3 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <script>
+     function myFunction() {
+       var initial = document.getElementById('budget').value;
+       var donation = ((parseFloat(initial) * .025 * .70  * .10).toFixed(2));
+       var textbox = document.getElementById('textbox');
+       textbox.value = donation;
+     }
+  </script>
+  </head>
+
 <div class="container">
   <h2> About Real Estate With Purpose</h2>
   <h4>Real Estate represents more than a financial transaction for four walls and a roof - it is an investment and personal commitment to Chicago's neighborhood and the surrounding community. To that end, 10% of my commission goes to reinvest in the community through the local charity and organization of my clients choice.
@@ -5,10 +18,19 @@
 </div>
 
 <div class="container">
-  <h2> Donation Metrics </h2>
+  <h2> Donation Calculator </h2>
   <h3> Total amount donated </h3>
+  <br>
+
+    <div class ="input-group-dc">
+      <span class="input-group-addon">Enter your budget: $</span>
+      <input type="text" class="form-control" id="budget" onchange="myFunction()">
+      <span class="input-group-addon">See your donation amount! (USD)</span> 
+      <input type="text" class="form-control" name="textbox" id="textbox" readonly="true">
+     </div>
+
   <p>
-    <% if @donations %>
+      <% if @donations %>
       <% @donations.each do |donation| %>
       Charity: <%= donation.charity.name %>
   <br>
@@ -18,7 +40,6 @@
       0 Donations
     <% end %>
   </p>
-  <br>
   <h3> Number of charities donated to </h3>
   <%= @donations.count %>
   <br>
@@ -28,4 +49,5 @@
     <% else %>
       0 dollars donated
     <% end %>
+
 </div>
