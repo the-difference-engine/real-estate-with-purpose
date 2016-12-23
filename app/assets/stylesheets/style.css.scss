@@ -1,3 +1,7 @@
+.top {
+  
+}
+
 .logo {
   width: 30px;
   height: 29px;
@@ -9,6 +13,22 @@
 }
 
 .navbar-fixed-top { border:0; }
+
+.hero-image {
+  background-image: image-url('real-estate-1689980_1920.jpg');
+  height: 42em;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+}
+
+.box-image {
+            position: absolute;
+            top: 30%;
+            left: 30%;
+            background: rgba(0, 0, 0, .7);
+            padding: 2em;
+}
 
 .product_single{
   display: flex;
