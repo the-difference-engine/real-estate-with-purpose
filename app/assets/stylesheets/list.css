@@ -14,6 +14,7 @@
   left: 10%;
   border:solid black;
   margin: 10px;
+  transition: div 0.7s ease;
 }
 
 .arrow-steps {
@@ -22,7 +23,6 @@
 }
 
 .step {
-/*  width: 13%;*/
   background-color: #d9e3f7;
   flex: 1;
   display: flex;
@@ -37,15 +37,11 @@
   font-size: 14px;
   text-align: center;
   color: #666;
-  cursor: default;
+  cursor: pointer;
   margin: 5px 3px;
   padding: 10px 10px 10px 30px;
   float: left;
   position: relative;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none; 
   transition: flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11);
 }
 .step:hover {
@@ -64,11 +60,20 @@
   color: black;
 }
 
-#content {
+#all-content {
+  transition: opacity .5s ease-in-out;
+}
+
+.content-active {
   position: relative;
   width: 100%;
   top: 15%;
   display: flex;
+  
+}
+
+.content-inactive {
+  display: none;
 }
 
 .step-content {
@@ -84,14 +89,20 @@
   text-align: center;
 }
 
-/*.step-image {
-  text-align: center;
-}*/
+
 .step-image img {
   position: relative;
   height: 200px;
   display: block;
   margin-left: auto;
   margin-right: auto;
+  border-radius: 5%;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
+
+
+
+
 
