@@ -60,16 +60,11 @@
   color: black;
 }
 
-#all-content {
-  transition: opacity .5s ease-in-out;
-}
-
 .content-active {
   position: relative;
   width: 100%;
   top: 15%;
   display: flex;
-  
 }
 
 .content-inactive {
@@ -80,6 +75,8 @@
   flex: 1;
   display: flex;
   padding-bottom: 20px;
+  transition: opacity .5s ease-in-out;
+  opacity: 0;
 }
 
 .step-description {

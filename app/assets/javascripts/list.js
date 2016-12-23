@@ -8,16 +8,27 @@ $(document).ready(function() {
 
   function changeStep() {
     var id = this.id;
+    var currentDescription = document.querySelector(`.${current}`);
+    var newDescription = document.querySelector(`.${id}`);
+
 
     // Change the color of the current arrow step
     document.querySelector(`#${current}`).classList.remove('current');
     document.querySelector(`#${id}`).classList.add('current');
 
-    // Change the step descriptoin content
-    document.querySelector(`.${current}`).classList.remove('content-active');
-    document.querySelector(`.${current}`).classList.add('content-inactive');
-    document.querySelector(`.${id}`).classList.remove('content-inactive');
-    document.querySelector(`.${id}`).classList.add('content-active');
+    // Animate?
+
+    setTimeout(function() {
+      currentDescription.querySelectorAll('.step-content').forEach(div => div.style.opacity = 0);
+      newDescription.querySelectorAll('.step-content').forEach(div => div.style.opacity = 1);
+    }, 250);
+
+    // Change the step description content
+    currentDescription.classList.remove('content-active');
+    currentDescription.classList.add('content-inactive');
+    newDescription.classList.remove('content-inactive');
+    newDescription.classList.add('content-active');
+
     current = id;
   }
 
