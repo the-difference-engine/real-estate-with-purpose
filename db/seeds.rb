@@ -18,10 +18,29 @@ Property.create!([
   ])
 
 Charity.create!([
-  {name: "Charity numero uno", logo: "http://clipartsign.com/upload/2016/01/27/happy-face-clip-art-dr-odd.jpg", description: "Charity numero uno loves to create smiley faces"},
-  {name: "Charity numero dos", logo: "http://clipartix.com/wp-content/uploads/2016/06/Free-sad-face-clip-art-image-8-7.jpeg", description: "Charity numero dos loves to create frowny faces"},
-  {name: "Charity numero three", logo: "http://www.clker.com/cliparts/u/O/o/a/8/z/smiley-face-md.png", description: "Charity numero dos loves to create unsure faces"},
-  ])
+  {name: "WTTW", logo: "http://realestatewithpurpose.co/wp-content/uploads/2015/03/REWP_Partners_WTTW11.jpg", description: "Wonderful charity"},
+  {name: "Tree House Humane Society", logo: "http://realestatewithpurpose.co/wp-content/uploads/2015/03/REWP_Partners_Tree-House-Humane-Society.jpg", description: "Great Charity"},
+  {name: "Rise International", logo: "http://realestatewithpurpose.co/wp-content/uploads/2015/03/REWP_Partners_Rise-International.jpg", description: "Fantastic Charity"},
+  {name: "Minds Matter", logo: "http://realestatewithpurpose.co/wp-content/uploads/2015/03/REWP_Partners_Minds-Matter.jpg", description: "Great Charity"},
+  {name: "Make a Wish Foundation", logo: "http://realestatewithpurpose.co/wp-content/uploads/2015/03/REWP_Partners_MakeAWish.jpg", description: "Great Charity"},
+  {name: "Literacy Volunteers of Illinois", logo: "http://realestatewithpurpose.co/wp-content/uploads/2015/03/REWP_Partners_LVI1.jpg", description: "Fantastic Charity"},
+  {name: "Lilac Tree Evanston", logo: "http://realestatewithpurpose.co/wp-content/uploads/2015/03/REWP_Partners_Lilac-Tree.jpg", description: "Great Charity"},
+  {name: "Susan G. Komen", logo: "http://realestatewithpurpose.co/wp-content/uploads/2015/03/REWP_Partners_Susan-G-Komen.jpg", description: "Great Charity"},
+  {name: "Jellystone Bark", logo: "http://realestatewithpurpose.co/wp-content/uploads/2015/05/REWP_Partners_JellystoneBark.jpg", description: "Fantastic Charity"},
+  {name: "IWSE", logo: "http://realestatewithpurpose.co/wp-content/uploads/2015/03/REWP_Partners_IWSE.jpg", description: "Infant Welfare Society of Evanston"},
+  {name: "Foundation for Womens Cancer", logo: "http://realestatewithpurpose.co/wp-content/uploads/2015/03/REWP_Partners_Foundation-for-Womens-Cancer.jpg", description: "Great Charity"},
+  {name: "Evanston Animal Shelter", logo: "http://realestatewithpurpose.co/wp-content/uploads/2015/03/REWP_Partners_Evanston-Animal-Shelter.jpg", description: "Fantastic Charity"},
+  {name: "Chicago Childrens Charities", logo: "http://realestatewithpurpose.co/wp-content/uploads/2015/03/REWP_Partners_Chicago-Childrens-Charities.jpg", description: "Great Charity"},
+  {name: "Wright Way Rescue", logo: "http://realestatewithpurpose.co/wp-content/uploads/2015/03/REWP_Partners_Wright-Way-Rescue.jpg", description: "Great Charity"},
+  {name: "Katie Samsel Fund", logo: "http://realestatewithpurpose.co/wp-content/uploads/2015/03/REWP_Partners_CCSD21_Katie-Samsel-Fund.jpg", description: "Community Consolidated Schools District 21"},        
+  {name: "Camp Minikani", logo: "http://realestatewithpurpose.co/wp-content/uploads/2015/03/REWP_Partners_Camp-Minikani.jpg", description: "Wonderful charity"},
+  {name: "Association House of Chicago", logo: "http://realestatewithpurpose.co/wp-content/uploads/2015/03/REWP_Partners_Association-House.jpg", description: "Wonderful charity"},
+  {name: "Anti-Cruelty Society", logo: "http://realestatewithpurpose.co/wp-content/uploads/2015/03/REWP_Partners_AntiCrueltySociety_1.jpg", description: "Wonderful charity"},
+  {name: "Ann Robert H. Lurie Childrens Hospital of Chicago", logo: "http://realestatewithpurpose.co/wp-content/uploads/2015/03/REWP_Partners_AnnRobertLurie.jpg", description: "Wonderful charity"},
+  {name: "American Cancer Society", logo: "http://realestatewithpurpose.co/wp-content/uploads/2015/03/REWP_Partners_American-Cancer-Society1.jpg", description: "Wonderful charity"},      
+  {name: "American Brain Tumor Association", logo: "http://realestatewithpurpose.co/wp-content/uploads/2015/03/REWP_Partners_American-Brain-Tumor-Assoc.jpg", description: "Wonderful charity"},
+  {name: "Alzheimers Association", logo: "http://realestatewithpurpose.co/wp-content/uploads/2015/03/REWP_Partners_Alzheimers-Association.jpg", description: "Wonderful charity"},    
+    ])
 
 
 
