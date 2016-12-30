@@ -12,11 +12,20 @@
     </div>
   </div>
 
-    <% @charities.each do |charity| %>
-      <a href="/charities/<%= charity.id %>" title="View Charity"><img src="<%= charity.logo %>" alt="<%= charity.description %>" class="img-responsive charity_single_image"></a>
-      <p>Name: <%= charity.name %></p>
-      <p>Description: <%= charity.description %></p>
-    <% end %>
+  <% @charities.each_slice(4) do |three_charities| %>
+    <div class ="row">
+      <% three_charities.each do |charity| %>
+      <div class ="col-md-3">
+        <div class ="well">  
+          <a href="/charities/<%= charity.id %>" title="View Charity"><img src="<%= charity.logo %>" alt="<%= charity.description %>" class="img-responsive charity_single_image"></a>
+          <br>
+          <p>Name: <%= charity.name %></p>
+          <p>Description: <%= charity.description %></p>
+        </div> 
+      </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>
 
     

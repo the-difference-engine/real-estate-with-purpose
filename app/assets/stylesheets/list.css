@@ -1,0 +1,105 @@
+#intro {
+  position: relative;
+  height: 200px;
+  width: 75%;
+  left: 10%;
+  border: solid;
+  background: grey;
+  margin: 10px;
+}
+
+#process {
+  position: relative;
+  width: 75%;
+  left: 10%;
+  border:solid black;
+  margin: 10px;
+  transition: div 0.7s ease;
+}
+
+.arrow-steps {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.step {
+  background-color: #d9e3f7;
+  flex: 1;
+  display: flex;
+}
+
+
+.step:hover:after {
+  background-color: blue;
+}
+
+.step {
+  font-size: 14px;
+  text-align: center;
+  color: #666;
+  cursor: pointer;
+  margin: 5px 3px;
+  padding: 10px 10px 10px 30px;
+  float: left;
+  position: relative;
+  transition: flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11);
+}
+.step:hover {
+  background-color: black;
+  color: white;
+}
+
+.current {
+  background-color: green;
+  color: white;
+  flex: 3;
+}
+
+.current:hover {
+  background-color: #55db57;
+  color: black;
+}
+
+.content-active {
+  position: relative;
+  width: 100%;
+  top: 15%;
+  display: flex;
+}
+
+.content-inactive {
+  display: none;
+}
+
+.step-content {
+  flex: 1;
+  display: flex;
+  padding-bottom: 20px;
+  transition: opacity .5s ease-in-out;
+  opacity: 0;
+}
+
+.step-description {
+  position: relative;
+  display: block;
+  padding-left: 10px;
+  text-align: center;
+}
+
+
+.step-image img {
+  position: relative;
+  height: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5%;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
+
+
+
