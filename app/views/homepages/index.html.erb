@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <script>
-     function myFunction() {
-       var initial = document.getElementById('budget').value;
-       var donation = ((parseFloat(initial) * .025 * .70  * .10).toFixed(2));
-       var textbox = document.getElementById('textbox');
-       textbox.value = donation;
-     }
-  </script>
   </head>
 
 <div class="container">
@@ -24,7 +16,7 @@
 
     <div class ="input-group-dc">
       <span class="input-group-addon">Enter your budget: $</span>
-      <input type="text" class="form-control" id="budget" onchange="myFunction()">
+      <input type="text" class="form-control" id="budget">
       <span class="input-group-addon">See your donation amount! (USD)</span> 
       <input type="text" class="form-control" name="textbox" id="textbox" readonly="true">
      </div>
