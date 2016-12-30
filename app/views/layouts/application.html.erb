@@ -1,14 +1,169 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RealEstateWithPurpose</title>
-    <%= csrf_meta_tags %>
+    <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+      
+        <%= link_to image_tag('/images/mansion.svg', :class => 'navbar-brand'), "/homepages" %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/homepages">Real Estate With Purpose</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/properties/">Find Your Home<span class="sr-only">(current)</span></a></li>
+          <li><a href="#">List With Us</a></li>
+          <li><a href="#">Company</a></li>
+          <li><a href="/charities/">Charities</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">REwP Investor</a></li>
+        </ul>
+        <!-- <form class="navbar-form navbar-left">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form> -->
+        <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+          <li><%= link_to 'Log Out', '/logout', method: :delete %></li>
+        <% else %>
+          <li><a href="/login">Sign In</a></li>
+          <li><a href="/signup">Sign Up</a></li>
+        <% end %>
+
+        <% if current_user && current_user.admin %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin Privileges<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="/properties/new">Add a new property</a></li>
+              <li><a href="/charities/new">Add a new charity</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="/users">View all users</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Something else here</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+            </ul>
+          </li>
+        <% end %>
+
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+<div class="hero-image">
+  <div class="box-image">
+    <h3 style="color: white;">
+      If you could
+    </h3> 
+    <h1 style="color: white;">
+      <%= link_to "BUY", "/properties" %> or  <%= link_to "SELL", "/properties" %>
+    </h1>
+    <h3 style="color: white;">
+      while helping your community, would you?
+    </h3>
+  </div>
+</div>
+   <!--  <div class="do-item" style="background-image: url("<%= image_tag('/images/real-estate-1689980_1920.jpg') %>"); height: 42em; background-size: cover; background-position: center;">
+    </div> -->
+
+      <title>RealEstateWithPurpose</title>
+      <%= csrf_meta_tags %>
+
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
   </head>
 
-  <body>
-    <%= yield %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+  <body class="Site">
+
+  <% flash.each do |name, message| %>
+    <div class="alert alert-<%= name != "notice" ? name : "success" %> alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><p><%= message %></p>
+    </div>
+  <% end %>
+      <%= yield %>
+  </body>
+
+  <br>
+
+    <!----------- Footer ------------>
+      <div class="container">
+      <section style="height:40px;"></section>
+
+
+        <footer class="footer-bs">
+            <div class="row">
+              <div class="col-md-3 footer-brand animated fadeInLeft">
+                <h2>Site Map</h2>
+                  <p>Suspendisse hendrerit tellus laoreet luctus pharetra. Aliquam porttitor vitae orci nec ultricies. Curabitur vehicula, libero eget faucibus faucibus, purus erat eleifend enim, porta pellentesque ex mi ut sem.</p>
+                  <p>© 2016 Bootstrap REwP UI Kit</p>
+              </div>
+
+            <div class="col-md-4 footer-nav animated fadeInUp">
+                <ul class="pages">
+                    <li><h4>Contact Us</h4></li>
+
+                    <li> <%= link_to image_tag('/images/facebook.svg', :class => 'logo' ), "https://www.facebook.com/realestatewithpurpose" %> 
+                      <%= link_to image_tag('/images/pinterest.svg', :class => 'logo'), "https://www.pinterest.com/evanstonrealtor/" %> 
+                      <%= link_to image_tag('/images/linked_in.svg', :class => 'logo' ), "https://www.linkedin.com/in/natalie-smith-91a17627" %> 
+                      <%= link_to image_tag('/images/googleplus.svg', :class => 'logo'), "https://plus.google.com/+RealestatewithpurposeCo" %> </li>
+          
+                    <li><a href="#">Address</a></li>
+                    <li><a href="#">Phone: (773) 451-6196</a></li>
+                    <li><a href="#">Email: nataliesmith@atproperties.com</a></li>
+                    <li><a href="#">Office Hours: By Appointment Only</a></li>
+                </ul>
+          </div>
+        </div>
+          <div class="col-md-3 footer-ns animated fadeInRight">
+            <h4>Newsletter</h4>
+              <p>A fuzzy suit doesn’t alarm the real penguins</p>
+              <p>
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Search for...">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-envelope"></span></button>
+                  </span>
+                </div>
+              </p>
+          </div>
+        </div>
+    </footer>
+  <section style="text-align:center; margin:20px auto;"></section>
+  </div> 
+</html>
+
+            </div>
+              <div class="col-md-3 footer-ns animated fadeInRight">
+                <h4>Newsletter</h4>
+                  <p>A fuzzy suit doesn’t alarm the real penguins</p>
+                  <p>
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="Search for...">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-envelope"></span></button>
+                      </span>
+                    </div>
+                  </p>
+              </div>
+            </div>
+        </footer>
+      <section style="text-align:center; margin:20px auto;"></section>
+      </div>
   </body>
 </html>
