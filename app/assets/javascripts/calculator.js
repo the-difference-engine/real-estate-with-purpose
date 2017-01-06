@@ -12,7 +12,10 @@
      textbox.value = donation;
    }
 
-   budgetInput.addEventListener('input', calculateDonation, false);
+  if(budgetInput) {
+    budgetInput.addEventListener('input', calculateDonation, false);
+  };
+
  });
 }(jQuery));
 
