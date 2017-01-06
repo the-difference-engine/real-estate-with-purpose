@@ -9,7 +9,6 @@ class BuyersController < ApplicationController
 
   def create
     @buyer = Buyer.create(name: params[:name])
-
     flash[:success] = "New Buyer Created"
     redirect_to '/buyers/#{@buyer.id}'
   end
@@ -25,7 +24,6 @@ class BuyersController < ApplicationController
   def update
     @buyer = Buyer.find_by(id: params[:id])
     @buyer.update(name: params[:name])
-
     flash[:success] = 'Buyer Updated'
     redirect_to '/buyers/#{@buyer.id}'
   end
@@ -33,7 +31,6 @@ class BuyersController < ApplicationController
   def destroy
     @buyer = Buyer.find_by(id: params[:id])
     @buyer.destroy
-
     flash[:warning] = "Destroyed!"
     redirect_to "/"
   end

@@ -11,11 +11,11 @@ class CharitiesController < ApplicationController
   end
 
   def create
-    @charity = Charity.create(name: params[:name],
-                              logo: params[:logo],
-                              description: params[:description]
-                              )
-
+    @charity = Charity.create(
+      name: params[:name],
+      logo: params[:logo],
+      description: params[:description]
+      )
     flash[:success] = 'Charity Created'
     redirect_to '/charities/#{@charity.id}'
   end
@@ -30,11 +30,11 @@ class CharitiesController < ApplicationController
 
   def update
     @charity = Charity.find_by(id: params[:id])
-    @charity.update(name: params[:name],
-                    logo: params[:logo],
-                    description: params[:description]
-                    )
-
+    @charity.update(
+      name: params[:name],
+      logo: params[:logo],
+      description: params[:description]
+      )
     flash[:success] = "Charity Updated"
     redirect_to '/charities/#{@charity.id}'
   end

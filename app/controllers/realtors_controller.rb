@@ -11,15 +11,15 @@ class RealtorsController < ApplicationController
   end
 
   def create
-    @realtor = Realtor.create(headshot: params[:headshot],
-                              bio: params[:bio],
-                              faqs: params[:faqs],
-                              twitter_handle: params[:twitter_handle],
-                              phone_number: params[:phone_number],
-                              email: params[:email],
-                              name: params[:name]
-                              )
-    
+    @realtor = Realtor.create(
+      headshot: params[:headshot],
+      bio: params[:bio],
+      faqs: params[:faqs],
+      twitter_handle: params[:twitter_handle],
+      phone_number: params[:phone_number],
+      email: params[:email],
+      name: params[:name]
+      )
     flash[:success] = 'New Realtor Created'
     redirect_to "/realtors/#{@realtor.id}"
   end
@@ -34,15 +34,15 @@ class RealtorsController < ApplicationController
 
   def update
     @realtor = Realtor.find_by(id: params[:id])
-    @realtor.update(headshot: params[:headshot],
-                    bio: params[:bio],
-                    faqs: params[:faqs],
-                    twitter_handle: params[:twitter_handle],
-                    phone_number: params[:phone_number],
-                    email: params[:email],
-                    name: params[:name]
-                    )
-
+    @realtor.update(
+      headshot: params[:headshot],
+      bio: params[:bio],
+      faqs: params[:faqs],
+      twitter_handle: params[:twitter_handle],
+      phone_number: params[:phone_number],
+      email: params[:email],
+      name: params[:name]
+      )
     flash[:success] = 'Realtor Updated'
     redirect_to "/realtors/#{@realtor.id}"
   end
