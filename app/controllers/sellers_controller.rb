@@ -9,7 +9,6 @@ class SellersController < ApplicationController
 
   def create
     @seller = Seller.create(name: params[:name])
-
     flash[:success] = 'New Seller Created'
     redirect_to '/sellers/#{@seller.id}'
   end
@@ -25,7 +24,6 @@ class SellersController < ApplicationController
   def update
     @seller = Seller.find_by(id: params[:id])
     @seller.update(name: params[:name])
-
     flash[:success] = 'Seller Updated'
     redirect_to '/sellers/#{@seller.id}'
   end
@@ -33,7 +31,6 @@ class SellersController < ApplicationController
   def destroy
     @seller = Seller.find_by(id: params[:id])
     @seller.destroy
-
     flash[:warning] = "Destroyed!"
     redirect_to "/"
   end
