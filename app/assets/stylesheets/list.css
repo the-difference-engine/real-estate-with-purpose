@@ -1,20 +1,11 @@
-#intro {
-  position: relative;
-  height: 200px;
-  width: 75%;
-  left: 10%;
-  border: solid;
-  background: grey;
-  margin: 10px;
-}
-
-#process {
+.list-content {
   position: relative;
   width: 75%;
   left: 10%;
-  border:solid black;
+  background: #F2F2F2;
   margin: 10px;
-  transition: div 0.7s ease;
+  box-shadow: 5px 5px 5px #888888;
+  padding: 10px;
 }
 
 .arrow-steps {
@@ -22,11 +13,11 @@
   margin-bottom: 20px;
 }
 
-.step {
+/*.step {
   background-color: #d9e3f7;
   flex: 1;
   display: flex;
-}
+}*/
 
 
 .step:hover:after {
@@ -34,6 +25,9 @@
 }
 
 .step {
+  background-color: #d9e3f7;
+  flex: 1;
+  display: flex;
   font-size: 14px;
   text-align: center;
   color: #666;
@@ -97,6 +91,10 @@
   position: relative;
   top: 50%;
   transform: translateY(-50%);
+}
+
+#list-title {
+  margin: 10px;
 }
 
 
