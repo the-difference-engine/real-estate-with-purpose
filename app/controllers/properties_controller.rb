@@ -11,20 +11,20 @@ class PropertiesController < ApplicationController
   end
 
   def create
-    @property = Property.create(num_bedrooms: params[:num_bedrooms],
-                              num_bathrooms: params[:num_bathrooms],
-                              list_price: params[:list_price],
-                              image: params[:image],
-                              overview: params[:overview],
-                              details: params[:details],
-                              misc_details: params[:misc_details],
-                              line_1: params[:line_1],
-                              api_address: params[:api_address],
-                              city: params[:api],
-                              state: params[:state],
-                              zip: params[:zip]
-                              )
-    
+    @property = Property.create(
+      num_bedrooms: params[:num_bedrooms],
+      num_bathrooms: params[:num_bathrooms],
+      list_price: params[:list_price],
+      image: params[:image],
+      overview: params[:overview],
+      details: params[:details],
+      misc_details: params[:misc_details],
+      line_1: params[:line_1],
+      api_address: params[:api_address],
+      city: params[:api],
+      state: params[:state],
+      zip: params[:zip]
+      )
     flash[:success] = 'New Property Created'
     redirect_to "/properties/#{@property.id}"
   end
@@ -42,15 +42,15 @@ class PropertiesController < ApplicationController
 
   def update
     @property = Property.find_by(id: params[:id])
-    @property.update(num_bedrooms: params[:num_bedrooms],
-                    num_bathrooms: params[:num_bathrooms],
-                    list_price: params[:list_price],
-                    image: params[:image],
-                    overview: params[:overview],
-                    details: params[:details],
-                    misc_details: params[:misc_details]
-                    )
-
+    @property.update(
+      num_bedrooms: params[:num_bedrooms],
+      num_bathrooms: params[:num_bathrooms],
+      list_price: params[:list_price],
+      image: params[:image],
+      overview: params[:overview],
+      details: params[:details],
+      misc_details: params[:misc_details]
+      )
     flash[:success] = 'Property Updated'
     redirect_to "/properties/#{@property.id}"
   end
