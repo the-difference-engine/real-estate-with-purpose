@@ -43,11 +43,11 @@ class UsersController < ApplicationController
   def update
     @user = User.find_by(id: params[:id])
     @user.update(
-                  first_name: params[:first_name],
-                  last_name: params[:last_name],
-                  email: params[:email],
-                  home_budget: params[:home_budget]
-                  )
+      first_name: params[:first_name],
+      last_name: params[:last_name],
+      email: params[:email],
+      home_budget: params[:home_budget]
+      )
 
     flash[:success] = 'User updated!'
     redirect_to "/users/#{@user.id}"
