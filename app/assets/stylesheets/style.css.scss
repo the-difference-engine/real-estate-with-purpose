@@ -62,7 +62,6 @@
 }
 
 .pair {
-  flex: 1;
   position: relative;
   background: #F2F2F2;
   margin: 10px;
@@ -76,6 +75,10 @@
 
 .home-search {
   flex: 2;
+}
+
+.home-form {
+  display: flex;
 }
 
 .form-address {
@@ -95,8 +98,24 @@
 
 .find-home {
   flex: 1;
+  padding: 5px;
+  margin-top: 5%;
 }
 
+.non-negs-holder {
+  display: flex;
+}
+
+.non-negs {
+  flex: 1;
+  padding: 10px;
+}
+
+.neg-img {
+  height: 200px;
+  border-radius: 5%;
+  text-align: center;
+}
 
 
 // img:hover {

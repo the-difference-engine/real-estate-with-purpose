@@ -7,8 +7,9 @@
 
 <div class="holder">
   <div class="pair home-search">
-    <div class="find-home">
     <h2>PROPERTY SEARCH</h2>
+    <div class="home-form">
+    <div class="find-home">
       <%= form_tag '/properties', method: :post do %>
         <%= text_field_tag :address, "Address, Neighborhood, Zip", class: "form-address" %>
         <br>
@@ -48,11 +49,12 @@
             <%= text_field_tag :baths_max, "Bath (max.)" %>
           </div>
         </div>
-        <%= submit_tag "Submit" %>
+        <%= submit_tag "Submit", disabled: true %>
       </div>
-      
+      </div>
     <% end %>
   </div>
+
   <div class="pair calc">
     <h2> Donation Calculator </h2>
     <h3> Total amount donated </h3>
@@ -167,6 +169,30 @@
     </div>
   </div>        
 </div>
+<div class="list-content">
+  <h2>PRO TIP: ESTABLISH YOUR NON-NEGOTIABLES</h2>
+  <div class="non-negs-holder">
+    <div class="non-negs">
+      <img class="neg-img" src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Gocsej_village_house_backyard.jpg">
+      <p>
+        Est. donation amount to charity of your choice, based on budget. 
+      </p>
+    </div>
+    <div class="non-negs">
+      <img class="neg-img" src="https://upload.wikimedia.org/wikipedia/commons/9/98/Pet_dog_fetching_sticks_in_Wales-3April2010.jpg">
+      <p>
+        Est. donation amount to charity of your choice, based on budget. 
+      </p>
+    </div> 
+    <div class="non-negs">
+      <img class="neg-img" src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Gourmet_Kitchen_Scrub_Island_Resort,_Spa_%26_Marina.jpg">
+      <p>
+        Est. donation amount to charity of your choice, based on budget. 
+      </p>
+    </div>
+  </div>  
+</div>
+
 
 
 
