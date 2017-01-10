@@ -8,13 +8,13 @@ $(document).ready(function() {
 
   function changeStep() {
     var id = this.id;
-    var currentDescription = document.querySelector(`.${current}`);
-    var newDescription = document.querySelector(`.${id}`);
+    var currentDescription = document.querySelector('.' + current);
+    var newDescription = document.querySelector('.' + id);
 
 
     // Change the color of the current arrow step
-    document.querySelector(`#${current}`).classList.remove('current');
-    document.querySelector(`#${id}`).classList.add('current');
+    document.querySelector('#' + current).classList.remove('current');
+    document.querySelector('#' + id).classList.add('current');
 
     // Animate?
 
