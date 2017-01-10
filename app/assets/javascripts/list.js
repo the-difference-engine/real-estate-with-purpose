@@ -19,8 +19,13 @@ $(document).ready(function() {
     // Animate?
 
     setTimeout(function() {
-      currentDescription.querySelectorAll('.step-content').forEach(div => div.style.opacity = 0);
-      newDescription.querySelectorAll('.step-content').forEach(div => div.style.opacity = 1);
+      currentDescription.querySelectorAll('.step-content').forEach(function(div) {
+        div.style.opacity = 0;
+      });
+
+      newDescription.querySelectorAll('.step-content').forEach(function(div) {
+        div.style.opacity = 1;
+      });
     }, 250);
 
     // Change the step description content
