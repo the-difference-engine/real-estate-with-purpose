@@ -13,16 +13,6 @@
   margin-bottom: 20px;
 }
 
-/*.step {
-  background-color: #d9e3f7;
-  flex: 1;
-  display: flex;
-}*/
-
-
-.step:hover:after {
-  background-color: blue;
-}
 
 .step {
   background-color: #d9e3f7;
