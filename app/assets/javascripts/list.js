@@ -8,19 +8,24 @@ $(document).ready(function() {
 
   function changeStep() {
     var id = this.id;
-    var currentDescription = document.querySelector(`.${current}`);
-    var newDescription = document.querySelector(`.${id}`);
+    var currentDescription = document.querySelector('.' + current);
+    var newDescription = document.querySelector('.' + id);
 
 
     // Change the color of the current arrow step
-    document.querySelector(`#${current}`).classList.remove('current');
-    document.querySelector(`#${id}`).classList.add('current');
+    document.querySelector('#' + current).classList.remove('current');
+    document.querySelector('#' + id).classList.add('current');
 
     // Animate?
 
     setTimeout(function() {
-      currentDescription.querySelectorAll('.step-content').forEach(div => div.style.opacity = 0);
-      newDescription.querySelectorAll('.step-content').forEach(div => div.style.opacity = 1);
+      currentDescription.querySelectorAll('.step-content').forEach(function(div) {
+        div.style.opacity = 0;
+      });
+
+      newDescription.querySelectorAll('.step-content').forEach(function(div) {
+        div.style.opacity = 1;
+      });
     }, 250);
 
     // Change the step description content
