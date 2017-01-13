@@ -62,7 +62,6 @@
 }
 
 .pair {
-  flex: 1;
   position: relative;
   background: #F2F2F2;
   margin: 10px;
@@ -76,6 +75,10 @@
 
 .home-search {
   flex: 2;
+}
+
+.home-form {
+  display: flex;
 }
 
 .form-address {
@@ -95,9 +98,51 @@
 
 .find-home {
   flex: 1;
+  padding: 5px;
+  margin-top: 5%;
 }
 
+.non-negs-holder {
+  display: flex;
+}
 
+.non-negs {
+  flex: 1;
+  padding: 10px;
+}
+
+.neg-img {
+  height: 200px;
+  border-radius: 5%;
+  text-align: center;
+}
+
+.inner-content-holder {
+  display: flex;
+}
+
+.inner-content {
+  position: relative;
+  flex: 1;
+}
+
+.inner-content input {
+  position: relative;
+  left: 30%;
+}
+
+.newsletter-submit {
+  height: 50px;
+  width: 100px;
+  background: #CAE2FC;
+}
+
+.self-promotion p {
+  float: left;
+}
+.promo-image {
+  height: 50px;
+}
 
 // img:hover {
 //     opacity: 0.5;
