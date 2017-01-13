@@ -1,5 +1,33 @@
-.top {
-  
+// color variables
+$dark-gray: #353131;
+$medium-gray: #786F6A;
+$royal-blue: #003FC5;
+$light-blue: #CAE2FC;
+$off-white: #F4F7F7;
+
+// typography variables
+$font-main: 'Heebo', sans-serif;
+$font-weight-headings: 900;
+$font-weight-body: 400;
+$font-weight-light: 300;
+
+// mixins
+@mixin button {
+  background-color: $royal-blue;
+  color: $off-white;
+  padding: .25em 1em;
+  border-radius: 5px;
+}
+
+
+body {
+  font-family: $font-main;
+  font-weight: $font-weight-body;
+  font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $font-weight-headings;
 }
 
 .logo {
@@ -23,12 +51,18 @@
 }
 
 .box-image {
-            color: 000;
-            position: absolute;
-            top: 30%;
-            left: 30%;
-            background: rgba(255,255,255,0.95);
-            padding: 2em;
+  border-radius: 5px;
+  color: $dark-gray;
+  position: absolute;
+  text-align: center;
+  top: 30%;
+  left: 30%;
+  background: rgba($off-white, 0.75);
+  padding: 2em;
+
+  a {
+    @include button;
+  }
 }
 
 .product_single{
