@@ -5,11 +5,71 @@
   <p>Donec egestas justo id pellentesque venenatis. Etiam dapibus diam arcu, sit amet posuere ex venenatis in. Phasellus dignissim nulla nec consectetur tempor. Quisque venenatis, nulla at bibendum porttitor, turpis justo sodales neque, eget placerat justo purus congue massa. Praesent lobortis tristique est ut euismod. Nulla aliquam varius urna quis posuere. Integer commodo ex nulla, a accumsan nibh dapibus mattis. Aliquam et sodales ante.</p>
 </div>
 
+<div class="holder">
+  <div class="pair home-search">
+    <h2>PROPERTY SEARCH</h2>
+    <div class="home-form">
+    <div class="find-home">
+      <%= form_tag '/properties', method: :post do %>
+        <%= text_field_tag :address, "Address, Neighborhood, Zip", class: "form-address" %>
+        <br>
+        <%= check_box_tag(:single) %>
+        <%= label_tag(:single, "Single Family Home") %>
+        <%= check_box_tag(:townhouse) %>
+        <%= label_tag(:townhouse, "Townhouse") %>
+        <br>
+        <%= check_box_tag(:condo) %>
+        <%= label_tag(:condo, "Condo") %>
+        <%= check_box_tag(:multi) %>
+        <%= label_tag(:multi, "Multi-unit") %>
+
+        <div class="form-line">
+          <div class="form-bedbath">
+            <%= text_field_tag :price_min, "Price (min.)"%>
+          </div>
+          <div class="form-bedbath">
+            <%= text_field_tag :price_max, "Price (max.)"%>
+          </div>
+        </div>
+      </div>
+      <div class="find-home">
+        <div class="form-line">
+          <div class="form-bedbath">
+            <%= text_field_tag :beds_min, "Beds (min.)"%>
+          </div>
+          <div class="form-bedbath">
+            <%= text_field_tag :beds_max, "Beds (max.)"%>
+          </div>
+        </div>
+        <div class="form-line">
+          <div class="form-bedbath">
+            <%= text_field_tag :baths_min, "Bath (min.)" %>
+          </div>
+          <div class="form-bedbath">
+            <%= text_field_tag :baths_max, "Bath (max.)" %>
+          </div>
+        </div>
+        <%= submit_tag "Submit", disabled: true %>
+      </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pair calc">
+    <h2> Donation Calculator </h2>
+    <h3> Total amount donated </h3>
+        <span class="input-group-addon">Enter your budget: $</span>
+        <input type="text" class="form-control" id="budget">
+        <span class="input-group-addon">See your donation amount! (USD)</span> 
+        <input type="text" class="form-control" name="textbox" id="textbox" readonly="true">
+       </div>
+</div>
+
 
 <div class="list-content">
-  <h3><span id="list-title">THE HOME SALE PROCESS</span></h3>
+  <h3><span id="list-title">UNDERSTANDING THE BUYING PROCESS</span></h3>
   <div class="arrow-steps">
-  <div class="step current" id='one')">
+  <div class="step current" id='one'>
     <span>Step 1</span>
   </div>
   <div class="step" id='two'>
@@ -39,7 +99,7 @@
       </p>
     </div>
     <div class='step-image step-content' style="opacity: 1;">
-      <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Smiley.svg/220px-Smiley.svg.png'>
+      <img src='https://static.pexels.com/photos/164516/pexels-photo-164516.jpeg'>
     </div>
   </div>
   <div class="content-inactive two">
@@ -50,7 +110,7 @@
       </p>
     </div>
     <div class='step-image step-content'>
-      <img src='http://imgs.xkcd.com/comics/mysteries.png'>
+      <img src='https://upload.wikimedia.org/wikipedia/commons/2/22/Sherwood_House_-_Coquille,_Oregon_(2005).jpg'>
     </div>
   </div> 
   <div class="content-inactive three">
@@ -61,7 +121,7 @@
       </p>
     </div>
     <div class='step-image step-content'>
-      <img src='http://cdn3-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-15.jpg'>
+      <img src='https://upload.wikimedia.org/wikipedia/commons/e/ee/2009-0627-SpadenaWitch-house.jpg'>
     </div>
   </div> 
   <div class="content-inactive four">
@@ -72,7 +132,7 @@
       </p>
     </div>
     <div class='step-image step-content'>
-      <img src='http://seaotters.com/wp-content/uploads/2012/03/628x353-otter-cu-yawn.jpg'>
+      <img src='https://upload.wikimedia.org/wikipedia/commons/d/d0/Camarillo_Ranch_House.jpg'>
     </div>
   </div>
   <div class="content-inactive five">
@@ -83,7 +143,7 @@
       </p>
     </div>
     <div class='step-image step-content'>
-      <img src='http://www.snail-world.com/wp-content/uploads/snail-front.jpg'>
+      <img src='https://upload.wikimedia.org/wikipedia/commons/d/d7/Stimson_House,_Los_Angeles.JPG'>
     </div>
   </div>    
   <div class="content-inactive six">
@@ -94,7 +154,7 @@
       </p>
     </div>
     <div class='step-image step-content'>
-      <img src='http://www.nbc.com/the-tonight-show/content/sites/nbcutsjf/files/images/2014/10/06/ewalbumv0322.jpg'>
+      <img src='https://upload.wikimedia.org/wikipedia/commons/2/23/Cross_House_-_Oregon_City_Oregon.jpg'>
     </div>
   </div>
   <div class="content-inactive donation">
@@ -105,56 +165,34 @@
       </p>
     </div>
     <div class='step-image step-content'>
-      <img src='https://upload.wikimedia.org/wikipedia/en/8/84/Titanfall_box_art.jpg'>
+      <img src='https://upload.wikimedia.org/wikipedia/en/9/9c/Spadena_Witch_House.jpg'>
     </div>
   </div>        
 </div>
 <div class="list-content">
-  <div class="inner-content-holder">
-    <div class="inner-content">
+  <h2>PRO TIP: ESTABLISH YOUR NON-NEGOTIABLES</h2>
+  <div class="non-negs-holder">
+    <div class="non-negs">
+      <img class="neg-img" src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Gocsej_village_house_backyard.jpg">
       <p>
-        WANT A FREE COPY OF MY 11 STEPS TO 
-        <br>GET THE MOST OUT OF YOUR HOME SALE?
+        Est. donation amount to charity of your choice, based on budget. 
       </p>
     </div>
-    <div class="inner-content">
-      <%= form_tag "#", method: :post do %>
-        <%= text_field_tag :name, "First and Last Name" %>
-        <br>
-        <%= text_field_tag :email, "Email address" %>
+    <div class="non-negs">
+      <img class="neg-img" src="https://upload.wikimedia.org/wikipedia/commons/9/98/Pet_dog_fetching_sticks_in_Wales-3April2010.jpg">
+      <p>
+        Est. donation amount to charity of your choice, based on budget. 
+      </p>
+    </div> 
+    <div class="non-negs">
+      <img class="neg-img" src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Gourmet_Kitchen_Scrub_Island_Resort,_Spa_%26_Marina.jpg">
+      <p>
+        Est. donation amount to charity of your choice, based on budget. 
+      </p>
     </div>
-    <div class="inner-content">
-        <%= submit_tag "Yes please!", class: "newsletter-submit", disabled: true %>
-      <% end %>
-    </div>
-  </div>
+  </div>  
 </div>
-<div class="list-content">
-  <h3>PRO TIP: WIN THEIR HEARTS AND MINDS</h3>
-  <div class="inner-content-holder">
-    <div class="inner-content">
-      <div class="self-promotion">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Icon_dog.gif", class="promo-image">
-        <p>
-        Est. donation based on the charity of your choice, based...
-        </p>
-      </div>
-      <div class="self-promotion">
 
-      </div>
-      <div class="self-promotion">
-
-      </div>
-
-    </div>
-    <div class="inner-content">
-
-    </div>
-    <div class="inner-content">
-
-    </div>
-  </div>
-</div>
 
 
 
