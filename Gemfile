@@ -9,6 +9,10 @@ gem 'sendgrid-ruby'
 gem 'figaro'
 # 10/10/16
 
+
+
+# 1/9/17
+
 gem 'faker'
 # 9/29/16 
 gem 'unirest'
