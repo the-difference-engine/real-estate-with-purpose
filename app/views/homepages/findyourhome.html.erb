@@ -24,35 +24,28 @@
 
         <div class="form-line">
           <div class="form-bedbath">
-            <%= label_tag :price_min %>
-            <%= text_field_tag :price_min%>
+            <%= text_field_tag :price_min, nil, placeholder: "Price (min.)"%>
           </div>
           <div class="form-bedbath">
-            <%= label_tag :price_max %>
-            <%= text_field_tag :price_max %>
+            <%= text_field_tag :price_max, nil, placeholder: "Price (max.)" %>
           </div>
         </div>
       </div>
       <div class="find-home">
         <div class="form-line">
           <div class="form-bedbath">
-            <%= label_tag :beds_min %>
-            <%= text_field_tag :beds_min %>
+            <%= text_field_tag :beds_min, nil, placeholder: "Beds (min.)" %>
           </div>
           <div class="form-bedbath">
-            <%= label_tag :beds_max %>
-            <%= text_field_tag :beds_max %>
+            <%= text_field_tag :beds_max, nil, placeholder: "Beds (max.)" %>
           </div>
         </div>
         <div class="form-line">
           <div class="form-bedbath">
-            <%= label_tag :baths_min %>
-
-            <%= text_field_tag :baths_min%>
+            <%= text_field_tag :baths_min, nil, placeholder: "Baths (min.)"%>
           </div>
           <div class="form-bedbath">
-            <%= label_tag :baths_max %>
-            <%= text_field_tag :baths_max %>
+            <%= text_field_tag :baths_max, nil, placeholder: "Baths (max.)" %>
           </div>
         </div>
         <%= submit_tag "Submit" %>
