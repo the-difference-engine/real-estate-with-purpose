@@ -41,7 +41,11 @@ class PropertiesController < ApplicationController
   end
 
   def show
-    @property = Property.find_by(id: params[:id])
+
+    @property = Unirest.get("https://#{user}:#{pass}@api.simplyrets.com/properties/#{mls_id}").body
+    @property.to_json
+    
+
   end
 
   def edit

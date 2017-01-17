@@ -4,11 +4,21 @@
         <% @properties.each do |property| %>
           <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
-              <%= image_tag property["photos"][0] %>
+              <% if property["photos"][0] %>
+                <%= image_tag property["photos"][0] %>
+              <% else %>
+                <p align="center"> ****************** </p>
+                <p align="center"> NO PHOTO AVAILABLE </p>
+                <p align="center"> ****************** </p>
+              <% end %>
+
               <p align="center"><%= property["address"]["city"] %> | <%= property["address"]["state"] %> </p>
               <p align="center">Price: <%= number_to_currency(property["listPrice"]) %> </p>
               <p align="center">Address: <%= property["address"]["full"] %></p>
               <p align="center">Bedrooms: <%= property["property"]["bedrooms"] %> | Full: <%= property["property"]["bathsFull"] %> Half: <%= property["property"]["bathsHalf"] %></p>
+              <p align="center">
+              
+
             </div>
               
           </div>
