@@ -144,6 +144,33 @@
   height: 50px;
 }
 
+.list-content .container {
+  width: 100%;
+}
+
+.thumbnail img {
+  height: 300px;
+}
+
+.top-search-bar {
+  display: flex;
+  height: 50px;
+  background: #B1B0B0;
+  margin-bottom: 25px;
+}
+
+.form-item {
+  flex: 1;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.get-ready {
+  left: 5%;
+  position: relative;
+}
 // img:hover {
 //     opacity: 0.5;
 //     filter: alpha(opacity=50);
