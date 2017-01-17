@@ -9,7 +9,8 @@ gem 'sendgrid-ruby'
 gem 'figaro'
 # 10/10/16
 
-gem 'rails_12factor', group: :production
+
+
 # 1/9/17
 
 gem 'faker'

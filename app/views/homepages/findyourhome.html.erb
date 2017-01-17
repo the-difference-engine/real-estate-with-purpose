@@ -11,8 +11,7 @@
     <div class="home-form">
     <div class="find-home">
       <%= form_tag '/properties', method: :post do %>
-        <%= text_field_tag :address, "Address, Neighborhood, Zip", class: "form-address" %>
-        <br>
+        
         <%= check_box_tag(:single) %>
         <%= label_tag(:single, "Single Family Home") %>
         <%= check_box_tag(:townhouse) %>
@@ -25,31 +24,38 @@
 
         <div class="form-line">
           <div class="form-bedbath">
-            <%= text_field_tag :price_min, "Price (min.)"%>
+            <%= label_tag :price_min %>
+            <%= text_field_tag :price_min%>
           </div>
           <div class="form-bedbath">
-            <%= text_field_tag :price_max, "Price (max.)"%>
+            <%= label_tag :price_max %>
+            <%= text_field_tag :price_max %>
           </div>
         </div>
       </div>
       <div class="find-home">
         <div class="form-line">
           <div class="form-bedbath">
-            <%= text_field_tag :beds_min, "Beds (min.)"%>
+            <%= label_tag :beds_min %>
+            <%= text_field_tag :beds_min %>
           </div>
           <div class="form-bedbath">
-            <%= text_field_tag :beds_max, "Beds (max.)"%>
+            <%= label_tag :beds_max %>
+            <%= text_field_tag :beds_max %>
           </div>
         </div>
         <div class="form-line">
           <div class="form-bedbath">
-            <%= text_field_tag :baths_min, "Bath (min.)" %>
+            <%= label_tag :baths_min %>
+
+            <%= text_field_tag :baths_min%>
           </div>
           <div class="form-bedbath">
-            <%= text_field_tag :baths_max, "Bath (max.)" %>
+            <%= label_tag :baths_max %>
+            <%= text_field_tag :baths_max %>
           </div>
         </div>
-        <%= submit_tag "Submit", disabled: true %>
+        <%= submit_tag "Submit" %>
       </div>
       </div>
     <% end %>
@@ -97,6 +103,7 @@
         <h1>Step One</h1>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec congue dolor vel leo efficitur facilisis. Mauris accumsan turpis nec enim ornare, sit amet interdum ipsum egestas. Duis tempus scelerisque purus facilisis cursus. Ut eget varius justo. Integer vel feugiat ex. Phasellus quis lacus tempus, sodales libero molestie, lacinia enim. Proin sit amet magna non odio tempor feugiat at gravida nisi. Nullam nisl dui, aliquet ac lorem sit amet, vestibulum iaculis nulla. Curabitur tincidunt nisi eu neque viverra suscipit. Aenean quis tincidunt metus, mollis consectetur nisi. Vivamus pellentesque metus nec odio consequat, eget mollis nunc porttitor. Aliquam erat volutpat. Aliquam rhoncus ex nulla, sit amet eleifend tellus euismod vitae. Ut tempus turpis ut nisl finibus scelerisque. 
       </p>
+      
     </div>
     <div class='step-image step-content' style="opacity: 1;">
       <img src='https://static.pexels.com/photos/164516/pexels-photo-164516.jpeg'>
