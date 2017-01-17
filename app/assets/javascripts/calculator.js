@@ -1,5 +1,5 @@
 (function ($) {
-  $( document ).ready(function() {
+  $(document).ready(function() {
     var d = document,
     budgetInput = d.getElementById('budget'),
     donation,
