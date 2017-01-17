@@ -1,3 +1,29 @@
+  <%= form_tag '/properties', method: :post do %>
+<div class="top-search-bar">
+    <div class="form-item">
+      <%= text_field_tag :price_min, nil, placeholder: "Price (min.)"%>
+    </div>
+    <div class="form-item">
+      <%= text_field_tag :price_max, nil, placeholder: "Price (max.)" %>
+    </div>
+    <div class="form-item">
+      <%= text_field_tag :beds_min, nil, placeholder: "Beds (min.)" %>
+    </div>
+    <div class="form-item">
+      <%= text_field_tag :beds_max, nil, placeholder: "Beds (max.)" %>
+    </div>
+    <div class="form-item">
+      <%= text_field_tag :baths_min, nil, placeholder: "Baths (min.)"%>
+    </div>
+    <div class="form-item">
+      <%= text_field_tag :baths_max, nil, placeholder: "Baths (max.)" %>
+    </div>
+    <div class="form-item">
+      <%= submit_tag "Submit" %>
+    </div>
+</div>
+  <% end %>
+
   <div class="container">
     <div class="properties">
       <div class="row">
@@ -7,13 +33,14 @@
             <div class="thumbnail">
             <% if property["photos"][0] %>
               <%= image_tag property["photos"][0] %>
+            <% else %>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Home-icon.svg/2000px-Home-icon.svg.png">
             <% end %>
               <p align="center"><%= link_to "#{property["address"]["city"]} | #{property["address"]["state"]}", "/properties/#{property['mlsId']}"  %> </p>
               <p align="center">Price: <%= number_to_currency(property["listPrice"]) %> </p>
               <p align="center">Address: <%= property["address"]["full"] %></p>
               <p align="center">Bedrooms: <%= property["property"]["bedrooms"] %> | Full: <%= property["property"]["bathsFull"] %> Half: <%= property["property"]["bathsHalf"] %></p>
             </div>
-            <p><%= property["mlsId"] %></p>
           </div>
         <% end %>
       </div>
