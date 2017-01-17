@@ -14,7 +14,7 @@ class PropertiesController < ApplicationController
     beds_max = params[:beds_max]
     
     @properties = Unirest.get("https://#{user}:#{pass}@api.simplyrets.com/properties?status=Active&limit=9&counties=cook&minprice=#{price_min}&maxprice=#{price_max}&minbaths=#{baths_min}&maxbaths=#{baths_max}&minbeds=#{beds_min}&maxbeds=#{beds_max}").body
-    @properties.to_json
+
   end
 
   def new
@@ -42,9 +42,11 @@ class PropertiesController < ApplicationController
 
   def show
 
-    @property = Unirest.get("https://#{user}:#{pass}@api.simplyrets.com/properties/#{mls_id}").body
-    @property.to_json
-    
+
+    user = ENV["USERNAME"]
+    pass = ENV["PASSWORD"]
+    mlsId = params[:id]
+    @property = Unirest.get("https://#{user}:#{pass}@api.simplyrets.com/properties/#{mlsId}").body
 
   end
 
