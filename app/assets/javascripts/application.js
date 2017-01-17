@@ -11,6 +11,8 @@
 // about supported directives.
 //
 //= require jquery
+//= require calculator
+//= require list
+//= require bootstrap-sprockets
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .

@@ -1,0 +1,23 @@
+<div class="container">
+  <h1>Edit Charity</h1>
+  <%= form_tag "/charities/#{@charity.id}", method: :patch do %>
+    <div>
+      <%= label_tag :name %>
+      <%= text_field_tag :name, @charity.name %>
+    </div>
+
+    <div>
+      <%= label_tag :description %>
+      <%= text_field_tag :description, @charity.description %>
+    </div>
+
+    <div>
+      <%= label_tag :logo %>
+      <%= text_field_tag :logo, @charity.logo %>
+    </div>
+
+    <br>
+    <%= submit_tag "Submit" %>
+  <% end %>
+  <br>
+</div>

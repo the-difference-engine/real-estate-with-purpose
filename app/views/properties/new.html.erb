@@ -1,0 +1,55 @@
+<div class="container">
+  <h3>Add a property listing </h3>
+
+  <%= form_tag "/properties", method: :post do  %>
+    <div>
+      <%= label_tag :num_bedrooms, "Number of bedrooms" %>
+      <%= text_field_tag :num_bedrooms %>
+    </div>
+    <div>
+      <%= label_tag :num_bathrooms, "Number of bathrooms" %>
+      <%= text_field_tag :num_bathrooms %>
+    </div>
+    <div>
+      <%= label_tag :list_price, "listing price"  %>
+      <%= text_field_tag :list_price %>
+    </div>
+    <div>
+      <%= label_tag :image, "image" %>
+      <%= text_field_tag :image %>
+    </div>
+    <div>
+      <%= label_tag :overview, "Overview" %>
+      <%= text_field_tag :overview %>
+    </div>  
+    <div>
+      <%= label_tag :details, "Details" %>
+      <%= text_field_tag :details %>
+    </div>
+    <div>
+      <%= label_tag :misc_details, "Miscellaneous Details" %>
+      <%= text_field_tag :misc_details %>
+    </div>
+    <div>
+      <%= label_tag :line_1, "Address Line 1" %>
+      <%= text_field_tag :line_1 %>
+    </div> 
+    <div>
+      <%= label_tag :api_address, "Address" %>
+      <%= text_field_tag :api_address %>
+    </div> 
+    <div>
+      <%= label_tag :city, "City" %>
+      <%= text_field_tag :city %>
+    </div>  
+    <div>
+      <%= label_tag :state, "State" %>
+      <%= text_field_tag :state %>
+    </div> 
+    <div>
+      <%= label_tag :zip, "Zip" %>
+      <%= text_field_tag :zip %>
+    </div>            
+    <%= submit_tag "Submit" %>
+  <% end %>
+</div>
