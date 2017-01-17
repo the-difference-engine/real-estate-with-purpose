@@ -1,0 +1,18 @@
+  <div class="container">
+    <div class="properties">
+      <div class="row">
+        <% @properties.each do |property| %>
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <%= image_tag property["photos"][0] %>
+              <p align="center"><%= property["address"]["city"] %> | <%= property["address"]["state"] %> </p>
+              <p align="center">Price: <%= number_to_currency(property["listPrice"]) %> </p>
+              <p align="center">Address: <%= property["address"]["full"] %></p>
+              <p align="center">Bedrooms: <%= property["property"]["bedrooms"] %> | Full: <%= property["property"]["bathsFull"] %> Half: <%= property["property"]["bathsHalf"] %></p>
+            </div>
+              
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>

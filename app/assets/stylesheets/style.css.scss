@@ -1,0 +1,151 @@
+.top {
+  
+}
+
+.logo {
+  width: 30px;
+  height: 29px;
+  border: 0;
+}
+
+.input-group-dc {
+  width: 300px;
+}
+
+.navbar-fixed-top { border:0; }
+
+.hero-image {
+  background-image: image-url('real-estate-1689980_1920.jpg');
+  height: 42em;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+}
+
+.box-image {
+            position: absolute;
+            top: 30%;
+            left: 30%;
+            background: rgba(0, 0, 0, .7);
+            padding: 2em;
+}
+
+.product_single{
+  display: flex;
+  flex-direction: column;
+  background: #42c5f4;
+  background: rgba(250,240,230,0.9);
+  padding: 0 15px 15px 15px;
+  color: #000;
+  box-shadow: 0 3px 3px rgba(0,0,0,0.35);
+  min-height: 400px;
+  border-radius: 15px;
+  border: solid #575757 4px;
+  margin-bottom: 15px;
+}
+
+.text_overflow{
+  white-space: nowrap;
+  overflow-x: scroll;
+}
+
+.box_sizing{
+  box-sizing: border-box;
+}
+
+.holder {
+  display: flex;
+  flex: 1;
+  position: relative;
+  width: 75%;
+  left: 10%;
+}
+
+.pair {
+  position: relative;
+  background: #F2F2F2;
+  margin: 10px;
+  box-shadow: 5px 5px 5px #888888;
+  padding: 10px;
+}
+
+.calc {
+  flex: 1;
+}
+
+.home-search {
+  flex: 2;
+}
+
+.home-form {
+  display: flex;
+}
+
+.form-address {
+  width: 75%;
+}
+
+.form-line {
+  display: flex;
+}
+
+
+.form-bedbath {
+  flex: 1;
+  margin: 5px;
+}
+
+
+.find-home {
+  flex: 1;
+  padding: 5px;
+  margin-top: 5%;
+}
+
+.non-negs-holder {
+  display: flex;
+}
+
+.non-negs {
+  flex: 1;
+  padding: 10px;
+}
+
+.neg-img {
+  height: 200px;
+  border-radius: 5%;
+  text-align: center;
+}
+
+.inner-content-holder {
+  display: flex;
+}
+
+.inner-content {
+  position: relative;
+  flex: 1;
+}
+
+.inner-content input {
+  position: relative;
+  left: 30%;
+}
+
+.newsletter-submit {
+  height: 50px;
+  width: 100px;
+  background: #CAE2FC;
+}
+
+.self-promotion p {
+  float: left;
+}
+.promo-image {
+  height: 50px;
+}
+
+// img:hover {
+//     opacity: 0.5;
+//     filter: alpha(opacity=50);
+//     transition: .3s ease-in-out;
+// }
