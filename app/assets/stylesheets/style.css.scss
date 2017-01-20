@@ -37,7 +37,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .input-group-dc {
-  width: 300px;
+  #textbox {
+    font-weight: bold;
+    padding: 10px 10px 0 0;
+  }
+
+  p {
+    padding: 10px 0 0 15px;
+  }
 }
 
 .navbar-fixed-top { border:0; }

@@ -36,23 +36,20 @@
       <%= @donation.average_donation %>
       <% else %>
       0 dollars donated
-      <% end %></h5>
+      <% end %></h5>x
       </div>
     </div>
     <div class="col-md-3">
       <h3>See for yourself</h3>
       <div class ="input-group-dc">
         <!-- <span class="input-group-addon">Enter your budget: $</span> -->
-        <input type="text" class="form-control" id="budget" placeholder="Enter your Home Budget in (USD)">
+        <input type="text" class="form-control" id="budget" maxlength="12" placeholder="Enter your Home Budget in (USD)">
         <!--         <span class="input-group-addon">$</span>  --> 
         <div class="row">
           <div class="col-md-5">
-            <h4>$<div id="textbox"></div></h4>
+            <div id="textbox"></div>
           </div>
-          <div class="col-md-3">
-          </div>
-          <div class="col-md-4">
-          <br>
+          <div class="col-md-7">
             <p>Estimated donation amount to charity of your choice, based on budget.</p>
           </div>
         </div>
