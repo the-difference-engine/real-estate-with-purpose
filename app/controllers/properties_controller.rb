@@ -6,15 +6,22 @@ class PropertiesController < ApplicationController
     user = ENV["USERNAME"]
     pass = ENV["PASSWORD"]
 
-    location = params[:location]
-    price_min = params[:price_min]
-    price_max = params[:price_max]
-    baths_min = params[:baths_min]
-    baths_max = params[:baths_max]
-    beds_min = params[:beds_min]
-    beds_max = params[:beds_max]
+    @price_min = params[:price_min]
+    @price_max = params[:price_max]
+    @baths_min = params[:baths_min]
+    @baths_max = params[:baths_max]
+    @beds_min = params[:beds_min]
+    @beds_max = params[:beds_max]
+    params[:location] != "" ? @location = "&q=#{params[:location]}" : @location = ""
+    params[:offset] ? offset = "&offset=#{params[:offset]}" : offset = ""
+
     
-    @properties = Unirest.get("https://#{user}:#{pass}@api.simplyrets.com/properties?status=Active&limit=9&q=#{location}&counties=cook&minprice=#{price_min}&maxprice=#{price_max}&minbaths=#{baths_min}&maxbaths=#{baths_max}&minbeds=#{beds_min}&maxbeds=#{beds_max}").body
+    @url = "https://#{user}:#{pass}@api.simplyrets.com/properties?status=Active&counties=cook#{@location}&minprice=#{@price_min}&maxprice=#{@price_max}&minbaths=#{@baths_min}&maxbaths=#{@baths_max}&minbeds=#{@beds_min}&maxbeds=#{@beds_max}#{offset}"
+    p @url
+    @properties = Unirest.get(@url,
+                              headers: { "Accept" => "application/json" }).body
+
+
   end
 
   def new
