@@ -1,6 +1,13 @@
 $(document).ready(function() {
   var current = "one";
 
+  var signupLink = document.querySelector("#signup-location");
+  signupLink.addEventListener("click", get_location);
+
+  function getLocation(){
+    console.log(window.location.pathname);
+  };
+
   var steps = document.querySelectorAll(".step");
   steps.forEach(function(step) {
     step.addEventListener("click", changeStep);
