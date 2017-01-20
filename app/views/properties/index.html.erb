@@ -1,6 +1,9 @@
   <%= form_tag '/properties', method: :post do %>
 <div class="top-search-bar">
     <div class="form-item">
+      <%= text_field_tag :location, nil, placeholder: "Address, neighborhood, zip", style: "width: 200px" %>
+    </div>
+    <div class="form-item">
       <%= text_field_tag :price_min, nil, placeholder: "Price (min.)"%>
     </div>
     <div class="form-item">
@@ -23,7 +26,7 @@
     </div>
 </div>
   <% end %>
-
+<% if @properties.length.nonzero? %>
   <div class="container">
     <div class="properties">
       <div class="row">
@@ -46,3 +49,6 @@
       </div>
     </div>
   </div>
+  <% else %>
+    <h1>No results found.</h1>
+  <% end %>
