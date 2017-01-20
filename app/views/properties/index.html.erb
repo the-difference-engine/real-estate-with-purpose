@@ -52,3 +52,16 @@
   <% else %>
     <h1>No results found.</h1>
   <% end %>
+
+<%= form_tag "/properties", method: :post do %>
+  <%= hidden_field_tag :price_min, @price_min %>
+  <%= hidden_field_tag :price_max, @price_max %>
+  <%= hidden_field_tag :baths_min, @baths_min %>
+  <%= hidden_field_tag :baths_max, @baths_max %>
+  <%= hidden_field_tag :bed_min, @bed_min %>
+  <%= hidden_field_tag :beds_max, @beds_max %>
+  <%= hidden_field_tag :location, @location %>
+  <%= hidden_field_tag :offset, 20 %>
+  <%= submit_tag "Next" %>
+
+<% end %>
