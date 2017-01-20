@@ -2,7 +2,7 @@ $(document).ready(function() {
   var current = "one";
 
   var signupLink = document.querySelector("#signup-location");
-  signupLink.addEventListener("click", get_location);
+  signupLink.addEventListener("click", getLocation);
 
   function getLocation(){
     console.log(window.location.pathname);
