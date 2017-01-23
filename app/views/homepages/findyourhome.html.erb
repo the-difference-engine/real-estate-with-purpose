@@ -12,6 +12,9 @@
     <div class="find-home">
       <%= form_tag '/properties', method: :post do %>
         
+          <div class="form-bedbath">
+            <%= text_field_tag :location, nil, placeholder: "Address, neighborhood, zip", style: "width: 200px" %>
+          </div>
         <%= check_box_tag(:single) %>
         <%= label_tag(:single, "Single Family Home") %>
         <%= check_box_tag(:townhouse) %>
