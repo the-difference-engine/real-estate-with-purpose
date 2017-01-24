@@ -58,10 +58,10 @@
   <%= hidden_field_tag :price_max, @price_max %>
   <%= hidden_field_tag :baths_min, @baths_min %>
   <%= hidden_field_tag :baths_max, @baths_max %>
-  <%= hidden_field_tag :bed_min, @bed_min %>
+  <%= hidden_field_tag :beds_min, @beds_min %>
   <%= hidden_field_tag :beds_max, @beds_max %>
   <%= hidden_field_tag :location, @location %>
-  <%= hidden_field_tag :offset, 20 %>
+  <%= hidden_field_tag :offset, (@offset.to_i + 18) %>
   <%= submit_tag "Next" %>
 
 <% end %>
