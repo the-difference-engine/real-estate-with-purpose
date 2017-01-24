@@ -17,6 +17,8 @@ $font-weight-light: 300;
   color: $off-white;
   padding: .25em 1em;
   border-radius: 5px;
+  font-weight: bold;
+  font-size: 1.8em;
 }
 
 
@@ -55,6 +57,7 @@ h1, h2, h3, h4, h5, h6 {
   background-size: cover;
   background-position: center;
   width: 100%;
+  position: relative;
 }
 
 .box-image {
@@ -63,9 +66,9 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   text-align: center;
   top: 30%;
-  left: 30%;
+  left: 0;
   background: rgba($off-white, 0.75);
-  padding: 2em;
+  padding: 2em 1em;
 
   a {
     @include button;
@@ -186,8 +189,20 @@ h1, h2, h3, h4, h5, h6 {
   height: 50px;
 }
 
+/* media queries */
+
+@media screen and (min-width: 480px) {
+  .box-image {
+    padding: 2em;
+    left: 30%;
+  }
+}
+
+/* end */
 // img:hover {
 //     opacity: 0.5;
 //     filter: alpha(opacity=50);
 //     transition: .3s ease-in-out;
 // }
+
+
