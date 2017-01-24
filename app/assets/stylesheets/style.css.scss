@@ -180,6 +180,17 @@
 .page-links {
   flex: 1;
 }
+
+.submit-button {
+  background: none;
+  border: none;
+}
+
+.change-page :hover {
+  background-color: black;
+  border-radius: 100%;
+  color: white;
+}
 // img:hover {
 //     opacity: 0.5;
 //     filter: alpha(opacity=50);

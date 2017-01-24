@@ -52,8 +52,25 @@
   <% else %>
     <h1>No results found.</h1>
   <% end %>
-
 <div class="pagination">
+  <% if @current_page.to_i > 1 %>
+    <div class="page-links">
+      <%= form_tag "/properties", method: :post do %>
+        <%= hidden_field_tag :price_min, @price_min %>
+        <%= hidden_field_tag :price_max, @price_max %>
+        <%= hidden_field_tag :baths_min, @baths_min %>
+        <%= hidden_field_tag :baths_max, @baths_max %>
+        <%= hidden_field_tag :beds_min, @beds_min %>
+        <%= hidden_field_tag :beds_max, @beds_max %>
+        <%= hidden_field_tag :location, @just_location %>
+        <%= hidden_field_tag :current_page, @current_page.to_i - 1 %>
+        <%= hidden_field_tag :offset, (@offset.to_i - 18) %>
+        <div class="change-page">
+          <%= submit_tag "Previous", class: "submit-button" %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
   <% if @pages < 10 %>
     <% for i in (1..@pages) do %>
       <div class="page-links">
@@ -65,13 +82,16 @@
           <%= hidden_field_tag :beds_min, @beds_min %>
           <%= hidden_field_tag :beds_max, @beds_max %>
           <%= hidden_field_tag :location, @just_location %>
+          <%= hidden_field_tag :current_page, i %>
           <%= hidden_field_tag :offset, ((i-1) * 18) %>
-          <%= submit_tag i %>
+          <div class="change-page">
+            <%= submit_tag i, class: "submit-button" %>
+          </div>
         <% end %>
       </div>
     <% end %>
   <% else %>
-    <% for i in (1..3) do %>
+    <% for i in (@current_page.to_i..(@current_page.to_i + 2)) do %>
       <div class="page-links">
         <%= form_tag "/properties", method: :post do %>
           <%= hidden_field_tag :price_min, @price_min %>
@@ -81,8 +101,11 @@
           <%= hidden_field_tag :beds_min, @beds_min %>
           <%= hidden_field_tag :beds_max, @beds_max %>
           <%= hidden_field_tag :location, @just_location %>
+          <%= hidden_field_tag :current_page, i %>
           <%= hidden_field_tag :offset, ((i-1) * 18) %>
-          <%= submit_tag i %>
+          <div class="change-page">
+            <%= submit_tag i, class: "submit-button" %>
+          </div>
         <% end %>
       </div>
     <% end %>
@@ -97,8 +120,11 @@
             <%= hidden_field_tag :beds_min, @beds_min %>
             <%= hidden_field_tag :beds_max, @beds_max %>
             <%= hidden_field_tag :location, @just_location %>
+            <%= hidden_field_tag :current_page, i %>
             <%= hidden_field_tag :offset, ((i-1) * 18) %>
-            <%= submit_tag i %>
+            <div class="change-page">
+              <%= submit_tag i, class: "submit-button" %>
+            </div>
           <% end %>
         </div>
     <% end %>
@@ -113,8 +139,11 @@
       <%= hidden_field_tag :beds_min, @beds_min %>
       <%= hidden_field_tag :beds_max, @beds_max %>
       <%= hidden_field_tag :location, @just_location %>
+      <%= hidden_field_tag :current_page, @current_page.to_i + 1 %>
       <%= hidden_field_tag :offset, (@offset.to_i + 18) %>
-      <%= submit_tag "Next" %>
+      <div class="change-page">
+        <%= submit_tag "Next", class: "submit-button" %>
+      </div>
     <% end %>
   </div>
 </div>
