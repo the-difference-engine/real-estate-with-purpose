@@ -14,6 +14,7 @@ class PropertiesController < ApplicationController
     @beds_max = params[:beds_max]
     params[:location] != "" ? location = "&q=#{params[:location]}" : location = ""
     params[:offset] ? @offset = params[:offset] : @offset = '0'
+    params[:current_page] ? @current_page = params[:current_page] : @current_page = 1
     @just_location = params[:location]
     
     call = Unirest.get("https://#{user}:#{pass}@api.simplyrets.com/properties?status=Active&counties=cook#{location}&minprice=#{@price_min}&maxprice=#{@price_max}&minbaths=#{@baths_min}&maxbaths=#{@baths_max}&minbeds=#{@beds_min}&maxbeds=#{@beds_max}&limit=18&offset=#{@offset}",
