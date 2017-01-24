@@ -5,6 +5,10 @@ class Property < ApplicationRecord
     Unirest.get("https://#{ENV['USERNAME']}:#{ENV['PASSWORD']}@api.simplyrets.com/properties/#{mls_id}").body    
   end
 
+  def get_pages(results)
+    results / 18
+  end
+
   def amount_donated
     list_price.to_f * 0.10
   end

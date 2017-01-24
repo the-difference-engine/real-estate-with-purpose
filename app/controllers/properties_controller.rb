@@ -12,15 +12,15 @@ class PropertiesController < ApplicationController
     @baths_max = params[:baths_max]
     @beds_min = params[:beds_min]
     @beds_max = params[:beds_max]
-    params[:location] != "" ? @location = "&q=#{params[:location]}" : @location = ""
+    params[:location] != "" ? location = "&q=#{params[:location]}" : location = ""
     params[:offset] ? @offset = params[:offset] : @offset = '0'
-
+    @just_location = params[:location]
     
-    call = Unirest.get("https://#{user}:#{pass}@api.simplyrets.com/properties?status=Active&counties=cook#{@location}&minprice=#{@price_min}&maxprice=#{@price_max}&minbaths=#{@baths_min}&maxbaths=#{@baths_max}&minbeds=#{@beds_min}&maxbeds=#{@beds_max}&limit=18&offset=#{@offset}",
+    call = Unirest.get("https://#{user}:#{pass}@api.simplyrets.com/properties?status=Active&counties=cook#{location}&minprice=#{@price_min}&maxprice=#{@price_max}&minbaths=#{@baths_min}&maxbaths=#{@baths_max}&minbeds=#{@beds_min}&maxbeds=#{@beds_max}&limit=18&offset=#{@offset}",
                        headers: { "Accept" => "application/json" })
     @properties = call.body
     total_results = call.headers[:x_total_count]
-
+    @pages = (total_results.to_f / 18.0).ceil
   end
 
   def new
