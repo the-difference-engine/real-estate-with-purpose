@@ -53,15 +53,68 @@
     <h1>No results found.</h1>
   <% end %>
 
-<%= form_tag "/properties", method: :post do %>
-  <%= hidden_field_tag :price_min, @price_min %>
-  <%= hidden_field_tag :price_max, @price_max %>
-  <%= hidden_field_tag :baths_min, @baths_min %>
-  <%= hidden_field_tag :baths_max, @baths_max %>
-  <%= hidden_field_tag :bed_min, @bed_min %>
-  <%= hidden_field_tag :beds_max, @beds_max %>
-  <%= hidden_field_tag :location, @location %>
-  <%= hidden_field_tag :offset, 20 %>
-  <%= submit_tag "Next" %>
+<div class="pagination">
+  <% if @pages < 10 %>
+    <% for i in (1..@pages) do %>
+      <div class="page-links">
+        <%= form_tag "/properties", method: :post do %>
+          <%= hidden_field_tag :price_min, @price_min %>
+          <%= hidden_field_tag :price_max, @price_max %>
+          <%= hidden_field_tag :baths_min, @baths_min %>
+          <%= hidden_field_tag :baths_max, @baths_max %>
+          <%= hidden_field_tag :beds_min, @beds_min %>
+          <%= hidden_field_tag :beds_max, @beds_max %>
+          <%= hidden_field_tag :location, @just_location %>
+          <%= hidden_field_tag :offset, ((i-1) * 18) %>
+          <%= submit_tag i %>
+        <% end %>
+      </div>
+    <% end %>
+  <% else %>
+    <% for i in (1..3) do %>
+      <div class="page-links">
+        <%= form_tag "/properties", method: :post do %>
+          <%= hidden_field_tag :price_min, @price_min %>
+          <%= hidden_field_tag :price_max, @price_max %>
+          <%= hidden_field_tag :baths_min, @baths_min %>
+          <%= hidden_field_tag :baths_max, @baths_max %>
+          <%= hidden_field_tag :beds_min, @beds_min %>
+          <%= hidden_field_tag :beds_max, @beds_max %>
+          <%= hidden_field_tag :location, @just_location %>
+          <%= hidden_field_tag :offset, ((i-1) * 18) %>
+          <%= submit_tag i %>
+        <% end %>
+      </div>
+    <% end %>
+      <div class="page-links"><h3>. . .</h3></div>
+      <% for i in ((@pages - 2)..@pages) %>
+        <div class="page-links">
+          <%= form_tag "/properties", method: :post do %>
+            <%= hidden_field_tag :price_min, @price_min %>
+            <%= hidden_field_tag :price_max, @price_max %>
+            <%= hidden_field_tag :baths_min, @baths_min %>
+            <%= hidden_field_tag :baths_max, @baths_max %>
+            <%= hidden_field_tag :beds_min, @beds_min %>
+            <%= hidden_field_tag :beds_max, @beds_max %>
+            <%= hidden_field_tag :location, @just_location %>
+            <%= hidden_field_tag :offset, ((i-1) * 18) %>
+            <%= submit_tag i %>
+          <% end %>
+        </div>
+    <% end %>
+  <% end %>
 
-<% end %>
+  <div class="page-links">
+    <%= form_tag "/properties", method: :post do %>
+      <%= hidden_field_tag :price_min, @price_min %>
+      <%= hidden_field_tag :price_max, @price_max %>
+      <%= hidden_field_tag :baths_min, @baths_min %>
+      <%= hidden_field_tag :baths_max, @baths_max %>
+      <%= hidden_field_tag :beds_min, @beds_min %>
+      <%= hidden_field_tag :beds_max, @beds_max %>
+      <%= hidden_field_tag :location, @just_location %>
+      <%= hidden_field_tag :offset, (@offset.to_i + 18) %>
+      <%= submit_tag "Next" %>
+    <% end %>
+  </div>
+</div>

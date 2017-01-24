@@ -172,6 +172,14 @@
   left: 5%;
   position: relative;
 }
+
+.pagination {
+  display: flex;
+}
+
+.page-links {
+  flex: 1;
+}
 // img:hover {
 //     opacity: 0.5;
 //     filter: alpha(opacity=50);
