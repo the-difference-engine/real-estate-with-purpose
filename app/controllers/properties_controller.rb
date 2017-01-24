@@ -13,14 +13,13 @@ class PropertiesController < ApplicationController
     @beds_min = params[:beds_min]
     @beds_max = params[:beds_max]
     params[:location] != "" ? @location = "&q=#{params[:location]}" : @location = ""
-    params[:offset] ? offset = "&offset=#{params[:offset]}" : offset = ""
+    params[:offset] ? @offset = params[:offset] : @offset = '0'
 
     
-    @url = "https://#{user}:#{pass}@api.simplyrets.com/properties?status=Active&counties=cook#{@location}&minprice=#{@price_min}&maxprice=#{@price_max}&minbaths=#{@baths_min}&maxbaths=#{@baths_max}&minbeds=#{@beds_min}&maxbeds=#{@beds_max}#{offset}"
-    p @url
-    @properties = Unirest.get(@url,
-                              headers: { "Accept" => "application/json" }).body
-
+    call = Unirest.get("https://#{user}:#{pass}@api.simplyrets.com/properties?status=Active&counties=cook#{@location}&minprice=#{@price_min}&maxprice=#{@price_max}&minbaths=#{@baths_min}&maxbaths=#{@baths_max}&minbeds=#{@beds_min}&maxbeds=#{@beds_max}&limit=18&offset=#{@offset}",
+                       headers: { "Accept" => "application/json" })
+    @properties = call.body
+    total_results = call.headers[:x_total_count]
 
   end
 
