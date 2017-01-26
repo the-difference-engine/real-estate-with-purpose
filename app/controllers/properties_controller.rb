@@ -42,11 +42,17 @@ class PropertiesController < ApplicationController
 
   def show
 
-
     user = ENV["USERNAME"]
     pass = ENV["PASSWORD"]
     mlsId = params[:id]
     @property = Unirest.get("https://#{user}:#{pass}@api.simplyrets.com/properties/#{mlsId}").body
+    @address = @property["address"]["full"]
+    @beds = @property["property"]["bedrooms"]
+    @baths = @property["property"]["bathsFull"]
+    @list_price = @property["listPrice"]
+    @list_date = @property["listDate"]
+  
+    @property.to_json
 
   end
 
