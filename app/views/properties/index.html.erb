@@ -1,25 +1,25 @@
   <%= form_tag '/properties', method: :post do %>
 <div class="top-search-bar">
     <div class="form-item">
-      <%= text_field_tag :location, nil, placeholder: "Address, neighborhood, zip", style: "width: 200px" %>
+      <%= text_field_tag :location, @just_location ? @just_location : nil, placeholder: "Address, neighborhood, zip", style: "width: 200px" %>
     </div>
     <div class="form-item">
-      <%= text_field_tag :price_min, nil, placeholder: "Price (min.)"%>
+      <%= text_field_tag :price_min, @price_min ? @price_min : nil, placeholder: "Price (min.)"%>
     </div>
     <div class="form-item">
-      <%= text_field_tag :price_max, nil, placeholder: "Price (max.)" %>
+      <%= text_field_tag :price_max, @price_max ? @price_max : nil, placeholder: "Price (max.)" %>
     </div>
     <div class="form-item">
-      <%= text_field_tag :beds_min, nil, placeholder: "Beds (min.)" %>
+      <%= text_field_tag :beds_min, @beds_min ? @beds_min : nil, placeholder: "Beds (min.)" %>
     </div>
     <div class="form-item">
-      <%= text_field_tag :beds_max, nil, placeholder: "Beds (max.)" %>
+      <%= text_field_tag :beds_max, @beds_max ? @beds_max : nil, placeholder: "Beds (max.)" %>
     </div>
     <div class="form-item">
-      <%= text_field_tag :baths_min, nil, placeholder: "Baths (min.)"%>
+      <%= text_field_tag :baths_min, @baths_min ? @baths_min : nil, placeholder: "Baths (min.)"%>
     </div>
     <div class="form-item">
-      <%= text_field_tag :baths_max, nil, placeholder: "Baths (max.)" %>
+      <%= text_field_tag :baths_max, @baths_max ? @baths_max : nil, placeholder: "Baths (max.)" %>
     </div>
     <div class="form-item">
       <%= submit_tag "Submit" %>
@@ -129,21 +129,22 @@
         </div>
     <% end %>
   <% end %>
-
-  <div class="page-links">
-    <%= form_tag "/properties", method: :post do %>
-      <%= hidden_field_tag :price_min, @price_min %>
-      <%= hidden_field_tag :price_max, @price_max %>
-      <%= hidden_field_tag :baths_min, @baths_min %>
-      <%= hidden_field_tag :baths_max, @baths_max %>
-      <%= hidden_field_tag :beds_min, @beds_min %>
-      <%= hidden_field_tag :beds_max, @beds_max %>
-      <%= hidden_field_tag :location, @just_location %>
-      <%= hidden_field_tag :current_page, @current_page.to_i + 1 %>
-      <%= hidden_field_tag :offset, (@offset.to_i + 18) %>
-      <div class="change-page">
-        <%= submit_tag "Next", class: "submit-button" %>
-      </div>
+  <% unless @current_page.to_i == @pages %>
+    <div class="page-links">
+      <%= form_tag "/properties", method: :post do %>
+        <%= hidden_field_tag :price_min, @price_min %>
+        <%= hidden_field_tag :price_max, @price_max %>
+        <%= hidden_field_tag :baths_min, @baths_min %>
+        <%= hidden_field_tag :baths_max, @baths_max %>
+        <%= hidden_field_tag :beds_min, @beds_min %>
+        <%= hidden_field_tag :beds_max, @beds_max %>
+        <%= hidden_field_tag :location, @just_location %>
+        <%= hidden_field_tag :current_page, @current_page.to_i + 1 %>
+        <%= hidden_field_tag :offset, (@offset.to_i + 18) %>
+        <div class="change-page">
+          <%= submit_tag "Next", class: "submit-button" %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
