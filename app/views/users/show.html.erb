@@ -6,3 +6,31 @@
     <%= link_to "Edit", "/users/#{@user.id}/edit", class: "btn btn-default" %>
     <%= link_to "Delete", "/users/#{@user.id}/", {method: :delete, class: "btn btn-default"} %>
 </div>
+
+<h1>YOUR FAVORITES</h1>
+<% if @properties.length.nonzero? %>
+  <div class="container">
+    <div class="properties">
+      <div class="row">
+       <%  %>
+        <% @properties.each do |property| %>
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+            <% if property.image %>
+              <%= image_tag property.image %>
+            <% else %>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Home-icon.svg/2000px-Home-icon.svg.png">
+            <% end %>
+              <p align="center"><%= link_to "#{property.line_1} | #{property.state}", "/properties/#{property.api_address}"  %> </p>
+              <p align="center">Price: <%= number_to_currency(property.list_price) %> </p>
+              <p align="center">Address: <%= property.line_2 %></p>
+              <p align="center">Bedrooms: <%= property.num_bedrooms %> | Full: <%= property.num_bathrooms %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <% else %>
+    <h1>No results found.</h1>
+  <% end %>
