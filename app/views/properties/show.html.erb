@@ -1,23 +1,33 @@
 <div class="container">
   <div class="col-sm-8 col-sm-offset-2">
+    <%= image_tag @property["photos"][0] %>
     <h2><%= @address %></h2>
     <h3>Beds: <%= @beds %> | Baths: <%= @baths %> </h3>
     <h3>List Price: <%= number_to_currency(@list_price) %></h3>
-    <h3>List Date <%= @list_date %>
-    <h3>Days on Market: <%= @property["daysOnMarket"] %> </h3>
-</div>
-</div>
+    <h3>List Date <%= @list_date %> </h3>
+    ************** PROPERTY OVERVIEW ***************
 
-<% @property.each do |category| %>
-    <ul> <% category.each do |information| %> </ul>
-        <% if information.nil? %>
-            <li> * NO INFORMATION AVAILABLE * </li>
-        <% elsif information.is_a?(Hash) %>
-            <li> <%= information %> </li>
-        <% else %>
-            <li> <%=  %> </li>
-        <% end %>
-    <% end %> 
-<% end %>
-   
+    <h3> <%= @property["remarks"] %> </h3>
+
+
+    ************* PROPERTY DETAILS ****************
+
+
+
+    <% @property.each do |category| %>
+        <ul> <% category.each do |information| %> </ul>
+            <% if information.nil? %>
+                <li> * NO INFORMATION AVAILABLE * </li>
+            <% elsif information.is_a?(Hash) %>
+                <% information.each do |detail| %>
+                    <li> <%= detail %> </li>
+                <% end %>
+            <% else %>
+                <li> <%= information %> </li>
+            <% end %>
+        <% end %> 
+    <% end %>
+
+    </div>
+</div>
 
