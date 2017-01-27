@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/findyourhome' => 'homepages#findyourhome'
 
    #property routes
-  get '/properties' => 'properties#index'
+  post '/properties' => 'properties#index'
   get '/properties/new' => 'properties#new'
   post '/properties' => 'properties#create'
   get '/properties/:id' => 'properties#show' 

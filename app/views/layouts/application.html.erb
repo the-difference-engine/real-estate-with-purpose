@@ -28,19 +28,13 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="/properties/">Find Your Home<span class="sr-only">(current)</span></a></li>
+          <li class="active"><a href="/findyourhome/">Find Your Home<span class="sr-only">(current)</span></a></li>
           <li><a href="/listwithus">List With Us</a></li>
           <li><a href="#">Company</a></li>
           <li><a href="/charities/">Charities</a></li>
           <li><a href="#">Contact</a></li>
           <li><a href="#">REwP Investor</a></li>
         </ul>
-        <!-- <form class="navbar-form navbar-left">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
-          </div>
-          <button type="submit" class="btn btn-default">Submit</button>
-        </form> -->
         <ul class="nav navbar-nav navbar-right">
           <% if current_user %>
           <li><%= link_to 'Log Out', '/logout', method: :delete %></li>
@@ -73,25 +67,24 @@
   <div class="hero-image">
     <div class="box-image">
       <h3>If you could</h3> 
-        <%= link_to "BUY", "/properties" %> <strong>or</strong> <%= link_to "SELL", "/properties" %>
+      <%= link_to "BUY", "/properties" %> <strong>or</strong> <%= link_to "SELL", "/properties" %>
       <h3>while helping your community, would you?</h3>
     </div>
   </div>
-<!-- <div class="do-item" style="background-image: url("</%= image_tag('/images/real-estate-1689980_1920.jpg') %>"); height: 42em; background-size: cover; background-position: center;">
- </div> -->
+</div>
 
- <p class="notice"><%= notice %></p>
- <p class="alert"><%= alert %></p>
+<% if notice || alert %>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+<% end %>
 
- <% flash.each do |name, message| %>
- <div class="alert alert-<%= name != "notice" ? name : "success" %> alert-dismissible" role="alert">
+<% flash.each do |name, message| %>
+<div class="alert alert-<%= name != "notice" ? name : "success" %> alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><p><%= message %></p>
 </div>
 <% end %>
-<%= yield %>
-<div class="container">
-  <section style="height:40px;"></section>
-
+<div class="container-fluid">
+  <%= yield %>
 
   <footer class="footer-bs">
     <div class="row">
