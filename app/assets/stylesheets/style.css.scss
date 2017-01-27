@@ -181,9 +181,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .newsletter-submit {
-  height: 50px;
-  width: 100px;
-  background: #CAE2FC;
+ @include button;
 }
 
 .self-promotion p {
@@ -241,6 +239,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .change-page :hover {
+  background-color: black;
+  border-radius: 100%;
+  color: white;
+}
+
+.active-page {
   background-color: black;
   border-radius: 100%;
   color: white;
