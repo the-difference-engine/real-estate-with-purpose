@@ -1,49 +1,64 @@
 
-  <head>
-  </head>
+<head>
+</head>
 
 <div class="list-content">
 <div class="container">
   <h2> About Real Estate With Purpose</h2>
-  <h4>Real Estate represents more than a financial transaction for four walls and a roof - it is an investment and personal commitment to Chicago's neighborhood and the surrounding community. To that end, 10% of my commission goes to reinvest in the community through the local charity and organization of my clients choice.
-  </h4>
+  <p>Real Estate represents more than a financial transaction for four walls and a roof - it is an investment and personal commitment to Chicago's neighborhood and the surrounding community. To that end, 10% of my commission goes to reinvest in the community through the local charity and organization of my clients choice.
+  </p>
 </div>
 </div>
 
 <div class="list-content">
 <div class="container">
-  <h2> Donation Calculator </h2>
-  <h3> Total amount donated </h3>
-  <br>
-
-    <div class ="input-group-dc">
-      <span class="input-group-addon">Enter your budget: $</span>
-      <input type="text" class="form-control" id="budget">
-      <span class="input-group-addon">See your donation amount! (USD)</span> 
-      <input type="text" class="form-control" name="textbox" id="textbox" readonly="true">
-     </div>
-
-  <p>
-      <% if @donations %>
-      <% @donations.each do |donation| %>
-      Charity: <%= donation.charity.name %>
-  <br>
-      Amount: <%= donation.amount_donated %>
-      <% end %>
-    <% else %>
-      0 Donations
-    <% end %>
-  </p>
-  <h3> Number of charities donated to </h3>
-  <%= @donations.count %>
-  <br>
-  <h3> Average donation amount </h3>
-    <% if @donation %>
+  <div class="row">
+    <div class="col-md-8">
+      <p>
+        <% if @donations %>
+        <% @donations.each do |donation| %>
+        Charity: <%= donation.charity.name %>
+        <br>
+        Amount: <%= donation.amount_donated %>
+        <% end %>
+        <% else %>
+        0 Donations
+        <% end %>
+      </p>
+      <div class="col-md-3">
+      <h3> Total Value Donated </h3>
+      <h5>Many Many $$$</h5>
+      </div>
+      <div class="col-md-3">
+      <h3> # of Local Charities Supported </h3>
+      <h5>$ <%= @donations.count %></h5>
+      </div>
+      <div class="col-md-1">
+      <h3> Average Donation Amount </h3>
+      <h5>$<% if @donation %>
       <%= @donation.average_donation %>
-    <% else %>
+      <% else %>
       0 dollars donated
-    <% end %>
-
+      <% end %></h5>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <h3>See for yourself</h3>
+      <div class ="input-group-dc">
+        <!-- <span class="input-group-addon">Enter your budget: $</span> -->
+        <input type="text" class="form-control" id="budget" maxlength="12" placeholder="Enter your Home Budget in (USD)">
+        <!--         <span class="input-group-addon">$</span>  --> 
+        <div class="row">
+          <div class="col-md-5">
+            <div id="textbox"></div>
+          </div>
+          <div class="col-md-7">
+            <p>Estimated donation amount to charity of your choice, based on budget.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 </div>
 
