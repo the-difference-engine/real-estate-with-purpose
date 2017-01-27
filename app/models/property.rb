@@ -1,5 +1,7 @@
 class Property < ApplicationRecord
   has_many :addresses
+  has_many :user_properties
+  has_many :users, through: :user_properties
 
   def self.find(mls_id)
     Unirest.get("https://#{ENV['USERNAME']}:#{ENV['PASSWORD']}@api.simplyrets.com/properties/#{mls_id}").body    
