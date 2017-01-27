@@ -85,7 +85,11 @@
           <%= hidden_field_tag :current_page, i %>
           <%= hidden_field_tag :offset, ((i-1) * 18) %>
           <div class="change-page">
-            <%= submit_tag i, class: "submit-button" %>
+            <% if @current_page.to_i == i %>
+              <span class="active-page"><%= submit_tag i, class: "submit-button", disabled: true %></span>
+            <% else %>
+              <%= submit_tag i, class: "submit-button" %>
+            <% end %>
           </div>
         <% end %>
       </div>
@@ -104,7 +108,11 @@
           <%= hidden_field_tag :current_page, i %>
           <%= hidden_field_tag :offset, ((i-1) * 18) %>
           <div class="change-page">
-            <%= submit_tag i, class: "submit-button" %>
+           <% if @current_page.to_i == i %>
+             <span class="active-page"><%= submit_tag i, class: "submit-button", disabled: true %></span>
+           <% else %>
+             <%= submit_tag i, class: "submit-button" %>
+           <% end %>
           </div>
         <% end %>
       </div>
@@ -123,7 +131,11 @@
             <%= hidden_field_tag :current_page, i %>
             <%= hidden_field_tag :offset, ((i-1) * 18) %>
             <div class="change-page">
-              <%= submit_tag i, class: "submit-button" %>
+              <% if @current_page.to_i == i %>
+                <span class="active-page"><%= submit_tag i, class: "submit-button", disabled: true %></span>
+              <% else %>
+                <%= submit_tag i, class: "submit-button" %>
+              <% end %>
             </div>
           <% end %>
         </div>
