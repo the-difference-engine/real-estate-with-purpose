@@ -1,6 +1,7 @@
 // color variables
 $dark-gray: #353131;
 $medium-gray: #786F6A;
+$light-gray: #B1B0B0;
 $royal-blue: #003FC5;
 $light-blue: #CAE2FC;
 $off-white: #F4F7F7;
@@ -14,6 +15,8 @@ $font-weight-light: 300;
 // mixins
 @mixin button {
   background-color: $royal-blue;
+  border: none;
+  box-shadow: none;
   color: $off-white;
   padding: .25em 1em;
   border-radius: 5px;
@@ -21,6 +24,14 @@ $font-weight-light: 300;
   font-size: 1.8em;
 }
 
+@mixin input {
+  padding: 6px 10px;
+  font-size: 14px;
+  color: $dark-gray;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
 
 body {
   font-family: $font-main;
@@ -36,6 +47,14 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0;
 }
 
+.navbar-header {
+  padding: 0 1em;
+}
+
+.navbar-right {
+  @extend .navbar-header;
+}
+
 .logo {
   width: 30px;
   height: 29px;
@@ -46,6 +65,10 @@ h1, h2, h3, h4, h5, h6 {
   #textbox {
     font-weight: bold;
     padding: 10px 10px 0 0;
+  }
+
+  #budget {
+    @include input;
   }
 
   p {
@@ -191,9 +214,18 @@ h1, h2, h3, h4, h5, h6 {
   height: 50px;
 }
 
+.home-content {
+  margin: 2em;
+  &:first-child {
+    border-bottom: 4px solid $light-gray;
+  }
+  .container {
+    width: 100%;
 
-.list-content .container {
-  width: 100%;
+    .donation-calc {
+      border: none;
+    }
+  }
 }
 
 .thumbnail img {
@@ -202,26 +234,37 @@ h1, h2, h3, h4, h5, h6 {
 
 .top-search-bar {
   display: flex;
-  background: #B1B0B0;
-  margin-bottom: 25px;
-  padding: 1em 1em 1.5em;
-  
-  input {
-    margin: 0 0.5em;
-  }
+  background: $light-gray;
+  padding: 1em 0.5em 0.5em;
+  flex-flow: row wrap;
+  justify-content: center;
 }
 
 .form-item {
-  flex: 1;
+  flex: 1 14%;
   position: relative;
   display: inline-block;
   text-align: center;
   margin-top: 10px;
+
+  input {
+    @include input;
+  }
+}
+
+.submit-btn {
+  flex: none;
+  padding: 1em;
+  input {
+    @include button;
+  }
 }
 
 
 .get-ready {
   left: 5%;
+  display: block;
+  margin-top: 3em;
   position: relative;
 }
 
@@ -263,6 +306,16 @@ h1, h2, h3, h4, h5, h6 {
     padding: 2em;
     left: 30%;
     text-align: center;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .home-content {
+    .container {
+      .donation-calc {
+        border-left: 4px solid $light-gray;
+      }
+    }
   }
 }
 
