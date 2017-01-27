@@ -1,5 +1,39 @@
-.top {
-  
+// color variables
+$dark-gray: #353131;
+$medium-gray: #786F6A;
+$royal-blue: #003FC5;
+$light-blue: #CAE2FC;
+$off-white: #F4F7F7;
+
+// typography variables
+$font-main: 'Heebo', sans-serif;
+$font-weight-headings: 900;
+$font-weight-body: 400;
+$font-weight-light: 300;
+
+// mixins
+@mixin button {
+  background-color: $royal-blue;
+  color: $off-white;
+  padding: .25em 1em;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1.8em;
+}
+
+
+body {
+  font-family: $font-main;
+  font-weight: $font-weight-body;
+  font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $font-weight-headings;
+}
+
+.container-fluid {
+  padding: 0;
 }
 
 .logo {
@@ -9,7 +43,14 @@
 }
 
 .input-group-dc {
-  width: 300px;
+  #textbox {
+    font-weight: bold;
+    padding: 10px 10px 0 0;
+  }
+
+  p {
+    padding: 10px 0 0 15px;
+  }
 }
 
 .navbar-fixed-top { border:0; }
@@ -20,14 +61,22 @@
   background-size: cover;
   background-position: center;
   width: 100%;
+  position: relative;
 }
 
 .box-image {
-            position: absolute;
-            top: 30%;
-            left: 30%;
-            background: rgba(0, 0, 0, .7);
-            padding: 2em;
+  border-radius: 5px;
+  color: $dark-gray;
+  position: absolute;
+  text-align: center;
+  top: 30%;
+  left: 0;
+  background: rgba($off-white, 0.75);
+  padding: 2em 1em;
+
+  a {
+    @include button;
+  }
 }
 
 .product_single{
@@ -144,6 +193,7 @@
   height: 50px;
 }
 
+
 .list-content .container {
   width: 100%;
 }
@@ -154,9 +204,13 @@
 
 .top-search-bar {
   display: flex;
-  height: 50px;
   background: #B1B0B0;
   margin-bottom: 25px;
+  padding: 1em 1em 1.5em;
+  
+  input {
+    margin: 0 0.5em;
+  }
 }
 
 .form-item {
@@ -191,8 +245,21 @@
   border-radius: 100%;
   color: white;
 }
+
 // img:hover {
 //     opacity: 0.5;
 //     filter: alpha(opacity=50);
 //     transition: .3s ease-in-out;
 // }
+
+/* media queries */
+
+@media screen and (min-width: 480px) {
+  .box-image {
+    padding: 2em;
+    left: 30%;
+    text-align: center;
+  }
+}
+
+/* end */

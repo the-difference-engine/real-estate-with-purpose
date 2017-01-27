@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <nav class="navbar navbar-default navbar-fixed-top">
+<head>
+ <title>RealEstateWithPurpose</title>
+ <%= csrf_meta_tags %>
+
+ <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+ <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Heebo:300,400,900' %>
+ <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
-      
+
         <%= link_to image_tag('/images/mansion.svg', :class => 'navbar-brand'), "/homepages" %>
 
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -27,21 +35,15 @@
           <li><a href="#">Contact</a></li>
           <li><a href="#">REwP Investor</a></li>
         </ul>
-        <!-- <form class="navbar-form navbar-left">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
-          </div>
-          <button type="submit" class="btn btn-default">Submit</button>
-        </form> -->
         <ul class="nav navbar-nav navbar-right">
-        <% if current_user %>
+          <% if current_user %>
           <li><%= link_to 'Log Out', '/logout', method: :delete %></li>
-        <% else %>
+          <% else %>
           <li><a href="/login">Sign In</a></li>
           <li><a href="/signup">Sign Up</a></li>
-        <% end %>
+          <% end %>
 
-        <% if current_user && current_user.admin %>
+          <% if current_user && current_user.admin %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin Privileges<span class="caret"></span></a>
             <ul class="dropdown-menu">
@@ -55,92 +57,73 @@
               <li><a href="#">Separated link</a></li>
             </ul>
           </li>
-        <% end %>
+          <% end %>
 
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
 
-<div class="hero-image">
-  <div class="box-image">
-    <h3 style="color: white;">
-      If you could
-    </h3> 
-    <h1 style="color: white;">
-      <%= link_to "BUY", "/properties" %> or  <%= link_to "SELL", "/properties" %>
-    </h1>
-    <h3 style="color: white;">
-      while helping your community, would you?
-    </h3>
+  <div class="hero-image">
+    <div class="box-image">
+      <h3>If you could</h3> 
+      <%= link_to "BUY", "/properties" %> <strong>or</strong> <%= link_to "SELL", "/properties" %>
+      <h3>while helping your community, would you?</h3>
+    </div>
   </div>
 </div>
-   <!--  <div class="do-item" style="background-image: url("<%= image_tag('/images/real-estate-1689980_1920.jpg') %>"); height: 42em; background-size: cover; background-position: center;">
-    </div> -->
 
-      <title>RealEstateWithPurpose</title>
-      <%= csrf_meta_tags %>
+<% if notice || alert %>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+<% end %>
 
-      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
-  </head>
-  <% if notice || alert %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-  <% end %>
+<% flash.each do |name, message| %>
+<div class="alert alert-<%= name != "notice" ? name : "success" %> alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><p><%= message %></p>
+</div>
+<% end %>
+<div class="container-fluid">
+  <%= yield %>
 
-  <body class="Site">
-
-  <% flash.each do |name, message| %>
-    <div class="alert alert-<%= name != "notice" ? name : "success" %> alert-dismissible" role="alert">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><p><%= message %></p>
-    </div>
-  <% end %>
-      <%= yield %>
-      <div class="container">
-      <section style="height:40px;"></section>
-
-
-        <footer class="footer-bs">
-            <div class="row">
-              <div class="col-md-3 footer-brand animated fadeInLeft">
-                <h2>Site Map</h2>
-                  <p>Suspendisse hendrerit tellus laoreet luctus pharetra. Aliquam porttitor vitae orci nec ultricies. Curabitur vehicula, libero eget faucibus faucibus, purus erat eleifend enim, porta pellentesque ex mi ut sem.</p>
-                  <p>© 2016 Bootstrap REwP UI Kit</p>
-              </div>
-
-            <div class="col-md-4 footer-nav animated fadeInUp">
-                <ul class="pages">
-                    <li><h4>Contact Us</h4></li>
-
-                    <li> <%= link_to image_tag('/images/facebook.svg', :class => 'logo' ), "https://www.facebook.com/realestatewithpurpose" %> 
-                      <%= link_to image_tag('/images/pinterest.svg', :class => 'logo'), "https://www.pinterest.com/evanstonrealtor/" %> 
-                      <%= link_to image_tag('/images/linked_in.svg', :class => 'logo' ), "https://www.linkedin.com/in/natalie-smith-91a17627" %> 
-                      <%= link_to image_tag('/images/googleplus.svg', :class => 'logo'), "https://plus.google.com/+RealestatewithpurposeCo" %> </li>
-          
-                    <li><a href="#">Address</a></li>
-                    <li><a href="#">Phone: (773) 451-6196</a></li>
-                    <li><a href="#">Email: nataliesmith@atproperties.com</a></li>
-                    <li><a href="#">Office Hours: By Appointment Only</a></li>
-                </ul>
-            </div>
-              <div class="col-md-3 footer-ns animated fadeInRight">
-                <h4>Newsletter</h4>
-                  <p>A fuzzy suit doesn’t alarm the real penguins</p>
-                  <p>
-                    <div class="input-group">
-                      <input type="text" class="form-control" placeholder="Search for...">
-                      <span class="input-group-btn">
-                        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-envelope"></span></button>
-                      </span>
-                    </div>
-                  </p>
-              </div>
-            </div>
-        </footer>
+  <footer class="footer-bs">
+    <div class="row">
+      <div class="col-md-3 footer-brand animated fadeInLeft">
+        <h2>Site Map</h2>
+        <p>Suspendisse hendrerit tellus laoreet luctus pharetra. Aliquam porttitor vitae orci nec ultricies. Curabitur vehicula, libero eget faucibus faucibus, purus erat eleifend enim, porta pellentesque ex mi ut sem.</p>
+        <p>© 2016 Bootstrap REwP UI Kit</p>
       </div>
-  </body>
+
+      <div class="col-md-4 footer-nav animated fadeInUp">
+        <ul class="pages">
+          <li><h4>Contact Us</h4></li>
+
+          <li> <%= link_to image_tag('/images/facebook.svg', :class => 'logo' ), "https://www.facebook.com/realestatewithpurpose" %> 
+            <%= link_to image_tag('/images/pinterest.svg', :class => 'logo'), "https://www.pinterest.com/evanstonrealtor/" %> 
+            <%= link_to image_tag('/images/linked_in.svg', :class => 'logo' ), "https://www.linkedin.com/in/natalie-smith-91a17627" %> 
+            <%= link_to image_tag('/images/googleplus.svg', :class => 'logo'), "https://plus.google.com/+RealestatewithpurposeCo" %> </li>
+
+            <li><a href="#">Address</a></li>
+            <li><a href="#">Phone: (773) 451-6196</a></li>
+            <li><a href="#">Email: nataliesmith@atproperties.com</a></li>
+            <li><a href="#">Office Hours: By Appointment Only</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 footer-ns animated fadeInRight">
+          <h4>Newsletter</h4>
+          <p>A fuzzy suit doesn’t alarm the real penguins</p>
+          <p>
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search for...">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-envelope"></span></button>
+              </span>
+            </div>
+          </p>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
 </html>
 
-           
