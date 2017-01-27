@@ -3,8 +3,7 @@
     var d = document,
     budgetInput = d.getElementById('budget'),
     donation,
-    textbox = d.getElementById('textbox'),
-    textboxInput = textbox.innerHTML;
+    textbox = d.getElementById('textbox');
 
   calculateDonation = function() {
    var initial = budgetInput.value;
@@ -16,7 +15,7 @@
      if(initial) {
       if(isNaN(initial)) {
         alert("Please enter a number");
-        textboxInput = "";
+        textbox.innerHTML = "";
       } else {
         textbox.innerHTML = "$" + donation;
       }

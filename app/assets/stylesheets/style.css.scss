@@ -32,6 +32,10 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: $font-weight-headings;
 }
 
+.container-fluid {
+  padding: 0;
+}
+
 .logo {
   width: 30px;
   height: 29px;
@@ -189,6 +193,65 @@ h1, h2, h3, h4, h5, h6 {
   height: 50px;
 }
 
+
+.list-content .container {
+  width: 100%;
+}
+
+.thumbnail img {
+  height: 300px;
+}
+
+.top-search-bar {
+  display: flex;
+  background: #B1B0B0;
+  margin-bottom: 25px;
+  padding: 1em 1em 1.5em;
+  
+  input {
+    margin: 0 0.5em;
+  }
+}
+
+.form-item {
+  flex: 1;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  margin-top: 10px;
+}
+
+
+.get-ready {
+  left: 5%;
+  position: relative;
+}
+
+.pagination {
+  display: flex;
+}
+
+.page-links {
+  flex: 1;
+}
+
+.submit-button {
+  background: none;
+  border: none;
+}
+
+.change-page :hover {
+  background-color: black;
+  border-radius: 100%;
+  color: white;
+}
+
+// img:hover {
+//     opacity: 0.5;
+//     filter: alpha(opacity=50);
+//     transition: .3s ease-in-out;
+// }
+
 /* media queries */
 
 @media screen and (min-width: 480px) {
@@ -200,10 +263,3 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* end */
-// img:hover {
-//     opacity: 0.5;
-//     filter: alpha(opacity=50);
-//     transition: .3s ease-in-out;
-// }
-
-
