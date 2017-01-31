@@ -1,1 +1,44 @@
-<%= @property %>
+<div class="container">
+  <div class="col-sm-8 col-sm-offset-2">
+    <%= image_tag @property["photos"][0] %>
+    <h2><%= @address %></h2>
+    <p>Beds: <%= @beds %> | Baths: <%= @baths %> </p>
+    <p>List Price: <%= number_to_currency(@list_price) %></p>
+    <p>List Date <%= @list_date %> </p>
+
+    <h3> ************** PROPERTY OVERVIEW *************** </h3>
+
+    <% if @property["remarks"] != nil %>
+        <%= @property["remarks"] %>
+    <% else %>
+        <%= @property["privateRemarks"] %>
+    <% end %>
+
+    <h3> ************* PROPERTY DETAILS **************** </h3>
+
+    <% @property.each do |category| %>
+        &nbsp <% category.each do |information| %>
+            <% if information.nil? %>
+                <p> &nbsp NO INFORMATION AVAILABLE </p>
+            <% elsif information.is_a?(Hash) %>
+                 <% information.each do |detail| %>
+                    <% if detail[1] == nil %>
+                        <p> &nbsp <%= detail[0] %>: NO INFORMATION LISTED </p>
+                    <% else %>
+                        <p> &nbsp <%= detail[0] %>: <%= detail[1] %> </p>
+                    <% end %>
+                <% end %>
+            <% else %>
+               <p> <%= information %> </p>
+            <% end %>
+        <% end %>
+    <% end %>
+
+
+    <%= image_tag @map_image %>
+
+    </div>
+
+</div>
+
+

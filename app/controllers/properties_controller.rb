@@ -49,7 +49,22 @@ class PropertiesController < ApplicationController
   end
 
   def show
-    @property = Property.find(params[:id])
+
+    user = ENV["USERNAME"]
+    pass = ENV["PASSWORD"]
+    mlsId = params[:id]
+    @property = Unirest.get("https://#{user}:#{pass}@api.simplyrets.com/properties/#{mlsId}").body
+    @address = @property["address"]["full"]
+    @beds = @property["property"]["bedrooms"]
+    @baths = @property["property"]["bathsFull"]
+    @list_price = @property["listPrice"]
+    @list_date = @property["listDate"]
+
+    @lat = @property["geo"]["lat"]
+    @long = @property["geo"]["lng"]
+
+    @google = ENV["GOOGLE"]
+    @map_image = "https://maps.googleapis.com/maps/api/staticmap?center=#{@lat},#{@long}&zoom=12&size=600x300&maptype=roadmap&markers=color:red%7Clabel:A%7C#{@lat},#{@long}&key=#{@google}"
   end
 
   def edit
