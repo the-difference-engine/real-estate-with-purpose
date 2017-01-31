@@ -64,6 +64,7 @@ Rails.application.routes.draw do
   #authentication signup routes
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
+  
 
   #authentication login/logout routes
   get '/login' => 'sessions#new'
