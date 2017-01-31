@@ -54,7 +54,22 @@ class PropertiesController < ApplicationController
 
   def show
     @property = Unirest.get("https://#{ENV['USERNAME']}:#{ENV['PASSWORD']}@api.simplyrets.com/properties/#{params[:id]}").body
+    @address = @property["address"]["full"]
+    @beds = @property["property"]["bedrooms"]
+    @baths = @property["property"]["bathsFull"]
+    @list_price = @property["listPrice"]
+    @list_date = @property["listDate"]
+
+    @lat = @property["geo"]["lat"]
+    @long = @property["geo"]["lng"]
+
+    @google = ENV["GOOGLE"]
+    @map_image = "https://maps.googleapis.com/maps/api/staticmap?center=#{@lat},#{@long}&zoom=12&size=600x300&maptype=roadmap&markers=color:red%7Clabel:A%7C#{@lat},#{@long}&key=#{@google}"
     
+    if current_user
+      fav_property = Property.find_by(api_address: params[:id])
+      @favorite = UserProperty.find_by(property_id: fav_property.id, user_id: current_user.id)
+    end
   end
 
   def edit
@@ -80,10 +95,12 @@ class PropertiesController < ApplicationController
   end
 
   def destroy
-    @property = Property.find_by(id: params[:id])
-    @property.destroy
+    favorite = UserProperty.find(params[:id])
+    property = Property.find(favorite.property_id)
+    property.destroy
+    favorite.destroy
 
-    flash[:warning] = "Destroyed!"
-    redirect_to "/"
+    flash[:warning] = "Removed from favorites."
+    redirect_to "/users/#{current_user.id}"
   end
 end
