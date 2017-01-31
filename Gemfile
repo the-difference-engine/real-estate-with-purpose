@@ -19,7 +19,6 @@ gem 'unirest'
 
 gem 'http-cookie'
 gem 'json'
-gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0'
@@ -60,6 +59,7 @@ group :development, :test do
 
    gem 'rspec-rails', '~> 3.5'
    gem "factory_girl_rails", "~> 4.0"
+   gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
 end
 
 group :development do
