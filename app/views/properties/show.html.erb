@@ -1,1 +1,18 @@
 <%= @property %>
+<% if current_user %>
+    <div class="favorite">
+        <%= form_tag "/properties_favorite", method: :post do %>
+            <% if @property["photos"][0] %>
+                <%= hidden_field_tag :image, @property["photos"][0] %>
+            <% end %>
+            <%= hidden_field_tag :line_1, @property["address"]["city"] %>
+            <%= hidden_field_tag :state, @property["address"]["state"] %>
+            <%= hidden_field_tag :api_address, @property["mlsId"] %>
+            <%= hidden_field_tag :list_price, @property["listPrice"] %>
+            <%= hidden_field_tag :line_2, @property["address"]["full"] %>
+            <%= hidden_field_tag :num_bedrooms, @property["property"]["bedrooms"] %>
+            <%= hidden_field_tag :num_bathrooms, @property["property"]["bathsFull"] %>
+            <%= submit_tag "Add to Favorites!" %>
+        <% end %>
+    </div>
+<% end %>

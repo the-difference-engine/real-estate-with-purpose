@@ -43,13 +43,18 @@ class PropertiesController < ApplicationController
       city: params[:api],
       state: params[:state],
       zip: params[:zip]
-      )
-    flash[:success] = 'New Property Created'
-    redirect_to "/properties/#{@property.id}"
+    )
+
+    UserProperty.create(user_id: current_user.id,
+                        property_id: @property.id)
+
+    flash[:success] = 'Added to favorites!'
+    redirect_to "/users/#{current_user.id}"
   end
 
   def show
-    @property = Property.find(params[:id])
+    @property = Unirest.get("https://#{ENV['USERNAME']}:#{ENV['PASSWORD']}@api.simplyrets.com/properties/#{params[:id]}").body
+    
   end
 
   def edit
