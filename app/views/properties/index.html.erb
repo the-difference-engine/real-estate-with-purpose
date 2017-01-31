@@ -5,7 +5,6 @@
         <% @properties.each do |property| %>
           <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
-<<<<<<< HEAD
               <% if property["photos"][0] %>
                 <%= image_tag property["photos"][0] %>
               <% else %>
@@ -23,7 +22,7 @@
               
 
             </div>
-            <p><%= property["mlsId"] %></p>
+            <p><%= link_to property["mlsId"], "/properties/#{property["mlsId"]}" %></p>
           </div>
         <% end %>
       </div>

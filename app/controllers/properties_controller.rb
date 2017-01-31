@@ -51,10 +51,14 @@ class PropertiesController < ApplicationController
     @baths = @property["property"]["bathsFull"]
     @list_price = @property["listPrice"]
     @list_date = @property["listDate"]
+
     @lat = @property["geo"]["lat"]
     @long = @property["geo"]["lng"]
 
-    @google = Unirest.get("https://maps.googleapis.com/maps/api/staticmap?center=#{@lat},#{@long}&zoom=13&size=600x300&maptype=roadmap&key=AIzaSyD04Tc5-DaqGY5K4NStzyJDMw8lzq0SIJQ").body
+    @google = ENV["GOOGLE"]
+    @map_image = "https://maps.googleapis.com/maps/api/staticmap?center=#{@lat},#{@long}&zoom=12&size=600x300&maptype=roadmap&markers=color:red%7Clabel:A%7C#{@lat},#{@long}&key=#{@google}"
+   
+
   
 
   end
