@@ -1,6 +1,5 @@
 class PropertiesController < ApplicationController
-
-  before_action :authenticate_admin!, except: [:index, :new, :create, :show]
+  # before_action :authenticate_admin!, except: [:index, :new, :create, :show]
 
   def index
     user = ENV["USERNAME"]
@@ -39,6 +38,7 @@ class PropertiesController < ApplicationController
       details: params[:details],
       misc_details: params[:misc_details],
       line_1: params[:line_1],
+      line_2: params[:line_2],
       api_address: params[:api_address],
       city: params[:api],
       state: params[:state],
@@ -67,8 +67,12 @@ class PropertiesController < ApplicationController
     @map_image = "https://maps.googleapis.com/maps/api/staticmap?center=#{@lat},#{@long}&zoom=12&size=600x300&maptype=roadmap&markers=color:red%7Clabel:A%7C#{@lat},#{@long}&key=#{@google}"
     
     if current_user
-      fav_property = Property.find_by(api_address: params[:id])
-      @favorite = UserProperty.find_by(property_id: fav_property.id, user_id: current_user.id)
+      user_favs = User.find(current_user.id).user_properties
+      user_favs.each do |prop|
+        if prop.property.api_address == params[:id]
+          @favorite = prop
+        end
+      end
     end
   end
 

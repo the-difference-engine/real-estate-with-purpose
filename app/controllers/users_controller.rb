@@ -34,6 +34,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by(id: params[:id])
     @properties = @user.properties
+    @user_favs = @user.user_properties
   end
 
   def edit
