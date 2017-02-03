@@ -319,4 +319,14 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+.add-favorite {
+  @include button;
+}
+
+.delete-favorite {
+  @include button;
+  background-color: red;
+  font-size: 1em;
+}
+
 /* end */
