@@ -2,12 +2,13 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'homepages#index'
    
- #homepage route
+  #homepage route
   get '/homepages' => 'homepages#index'
   get '/listwithus' => 'homepages#listwithus'
   get '/findyourhome' => 'homepages#findyourhome'
+  get '/company' => 'homepages#company'
 
-   #property routes
+  #property routes
   post '/properties' => 'properties#index'
   get '/properties/new' => 'properties#new'
   post '/properties' => 'properties#create'
@@ -16,7 +17,7 @@ Rails.application.routes.draw do
   patch '/properties/:id' => 'properties#update'
   delete '/properties/:id' => 'properties#destroy'
 
-   #buyer routes
+  #buyer routes
   get '/buyers' => 'buyers#index'
   get '/buyers/new' => 'buyers#new'
   post '/buyers' => 'buyers#create'
@@ -25,7 +26,7 @@ Rails.application.routes.draw do
   patch '/buyers/:id' => 'buyers#update'
   delete '/buyers/:id' => 'buyers#destroy'
 
-   #charity routes
+  #charity routes
   get '/charities' => 'charities#index'
   get '/charities/new' => 'charities#new'
   post '/charities' => 'charities#create'
@@ -34,7 +35,7 @@ Rails.application.routes.draw do
   patch '/charities/:id' => 'charities#update'
   delete '/charities/:id' => 'charities#destroy'
 
-   #donation routes
+  #donation routes
   get '/donations' => 'donations#index'
   get '/donations/new' => 'donations#new'
   post '/donations' => 'donations#create'
