@@ -1,6 +1,5 @@
 class PropertiesController < ApplicationController
-
-  before_action :authenticate_admin!, except: [:index, :new, :create, :show]
+  # before_action :authenticate_admin!, except: [:index, :new, :create, :show]
 
   def index
     user = ENV["USERNAME"]
@@ -39,21 +38,22 @@ class PropertiesController < ApplicationController
       details: params[:details],
       misc_details: params[:misc_details],
       line_1: params[:line_1],
+      line_2: params[:line_2],
       api_address: params[:api_address],
       city: params[:api],
       state: params[:state],
       zip: params[:zip]
-      )
-    flash[:success] = 'New Property Created'
-    redirect_to "/properties/#{@property.id}"
+    )
+
+    UserProperty.create(user_id: current_user.id,
+                        property_id: @property.id)
+
+    flash[:success] = 'Added to favorites!'
+    redirect_to "/users/#{current_user.id}"
   end
 
   def show
-
-    user = ENV["USERNAME"]
-    pass = ENV["PASSWORD"]
-    mlsId = params[:id]
-    @property = Unirest.get("https://#{user}:#{pass}@api.simplyrets.com/properties/#{mlsId}").body
+    @property = Unirest.get("https://#{ENV['USERNAME']}:#{ENV['PASSWORD']}@api.simplyrets.com/properties/#{params[:id]}").body
     @address = @property["address"]["full"]
     @beds = @property["property"]["bedrooms"]
     @baths = @property["property"]["bathsFull"]
@@ -65,6 +65,15 @@ class PropertiesController < ApplicationController
 
     @google = ENV["GOOGLE"]
     @map_image = "https://maps.googleapis.com/maps/api/staticmap?center=#{@lat},#{@long}&zoom=12&size=600x300&maptype=roadmap&markers=color:red%7Clabel:A%7C#{@lat},#{@long}&key=#{@google}"
+    
+    if current_user
+      user_favs = User.find(current_user.id).user_properties
+      user_favs.each do |prop|
+        if prop.property.api_address == params[:id]
+          @favorite = prop
+        end
+      end
+    end
   end
 
   def edit
@@ -90,10 +99,12 @@ class PropertiesController < ApplicationController
   end
 
   def destroy
-    @property = Property.find_by(id: params[:id])
-    @property.destroy
+    favorite = UserProperty.find(params[:id])
+    property = Property.find(favorite.property_id)
+    property.destroy
+    favorite.destroy
 
-    flash[:warning] = "Destroyed!"
-    redirect_to "/"
+    flash[:warning] = "Removed from favorites."
+    redirect_to "/users/#{current_user.id}"
   end
 end
