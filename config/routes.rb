@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   #property routes
   post '/properties' => 'properties#index'
   get '/properties/new' => 'properties#new'
-  post '/properties' => 'properties#create'
+  post '/properties_favorite' => 'properties#create'
   get '/properties/:id' => 'properties#show' 
   get '/properties/:id/edit' => 'properties#edit'
   patch '/properties/:id' => 'properties#update'
