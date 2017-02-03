@@ -1,11 +1,31 @@
-<div class="container">
+
   <div class="col-sm-8 col-sm-offset-2">
     <%= image_tag @property["photos"][0] %>
     <h2><%= @address %></h2>
     <p>Beds: <%= @beds %> | Baths: <%= @baths %> </p>
     <p>List Price: <%= number_to_currency(@list_price) %></p>
     <p>List Date <%= @list_date %> </p>
-
+  <% if current_user %>
+      <div class="favorite">
+        <% if @favorite %>
+            <%= link_to "Remove from favorites", "/properties/#{@favorite.id}", class: "delete-favorite", method: :delete %>
+        <% else %>
+          <%= form_tag "/properties_favorite", method: :post do %>
+              <% if @property["photos"][0] %>
+                  <%= hidden_field_tag :image, @property["photos"][0] %>
+              <% end %>
+              <%= hidden_field_tag :line_1, @property["address"]["city"] %>
+              <%= hidden_field_tag :state, @property["address"]["state"] %>
+              <%= hidden_field_tag :api_address, @property["mlsId"] %>
+              <%= hidden_field_tag :list_price, @property["listPrice"] %>
+              <%= hidden_field_tag :line_2, @property["address"]["full"] %>
+              <%= hidden_field_tag :num_bedrooms, @property["property"]["bedrooms"] %>
+              <%= hidden_field_tag :num_bathrooms, @property["property"]["bathsFull"] %>
+              <%= submit_tag "Add to Favorites!", class: "add-favorite" %>
+          <% end %>
+      <% end %>
+      </div>
+  <% end %>
     <h3> ************** PROPERTY OVERVIEW *************** </h3>
 
     <% if @property["remarks"] != nil %>
@@ -17,15 +37,15 @@
     <h3> ************* PROPERTY DETAILS **************** </h3>
 
     <% @property.each do |category| %>
-        &nbsp <% category.each do |information| %>
+         <% category.each do |information| %>
             <% if information.nil? %>
-                <p> &nbsp NO INFORMATION AVAILABLE </p>
+                <p>  NO INFORMATION AVAILABLE </p>
             <% elsif information.is_a?(Hash) %>
                  <% information.each do |detail| %>
                     <% if detail[1] == nil %>
-                        <p> &nbsp <%= detail[0] %>: NO INFORMATION LISTED </p>
+                        <p> <%= detail[0] %>: NO INFORMATION LISTED </p>
                     <% else %>
-                        <p> &nbsp <%= detail[0] %>: <%= detail[1] %> </p>
+                        <p> <%= detail[0] %>: <%= detail[1] %> </p>
                     <% end %>
                 <% end %>
             <% else %>
@@ -40,5 +60,4 @@
     </div>
 
 </div>
-
 
