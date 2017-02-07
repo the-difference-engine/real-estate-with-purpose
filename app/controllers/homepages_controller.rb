@@ -8,4 +8,11 @@ class HomepagesController < ApplicationController
     
   end
 
+  def findyourhome
+    
+  end
+
+  def company
+    
+  end
 end
