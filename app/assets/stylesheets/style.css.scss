@@ -352,4 +352,14 @@ h1, h2, h3, h4, h5, h6 {
   height: 150px;
 }
 
+.property-photo-frame :hover {
+  cursor: pointer;
+  opacity: .5;
+}
+
+.current-active {
+  border: solid green;
+  border-radius: 5%;
+}
+
 /* end */
