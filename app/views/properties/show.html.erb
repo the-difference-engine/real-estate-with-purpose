@@ -38,13 +38,15 @@
 
 </div>
   <div class="col-sm-8 col-sm-offset-2">
-    <%= image_tag @property["photos"][0] %>
+    <%= image_tag @property["photos"][0], id: "big-property-photo" %>
     <div class="property-photos">
         <% @property["photos"].each do |photo| %>
-            <%= image_tag photo %>
-            
+        <div class="property-photo-frame">
+            <img src="<%= photo %>" class="small-property-photos", id="<%= @property["photos"].index(photo) %>">
+        </div>
         <% end %>
     </div>
+    <p>Image <span class="number-of-photos">1</span> of <%= @property["photos"].length %></p>
     <p>Beds: <%= @beds %> | Baths: <%= @baths %> </p>
     <p>List Price: <%= number_to_currency(@list_price) %></p>
     <p>List Date <%= @list_date %> </p>
