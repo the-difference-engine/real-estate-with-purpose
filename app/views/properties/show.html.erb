@@ -4,7 +4,7 @@
     <h2><%= @address %></h2>
     <p>Beds: <%= @beds %> | Baths: <%= @baths %> </p>
     <p>List Price: <%= number_to_currency(@list_price) %></p>
-    <p>List Date <%= @list_date %> </p>
+    <p>List Date: <%= @list_date %> </p>
   <% if current_user %>
       <div class="favorite">
         <% if @favorite %>
@@ -26,36 +26,43 @@
       <% end %>
       </div>
   <% end %>
-    <h3> ************** PROPERTY OVERVIEW *************** </h3>
 
-    <% if @property["remarks"] != nil %>
-        <%= @property["remarks"] %>
-    <% else %>
-        <%= @property["privateRemarks"] %>
+    <h3> PROPERTY OVERVIEW </h3>
+
+    <p> <strong> REMARKS: </strong> <%= @property["remarks"] %> </p>
+    <p> <strong> PRIVATE REMARKS: </strong> <%= @property["privateRemarks"] %> </p>
+
+    <h3> MLS-FED DATA </h3>
+
+    <p> <strong> MLS-ID: </strong> <%= @property["mlsId"] %> </p>
+    <p> <strong> PROPERTY SPECIFICS: </strong> <%= @property["property"] %> </p>
+    <p> <strong> MLS-METADATA: </strong> <%= @property["mls"] %> </p>
+
+    <h3> REALTOR INFORMATION </h3>
+
+    <p> <strong> OFFICE: </strong> <%= @property["office"] %> </p>
+    <p> <strong> AGENT: </strong> <%= @property["agent"] %> </p>
+    <p> <strong> CO-AGENT: </strong> <%= @property["coAgent"] %> </p>
+    <p> <strong> SHOWING INSTRUCTIONS: </strong> <%= @property["showingInstructions"] %> </p>
+
+    <h3> RELEVANT INFORMATION </h3>
+
+    <p> <strong> SCHOOL: </strong> <%= @property["school"] %> </p>
+    <p> <strong> GEO: </strong> <%= @property["geo"] %> </p>
+    <p> <strong> TAXES: </strong> <%= @property["tax"] %> </p>
+    <p> <strong> DISCLAIMER: </strong> <%= @property["disclaimer"] %> </p>
+
+    <h3> OTHER INFORMATION </h3>
+
+    <% @property.except("address", "remarks", "privateRemarks", "mlsId", "property", "mls", "agent", "coAgent", "office", "photos", "listPrice", "listDate", "listPrice", "school", "geo", "tax").each do |item| %>
+      <p> <%= item %> </p>
     <% end %>
 
-    <h3> ************* PROPERTY DETAILS **************** </h3>
-
-    <% @property.each do |category| %>
-         <% category.each do |information| %>
-            <% if information.nil? %>
-                <p>  NO INFORMATION AVAILABLE </p>
-            <% elsif information.is_a?(Hash) %>
-                 <% information.each do |detail| %>
-                    <% if detail[1] == nil %>
-                        <p> <%= detail[0] %>: NO INFORMATION LISTED </p>
-                    <% else %>
-                        <p> <%= detail[0] %>: <%= detail[1] %> </p>
-                    <% end %>
-                <% end %>
-            <% else %>
-               <p> <%= information %> </p>
-            <% end %>
-        <% end %>
-    <% end %>
 
 
-    <%= image_tag @map_image %>
+
+
+    <p> <%= image_tag @map_image %> </p>
 
     </div>
 
