@@ -31,28 +31,72 @@
 
     <h3> PROPERTY OVERVIEW </h3>
 
-    <p> <strong> REMARKS: </strong> <%= @property["remarks"] %> </p>
-    <p> <strong> PRIVATE REMARKS: </strong> <%= @property["privateRemarks"] %> </p>
+    <p> <b> REMARKS: </b> <%= @property["remarks"] %> </p>
+    <p> <b> PRIVATE REMARKS: </b> <%= @property["privateRemarks"] %> </p>
 
     <h3> MLS-FED DATA </h3>
 
-    <p> <strong> MLS-ID: </strong> <%= @property["mlsId"] %> </p>
-    <p> <strong> PROPERTY SPECIFICS: </strong> <%= @property["property"] %> </p>
-    <p> <strong> MLS-METADATA: </strong> <%= @property["mls"] %> </p>
+    <p> <b> MLS-ID: </b> <%= @property["mlsId"] %> </p>
+      <% if @property["property"].is_a?(Hash) %>
+        <b> PROPERTY SPECIFICS: </b> <% @property["property"].each_pair do |key, value| %> 
+          <% if value == nil %>
+            <% value = "No property information given."  %>
+          <% elsif value.is_a?(Hash) %>
+            <ul> <b> <%= key %>: </b> </ul>
+
+            <% value.each_pair do |key2, value2| %>
+
+              <% if value2 == nil %>
+                <ul> <ul> <b> <%= key2 %>: </b> No information given. </ul> </ul>
+              <% else %>
+
+                <ul> <ul> <b> <%= key2 %>: </b> <%= value2 %> </ul> </ul>
+              <% end %>
+            <% end %>
+          <% else %>
+            <ul> <b> <%= key %>: </b> <%= value %> </ul>
+          <% end %>
+        <% end %>
+      <% else %>
+        <p> "No property information given" </p>
+      <% end %>
+
+      <% if @property["mls"].is_a?(Hash) %>
+        <p> <b> MLS-METADATA: </b> <% @property["mls"].each_pair do |key, value| %> </p>
+          <% if value == nil %>
+            <% value = "No mls informaion given" %>
+          <% elsif value.is_a?(Hash) %>
+            <% value.each_pair do |key2, value2| %>
+              <% if value2 == nil %>
+                <% value2 = "No information given." %>
+              <% else %>
+                <ul> <%= key2 %>: <%= value2 %> </ul>
+              <% end %>
+            <% end %>
+
+            <ul> <b> <%= key %>: </b> <%= value %> </ul>
+            <% end %>
+          <% end %>
+      <% else %>
+        <p> "No mls information given" </p>
+      <% end %>
+
+
+
 
     <h3> REALTOR INFORMATION </h3>
 
-    <p> <strong> OFFICE: </strong> <%= @property["office"] %> </p>
-    <p> <strong> AGENT: </strong> <%= @property["agent"] %> </p>
-    <p> <strong> CO-AGENT: </strong> <%= @property["coAgent"] %> </p>
-    <p> <strong> SHOWING INSTRUCTIONS: </strong> <%= @property["showingInstructions"] %> </p>
+    <p> <b> OFFICE: </b> <%= @property["office"] %> </p>
+    <p> <b> AGENT: </b> <%= @property["agent"] %> </p>
+    <p> <b> CO-AGENT: </b> <%= @property["coAgent"] %> </p>
+    <p> <b> SHOWING INSTRUCTIONS: </b> <%= @property["showingInstructions"] %> </p>
 
     <h3> RELEVANT INFORMATION </h3>
 
-    <p> <strong> SCHOOL: </strong> <%= @property["school"] %> </p>
-    <p> <strong> GEO: </strong> <%= @property["geo"] %> </p>
-    <p> <strong> TAXES: </strong> <%= @property["tax"] %> </p>
-    <p> <strong> DISCLAIMER: </strong> <%= @property["disclaimer"] %> </p>
+    <p> <b> SCHOOL: </b> <%= @property["school"] %> </p>
+    <p> <b> GEO: </b> <%= @property["geo"] %> </p>
+    <p> <b> TAXES: </b> <%= @property["tax"] %> </p>
+    <p> <b> DISCLAIMER: </b> <%= @property["disclaimer"] %> </p>
 
     <h3> OTHER INFORMATION </h3>
 
