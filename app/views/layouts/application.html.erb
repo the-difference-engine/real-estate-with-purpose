@@ -147,7 +147,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <%= submit_tag "Submit", class: "btn btn-primary"  %>
+            <%= submit_tag "Submit", class: "user-submit"  %>
             <% end %>
           
         </div>
@@ -158,42 +158,47 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
+          <h2 class="modal-title" id="exampleModalLabel">Why create an account?</h2>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
+          <div class="sign-up">
+          <div class="sign-up-portion">
+            <ul>
+              <li>Lorem ipsum dolor sit amet, sit ex iusto mucius facete. Ut magna commodo ponderum nam, eos aliquid voluptua lucilius ut, nibh scriptorem te sea.</li>
+              <li>Lorem ipsum dolor sit amet, sit ex iusto mucius facete. Ut magna commodo ponderum nam, eos aliquid voluptua lucilius ut, nibh scriptorem te sea.</li>
+              <li>Lorem ipsum dolor sit amet, sit ex iusto mucius facete. Ut magna commodo ponderum nam, eos aliquid voluptua lucilius ut, nibh scriptorem te sea.</li>
+            </ul>
+          </div>
+          <div class="sign-up-portion">
           <%= form_tag 'users', method: :post do %>
             <div>
-              <%= label_tag :first_name %>
-              <%= text_field_tag :first_name %>
+              <%= text_field_tag :first_name, nil, placeholder: "First Name" %>
             </div>
 
             <div>
-              <%= label_tag :last_name %>
-              <%= text_field_tag :last_name %>
+              <%= text_field_tag :last_name, nil, placeholder: "Last Name" %>
             </div>
 
             <div>
-              <%= label_tag :email %>
-              <%= text_field_tag :email %>
+              <%= text_field_tag :email, nil, placeholder: "Email Address" %>
             </div>
 
             <div>
-              <%= label_tag :password %>
-              <%= password_field_tag :password %>
+              <%= password_field_tag :password, nil, placeholder: "Password" %>
             </div>
 
             <div>
-              <%= label_tag :password_confirmation %>
-              <%= password_field_tag :password_confirmation %>
+              <%= password_field_tag :password_confirmation, nil, placeholder: "Re-type Password" %>
             </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <%= submit_tag "Submit", class: "btn btn-primary"  %>
+            <%= submit_tag "SUBMIT", class: "user-submit"  %>
             <% end %>
-          
+          </div>
+          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">No thanks</button>
         </div>
       </div>
     </div>
