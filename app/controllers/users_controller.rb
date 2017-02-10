@@ -27,7 +27,7 @@ class UsersController < ApplicationController
       redirect_to "/users/#{@user.id}"
     else
       flash[:warning] = 'Invalid email or password'
-      redirect_to '/signup'
+      redirect_to '/'
     end
   end
 
