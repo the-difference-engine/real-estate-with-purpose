@@ -54,10 +54,9 @@ class PropertiesController < ApplicationController
 
   def show
     @property = Unirest.get("https://#{ENV['USERNAME']}:#{ENV['PASSWORD']}@api.simplyrets.com/properties/#{params[:id]}").body
-    @address = @property["address"]["full"]
+    @days_on_market = (Time.current - Time.zone.parse(@property["listDate"])) / 86400
     @beds = @property["property"]["bedrooms"]
     @baths = @property["property"]["bathsFull"]
-    @list_price = @property["listPrice"]
     @list_date = @property["listDate"]
 
     @lat = @property["geo"]["lat"]
