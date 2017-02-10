@@ -34,6 +34,7 @@
     <p> <b> REMARKS: </b> <%= @property["remarks"] %> </p>
     <p> <b> PRIVATE REMARKS: </b> <%= @property["privateRemarks"] %> </p>
 
+    <% if @property[] %>
     <h3> MLS-FED DATA </h3>
 
     <p> <b> MLS-ID: </b> <%= @property["mlsId"] %> </p>
@@ -43,13 +44,10 @@
             <% value = "No property information given."  %>
           <% elsif value.is_a?(Hash) %>
             <ul> <b> <%= key %>: </b> </ul>
-
             <% value.each_pair do |key2, value2| %>
-
               <% if value2 == nil %>
                 <ul> <ul> <b> <%= key2 %>: </b> No information given. </ul> </ul>
               <% else %>
-
                 <ul> <ul> <b> <%= key2 %>: </b> <%= value2 %> </ul> </ul>
               <% end %>
             <% end %>
@@ -73,7 +71,6 @@
                 <ul> <%= key2 %>: <%= value2 %> </ul>
               <% end %>
             <% end %>
-
             <ul> <b> <%= key %>: </b> <%= value %> </ul>
             <% end %>
           <% end %>
@@ -101,7 +98,21 @@
     <h3> OTHER INFORMATION </h3>
 
     <% @property.except("address", "remarks", "privateRemarks", "mlsId", "property", "mls", "agent", "coAgent", "office", "photos", "listPrice", "listDate", "listPrice", "school", "geo", "tax").each do |item| %>
-      <p> <%= item %> </p>
+      <% if item[1] != nil %>
+        <% if item[1].is_a?(Hash) %>
+          <ul> <b> <%= item[0] %>: </b> </ul>
+          <% item[1].each_pair do |key, value| %>
+            <% if value != nil %>
+              <ul> <ul> <b> <%= key %>: </b> <%= value %> </ul> </ul>
+            <% end %>
+          <% end %>
+        <% else %>
+          <ul> <b> <%= item[0] %>: </b> <%= item[1] %> </ul>
+        <% end %>
+        
+      
+      <% end %>
+
     <% end %>
 
     <p> <%= image_tag @map_image %> </p>
