@@ -12,13 +12,13 @@ class SessionsController < ApplicationController
       redirect_to "/users/#{user.id}"
     else
       flash[:warning] = 'Invalid email or password!'
-      redirect_to '/login'
+      redirect_to '/'
   end
 end
 
   def destroy
     session[:user_id] = nil
     flash[:success] = 'Successfully logged out!'
-    redirect_to '/login'
+    redirect_to '/'
   end
 end
