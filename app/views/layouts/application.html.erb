@@ -39,10 +39,10 @@
           <% if current_user %>
           <li><%= link_to 'Log Out', '/logout', method: :delete %></li>
           <% else %>
-          <li><a href="/login">Sign In</a></li>
+          <li><a href="#" data-toggle="modal" data-target="#signIn">Sign In</a></li>
           <li><a href="/signup">Sign Up</a></li>
           <% end %>
-
+          
           <% if current_user && current_user.admin %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin Privileges<span class="caret"></span></a>
@@ -123,6 +123,36 @@
         </div>
       </div>
     </footer>
+  </div>
+  <div class="modal fade" id="signIn" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <%= form_tag '/login', method: :post do %>
+            <div>
+              <%= label_tag :email %>
+              <%= text_field_tag :email %>
+            </div>
+
+            <div>
+              <%= label_tag :password %>
+              <%= password_field_tag :password %>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <%= submit_tag "Submit", class: "btn btn-primary"  %>
+            <% end %>
+          
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 </html>
