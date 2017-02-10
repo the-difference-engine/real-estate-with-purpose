@@ -27,6 +27,8 @@
       </div>
   <% end %>
 
+    <%= @property %>
+
     <h3> PROPERTY OVERVIEW </h3>
 
     <p> <strong> REMARKS: </strong> <%= @property["remarks"] %> </p>
@@ -57,10 +59,6 @@
     <% @property.except("address", "remarks", "privateRemarks", "mlsId", "property", "mls", "agent", "coAgent", "office", "photos", "listPrice", "listDate", "listPrice", "school", "geo", "tax").each do |item| %>
       <p> <%= item %> </p>
     <% end %>
-
-
-
-
 
     <p> <%= image_tag @map_image %> </p>
 
