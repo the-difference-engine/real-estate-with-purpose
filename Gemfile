@@ -9,12 +9,13 @@ gem 'sendgrid-ruby'
 gem 'figaro'
 # 10/10/16
 
-
+gem "font-awesome-rails"
+# 2/13/17
 
 # 1/9/17
 
 gem 'faker'
-# 9/29/16 
+# 9/29/16
 gem 'unirest'
 
 gem 'http-cookie'
