@@ -133,7 +133,7 @@ h1, h2, h3, h4, h5, h6 {
   flex: 1;
   position: relative;
   width: 75%;
-  left: 10%;
+
 }
 
 .pair {
@@ -322,5 +322,80 @@ h1, h2, h3, h4, h5, h6 {
   background-color: red;
   font-size: 1em;
 }
+
+.main-details {
+  display: flex;
+}
+
+.address-info {
+  flex: 1;
+}
+
+.price-and-days {
+  flex: 1;
+}
+
+.property-photos {
+  display: flex;
+  width: 700px;
+  overflow-y: scroll;
+}
+
+.property-photos img {
+  padding: 10px;
+  height: 150px;
+}
+
+.property-photo-frame :hover {
+  cursor: pointer;
+  opacity: .5;
+}
+
+.current-active {
+  border: solid green;
+  border-radius: 5%;
+}
+
+.small-headshot {
+  height: 150px;
+  width: 150px;
+}
+
+.natalie-contact {
+  position: relative;
+  top: -125px;
+  left: 200px;
+}
+
+.location-map img {
+  height: 200px;
+}
+
+
+.user-submit {
+  @include button;
+  font-size: 1.1em;
+}
+
+.sign-up {
+  display: flex;
+}
+
+.sign-up-portion {
+  flex: 1;
+}
+
+.sign-up input {
+  @include input;
+  color: $off-white;
+  margin: 5px;
+
+}
+
+.sign-up form {
+  text-align: center;
+}
+
+
 
 /* end */
