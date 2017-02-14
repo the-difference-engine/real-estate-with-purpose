@@ -29,7 +29,7 @@ class CharitiesController < ApplicationController
   end
 
   def update
-    @charity = Charity.where(:id => @charity.id)
+    @charity = set_lead
     @charity.update(user_params)
     redirect_to "/charities/#{@charity.id}"
   end
