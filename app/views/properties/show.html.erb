@@ -27,14 +27,11 @@
       </div>
   <% end %>
 
-    <%= @property %>
-
     <h3> PROPERTY OVERVIEW </h3>
 
     <p> <b> REMARKS: </b> <%= @property["remarks"] %> </p>
     <p> <b> PRIVATE REMARKS: </b> <%= @property["privateRemarks"] %> </p>
 
-    <% if @property[] %>
     <h3> MLS-FED DATA </h3>
 
     <p> <b> MLS-ID: </b> <%= @property["mlsId"] %> </p>
@@ -78,9 +75,6 @@
         <p> "No mls information given" </p>
       <% end %>
 
-
-
-
     <h3> REALTOR INFORMATION </h3>
 
     <p> <b> OFFICE: </b> <%= @property["office"] %> </p>
@@ -91,6 +85,11 @@
     <h3> RELEVANT INFORMATION </h3>
 
     <p> <b> SCHOOL: </b> <%= @property["school"] %> </p>
+    <% if @property["geo"] != nil %>
+      <% if @property["geo"].is_a?(Hash) %>
+        <% @property.each_pair do |key, value| %>
+          <ul> <b>  
+
     <p> <b> GEO: </b> <%= @property["geo"] %> </p>
     <p> <b> TAXES: </b> <%= @property["tax"] %> </p>
     <p> <b> DISCLAIMER: </b> <%= @property["disclaimer"] %> </p>
@@ -109,10 +108,7 @@
         <% else %>
           <ul> <b> <%= item[0] %>: </b> <%= item[1] %> </ul>
         <% end %>
-        
-      
       <% end %>
-
     <% end %>
 
     <p> <%= image_tag @map_image %> </p>
