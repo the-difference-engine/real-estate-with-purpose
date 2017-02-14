@@ -80,11 +80,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-image {
   background-image: image-url('real-estate-1689980_1920.jpg');
-  height: 42em;
+  height: 30em;
   background-size: cover;
   background-position: center;
   width: 100%;
   position: relative;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  -moz-box-shadow:    3px 3px 5px 6px #ccc; 
+  box-shadow:         3px 3px 5px 6px #ccc;
 }
 
 .box-image {
