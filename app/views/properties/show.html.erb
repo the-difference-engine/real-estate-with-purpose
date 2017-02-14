@@ -72,27 +72,13 @@
       </div>
   <% end %>
 
-    <%= @property %>
-<<<<<<< HEAD
-
-    <h3> PROPERTY OVERVIEW </h3>
-
-    <p> <strong> REMARKS: </strong> <%= @property["remarks"] %> </p>
-    <p> <strong> PRIVATE REMARKS: </strong> <%= @property["privateRemarks"] %> </p>
-
-    <h3> MLS-FED DATA </h3>
-
-    <p> <strong> MLS-ID: </strong> <%= @property["mlsId"] %> </p>
-    <p> <strong> PROPERTY SPECIFICS: </strong> <%= @property["property"] %> </p>
-    <p> <strong> MLS-METADATA: </strong> <%= @property["mls"] %> </p>
-=======
 
     <h3> PROPERTY OVERVIEW </h3>
 
     <p> <b> REMARKS: </b> <%= @property["remarks"] %> </p>
     <p> <b> PRIVATE REMARKS: </b> <%= @property["privateRemarks"] %> </p>
 
-    <% if @property[] %>
+   
     <h3> MLS-FED DATA </h3>
 
     <p> <b> MLS-ID: </b> <%= @property["mlsId"] %> </p>
@@ -136,37 +122,39 @@
         <p> "No mls information given" </p>
       <% end %>
 
->>>>>>> e7def3aac88cae44740589d77cabce6f4c45a0f1
-
     <h3> REALTOR INFORMATION </h3>
+    <%= @realtor_information %>
 
-    <p> <strong> OFFICE: </strong> <%= @property["office"] %> </p>
-    <p> <strong> AGENT: </strong> <%= @property["agent"] %> </p>
-    <p> <strong> CO-AGENT: </strong> <%= @property["coAgent"] %> </p>
-    <p> <strong> SHOWING INSTRUCTIONS: </strong> <%= @property["showingInstructions"] %> </p>
 
-    <h3> RELEVANT INFORMATION </h3>
 
-    <p> <strong> SCHOOL: </strong> <%= @property["school"] %> </p>
-    <p> <strong> GEO: </strong> <%= @property["geo"] %> </p>
-    <p> <strong> TAXES: </strong> <%= @property["tax"] %> </p>
-    <p> <strong> DISCLAIMER: </strong> <%= @property["disclaimer"] %> </p>
+    <% @realtor_information.each do |information| %>
+      <% if information.is_a?(Hash) %>
+        <% information.each_pair do |first_key, first_value| %>
+          <% if first_value.is_a?(Hash) %>
+           <p><b><%= first_key %></b></p>
+            <% first_value.each_pair do |second_key, second_value| %>
+              <% if second_value.is_a?(Hash) %>
+                <p><b><%= second_key%></b></p>
+                <%  second_value.each_pair do |third_key, third_value| %>
+                  <% if third_value != nil %>
+                    <p><b><%= second_key %></b></p>
+                    <p><b><%= third_key %></b> <%= third_value %></p>
+                  <% end %>
+                <% end %>
+              <% end %>
+              <% if second_value != nil %>
+              <ul><p><b><%= second_key %></b> <%=second_value %></p></ul>
+              <% end %>
+            <% end %>
+          <% else %>
+            <% if first_value != nil %>
+            <p><b><%= first_key %></b> <%= first_value %></p>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %> 
 
-    <h3> OTHER INFORMATION </h3>
-
-    <% @property.except("address", "remarks", "privateRemarks", "mlsId", "property", "mls", "agent", "coAgent", "office", "photos", "listPrice", "listDate", "listPrice", "school", "geo", "tax").each do |item| %>
-      <p> <%= item %> </p>
-    <% end %>
-
-<<<<<<< HEAD
-=======
-
-    <h3> REALTOR INFORMATION </h3>
-
-    <p> <b> OFFICE: </b> <%= @property["office"] %> </p>
-    <p> <b> AGENT: </b> <%= @property["agent"] %> </p>
-    <p> <b> CO-AGENT: </b> <%= @property["coAgent"] %> </p>
-    <p> <b> SHOWING INSTRUCTIONS: </b> <%= @property["showingInstructions"] %> </p>
 
     <h3> RELEVANT INFORMATION </h3>
 
@@ -195,7 +183,6 @@
 
     <% end %>
 
->>>>>>> e7def3aac88cae44740589d77cabce6f4c45a0f1
     <p> <%= image_tag @map_image %> </p>
 
     </div>
