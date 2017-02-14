@@ -73,6 +73,12 @@ class PropertiesController < ApplicationController
         end
       end
     end
+    @realtor_information = []
+    @realtor_information.push(
+      @property["office"],
+            @property["agent"],
+            @property["coAgent"],
+            @property["showingInstructions"])
   end
 
   def edit
