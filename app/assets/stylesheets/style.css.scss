@@ -362,4 +362,30 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 5%;
 }
 
+.user-submit {
+  @include button;
+  font-size: 1.1em;
+}
+
+.sign-up {
+  display: flex;
+}
+
+.sign-up-portion {
+  flex: 1;
+}
+
+.sign-up input {
+  @include input;
+  color: $off-white;
+  margin: 5px;
+
+}
+
+.sign-up form {
+  text-align: center;
+}
+
+
+
 /* end */
