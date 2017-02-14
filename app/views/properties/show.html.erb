@@ -130,10 +130,7 @@
     <h3> RELEVANT INFORMATION </h3>
 
     <p> <b> SCHOOL: </b> <%= @property["school"] %> </p>
-    <% if @property["geo"] != nil %>
-      <% if @property["geo"].is_a?(Hash) %>
-        <% @property.each_pair do |key, value| %>
-          <ul> <b>  
+
 
     <p> <b> GEO: </b> <%= @property["geo"] %> </p>
     <p> <b> TAXES: </b> <%= @property["tax"] %> </p>
