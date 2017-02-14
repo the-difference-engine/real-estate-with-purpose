@@ -4,15 +4,15 @@
 </div>
 
 <div class="holder">
-  <div class="pair home-search">
+  <div class="list-content home-search">
     <h2>PROPERTY SEARCH</h2>
     <div class="home-form">
-    <div class="find-home">
-      <%= form_tag '/properties', method: :post do %>
-        
-          <div class="form-bedbath">
+      <div class="find-home">
+        <%= form_tag '/properties', method: :post do %>
+
+<!--           <div class="form-bedbath"> -->
             <%= text_field_tag :location, nil, placeholder: "Address, neighborhood, zip", style: "width: 200px" %>
-          </div>
+      <!--     </div> -->
         <%= check_box_tag(:single) %>
         <%= label_tag(:single, "Single Family Home") %>
         <%= check_box_tag(:townhouse) %>
@@ -55,12 +55,12 @@
     <% end %>
   </div>
 
-  <div class="pair calc">
+  <div class="list-content calc">
     <h2> Donation Calculator </h2>
     <h3> Total amount donated </h3>
         <span class="input-group-addon">Enter your budget: $</span>
         <input type="text" class="form-control" id="budget">
-        <span class="input-group-addon">See your donation amount! (USD)</span> 
+        <span class="input-group-addon">See your donation amount! (USD)</span>
         <input type="text" class="form-control" name="textbox" id="textbox" readonly="true">
        </div>
 </div>
@@ -95,9 +95,9 @@
     <div class='step-description step-content' style="opacity: 1;">
       <p>
         <h1>Step One</h1>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec congue dolor vel leo efficitur facilisis. Mauris accumsan turpis nec enim ornare, sit amet interdum ipsum egestas. Duis tempus scelerisque purus facilisis cursus. Ut eget varius justo. Integer vel feugiat ex. Phasellus quis lacus tempus, sodales libero molestie, lacinia enim. Proin sit amet magna non odio tempor feugiat at gravida nisi. Nullam nisl dui, aliquet ac lorem sit amet, vestibulum iaculis nulla. Curabitur tincidunt nisi eu neque viverra suscipit. Aenean quis tincidunt metus, mollis consectetur nisi. Vivamus pellentesque metus nec odio consequat, eget mollis nunc porttitor. Aliquam erat volutpat. Aliquam rhoncus ex nulla, sit amet eleifend tellus euismod vitae. Ut tempus turpis ut nisl finibus scelerisque. 
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec congue dolor vel leo efficitur facilisis. Mauris accumsan turpis nec enim ornare, sit amet interdum ipsum egestas. Duis tempus scelerisque purus facilisis cursus. Ut eget varius justo. Integer vel feugiat ex. Phasellus quis lacus tempus, sodales libero molestie, lacinia enim. Proin sit amet magna non odio tempor feugiat at gravida nisi. Nullam nisl dui, aliquet ac lorem sit amet, vestibulum iaculis nulla. Curabitur tincidunt nisi eu neque viverra suscipit. Aenean quis tincidunt metus, mollis consectetur nisi. Vivamus pellentesque metus nec odio consequat, eget mollis nunc porttitor. Aliquam erat volutpat. Aliquam rhoncus ex nulla, sit amet eleifend tellus euismod vitae. Ut tempus turpis ut nisl finibus scelerisque.
       </p>
-      
+
     </div>
     <div class='step-image step-content' style="opacity: 1;">
       <img src='https://static.pexels.com/photos/164516/pexels-photo-164516.jpeg'>
@@ -113,7 +113,7 @@
     <div class='step-image step-content'>
       <img src='https://upload.wikimedia.org/wikipedia/commons/2/22/Sherwood_House_-_Coquille,_Oregon_(2005).jpg'>
     </div>
-  </div> 
+  </div>
   <div class="content-inactive three">
     <div class='step-description step-content'>
       <p>
@@ -124,7 +124,7 @@
     <div class='step-image step-content'>
       <img src='https://upload.wikimedia.org/wikipedia/commons/e/ee/2009-0627-SpadenaWitch-house.jpg'>
     </div>
-  </div> 
+  </div>
   <div class="content-inactive four">
     <div class='step-description step-content'>
       <p>
@@ -146,7 +146,7 @@
     <div class='step-image step-content'>
       <img src='https://upload.wikimedia.org/wikipedia/commons/d/d7/Stimson_House,_Los_Angeles.JPG'>
     </div>
-  </div>    
+  </div>
   <div class="content-inactive six">
     <div class='step-description step-content'>
       <p>
@@ -168,7 +168,7 @@
     <div class='step-image step-content'>
       <img src='https://upload.wikimedia.org/wikipedia/en/9/9c/Spadena_Witch_House.jpg'>
     </div>
-  </div>        
+  </div>
 </div>
 <div class="list-content">
   <h2>PRO TIP: ESTABLISH YOUR NON-NEGOTIABLES</h2>
@@ -176,22 +176,22 @@
     <div class="non-negs">
       <img class="neg-img" src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Gocsej_village_house_backyard.jpg">
       <p>
-        Est. donation amount to charity of your choice, based on budget. 
+        Est. donation amount to charity of your choice, based on budget.
       </p>
     </div>
     <div class="non-negs">
       <img class="neg-img" src="https://upload.wikimedia.org/wikipedia/commons/9/98/Pet_dog_fetching_sticks_in_Wales-3April2010.jpg">
       <p>
-        Est. donation amount to charity of your choice, based on budget. 
+        Est. donation amount to charity of your choice, based on budget.
       </p>
-    </div> 
+    </div>
     <div class="non-negs">
       <img class="neg-img" src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Gourmet_Kitchen_Scrub_Island_Resort,_Spa_%26_Marina.jpg">
       <p>
-        Est. donation amount to charity of your choice, based on budget. 
+        Est. donation amount to charity of your choice, based on budget.
       </p>
     </div>
-  </div>  
+  </div>
 </div>
 
 
