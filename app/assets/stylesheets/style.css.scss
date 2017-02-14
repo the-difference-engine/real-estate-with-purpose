@@ -130,7 +130,7 @@ h1, h2, h3, h4, h5, h6 {
   flex: 1;
   position: relative;
   width: 75%;
-  left: 10%;
+
 }
 
 .pair {
@@ -361,6 +361,22 @@ h1, h2, h3, h4, h5, h6 {
   border: solid green;
   border-radius: 5%;
 }
+
+.small-headshot {
+  height: 150px;
+  width: 150px;
+}
+
+.natalie-contact {
+  position: relative;
+  top: -125px;
+  left: 200px;
+}
+
+.location-map img {
+  height: 200px;
+}
+
 
 .user-submit {
   @include button;
