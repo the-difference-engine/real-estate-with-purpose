@@ -14,7 +14,7 @@
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
 
-        <%= link_to image_tag('/images/mansion.svg', :class => 'navbar-brand'), "/homepages" %>
+        <%= link_to image_tag('/images/mansion.svg', :class => 'navbar-brand'), "/" %>
 
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
@@ -22,7 +22,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/homepages">Real Estate With Purpose</a>
+        <a class="navbar-brand" href="/">Real Estate With Purpose</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -42,7 +42,7 @@
           <li><a href="#" data-toggle="modal" data-target="#signIn">Sign In</a></li>
           <li><a href="#" data-toggle="modal" data-target="#signUp">Sign Up</a></li>
           <% end %>
-          
+
           <% if current_user && current_user.admin %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin Privileges<span class="caret"></span></a>
@@ -149,7 +149,7 @@
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             <%= submit_tag "Submit", class: "user-submit"  %>
             <% end %>
-          
+
         </div>
       </div>
     </div>
