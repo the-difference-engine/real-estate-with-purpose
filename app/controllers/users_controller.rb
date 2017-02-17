@@ -23,7 +23,7 @@ class UsersController < ApplicationController
       UserNotifier.send_signup_email(@user).deliver
       session[:user_id] = @user.id
       flash[:success] = 'Successfully created account!'
-      
+
       redirect_to "/users/#{@user.id}"
     else
       flash[:warning] = 'Invalid email or password'
@@ -57,7 +57,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find_by(id: params[:id])
-    user.destroy
+    @user.destroy
 
     flash[:warning] = "User removed from database."
     redirect_to '/users'
