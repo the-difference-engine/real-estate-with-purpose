@@ -387,14 +387,19 @@ h1, h2, h3, h4, h5, h6 {
 
 .sign-up input {
   @include input;
-  color: $off-white;
   margin: 5px;
 
+}
+
+.sign-up .user-submit {
+  color: $off-white;
 }
 
 .sign-up form {
   text-align: center;
 }
+
+
 
 
 
