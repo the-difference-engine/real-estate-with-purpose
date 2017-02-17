@@ -32,7 +32,7 @@
           <li class=<%= 'active' if current_page?(controller: 'homepages', action: 'listwithus')%>><a href="/listwithus">List With Us</a></li>
           <li class=<%= 'active' if current_page?(controller: 'homepages', action: 'company')%>><a href="/company">Company</a></li>
           <li class=<%= 'active' if current_page?(controller: 'charities', action: 'index')%>><a href="/charities/">Charities</a></li>
-          <li><a href="#">Contact</a></li>
+          <li class=<%= 'active' if current_page?(controller: 'homepages', action: 'contact')%>><a href="/contact">Contact</a></li>
           <li><a href="#">REwP Investor</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
@@ -66,7 +66,7 @@
 
   <div class="hero-image">
     <div class="box-image">
-      <h3>If you could</h3> 
+      <h3>If you could</h3>
       <%= link_to "BUY", "/properties" %> <strong>or</strong> <%= link_to "SELL", "/properties" %>
       <h3>while helping your community, would you?</h3>
     </div>
@@ -98,9 +98,9 @@
         <ul class="pages">
           <li><h4>Contact Us</h4></li>
 
-          <li> <%= link_to image_tag('/images/facebook.svg', :class => 'logo' ), "https://www.facebook.com/realestatewithpurpose" %> 
-            <%= link_to image_tag('/images/pinterest.svg', :class => 'logo'), "https://www.pinterest.com/evanstonrealtor/" %> 
-            <%= link_to image_tag('/images/linked_in.svg', :class => 'logo' ), "https://www.linkedin.com/in/natalie-smith-91a17627" %> 
+          <li> <%= link_to image_tag('/images/facebook.svg', :class => 'logo' ), "https://www.facebook.com/realestatewithpurpose" %>
+            <%= link_to image_tag('/images/pinterest.svg', :class => 'logo'), "https://www.pinterest.com/evanstonrealtor/" %>
+            <%= link_to image_tag('/images/linked_in.svg', :class => 'logo' ), "https://www.linkedin.com/in/natalie-smith-91a17627" %>
             <%= link_to image_tag('/images/googleplus.svg', :class => 'logo'), "https://plus.google.com/+RealestatewithpurposeCo" %> </li>
 
             <li><a href="#">Address</a></li>

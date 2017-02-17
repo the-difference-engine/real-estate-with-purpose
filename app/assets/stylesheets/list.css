@@ -1,6 +1,6 @@
 .list-content {
   position: relative;
-  width: 75%;
+  width: 100%;
   left: 10%;
   background: #F2F2F2;
   margin: 10px;
@@ -10,7 +10,6 @@
 
 .arrow-steps {
   display: flex;
-  margin-bottom: 20px;
 }
 
 
@@ -47,7 +46,6 @@
 .content-active {
   position: relative;
   width: 100%;
-  top: 15%;
   display: flex;
 }
 
