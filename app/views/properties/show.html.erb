@@ -1,5 +1,5 @@
-  <%= form_tag '/properties', method: :post do %>
-<div class="top-search-bar">
+<%= form_tag '/properties', method: :post do %>
+  <div class="top-search-bar">
     <div class="form-item">
       <%= text_field_tag :location, @just_location ? @just_location : nil, placeholder: "Address, neighborhood, zip", style: "width: 200px" %>
     </div>
@@ -59,6 +59,7 @@
               <% if @property["photos"][0] %>
                   <%= hidden_field_tag :image, @property["photos"][0] %>
               <% end %>
+
               <%= hidden_field_tag :line_1, @property["address"]["city"] %>
               <%= hidden_field_tag :state, @property["address"]["state"] %>
               <%= hidden_field_tag :api_address, @property["mlsId"] %>
@@ -72,12 +73,17 @@
       </div>
   <% end %>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6580897e9077499a3bc4970b793de946551bee64
 
     <h3> PROPERTY OVERVIEW </h3>
 
     <p> <b> REMARKS: </b> <%= @property["remarks"] %> </p>
     <p> <b> PRIVATE REMARKS: </b> <%= @property["privateRemarks"] %> </p>
 
+<<<<<<< HEAD
    
     <h3> MLS-FED DATA </h3>
 
@@ -121,6 +127,13 @@
       <% else %>
         <p> "No mls information given" </p>
       <% end %>
+=======
+    <h3> MLS-FED DATA </h3>
+
+    <% @other_information.each do |item| %>
+      <p> <%= item %> </p>
+    <% end %>
+>>>>>>> 6580897e9077499a3bc4970b793de946551bee64
 
     <h3> REALTOR INFORMATION </h3>
     <%= @realtor_information %>
@@ -155,13 +168,18 @@
       <% end %>
     <% end %> 
 
+<<<<<<< HEAD
+=======
+    <% @more_information.each do |item| %>
+      <p> <%= item %> </p>
+    <% end %>
+>>>>>>> 6580897e9077499a3bc4970b793de946551bee64
 
     <h3> RELEVANT INFORMATION </h3>
 
-    <p> <b> SCHOOL: </b> <%= @property["school"] %> </p>
-    <p> <b> GEO: </b> <%= @property["geo"] %> </p>
-    <p> <b> TAXES: </b> <%= @property["tax"] %> </p>
-    <p> <b> DISCLAIMER: </b> <%= @property["disclaimer"] %> </p>
+    <% @information.each do |item| %>
+      <p> <%= item %> </p>
+    <% end %>
 
     <h3> OTHER INFORMATION </h3>
 
@@ -177,15 +195,11 @@
         <% else %>
           <ul> <b> <%= item[0] %>: </b> <%= item[1] %> </ul>
         <% end %>
-        
-      
       <% end %>
-
     <% end %>
 
     <p> <%= image_tag @map_image %> </p>
 
-    </div>
-
+  </div>
 </div>
 
