@@ -1,24 +1,31 @@
-# README
+# REAL ESTATE WITH PURPOSE
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Local
 
-Things you may want to cover:
+* ```git clone``` [https://github.com/the-difference-engine/real-estate-with-purpose.git]
 
-* Ruby version
+* ```bundle install```
 
-* System dependencies
+* ```rake db:create```
 
-* Configuration
+* ```rake db:migrate```
 
-* Database creation
+* To start server: ```rails server```
 
-* Database initialization
+* To run tests: ```rspec spec```
 
-* How to run the test suite
+* Rails version 5.0
 
-* Services (job queues, cache servers, search engines, etc.)
+### Environment Variables
 
-* Deployment instructions
+* ```touch .env```
 
-* ...
+#### SimplyRETS API
+
+* USERNAME
+
+* PASSWORD
+
+#### Google Maps API
+
+* GOOGLE
