@@ -12,6 +12,7 @@ gem "paperclip", "~> 5.0.0"
 gem 'figaro'
 # 10/10/16
 
+# 1/9/17
 gem "font-awesome-rails"
 # 2/13/17
 
