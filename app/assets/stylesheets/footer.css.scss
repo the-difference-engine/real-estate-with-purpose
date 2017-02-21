@@ -1,20 +1,21 @@
-// .Site {
-//   display: flex;
-//   min-height: 100vh;
-//   flex-direction: column;
-// }
+// color variables
+$dark-gray: #353131;
+$royal-blue: #003FC5;
+$light-blue: #CAE2FC;
+$off-white: #F4F7F7;
 
-// .Site-content {
-//   flex: 1;
-// }
+// typography variables
+$font-main: 'Heebo', sans-serif;
+$font-weight-headings: 900;
+$font-weight-body: 400;
+$font-weight-light: 300;
 
 .footer-bs {
  display: flex;
  flex-direction: column;
- background-color: #000000;
- border-top: 1px solid #000000;
+ background-color: $dark-gray;
  padding: 25px 60px;
- color: rgba(255,255,255,1.00);
+ color: rgba($off-white, 1);
  position: absolute;
  left: 0;
 }
