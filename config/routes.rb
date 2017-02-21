@@ -27,13 +27,7 @@ Rails.application.routes.draw do
   delete '/buyers/:id' => 'buyers#destroy'
 
   #charity routes
-  get '/charities' => 'charities#index'
-  get '/charities/new' => 'charities#new'
-  post '/charities' => 'charities#create'
-  get '/charities/:id' => 'charities#show'
-  get '/charities/:id/edit' => 'charities#edit'
-  patch '/charities/:id' => 'charities#update'
-  delete '/charities/:id' => 'charities#destroy'
+  resources :charities
 
   #donation routes
   get '/donations' => 'donations#index'
