@@ -15,7 +15,7 @@ class CharitiesController < ApplicationController
       name: params[:name],
       logo: params[:logo],
       description: params[:description]
-      )
+    )
     flash[:success] = 'Charity Created'
     redirect_to '/charities/#{@charity.id}'
   end
