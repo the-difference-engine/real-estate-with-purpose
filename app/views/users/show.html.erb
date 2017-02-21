@@ -6,3 +6,31 @@
     <%= link_to "Edit", "/users/#{@user.id}/edit", class: "btn btn-default" %>
     <%= link_to "Delete", "/users/#{@user.id}/", {method: :delete, class: "btn btn-default"} %>
 </div>
+
+<h1>YOUR FAVORITES</h1>
+<% if @user_favs.length.nonzero? %>
+  <div class="container">
+    <div class="properties">
+      <div class="row">
+        <% @user_favs.each do |fav| %>
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+            <% if fav.property.image %>
+              <%= image_tag fav.property.image %>
+            <% else %>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Home-icon.svg/2000px-Home-icon.svg.png">
+            <% end %>
+              <p align="center"><%= link_to "#{fav.property.line_1} | #{fav.property.state}", "/properties/#{fav.property.api_address}"  %> </p>
+              <p align="center">Price: <%= number_to_currency(fav.property.list_price) %> </p>
+              <p align="center">Address: <%= fav.property.line_2 %></p>
+              <p align="center">Bedrooms: <%= fav.property.num_bedrooms %> | Full: <%= fav.property.num_bathrooms %></p>
+            <%= link_to "Remove from favorites", "/properties/#{fav.id}", class: "delete-favorite", method: :delete %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <% else %>
+    <h1>No results found.</h1>
+  <% end %>

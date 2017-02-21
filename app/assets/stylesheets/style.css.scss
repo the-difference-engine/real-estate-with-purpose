@@ -1,5 +1,58 @@
-.top {
-  
+// color variables
+$dark-gray: #353131;
+$medium-gray: #786F6A;
+$light-gray: #B1B0B0;
+$royal-blue: #003FC5;
+$light-blue: #CAE2FC;
+$off-white: #F4F7F7;
+
+// typography variables
+$font-main: 'Heebo', sans-serif;
+$font-weight-headings: 900;
+$font-weight-body: 400;
+$font-weight-light: 300;
+
+// mixins
+@mixin button {
+  background-color: $royal-blue;
+  border: none;
+  box-shadow: none;
+  color: $off-white;
+  padding: .25em 1em;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1.8em;
+}
+
+@mixin input {
+  padding: 6px 10px;
+  font-size: 14px;
+  color: $dark-gray;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+body {
+  font-family: $font-main;
+  font-weight: $font-weight-body;
+  font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $font-weight-headings;
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+.navbar-header {
+  padding: 0 1em;
+}
+
+.navbar-right {
+  @extend .navbar-header;
 }
 
 .logo {
@@ -9,25 +62,47 @@
 }
 
 .input-group-dc {
-  width: 300px;
+  #textbox {
+    font-weight: bold;
+    padding: 10px 10px 0 0;
+  }
+
+  #budget {
+    @include input;
+  }
+
+  p {
+    padding: 10px 0 0 15px;
+  }
 }
 
 .navbar-fixed-top { border:0; }
 
 .hero-image {
   background-image: image-url('real-estate-1689980_1920.jpg');
-  height: 42em;
+  height: 30em;
   background-size: cover;
   background-position: center;
   width: 100%;
+  position: relative;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  -moz-box-shadow:    3px 3px 5px 6px #ccc; 
+  box-shadow:         3px 3px 5px 6px #ccc;
 }
 
 .box-image {
-            position: absolute;
-            top: 30%;
-            left: 30%;
-            background: rgba(0, 0, 0, .7);
-            padding: 2em;
+  border-radius: 5px;
+  color: $dark-gray;
+  position: absolute;
+  text-align: center;
+  top: 30%;
+  left: 0;
+  background: rgba($off-white, 0.75);
+  padding: 2em 1em;
+
+  a {
+    @include button;
+  }
 }
 
 .product_single{
@@ -58,7 +133,7 @@
   flex: 1;
   position: relative;
   width: 75%;
-  left: 10%;
+
 }
 
 .pair {
@@ -89,12 +164,10 @@
   display: flex;
 }
 
-
 .form-bedbath {
   flex: 1;
   margin: 5px;
 }
-
 
 .find-home {
   flex: 1;
@@ -132,9 +205,7 @@
 }
 
 .newsletter-submit {
-  height: 50px;
-  width: 100px;
-  background: #CAE2FC;
+ @include button;
 }
 
 .self-promotion p {
@@ -144,8 +215,192 @@
   height: 50px;
 }
 
-// img:hover {
-//     opacity: 0.5;
-//     filter: alpha(opacity=50);
-//     transition: .3s ease-in-out;
-// }
+.home-content {
+  margin: 2em;
+  &:first-child {
+    border-bottom: 4px solid $light-gray;
+  }
+  .container {
+    width: 100%;
+
+    .donation-calc {
+      border: none;
+    }
+  }
+}
+
+.thumbnail img {
+  height: 300px;
+}
+
+.top-search-bar {
+  display: flex;
+  background: $light-gray;
+  padding: 1em 0.5em 0.5em;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.form-item {
+  flex: 1 14%;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  margin-top: 10px;
+
+  input {
+    @include input;
+  }
+}
+
+.submit-btn {
+  flex: none;
+  padding: 1em;
+  input {
+    @include button;
+  }
+}
+
+.get-ready {
+  left: 5%;
+  display: inline;
+  margin-top: 3em;
+  position: relative;
+}
+
+.pagination {
+  display: flex;
+}
+
+.page-links {
+  flex: 1;
+}
+
+.submit-button {
+  background: none;
+  border: none;
+}
+
+.change-page :hover {
+  background-color: black;
+  border-radius: 100%;
+  color: white;
+}
+
+.active-page {
+  background-color: black;
+  border-radius: 100%;
+  color: white;
+}
+
+/* media queries */
+
+@media screen and (min-width: 480px) {
+  .box-image {
+    padding: 2em;
+    left: 30%;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .home-content {
+    .container {
+      .donation-calc {
+        border-left: 4px solid $light-gray;
+      }
+    }
+  }
+}
+
+.add-favorite {
+  @include button;
+}
+
+.delete-favorite {
+  @include button;
+  background-color: red;
+  font-size: 1em;
+}
+
+.main-details {
+  display: flex;
+}
+
+.address-info {
+  flex: 1;
+}
+
+.price-and-days {
+  flex: 1;
+}
+
+.property-photos {
+  display: flex;
+  width: 700px;
+  overflow-y: scroll;
+}
+
+.property-photos img {
+  padding: 10px;
+  height: 150px;
+}
+
+.property-photo-frame :hover {
+  cursor: pointer;
+  opacity: .5;
+}
+
+.current-active {
+  border: solid green;
+  border-radius: 5%;
+}
+
+.small-headshot {
+  height: 150px;
+  width: 150px;
+}
+
+.natalie-contact {
+  position: relative;
+  top: -125px;
+  left: 200px;
+}
+
+.location-map img {
+  height: 200px;
+}
+
+
+.user-submit {
+  @include button;
+  font-size: 1.1em;
+}
+
+.sign-up {
+  display: flex;
+}
+
+.sign-up-portion {
+  flex: 1;
+}
+
+.sign-up input {
+  @include input;
+  margin: 5px;
+
+}
+
+.sign-up .user-submit {
+  color: $off-white;
+}
+
+.sign-up form {
+  text-align: center;
+}
+
+
+
+
+
+/* end */

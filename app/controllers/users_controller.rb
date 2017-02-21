@@ -24,15 +24,17 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       flash[:success] = 'Successfully created account!'
       
-      redirect_to '/'
+      redirect_to "/users/#{@user.id}"
     else
       flash[:warning] = 'Invalid email or password'
-      redirect_to '/signup'
+      redirect_to '/'
     end
   end
 
   def show
     @user = User.find_by(id: params[:id])
+    @properties = @user.properties
+    @user_favs = @user.user_properties
   end
 
   def edit

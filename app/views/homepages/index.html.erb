@@ -1,44 +1,92 @@
 
-  <head>
-  </head>
-
+<div class="home-content">
 <div class="container">
   <h2> About Real Estate With Purpose</h2>
-  <h4>Real Estate represents more than a financial transaction for four walls and a roof - it is an investment and personal commitment to Chicago's neighborhood and the surrounding community. To that end, 10% of my commission goes to reinvest in the community through the local charity and organization of my clients choice.
-  </h4>
+  <p>Real Estate represents more than a financial transaction for four walls and a roof - it is an investment and personal commitment to Chicago's neighborhood and the surrounding community. To that end, 10% of my commission goes to reinvest in the community through the local charity and organization of my clients choice.
+  </p>
+</div>
 </div>
 
+<div class="home-content">
 <div class="container">
-  <h2> Donation Calculator </h2>
-  <h3> Total amount donated </h3>
-  <br>
-
-    <div class ="input-group-dc">
-      <span class="input-group-addon">Enter your budget: $</span>
-      <input type="text" class="form-control" id="budget">
-      <span class="input-group-addon">See your donation amount! (USD)</span> 
-      <input type="text" class="form-control" name="textbox" id="textbox" readonly="true">
-     </div>
-
-  <p>
-      <% if @donations %>
-      <% @donations.each do |donation| %>
-      Charity: <%= donation.charity.name %>
-  <br>
-      Amount: <%= donation.amount_donated %>
-      <% end %>
-    <% else %>
-      0 Donations
-    <% end %>
-  </p>
-  <h3> Number of charities donated to </h3>
-  <%= @donations.count %>
-  <br>
-  <h3> Average donation amount </h3>
-    <% if @donation %>
+  <div class="row">
+    <div class="col-md-7">
+      <p>
+        <% if @donations %>
+        <% @donations.each do |donation| %>
+        Charity: <%= donation.charity.name %>
+        <br>
+        Amount: <%= donation.amount_donated %>
+        <% end %>
+        <% else %>
+        0 Donations
+        <% end %>
+      </p>
+      <div class="col-md-4">
+      <h3> Total Value Donated </h3>
+      <h5>Many Many $$$</h5>
+      </div>
+      <div class="col-md-4">
+      <h3> # of Local Charities Supported </h3>
+      <h5>$ <%= @donations.count %></h5>
+      </div>
+      <div class="col-md-4">
+      <h3> Average Donation Amount </h3>
+      <h5>$<% if @donation %>
       <%= @donation.average_donation %>
-    <% else %>
+      <% else %>
       0 dollars donated
-    <% end %>
+      <% end %></h5>
+      </div>
+    </div>
+    <div class="col-md-5 donation-calc">
+      <h3>See for yourself</h3>
+      <div class ="input-group-dc">
+        <!-- <span class="input-group-addon">Enter your budget: $</span> -->
+        <input type="text" class="form-control" id="budget" maxlength="12" placeholder="Enter your Home Budget in (USD)">
+        <!--         <span class="input-group-addon">$</span>  --> 
+        <div class="row">
+          <div class="col-md-5">
+            <div id="textbox"></div>
+          </div>
+          <div class="col-md-7">
+            <p>Estimated donation amount to charity of your choice, based on budget.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 
+<h2><span class="get-ready">READY TO GET STARTED?</span></h2>
+<%= form_tag '/properties', method: :post do %>
+  <div class="top-search-bar">
+    <div class="form-item">
+      <%= text_field_tag :location, nil, placeholder: "Address, neighborhood, zip" %>
+    </div>
+    <div class="form-item">
+      <%= text_field_tag :price_min, nil, placeholder: "Price (min.)"%>
+    </div>
+    <div class="form-item">
+      <%= text_field_tag :price_max, nil, placeholder: "Price (max.)" %>
+    </div>
+    <div class="form-item">
+      <%= text_field_tag :beds_min, nil, placeholder: "Beds (min.)" %>
+    </div>
+    <div class="form-item">
+      <%= text_field_tag :beds_max, nil, placeholder: "Beds (max.)" %>
+    </div>
+    <div class="form-item">
+      <%= text_field_tag :baths_min, nil, placeholder: "Baths (min.)"%>
+    </div>
+    <div class="form-item">
+      <%= text_field_tag :baths_max, nil, placeholder: "Baths (max.)" %>
+    </div>
+    <div class="submit-btn">
+      <%= submit_tag "Submit" %>
+    </div>
+  </div>
+<% end %>
+</div>
 </div>
