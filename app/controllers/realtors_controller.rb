@@ -1,13 +1,12 @@
 class RealtorsController < ApplicationController
 
   before_action :authenticate_admin!, except: [:index, :show]
-  
+
   def index
     @realtors = Realtor.all
   end
 
   def new
-    @realtor = Realtor.new
   end
 
   def create
@@ -29,7 +28,6 @@ class RealtorsController < ApplicationController
   end
 
   def edit
-    @realtor = Realtor.find_by(id: params[:id])
   end
 
   def update
@@ -42,7 +40,7 @@ class RealtorsController < ApplicationController
       phone_number: params[:phone_number],
       email: params[:email],
       name: params[:name]
-      )
+    )
     flash[:success] = 'Realtor Updated'
     redirect_to "/realtors/#{@realtor.id}"
   end
