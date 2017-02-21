@@ -30,38 +30,33 @@ class Property < ApplicationRecord
 
   def self.iterate(data)
     data_array = []
-    data.each do |info|
-     if info.is_a?(Hash) 
-        info.each_pair do |key, value|
-        if value.is_a?(Hash)
-          data_array << "<b> #{key}:: </b>".html_safe 
-          value.each_pair do |key2, value2|       
-          
-          if value2.is_a?(Hash)
-              data_array << "<ul> <b> #{key2} </b> </ul>".html_safe
-              value2.each_pair do |key3, value3|
-              if value3.is_a?(Hash)
-                data_array << key2
-                data_array << "<ul> <ul> <b> #{key3}: </b> #{value3} </ul> </ul>".html_safe
+      data.each do |info|
+        if info.is_a?(Hash) 
+          info.each_pair do |key, value|
+            if value.is_a?(Hash)
+              data_array << "<ul> <b> #{key}:: </b> </ul>".html_safe 
+              value.each_pair do |key2, value2|       
+                if value2.is_a?(Hash)
+                  data_array << "<ul> <ul> <b> #{key2} </b> </ul> </ul>".html_safe
+                  value2.each_pair do |key3, value3|
+                    if value3.is_a?(Hash)
+                      data_array << key2
+                      data_array << "<ul> <ul> <b> #{key3}: </b> #{value3} </ul> </ul>".html_safe
+                    end
+                  end
+                end
+              if value2 != nil
+                data_array << "<ul> <ul> <b> #{key2}: </b> #{value2} </ul> </ul>".html_safe
               end
             end
+          else
+            if value != nil
+              data_array << "<ul> <b> #{key}: </b> #{value}  </ul>".html_safe
+            end
           end
-        if value2 != nil
-          data_array << "<ul> <b> #{key2}: </b> #{value2} </ul>".html_safe
         end
       end
-    else
-      if value != nil
-        data_array << "<ul> <ul>  <b> #{key}: </b> #{value} </ul> </ul>".html_safe
-      end
     end
-    
-  end
-  end
-    
-  end
   return data_array
-end
-
-
+  end
 end
