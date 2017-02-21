@@ -73,107 +73,25 @@
       </div>
   <% end %>
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 6580897e9077499a3bc4970b793de946551bee64
 
     <h3> PROPERTY OVERVIEW </h3>
 
     <p> <b> REMARKS: </b> <%= @property["remarks"] %> </p>
     <p> <b> PRIVATE REMARKS: </b> <%= @property["privateRemarks"] %> </p>
 
-<<<<<<< HEAD
-   
-    <h3> MLS-FED DATA </h3>
-
-    <p> <b> MLS-ID: </b> <%= @property["mlsId"] %> </p>
-      <% if @property["property"].is_a?(Hash) %>
-        <b> PROPERTY SPECIFICS: </b> <% @property["property"].each_pair do |key, value| %> 
-          <% if value == nil %>
-            <% value = "No property information given."  %>
-          <% elsif value.is_a?(Hash) %>
-            <ul> <b> <%= key %>: </b> </ul>
-            <% value.each_pair do |key2, value2| %>
-              <% if value2 == nil %>
-                <ul> <ul> <b> <%= key2 %>: </b> No information given. </ul> </ul>
-              <% else %>
-                <ul> <ul> <b> <%= key2 %>: </b> <%= value2 %> </ul> </ul>
-              <% end %>
-            <% end %>
-          <% else %>
-            <ul> <b> <%= key %>: </b> <%= value %> </ul>
-          <% end %>
-        <% end %>
-      <% else %>
-        <p> "No property information given" </p>
-      <% end %>
-
-      <% if @property["mls"].is_a?(Hash) %>
-        <p> <b> MLS-METADATA: </b> <% @property["mls"].each_pair do |key, value| %> </p>
-          <% if value == nil %>
-            <% value = "No mls informaion given" %>
-          <% elsif value.is_a?(Hash) %>
-            <% value.each_pair do |key2, value2| %>
-              <% if value2 == nil %>
-                <% value2 = "No information given." %>
-              <% else %>
-                <ul> <%= key2 %>: <%= value2 %> </ul>
-              <% end %>
-            <% end %>
-            <ul> <b> <%= key %>: </b> <%= value %> </ul>
-            <% end %>
-          <% end %>
-      <% else %>
-        <p> "No mls information given" </p>
-      <% end %>
-=======
     <h3> MLS-FED DATA </h3>
 
     <% @other_information.each do |item| %>
       <p> <%= item %> </p>
     <% end %>
->>>>>>> 6580897e9077499a3bc4970b793de946551bee64
 
     <h3> REALTOR INFORMATION </h3>
     <%= @realtor_information %>
 
 
-
-    <% @realtor_information.each do |information| %>
-      <% if information.is_a?(Hash) %>
-        <% information.each_pair do |first_key, first_value| %>
-          <% if first_value.is_a?(Hash) %>
-           <p><b><%= first_key %></b></p>
-            <% first_value.each_pair do |second_key, second_value| %>
-              <% if second_value.is_a?(Hash) %>
-                <p><b><%= second_key%></b></p>
-                <%  second_value.each_pair do |third_key, third_value| %>
-                  <% if third_value != nil %>
-                    <p><b><%= second_key %></b></p>
-                    <p><b><%= third_key %></b> <%= third_value %></p>
-                  <% end %>
-                <% end %>
-              <% end %>
-              <% if second_value != nil %>
-              <ul><p><b><%= second_key %></b> <%=second_value %></p></ul>
-              <% end %>
-            <% end %>
-          <% else %>
-            <% if first_value != nil %>
-            <p><b><%= first_key %></b> <%= first_value %></p>
-            <% end %>
-          <% end %>
-        <% end %>
-      <% end %>
-    <% end %> 
-
-<<<<<<< HEAD
-=======
     <% @more_information.each do |item| %>
       <p> <%= item %> </p>
     <% end %>
->>>>>>> 6580897e9077499a3bc4970b793de946551bee64
 
     <h3> RELEVANT INFORMATION </h3>
 
