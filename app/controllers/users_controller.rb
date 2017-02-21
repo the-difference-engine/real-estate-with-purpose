@@ -17,7 +17,7 @@ class UsersController < ApplicationController
       email: params[:email],
       password: params[:password],
       password_confirmation: params[:password_confirmation]
-      )
+    )
     if @user.save
       # Deliver the signup email
       UserNotifier.send_signup_email(@user).deliver
@@ -49,7 +49,7 @@ class UsersController < ApplicationController
       last_name: params[:last_name],
       email: params[:email],
       home_budget: params[:home_budget]
-      )
+    )
 
     flash[:success] = 'User updated!'
     redirect_to "/users/#{@user.id}"
