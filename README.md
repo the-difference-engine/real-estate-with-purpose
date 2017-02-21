@@ -18,23 +18,13 @@
 
 ### Dependencies
 
-##### This app uses the Paperclip gem and requires ImageMagick. To ensure that it does, on your command line, run ```which convert``` (one of the ImageMagick utilities). This will give you the path where that utility is installed. For example, it might return ```/usr/local/bin/convert```.
+This app uses the Paperclip gem and requires ImageMagick. To check that you have it on your computer, open terminal, run ```which convert``` (one of the ImageMagick utilities). This will give you the path where that utility is installed. For example, it might return ```/usr/local/bin/convert```
 
-##### Then, in your environment config file, let Paperclip know to look there by adding that directory to its path.
-
-##### In development mode, you might add this line to config/environments/development.rb):
-
-Paperclip.options[:command_path] = "/usr/local/bin/"
-
-* If you're on Mac OS X, you'll want to run the following with Homebrew:
+To install with Homebrew:
 
 ```brew install imagemagick```
 
-##### If you are dealing with pdf uploads or running the test suite, you'll also need to install GhostScript. On Mac OS X, you can also install that using Homebrew:
-
-```brew install gs```
-
-##### If you are on Ubuntu (or any Debian base Linux distribution), you'll want to run the following with apt-get:
+If you are on Ubuntu (or any Debian base Linux distribution), you'll want to run the following with apt-get:
 
 ```sudo apt-get install imagemagick -y```
 

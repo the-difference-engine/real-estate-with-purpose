@@ -35,6 +35,7 @@ class CharitiesController < ApplicationController
   end
 
   def destroy
+    @charity = set_lead
     @charity.destroy
     redirect_to "/charities"
   end
