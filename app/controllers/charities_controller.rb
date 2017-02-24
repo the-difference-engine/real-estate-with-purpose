@@ -11,7 +11,6 @@ class CharitiesController < ApplicationController
     @charity = Charity.new
   end
 
-<<<<<<< HEAD
   def create
     @charity = Charity.create(
       name: params[:name],
@@ -22,8 +21,6 @@ class CharitiesController < ApplicationController
     redirect_to '/charities/#{@charity.id}'
   end
 
-=======
->>>>>>> ff4eb2172b7765f38b88e3e03c9792182638c2c7
   def show
     @charity = set_lead
   end
@@ -37,12 +34,11 @@ class CharitiesController < ApplicationController
     if @charity.save
       redirect_to "/charities/#{@charity.id}"
     else
-      render 'new.html.erb'    
+      render 'new.html.erb'
     end
   end
 
   def update
-<<<<<<< HEAD
     @charity = Charity.find_by(id: params[:id])
     @charity.update(
       name: params[:name],
@@ -51,11 +47,9 @@ class CharitiesController < ApplicationController
     )
     flash[:success] = "Charity Updated"
     redirect_to '/charities/#{@charity.id}'
-=======
     @charity = set_lead
     @charity.update(user_params)
     redirect_to "/charities/#{@charity.id}"
->>>>>>> ff4eb2172b7765f38b88e3e03c9792182638c2c7
   end
 
   def destroy
