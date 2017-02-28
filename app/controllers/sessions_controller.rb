@@ -13,8 +13,8 @@ class SessionsController < ApplicationController
     else
       flash[:warning] = 'Invalid email or password!'
       redirect_to '/'
+    end
   end
-end
 
   def destroy
     session[:user_id] = nil
