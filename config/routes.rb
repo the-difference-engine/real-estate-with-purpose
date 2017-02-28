@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: 'homepages#index'
+  root to: 'pages#index'
 
-  #homepage route
-  get '/homepages' => 'homepages#index'
-  get '/listwithus' => 'homepages#listwithus'
-  get '/findyourhome' => 'homepages#findyourhome'
-  get '/company' => 'homepages#company'
-  get '/contact' => 'homepages#contact'
+  #pages route
+  get '/listwithus' => 'pages#listwithus'
+  get '/findyourhome' => 'pages#findyourhome'
+  get '/company' => 'pages#company'
+  get '/contact' => 'pages#contact'
 
   #property routes
   post '/properties' => 'properties#index'
@@ -75,8 +74,5 @@ Rails.application.routes.draw do
   get '/users/:id/edit' => 'users#edit'
   patch '/users/:id' => 'users#update'
   delete '/users/:id' => 'users#destroy'
-
-  #rets routes
-  get '/rets' => 'rets#index'
 
 end
