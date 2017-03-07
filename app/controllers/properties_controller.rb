@@ -16,7 +16,7 @@ class PropertiesController < ApplicationController
     params[:current_page] ? @current_page = params[:current_page] : @current_page = 1
     params[:sort] ? @sort = params[:sort] : @sort = '-listdate'
     @just_location = params[:location]
-    
+
     call = Unirest.get("https://#{user}:#{pass}@api.simplyrets.com/properties?status=Active&counties=cook#{location}&minprice=#{@price_min}&maxprice=#{@price_max}&minbaths=#{@baths_min}&maxbaths=#{@baths_max}&minbeds=#{@beds_min}&maxbeds=#{@beds_max}&sort=#{@sort}&limit=18&offset=#{@offset}",
                        headers: { "Accept" => "application/json" })
     @properties = call.body
@@ -79,7 +79,7 @@ class PropertiesController < ApplicationController
 
     @google = ENV["GOOGLE"]
     @map_image = "https://maps.googleapis.com/maps/api/staticmap?center=#{@lat},#{@long}&zoom=12&size=600x300&maptype=roadmap&markers=color:red%7Clabel:A%7C#{@lat},#{@long}&key=#{@google}"
-    
+
     if current_user
       user_favs = User.find(current_user.id).user_properties
       user_favs.each do |prop|
@@ -113,7 +113,7 @@ class PropertiesController < ApplicationController
       overview: params[:overview],
       details: params[:details],
       misc_details: params[:misc_details]
-      )
+    )
     flash[:success] = 'Property Updated'
     redirect_to "/properties/#{@property.id}"
   end
