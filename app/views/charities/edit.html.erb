@@ -1,23 +1,37 @@
 <div class="container">
   <h1>Edit Charity</h1>
-  <%= form_tag "/charities/#{@charity.id}", method: :patch do %>
-    <div>
-      <%= label_tag :name %>
-      <%= text_field_tag :name, @charity.name %>
-    </div>
+     <%= form_for @charity, url: charity_path(@charity), html: { multipart: true } do |f| %>
+       <% if @charity.errors.any? %>
+         <div id="error_explanation">
+           <h2><%= pluralize(charity.errors.count, "error") %> prohibited this charity from being saved:</h2>
 
-    <div>
-      <%= label_tag :description %>
-      <%= text_field_tag :description, @charity.description %>
-    </div>
+           <ul>
+           <% @charity.errors.full_messages.each do |message| %>
+             <li><%= message %></li>
+           <% end %>
+           </ul>
+         </div>
+       <% end %>
 
-    <div>
-      <%= label_tag :logo %>
-      <%= text_field_tag :logo, @charity.logo %>
-    </div>
+       <div>
+         <%= f.label :name, "Name" %>
+         <%= f.text_field :name %>
+       </div>
 
-    <br>
-    <%= submit_tag "Submit" %>
-  <% end %>
+       <div>
+         <%= f.label :description, "Description" %>
+         <%= f.text_field :description %>
+       </div>
+
+       <div>
+         <%= f.label :logo, "Logo" %>
+         <%= f.file_field :logo %>
+       </div>
+
+       <div class="actions">
+         <%= f.submit 'Update', class: "btn btn-default" %>
+       </div>
+
+    <% end %> 
   <br>
 </div>

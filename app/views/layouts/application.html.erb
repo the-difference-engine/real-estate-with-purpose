@@ -14,7 +14,7 @@
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
 
-        <%= link_to image_tag('/images/mansion.svg', :class => 'navbar-brand'), "/homepages" %>
+        <%= link_to image_tag('/images/mansion.svg', :class => 'navbar-brand'), "/" %>
 
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
@@ -22,25 +22,25 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/homepages">Real Estate With Purpose</a>
+        <a class="navbar-brand" href="/">Real Estate With Purpose</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="/findyourhome/">Find Your Home<span class="sr-only">(current)</span></a></li>
-          <li><a href="/listwithus">List With Us</a></li>
-          <li><a href="/company">Company</a></li>
-          <li><a href="/charities/">Charities</a></li>
-          <li><a href="#">Contact</a></li>
+          <li class=<%= 'active' if current_page?(controller: 'pages', action: 'findyourhome')%>><a href="/findyourhome/">Find Your Home<span class="sr-only">(current)</span></a></li>
+          <li class=<%= 'active' if current_page?(controller: 'pages', action: 'listwithus')%>><a href="/listwithus">List With Us</a></li>
+          <li class=<%= 'active' if current_page?(controller: 'pages', action: 'company')%>><a href="/company">Company</a></li>
+          <li class=<%= 'active' if current_page?(controller: 'charities', action: 'index')%>><a href="/charities/">Charities</a></li>
+          <li class=<%= 'active' if current_page?(controller: 'pages', action: 'contact')%>><a href="/contact">Contact</a></li>
           <li><a href="#">REwP Investor</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if current_user %>
           <li><%= link_to 'Log Out', '/logout', method: :delete %></li>
           <% else %>
-          <li><a href="/login">Sign In</a></li>
-          <li><a href="/signup">Sign Up</a></li>
+          <li><a href="#" data-toggle="modal" data-target="#signIn">Sign In</a></li>
+          <li><a href="#" data-toggle="modal" data-target="#signUp">Sign Up</a></li>
           <% end %>
 
           <% if current_user && current_user.admin %>
@@ -66,7 +66,7 @@
 
   <div class="hero-image">
     <div class="box-image">
-      <h3>If you could</h3> 
+      <h3>If you could</h3>
       <%= link_to "BUY", "/properties" %> <strong>or</strong> <%= link_to "SELL", "/properties" %>
       <h3>while helping your community, would you?</h3>
     </div>
@@ -98,9 +98,9 @@
         <ul class="pages">
           <li><h4>Contact Us</h4></li>
 
-          <li> <%= link_to image_tag('/images/facebook.svg', :class => 'logo' ), "https://www.facebook.com/realestatewithpurpose" %> 
-            <%= link_to image_tag('/images/pinterest.svg', :class => 'logo'), "https://www.pinterest.com/evanstonrealtor/" %> 
-            <%= link_to image_tag('/images/linked_in.svg', :class => 'logo' ), "https://www.linkedin.com/in/natalie-smith-91a17627" %> 
+          <li> <%= link_to image_tag('/images/facebook.svg', :class => 'logo' ), "https://www.facebook.com/realestatewithpurpose" %>
+            <%= link_to image_tag('/images/pinterest.svg', :class => 'logo'), "https://www.pinterest.com/evanstonrealtor/" %>
+            <%= link_to image_tag('/images/linked_in.svg', :class => 'logo' ), "https://www.linkedin.com/in/natalie-smith-91a17627" %>
             <%= link_to image_tag('/images/googleplus.svg', :class => 'logo'), "https://plus.google.com/+RealestatewithpurposeCo" %> </li>
 
             <li><a href="#">Address</a></li>
@@ -123,6 +123,85 @@
         </div>
       </div>
     </footer>
+  </div>
+  <div class="modal fade" id="signIn" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <%= form_tag '/login', method: :post do %>
+            <div>
+              <%= label_tag :email %>
+              <%= text_field_tag :email %>
+            </div>
+
+            <div>
+              <%= label_tag :password %>
+              <%= password_field_tag :password %>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <%= submit_tag "Submit", class: "user-submit"  %>
+            <% end %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="signUp" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="exampleModalLabel">Why create an account?</h2>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="sign-up">
+          <div class="sign-up-portion">
+            <ul>
+              <li>Lorem ipsum dolor sit amet, sit ex iusto mucius facete. Ut magna commodo ponderum nam, eos aliquid voluptua lucilius ut, nibh scriptorem te sea.</li>
+              <li>Lorem ipsum dolor sit amet, sit ex iusto mucius facete. Ut magna commodo ponderum nam, eos aliquid voluptua lucilius ut, nibh scriptorem te sea.</li>
+              <li>Lorem ipsum dolor sit amet, sit ex iusto mucius facete. Ut magna commodo ponderum nam, eos aliquid voluptua lucilius ut, nibh scriptorem te sea.</li>
+            </ul>
+          </div>
+          <div class="sign-up-portion">
+          <%= form_tag 'users', method: :post do %>
+            <div>
+              <%= text_field_tag :first_name, nil, placeholder: "First Name" %>
+            </div>
+
+            <div>
+              <%= text_field_tag :last_name, nil, placeholder: "Last Name" %>
+            </div>
+
+            <div>
+              <%= text_field_tag :email, nil, placeholder: "Email Address" %>
+            </div>
+
+            <div>
+              <%= password_field_tag :password, nil, placeholder: "Password" %>
+            </div>
+
+            <div>
+              <%= password_field_tag :password_confirmation, nil, placeholder: "Re-type Password" %>
+            </div>
+            <%= submit_tag "SUBMIT", class: "user-submit"  %>
+            <% end %>
+          </div>
+          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">No thanks</button>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 </html>
