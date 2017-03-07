@@ -7,6 +7,7 @@ gem 'sendgrid-ruby'
 # 10/10/16
 
 gem "paperclip", "~> 5.0.0"
+gem 'aws-sdk', '~> 2.7.7'
 # 2/6/17
 
 gem 'figaro'
