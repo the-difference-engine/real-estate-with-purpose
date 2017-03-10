@@ -62,6 +62,21 @@ class PropertiesController < ApplicationController
     @lat = @property["geo"]["lat"]
     @long = @property["geo"]["lng"]
 
+    @property_information = []
+    @property_information.push(@property["property"], @property["mls"])
+
+    @relevant_information = []
+    @relevant_information.push(@property["school"], @property["geo"], @property[
+      "tax"], @property["disclaimer"])
+
+    @realtor_information = []
+    @realtor_information.push(@property["office"], @property["agent"], @property["coAgent"], @property["showingInstructions"])
+
+    @information = Property.iterate(@relevant_information)
+    @other_information = Property.iterate(@property_information)
+    @more_information = Property.iterate(@realtor_information)
+
+
     @google = ENV["GOOGLE"]
     @map_image = "https://maps.googleapis.com/maps/api/staticmap?center=#{@lat},#{@long}&zoom=12&size=600x300&maptype=roadmap&markers=color:red%7Clabel:A%7C#{@lat},#{@long}&key=#{@google}"
     
