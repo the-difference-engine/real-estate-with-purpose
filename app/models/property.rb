@@ -27,23 +27,6 @@ class Property < ApplicationRecord
     Unirest.get("https://#{ENV['USERNAME']}:#{ENV['PASSWORD']}@api.simplyrets.com/properties/#{params[:id]}").body
   end
  
-  def self.new_iterate(data)
-    display_text = []
-    info.each_pair do |key1, value1|
-     if value1.is_a?(Hash)
-      display_text << key1
-      display_text << value1
-    end 
-
-    while value1.is_a?(Hash)
-      value1
-     
-
-
-    break if info
-
-  end
- 
   def self.iterate(data)
     data_array = []
       data.each do |info|
