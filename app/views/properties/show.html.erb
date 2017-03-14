@@ -1,5 +1,5 @@
-  <%= form_tag '/properties', method: :post do %>
-<div class="top-search-bar">
+<%= form_tag '/properties', method: :post do %>
+  <div class="top-search-bar">
     <div class="form-item">
       <%= text_field_tag :location, @just_location ? @just_location : nil, placeholder: "Address, neighborhood, zip", style: "width: 200px" %>
     </div>
@@ -49,7 +49,7 @@
     <p>Image <span class="number-of-photos">1</span> of <%= @property["photos"].length %></p>
     <p>Beds: <%= @beds %> | Baths: <%= @baths %> </p>
     <p>List Price: <%= number_to_currency(@list_price) %></p>
-    <p>List Date <%= @list_date %> </p>
+    <p>List Date: <%= @list_date %> </p>
   <% if current_user %>
       <div class="favorite">
         <% if @favorite %>
@@ -59,6 +59,7 @@
               <% if @property["photos"][0] %>
                   <%= hidden_field_tag :image, @property["photos"][0] %>
               <% end %>
+
               <%= hidden_field_tag :line_1, @property["address"]["city"] %>
               <%= hidden_field_tag :state, @property["address"]["state"] %>
               <%= hidden_field_tag :api_address, @property["mlsId"] %>
@@ -71,38 +72,48 @@
       <% end %>
       </div>
   <% end %>
-    <h3> ************** PROPERTY OVERVIEW *************** </h3>
 
-    <% if @property["remarks"] != nil %>
-        <%= @property["remarks"] %>
-    <% else %>
-        <%= @property["privateRemarks"] %>
+
+    <h3> PROPERTY OVERVIEW </h3>
+
+    <p> <b> REMARKS: </b> <%= @property["remarks"] %> </p>
+    <p> <b> PRIVATE REMARKS: </b> <%= @property["privateRemarks"] %> </p>
+
+    <h3> MLS-FED DATA </h3>
+
+    <% @other_information.each do |item| %>
+      <p> <%= item %> </p>
     <% end %>
 
-    <h3> ************* PROPERTY DETAILS **************** </h3>
+    <h3> REALTOR INFORMATION </h3>
+    <% @more_information.each do |item| %>
+      <p> <%= item %> </p>
+    <% end %>
 
-    <% @property.each do |category| %>
-         <% category.each do |information| %>
-            <% if information.nil? %>
-                <p>  NO INFORMATION AVAILABLE </p>
-            <% elsif information.is_a?(Hash) %>
-                 <% information.each do |detail| %>
-                    <% if detail[1] == nil %>
-                        <p> <%= detail[0] %>: NO INFORMATION LISTED </p>
-                    <% else %>
-                        <p> <%= detail[0] %>: <%= detail[1] %> </p>
-                    <% end %>
-                <% end %>
-            <% else %>
-               <p> <%= information %> </p>
+    <h3> RELEVANT INFORMATION </h3>
+
+    <% @information.each do |item| %>
+      <p> <%= item %> </p>
+    <% end %>
+
+    <h3> OTHER INFORMATION </h3>
+
+    <% @property.except("address", "remarks", "privateRemarks", "mlsId", "property", "mls", "agent", "coAgent", "office", "photos", "listPrice", "listDate", "listPrice", "school", "geo", "tax").each do |item| %>
+      <% if item[1] != nil %>
+        <% if item[1].is_a?(Hash) %>
+          <ul> <b> <%= item[0] %>: </b> </ul>
+          <% item[1].each_pair do |key, value| %>
+            <% if value != nil %>
+              <ul> <ul> <b> <%= key %>: </b> <%= value %> </ul> </ul>
             <% end %>
+          <% end %>
+        <% else %>
+          <ul> <b> <%= item[0] %>: </b> <%= item[1] %> </ul>
         <% end %>
+      <% end %>
     <% end %>
 
+    <p> <%= image_tag @map_image %> </p>
 
-    <%= image_tag @map_image %>
-
-    </div>
-
+  </div>
 </div>
-

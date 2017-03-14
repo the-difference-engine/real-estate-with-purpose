@@ -16,7 +16,7 @@ class PropertiesController < ApplicationController
     params[:current_page] ? @current_page = params[:current_page] : @current_page = 1
     params[:sort] ? @sort = params[:sort] : @sort = '-listdate'
     @just_location = params[:location]
-    
+
     call = Unirest.get("https://#{user}:#{pass}@api.simplyrets.com/properties?status=Active&counties=cook#{location}&minprice=#{@price_min}&maxprice=#{@price_max}&minbaths=#{@baths_min}&maxbaths=#{@baths_max}&minbeds=#{@beds_min}&maxbeds=#{@beds_max}&sort=#{@sort}&limit=18&offset=#{@offset}",
                        headers: { "Accept" => "application/json" })
     @properties = call.body
@@ -62,9 +62,24 @@ class PropertiesController < ApplicationController
     @lat = @property["geo"]["lat"]
     @long = @property["geo"]["lng"]
 
+    @property_information = []
+    @property_information.push(@property["property"], @property["mls"])
+
+    @relevant_information = []
+    @relevant_information.push(@property["school"], @property["geo"], @property[
+      "tax"], @property["disclaimer"])
+
+    @realtor_information = []
+    @realtor_information.push(@property["office"], @property["agent"], @property["coAgent"], @property["showingInstructions"])
+
+    @information = Property.iterate(@relevant_information)
+    @other_information = Property.iterate(@property_information)
+    @more_information = Property.iterate(@realtor_information)
+
+
     @google = ENV["GOOGLE"]
     @map_image = "https://maps.googleapis.com/maps/api/staticmap?center=#{@lat},#{@long}&zoom=12&size=600x300&maptype=roadmap&markers=color:red%7Clabel:A%7C#{@lat},#{@long}&key=#{@google}"
-    
+
     if current_user
       user_favs = User.find(current_user.id).user_properties
       user_favs.each do |prop|
@@ -73,6 +88,12 @@ class PropertiesController < ApplicationController
         end
       end
     end
+    @realtor_information = []
+    @realtor_information.push(
+      @property["office"],
+      @property["agent"],
+      @property["coAgent"],
+      @property["showingInstructions"])
   end
 
   def edit
@@ -92,7 +113,7 @@ class PropertiesController < ApplicationController
       overview: params[:overview],
       details: params[:details],
       misc_details: params[:misc_details]
-      )
+    )
     flash[:success] = 'Property Updated'
     redirect_to "/properties/#{@property.id}"
   end
