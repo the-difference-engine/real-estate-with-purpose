@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   patch '/properties/:id' => 'properties#update'
   delete '/properties/:id' => 'properties#destroy'
 
+  #investor routes
+  post '/investors' => 'investors#index'
+
   #buyer routes
   get '/buyers' => 'buyers#index'
   get '/buyers/new' => 'buyers#new'
