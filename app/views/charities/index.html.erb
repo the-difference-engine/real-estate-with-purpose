@@ -16,7 +16,7 @@
       <tbody>
         <% @charities.each do |charity| %>
           <tr>
-            <td><%= image_tag charity.logo.url(:thumbnail) %></td>
+            <td><%= image_tag charity.logo.url(:thumb) %></td>
             <td><%= charity.name %></td>
             <td><%= charity.description %></td>
             <td><%= link_to 'Show', "/charities/#{charity.id}", class: "btn btn-default" %></td>

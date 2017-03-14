@@ -39,14 +39,6 @@ class CharitiesController < ApplicationController
   end
 
   def update
-    @charity = Charity.find_by(id: params[:id])
-    @charity.update(
-      name: params[:name],
-      logo: params[:logo],
-      description: params[:description]
-    )
-    flash[:success] = "Charity Updated"
-    redirect_to '/charities/#{@charity.id}'
     @charity = set_lead
     @charity.update(user_params)
     redirect_to "/charities/#{@charity.id}"
