@@ -1,4 +1,4 @@
-require 'rails_helper'
+  require 'rails_helper'
 
 RSpec.describe RealtorsController, type: :controller do
   it 'routes get index' do
@@ -45,6 +45,40 @@ RSpec.describe RealtorsController, type: :controller do
       :controller => 'realtors',
       :action => 'destroy',
       :id => '1')
+  end
+
+  it 'should find all realtors' do
+    get 'index' 
+      expect(assigns(:realtors)).to eq(Realtor.all)
+  end
+  it "renders the index template" do
+      get :index
+      expect(response).to render_template("index")
+    end
+
+  describe 'GET #show' do
+    it "assigns the requested realtor to @realtor" do
+      realtor = create(:realtor)
+      get :show, id: realtor
+      expect(assigns(:realtor)).to eq realtor
+    end
+
+    it "renders the :show template" do
+      realtor = create(:realtor)
+      get :show, id: realtor
+      expect(response).to render_template :show
+    end
+  end
+  describe 'GET #new' do
+    it "assigns a new realtor to @realtor" do
+      sign_in (:user), admin: false
+      get :new
+      expect(assigns(:realtor)).to be_a_new(Realtor)
+    end
+    it "renders the :new template" do
+      get :new
+      expect(response).to render_template :new
+    end
   end
 end
 

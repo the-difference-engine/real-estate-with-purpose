@@ -1,5 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe Property, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Property do
+  context 'associations' do
+    it { should have_many(:user_properties)}
+    it { should have_many(:users).through(:user_properties)}
+  end
+
+
 end

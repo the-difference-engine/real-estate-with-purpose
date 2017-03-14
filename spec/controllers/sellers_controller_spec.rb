@@ -46,4 +46,14 @@ RSpec.describe SellersController, type: :controller do
       :action => 'destroy',
       :id => '1')
   end
+
+  it 'should find all sellers' do
+    get 'index' 
+      expect(assigns(:sellers)).to eq(Seller.all)
+  end
+
+  it "renders the index template" do
+      get :index
+      expect(response).to render_template("index")
+    end
 end
