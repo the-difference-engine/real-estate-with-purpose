@@ -71,9 +71,19 @@ RSpec.describe RealtorsController, type: :controller do
   end
   describe 'GET #new' do
     it "assigns a new realtor to @realtor" do
-      sign_in (:user), admin: false
+      login_admin
+      #  @realtor = create(:realtor)
+      @realtor = Realtor.create(
+        name "Omar",
+        headshot: "myHeadshot",
+        bio: "myBio",
+        faqs: "myFaqs"
+        twitter_handle: "myTwitterHandle",
+        phone_number: "555-555-5555",
+        email: "omar@yahoo.com"
+        )
       get :new
-      expect(assigns(:realtor)).to be_a_new(Realtor)
+      expect(assigns(:realtor)).to eq(@realtor)
     end
     it "renders the :new template" do
       get :new
