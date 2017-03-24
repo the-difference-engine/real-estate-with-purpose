@@ -159,19 +159,19 @@
             <div class="col-md-6">
               <div class="sign-up-portion">
                 <%= label_tag :down_payment, 'Down Payment:' %>
-                <%= text_field_tag :down_payment, nil, placeholder: "Price ($)", style: "width: 70px" %>
+                <%= text_field_tag :down_payment, nil, placeholder: "Price ($)", style: "width: 70px", :required => true %>
               </div>
               <div class="sign-up-portion">
                 <%= label_tag :interest_rate, 'Interest Rate:' %>
-                <%= text_field_tag :interest_rate, nil, placeholder: "0.0%", style: "width: 60px" %>
+                <%= text_field_tag :interest_rate, nil, placeholder: "0.0%", style: "width: 60px", :required => true %>
               </div>
               <div class="sign-up-portion">
                 <%= label_tag :loan_term, 'Loan Term:' %>
-                <%= text_field_tag :loan_term, nil, placeholder: "15 or 30", style: "width: 70px" %>
+                <%= text_field_tag :loan_term, nil, placeholder: "15 or 30", style: "width: 70px", :required => true %>
               </div>
               <div class="sign-up-portion">
                 <%= label_tag :est_insurance, 'Est. Insurance:' %>
-                <%= text_field_tag :est_insurance, nil, placeholder: "Price ($)", style: "width: 70px" %>
+                <%= text_field_tag :est_insurance, nil, placeholder: "Price ($)", style: "width: 70px", :required => true %>
               </div>
             </div>
           </div>
@@ -226,8 +226,8 @@
               </div>
               <div class="sign-up-portion">
                 <%= label_tag :hoa_min, "HOAs:" %>
-                <%= text_field_tag :hoa_min, nil, placeholder: "(Min)", style: "width: 60px" %>
-                <%= text_field_tag :hoa_max, nil, placeholder: "(Max)", style: "width: 60px" %>
+                <%= text_field_tag :hoa_min, nil, placeholder: "(Min)", style: "width: 60px", :required => true %>
+                <%= text_field_tag :hoa_max, nil, placeholder: "(Max)", style: "width: 60px", :required => true %>
               </div>
             </div>
           </div>
