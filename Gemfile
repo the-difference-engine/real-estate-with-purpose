@@ -9,6 +9,9 @@ gem 'sendgrid-ruby'
 gem "paperclip-dropbox"
 # 3/6/17
 
+gem "mini_magick"
+# 3/20/17
+
 gem 'figaro'
 # 10/10/16
 

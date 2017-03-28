@@ -108,6 +108,7 @@ GEM
     method_source (0.8.2)
     mime-types (1.25.1)
     mimemagic (0.3.0)
+    mini_magick (4.6.1)
     mini_portile2 (2.1.0)
     minitest (5.10.1)
     multi_json (1.12.1)
@@ -244,6 +245,7 @@ DEPENDENCIES
   jquery-rails
   json
   listen (~> 3.0.5)
+  mini_magick
   paperclip-dropbox
   pg (~> 0.18)
   puma (~> 3.0)
