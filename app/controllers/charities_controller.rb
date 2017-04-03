@@ -24,7 +24,7 @@ class CharitiesController < ApplicationController
     if @charity.save
       redirect_to "/charities/#{@charity.id}"
     else
-      render 'new.html.erb'    
+      render 'new.html.erb'
     end
   end
 
@@ -35,6 +35,7 @@ class CharitiesController < ApplicationController
   end
 
   def destroy
+    @charity = set_lead
     @charity.destroy
     redirect_to "/charities"
   end
@@ -46,7 +47,7 @@ class CharitiesController < ApplicationController
   end
 
   def user_params
-    params.require(:charity).permit(:name, :description, :logo)
+    params.require(:charity).permit(:name, :description, :logo, :url)
   end
 
 end

@@ -6,8 +6,11 @@ gem 'ruby_http_client'
 gem 'sendgrid-ruby'
 # 10/10/16
 
-gem "paperclip", "~> 5.0.0"
-# 2/6/17
+gem "paperclip-dropbox"
+# 3/6/17
+
+gem "mini_magick"
+# 3/20/17
 
 gem 'figaro'
 # 10/10/16

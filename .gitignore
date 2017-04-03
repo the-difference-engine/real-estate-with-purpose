@@ -12,8 +12,8 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
-
-/.env
+.test
+.env
 
 # Ignore Byebug command history file.
 .byebug_history
@@ -23,3 +23,4 @@
 
 # Ignore application configuration
 /config/application.yml
+/config/dropbox.yml

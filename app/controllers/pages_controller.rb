@@ -1,4 +1,4 @@
-class HomepagesController < ApplicationController
+class PagesController < ApplicationController
   def index
     @donations = Donation.all
     @donation = Donation.first

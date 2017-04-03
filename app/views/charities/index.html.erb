@@ -4,28 +4,18 @@
 
     <h3>Charities <%= link_to 'Create New Charity', '/charities/new', class: "btn btn-default" %></h3>
     <br>
-    <table class="table">
-      <thead class="thead-default">
-          <tr>
-            <th>Business Logo </th>
-            <th>Name </th>
-            <th>Description </th>
-            <th colspan="3"></th>
-          </tr>
-      </thead>
-      <tbody>
+  
+    <h4>Wondering where the donations go?</h4>
+    <h4>Many of the charities you see below have now been recipients of multiple donations through Real Estate with Purpose.</h4>
+    <div class="container-fluid charities-padding-container">
+      <div class="row">
         <% @charities.each do |charity| %>
-          <tr>
-            <td><%= image_tag charity.logo.url(:thumb) %></td>
-            <td><%= charity.name %></td>
-            <td><%= charity.description %></td>
-            <td><%= link_to 'Show', "/charities/#{charity.id}", class: "btn btn-default" %></td>
-            <td><%= link_to 'Edit', "/charities/#{charity.id}", class: "btn btn-default" %></td>
-            <td><%= link_to 'Delete', "/charities/#{charity.id}", method: :delete, class: "btn btn-default" %></td>
-          </tr>
+          <div class="col-md-3">            
+            <a href="/charities/<%= charity.id %>"><%= image_tag charity.logo.url(:medium) %></a>
+          </div>
         <% end %>
-      </tbody>
-    </table>
+      </div> 
+    </div>     
   </div>
 </div>
 
