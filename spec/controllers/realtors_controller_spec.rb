@@ -47,49 +47,43 @@ RSpec.describe RealtorsController, type: :controller do
       :id => '1')
   end
 
-  it 'should find all realtors' do
-    get 'index' 
-      expect(assigns(:realtors)).to eq(Realtor.all)
-  end
-  it "renders the index template" do
-      get :index
-      expect(response).to render_template("index")
-    end
+   it 'should find all realtors' do
+     get 'index' 
+       expect(assigns(:realtors)).to eq(Realtor.all)
+   end
+   it "renders the index template" do
+       get :index
+       expect(response).to render_template("index")
+     end
 
-  describe 'GET #show' do
-    it "assigns the requested realtor to @realtor" do
-      realtor = create(:realtor)
-      get :show, id: realtor
-      expect(assigns(:realtor)).to eq realtor
-    end
+   describe 'GET #show' do
+     it "assigns the requested realtor to @realtor" do
+       realtor = create(:realtor)
+       get :show, id: realtor
+       expect(assigns(:realtor)).to eq realtor
+     end
 
-    it "renders the :show template" do
-      realtor = create(:realtor)
-      get :show, id: realtor
-      expect(response).to render_template :show
-    end
+     it "renders the :show template" do
+       realtor = create(:realtor)
+       get :show, id: realtor
+       expect(response).to render_template :show
+     end
   end
   describe 'GET #new' do
-    it "assigns a new realtor to @realtor" do
-      login_admin
-      #  @realtor = create(:realtor)
-      @realtor = Realtor.create(
-        name "Omar",
-        headshot: "myHeadshot",
-        bio: "myBio",
-        faqs: "myFaqs"
-        twitter_handle: "myTwitterHandle",
-        phone_number: "555-555-5555",
-        email: "omar@yahoo.com"
-        )
-      get :new
-      expect(assigns(:realtor)).to eq(@realtor)
-    end
-    it "renders the :new template" do
+        it "creates a new realtor" do
+         controller.stub(:authenticate_admin!) { true }
+         expect {
+           post :create, FactoryGirl.attributes_for(:realtor)
+          }.to change(Realtor, :count).by(1)
+        end
+          
+
+     it "renders the :new template" do
+      controller.stub(:authenticate_admin!) { true }
       get :new
       expect(response).to render_template :new
+     end
     end
-  end
 end
 
 
