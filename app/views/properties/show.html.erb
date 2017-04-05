@@ -96,22 +96,46 @@
       <p> <%= item %> </p>
     <% end %>
 
-    <h3> OTHER INFORMATION </h3>
+    <ul style="list-style:none"> OTHER INFORMATION </ul>
 
-    <% @property.except("address", "remarks", "privateRemarks", "mlsId", "property", "mls", "agent", "coAgent", "office", "photos", "listPrice", "listDate", "listPrice", "school", "geo", "tax").each do |item| %>
-      <% if item[1] != nil %>
-        <% if item[1].is_a?(Hash) %>
-          <ul> <b> <%= item[0] %>: </b> </ul>
-          <% item[1].each_pair do |key, value| %>
-            <% if value != nil %>
-              <ul> <ul> <b> <%= key %>: </b> <%= value %> </ul> </ul>
-            <% end %>
-          <% end %>
-        <% else %>
-          <ul> <b> <%= item[0] %>: </b> <%= item[1] %> </ul>
-        <% end %>
-      <% end %>
-    <% end %>
+   <% def iterate_data(input_data) %>
+     <% if @cycle_number == 1 %>
+       <% @cycle_number = 1 %>
+       <% @tab_counter = 2 %>
+     <% elsif @cycle_number == 2 %>
+       <% @tab_counter = 3 %>
+       <% @cycle_number = 2 %>
+     <% else %>
+       <% @tab_counter = 1 %>
+       <% @cycle_number = 0 %>
+     <% end %>
+     <% if input_data.is_a?(String) %>
+       <%= display_string(input_data, @tab_counter) %>
+     <% elsif input_data.is_a?(Array) %>
+       <% input_data.each do |array_item| %>
+         <% iterate_data(array_item) %>
+       <% end %>
+     <% elsif input_data.is_a?(Hash) %>
+       <% @tab_counter += 1 %>
+       <% input_data.each do |key, value| %>
+         <% if !value.is_a?(Hash) && value != nil %>
+           <%= display_hash_key_value(key, value, @tab_counter) %>
+         <% elsif value.is_a?(Hash) %>
+           <%= display_hash_key(key, @tab_counter) %>
+           <% @cycle_number += 1 %>
+           <% iterate_data(value) %>
+         <% end %>
+       <% end %>
+     <% end %>
+   <% end %>
+
+ <% iterate_data(@realtor_information) %>
+<%=@realtor_information  %>
+
+
+
+
+
 
     <p> <%= image_tag @map_image %> </p>
 

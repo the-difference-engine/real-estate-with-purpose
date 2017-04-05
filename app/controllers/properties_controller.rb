@@ -53,6 +53,8 @@ class PropertiesController < ApplicationController
   end
 
   def show
+    @tab_counter = 1
+    @cycle_number = 0
     @property = Unirest.get("https://#{ENV['USERNAME']}:#{ENV['PASSWORD']}@api.simplyrets.com/properties/#{params[:id]}").body
     @days_on_market = (Time.current - Time.zone.parse(@property["listDate"])) / 86400
     @beds = @property["property"]["bedrooms"]
@@ -73,8 +75,12 @@ class PropertiesController < ApplicationController
     @realtor_information.push(@property["office"], @property["agent"], @property["coAgent"], @property["showingInstructions"])
 
     @information = Property.iterate(@relevant_information)
-    @other_information = Property.iterate(@property_information)
     @more_information = Property.iterate(@realtor_information)
+    @other_information = @property.except('address', 'remarks',
+                                         'privateRemarks', 'mlsId', 'property',
+                                         'mls', 'agent', 'coAgent', 'office',
+                                         'photos', 'listPrice', 'listDate',
+                                         'listPrice', 'school', 'geo', 'tax')
 
 
     @google = ENV["GOOGLE"]

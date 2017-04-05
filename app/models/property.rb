@@ -32,8 +32,8 @@ class Property < ApplicationRecord
       data.each do |info|
         if info.is_a?(Hash) 
           info.each_pair do |key, value|
-            if value.is_a?(Hash)
-              data_array << "<ul> <b> #{key}:: </b> </ul>".html_safe 
+            if value.is_a?(Hash) 
+              data_array << "<ul> <b> #{key}: </b> </ul>".html_safe 
               value.each_pair do |key2, value2|       
                 if value2.is_a?(Hash)
                   data_array << "<ul> <ul> <b> #{key2} </b> </ul> </ul>".html_safe
