@@ -74,67 +74,47 @@
   <% end %>
 
 
-    <h3> PROPERTY OVERVIEW </h3>
+<h3> PROPERTY OVERVIEW </h3>
+  <p> <b> REMARKS: </b> <%= @property["remarks"] %> </p>
+  <p> <b> PRIVATE REMARKS: </b> <%= @property["privateRemarks"] %> </p>
 
-    <p> <b> REMARKS: </b> <%= @property["remarks"] %> </p>
-    <p> <b> PRIVATE REMARKS: </b> <%= @property["privateRemarks"] %> </p>
+<h3> MLS-FED DATA </h3>
+<% iterate_data(@other_information) %>
 
-    <h3> MLS-FED DATA </h3>
+<h3> REALTOR INFORMATION </h3>
+  <% iterate_data(@more_information) %>
 
-    <% @other_information.each do |item| %>
-      <p> <%= item %> </p>
-    <% end %>
+<h3> RELEVANT INFORMATION </h3>
+  <% iterate_data(@information) %>
 
-    <h3> REALTOR INFORMATION </h3>
-    <% @more_information.each do |item| %>
-      <p> <%= item %> </p>
-    <% end %>
+<h3> OTHER INFORMATION </h3>
+  <% iterate_data(@realtor_information) %>
 
-    <h3> RELEVANT INFORMATION </h3>
 
-    <% @information.each do |item| %>
-      <p> <%= item %> </p>
-    <% end %>
 
-    <ul style="list-style:none"> OTHER INFORMATION </ul>
 
-   <% def iterate_data(input_data) %>
-     <% if @cycle_number == 1 %>
-       <% @cycle_number = 1 %>
-       <% @tab_counter = 2 %>
-     <% elsif @cycle_number == 2 %>
-       <% @tab_counter = 3 %>
-       <% @cycle_number = 2 %>
-     <% else %>
-       <% @tab_counter = 1 %>
-       <% @cycle_number = 0 %>
-     <% end %>
-     <% if input_data.is_a?(String) %>
-       <%= display_string(input_data, @tab_counter) %>
-     <% elsif input_data.is_a?(Array) %>
-       <% input_data.each do |array_item| %>
-         <% iterate_data(array_item) %>
-       <% end %>
-     <% elsif input_data.is_a?(Hash) %>
-       <% @tab_counter += 1 %>
-       <% input_data.each do |key, value| %>
-         <% if !value.is_a?(Hash) && value != nil %>
-           <%= display_hash_key_value(key, value, @tab_counter) %>
-         <% elsif value.is_a?(Hash) %>
-           <%= display_hash_key(key, @tab_counter) %>
-           <% @cycle_number += 1 %>
-           <% iterate_data(value) %>
-         <% end %>
-       <% end %>
+<% reset_counter %>
+<% def iterate_data(input_data) %>
+  <% if input_data.is_a?(String) %>
+   <%= display_string(input_data) %>
+   <% reset_counter %>
+  <% elsif input_data.is_a?(Array) %>
+   <% input_data.each do |array_item| %>
+     <% iterate_data(array_item) %>
+   <% end %>
+  <% elsif input_data.is_a?(Hash) %>
+   <% input_data.each do |key, value| %>
+     <% if !value.is_a?(Hash) && value != nil %>
+       <%= display_key_and_value(key, value) %>
+     <% elsif value.is_a?(Hash) && value %>
+       <%= display_hash_key(key) %>
+       <% increase_counter %>
+       <% iterate_data(value) %>
      <% end %>
    <% end %>
-
- <% iterate_data(@realtor_information) %>
-<%=@realtor_information  %>
-
-
-
-
+   <% reset_counter %>
+  <% end %>
+<% end %>
 
 
     <p> <%= image_tag @map_image %> </p>

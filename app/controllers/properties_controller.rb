@@ -53,8 +53,6 @@ class PropertiesController < ApplicationController
   end
 
   def show
-    @tab_counter = 1
-    @cycle_number = 0
     @property = Unirest.get("https://#{ENV['USERNAME']}:#{ENV['PASSWORD']}@api.simplyrets.com/properties/#{params[:id]}").body
     @days_on_market = (Time.current - Time.zone.parse(@property["listDate"])) / 86400
     @beds = @property["property"]["bedrooms"]
