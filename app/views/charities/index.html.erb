@@ -1,9 +1,10 @@
 <div class="container" id="charities">
   <div class="col-md-12">
     <p id="notice"><%= notice %></p>
-
+    <% if current_user && current_user.admin %>
     <h3>Charities <%= link_to 'Create New Charity', '/charities/new', class: "btn btn-default" %></h3>
     <br>
+    <%end%>
     <table class="table">
       <thead class="thead-default">
           <tr>
