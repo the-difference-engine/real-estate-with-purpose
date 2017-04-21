@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/contact' => 'pages#contact'
 
   #property routes
+  get '/properties' => 'properties#index'
   post '/properties' => 'properties#index'
   get '/properties/new' => 'properties#new'
   post '/properties_favorite' => 'properties#create'
