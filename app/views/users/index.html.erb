@@ -6,7 +6,6 @@
        <h4><li>Name: <a href="/users/<%= user.id %>" alt="<%= user.first_name %> <%= user.last_name %>"><%= user.first_name %> <%= user.last_name %></a></li></h4>
        <h4><li>Email: <%= user.email %></li></h4>
        <h4><li>Home Budget: <%= number_to_currency(user.home_budget) %></li></h4>
-       <h4><li>Signed up on page: ### have page show up here ###</li></h4>
        <hr>
      </ol>
   <% end %>
