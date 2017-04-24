@@ -27,15 +27,5 @@ class InvestorsController < ApplicationController
     @properties = simplyrets_response.body
     total_results = simplyrets_response.headers[:x_total_count]
     @pages = (total_results.to_f / 18.0).ceil
-
-    # @properties.each do |property|
-    #   city_state = property['address']['city'].to_s + ', ' + property['address']['state'].to_s
-    #   zillow_response = Unirest.get("http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=X1-ZWz1fp945860p7_1k6qj&rentzestimate=true&address=3757 North Wayne Avenue&citystatezip=chicago, illinois").body
-    #   zillow_info = Hash.from_xml(zillow_response)
-    #   if zillow_info['searchresults']['response']
-    #     @rents = zillow_info['searchresults']['response']['results']['result']['rentzestimate']['amount']
-    #   end
-    # end
-
   end
 end

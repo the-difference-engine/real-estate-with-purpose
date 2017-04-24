@@ -54,7 +54,7 @@ class PropertiesController < ApplicationController
 
   def show
     @property = Unirest.get("https://#{ENV['USERNAME']}:#{ENV['PASSWORD']}@api.simplyrets.com/properties/#{params[:id]}").body
-    @days_on_market = (Time.current - Time.zone.parse(@property["listDate"])) / 86400
+    @days_on_market = (Time.current - Time.zone.parse(@property['listDate'])) / 86400
     @beds = @property["property"]["bedrooms"]
     @baths = @property["property"]["bathsFull"]
     @list_date = @property["listDate"]
@@ -80,9 +80,7 @@ class PropertiesController < ApplicationController
                                          'photos', 'listPrice', 'listDate',
                                          'listPrice', 'school', 'geo', 'tax')
 
-
-    @google = ENV["GOOGLE"]
-    @map_image = "https://maps.googleapis.com/maps/api/staticmap?center=#{@lat},#{@long}&zoom=12&size=600x300&maptype=roadmap&markers=color:red%7Clabel:A%7C#{@lat},#{@long}&key=#{@google}"
+    @map_image = "https://maps.googleapis.com/maps/api/staticmap?center=#{@lat},#{@long}&zoom=12&size=600x300&maptype=roadmap&markers=color:red%7Clabel:A%7C#{@lat},#{@long}&key=#{ENV['GOOGLE']}"
 
     if current_user
       user_favs = User.find(current_user.id).user_properties

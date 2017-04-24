@@ -1,5 +1,4 @@
 class CharitiesController < ApplicationController
-
   # Notes for Charities authenticate_admin later
   # before_action except: [:show, :index, :update, :destroy]
 
@@ -20,12 +19,12 @@ class CharitiesController < ApplicationController
   end
 
   def create
-    @charity = Charity.create(user_params)
-    if @charity.save
-      redirect_to "/charities/#{@charity.id}"
-    else
-      render 'new.html.erb'
-    end
+      @charity = Charity.create(user_params)
+      if @charity.save
+        redirect_to "/charities/#{@charity.id}"
+      else
+        render 'new.html.erb'
+      end
   end
 
   def update

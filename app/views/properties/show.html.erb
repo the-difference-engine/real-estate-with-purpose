@@ -73,26 +73,6 @@
       </div>
   <% end %>
 
-
-<h3> PROPERTY OVERVIEW </h3>
-  <p> <b> REMARKS: </b> <%= @property["remarks"] %> </p>
-  <p> <b> PRIVATE REMARKS: </b> <%= @property["privateRemarks"] %> </p>
-
-<h3> MLS-FED DATA </h3>
-<% iterate_data(@other_information) %>
-
-<h3> REALTOR INFORMATION </h3>
-  <% iterate_data(@more_information) %>
-
-<h3> RELEVANT INFORMATION </h3>
-  <% iterate_data(@information) %>
-
-<h3> OTHER INFORMATION </h3>
-  <% iterate_data(@realtor_information) %>
-
-
-
-
 <% reset_counter %>
 <% def iterate_data(input_data) %>
   <% if input_data.is_a?(String) %>
@@ -116,7 +96,23 @@
   <% end %>
 <% end %>
 
-<%= @realtor_information %>
+<h3> PROPERTY OVERVIEW </h3>
+  <p> <b> REMARKS: </b> <%= @property["remarks"] %> </p>
+  <p> <b> PRIVATE REMARKS: </b> <%= @property["privateRemarks"] %> </p>
+
+<h3> MLS-FED DATA </h3>
+<% if @other_information %>
+<% iterate_data(@other_information) %>
+<% end %>
+<h3> REALTOR INFORMATION </h3>
+  <% iterate_data(@more_information) %>
+
+<h3> RELEVANT INFORMATION </h3>
+  <% iterate_data(@information) %>
+
+<h3> OTHER INFORMATION </h3>
+  <% iterate_data(@realtor_information) %>
+
 
     <p> <%= image_tag @map_image %> </p>
 
