@@ -57,7 +57,7 @@ class PropertiesController < ApplicationController
     @days_on_market = (Time.current - Time.zone.parse(@property['listDate'])) / 86400
     @beds = @property["property"]["bedrooms"]
     @baths = @property["property"]["bathsFull"]
-    @list_date = @property["listDate"]
+    @list_date = @property["listDate"].to_date.strftime('%b %d, %Y')
 
     @lat = @property["geo"]["lat"]
     @long = @property["geo"]["lng"]
