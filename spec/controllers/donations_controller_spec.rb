@@ -46,4 +46,14 @@ RSpec.describe DonationsController, type: :controller do
       :action => 'destroy',
       :id => '1')
   end
+
+  it 'should find all donations' do
+    get 'index' 
+      expect(assigns(:donations)).to eq(Donation.all)
+  end
+
+  it "renders the index template" do
+      get :index
+      expect(response).to render_template("index")
+    end
 end

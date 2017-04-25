@@ -1,5 +1,9 @@
 class Charity < ApplicationRecord
   has_many :donations
-  has_attached_file :logo, styles: { medium: "350x350>", thumb: "200x200>" }, default_url: "/images/:style/missing.png"
-  validates_attachment_content_type :logo, content_type: /\Aimage\/.*\z/
+  do_not_validate_attachment_file_type :logo
+  has_attached_file :logo, 
+    styles: { medium: "250x250>", thumb: "100x100>" }, 
+    :storage => :dropbox,
+    :dropbox_credentials => "#{Rails.root}/config/dropbox.yml",
+    :default_url => "/logos/:style/missing.png"
 end

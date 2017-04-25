@@ -7,7 +7,7 @@ class RealtorsController < ApplicationController
   end
 
   def new
-    @realtor = Realtor.new
+    @realtor = Realtor.new  
   end
 
   def create

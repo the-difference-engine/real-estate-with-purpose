@@ -1,13 +1,16 @@
 source 'https://rubygems.org'
 
+gem 'webmock', '~> 2.1'
+# 3/27/17
+
 gem 'ruby_http_client'
 # 10/10/16
 
 gem 'sendgrid-ruby'
 # 10/10/16
 
-gem "paperclip", "~> 5.0.0"
-# 2/6/17
+gem "paperclip-dropbox"
+# 3/6/17
 
 gem 'figaro'
 # 10/10/16
@@ -64,6 +67,7 @@ group :development, :test do
 
    gem 'rspec-rails', '~> 3.5'
    gem "factory_girl_rails", "~> 4.0"
+   gem 'rails-controller-testing'
 end
 
 group :development do
