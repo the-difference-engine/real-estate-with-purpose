@@ -1,5 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe Donation, type: :model do
-  it { is_expected.to belong_to(:charity) }
+describe Donation do
+  context 'associations' do
+    it { should belong_to(:charity) }
+  end
+
+
 end

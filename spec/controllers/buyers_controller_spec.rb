@@ -1,3 +1,4 @@
+
 require 'rails_helper'
  
 RSpec.describe BuyersController, type: :controller do
@@ -46,4 +47,14 @@ RSpec.describe BuyersController, type: :controller do
       :action => 'destroy',
       :id => '1')
   end
+
+  it 'should find all buyers' do
+    get 'index' 
+      expect(assigns(:buyers)).to eq(Buyer.all)
+  end
+  
+  it "renders the index template" do
+      get :index
+      expect(response).to render_template("index")
+    end
  end

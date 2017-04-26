@@ -8,3 +8,4 @@ class Charity < ApplicationRecord
     :default_url => "/logos/:style/missing.png"
   before_post_process :resize_images
 end
+

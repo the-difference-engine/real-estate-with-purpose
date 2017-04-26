@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/contact' => 'pages#contact'
 
   #property routes
+  get '/properties' => 'properties#index'
   post '/properties' => 'properties#index'
   get '/properties/new' => 'properties#new'
   post '/properties_favorite' => 'properties#create'
@@ -16,6 +17,9 @@ Rails.application.routes.draw do
   get '/properties/:id/edit' => 'properties#edit'
   patch '/properties/:id' => 'properties#update'
   delete '/properties/:id' => 'properties#destroy'
+
+  #investor routes
+  post '/investors' => 'investors#index'
 
   #buyer routes
   get '/buyers' => 'buyers#index'

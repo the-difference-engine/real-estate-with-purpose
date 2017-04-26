@@ -1,6 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe Buyer, type: :model do
-  it { is_expected.to validate_presence_of(:name) }
-  it { is_expected.to have_many(:users) }
+describe Buyer do
+  context 'validations' do
+    it { is_expected.to validate_presence_of(:name) }
+  end
 end

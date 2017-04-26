@@ -1,6 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe Realtor, type: :model do
-  it { is_expected.to validate_presence_of(:name) }
-  it { is_expected.to have_many(:users) }
+describe Realtor do 
+  context 'validations' do
+    it { is_expected.to validate_presence_of(:name) }
+  end
+  context 'create' do
+    it "should have valid factory" do
+      FactoryGirl.build(:realtor).should be_valid
+    end
+  end
+
 end
