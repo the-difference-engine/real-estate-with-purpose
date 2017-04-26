@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container show-page">
 
   <h4 id="notice"><%= notice %></h4>
 
@@ -14,9 +14,12 @@
       <strong>Description:</strong>
       <%= @charity.description %>
     </h4></h4>
-
-  <%= link_to 'Edit', "/charities/#{@charity.id}/edit", class: "btn btn-default" %> |
-  <%= link_to 'Back', charities_path, class: "btn btn-default" %>
+  <div class="container">
+    <div class="row" id="charity-actions">
+      <%= link_to 'Edit', "/charities/#{@charity.id}/edit", class: "btn btn-info" %> | <%= link_to 'Delete', "/charities/#{@charity.id}", method: :delete, class: "btn btn-warning" %> |
+      <%= link_to 'Back', charities_path, class: "btn btn-default" %>
+    </div>
+  </div>
 </div>
 
  
