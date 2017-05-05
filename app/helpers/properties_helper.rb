@@ -34,11 +34,12 @@ module PropertiesHelper
   end
 
   def close_tabs(number_of_tabs)
-    puts "number of tabs" + number_of_tabs.to_s
     tags = ''
     number_of_tabs.times do
       tags = tags + '</ul>'
     end
     tags.html_safe
   end
+
+
 end

@@ -1,3 +1,4 @@
+<%= @property["association"]["fee"] %>
 <%= form_tag '/properties', method: :post do %>
   <div class="top-search-bar">
     <div class="form-item">
@@ -85,7 +86,7 @@
   <% elsif input_data.is_a?(Hash) %>
    <% input_data.each do |key, value| %>
      <% if !value.is_a?(Hash) && value != nil %>
-       <%= display_key_and_value(key, value) %>
+       <%= display_key_and_value(key, value.to_s) %>
      <% elsif value.is_a?(Hash) && value %>
        <%= display_hash_key(key) %>
        <% increase_counter %>
@@ -118,3 +119,5 @@
 
   </div>
 </div>
+
+<%= @other_information %>

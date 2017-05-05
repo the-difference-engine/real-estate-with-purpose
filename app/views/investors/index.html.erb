@@ -1,6 +1,3 @@
-<p>zillow:</p>
-<%= @rent_estimate %>
-
 <% if @properties.length.nonzero? %>
   <div class="container">
     <div class="properties">
@@ -19,16 +16,20 @@
               <p align="center">Bedrooms: <%= property["property"]["bedrooms"] %> | Full: <%= property["property"]["bathsFull"] %> Half: <%= property["property"]["bathsHalf"] %></p>
               <p><%= property['address']['full'].split(' #')[0] %></p>
              <% city_state = property['address']['city'].to_s + ', ' + property['address']['state'].to_s %>
+
+
+
+
       <% zillow_response = Unirest.get("http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=X1-ZWz1fp945860p7_1k6qj&rentzestimate=true&address=#{ property['address']['full'].split(' #')[0] }&citystatezip=#{ city_state }").body %>
       <% zillow_info = Hash.from_xml(zillow_response) %>
       <% if zillow_info['searchresults']['message']['text'] == 'Request successfully processed' %>
         <% if zillow_info['searchresults']['response']['results']['result'].is_a?(Array) %>
           <% if zillow_info['searchresults']['response']['results']['result'][0]['rentzestimate'] %>
-            <p>Rent Zestimate: <%= rent_est = zillow_info['searchresults']['response']['results']['result'][0]['rentzestimate']['amount'] %></p>
+            <p>Rent Zestimate: <%= zillow_rent_estimate = zillow_info['searchresults']['response']['results']['result'][0]['rentzestimate']['amount'] %></p>
           <% end %>
         <% else %>
           <% if zillow_info['searchresults']['response']['results']['result']['rentzestimate'] %>
-            <p>Rent Zestimate: <%= zillow_info['searchresults']['response']['results']['result']['rentzestimate']['amount'] %></p>
+            <p>Rent Zestimate: <%= zillow_rent_estimate = zillow_info['searchresults']['response']['results']['result']['rentzestimate']['amount'] %></p>
           <% end %>
         <% end %>
       <% end %>
@@ -38,6 +39,13 @@
       <p>Est. Insurance: <%= @est_insurance %></p>
       <p>Hoa Min: <%= @hoa_min %></p>
       <p>Hoa Max: <%= @hoa_max %></p>
+      <p>Taxes: <%= calculate_monthly_tax(property["tax"]["taxAnnualAmount"]) %></p>
+      <p>Fees: <%= find_hoa(property["association"]["fee"]) %></p>
+      <% operating_expenses = calculate_operating_expenses(@est_insurance, calculate_monthly_tax(property["tax"]["taxAnnualAmount"]), find_hoa(property["association"]["fee"])) %>
+      <% total_mortgage = calculate_total_mortgage(property["listPrice"], @down_payment) %>
+      <% mortgage_payment = pmt(@interest_rate.to_i, @loan_term.to_i, total_mortgage.to_i) %>
+      <p>Estimated Monthly cash flow: <%= calculate_cash_flow(zillow_rent_estimate.to_i, operating_expenses.to_i, mortgage_payment.to_i) %></p>
+        
             </div>
           </div>
         <% end %>
