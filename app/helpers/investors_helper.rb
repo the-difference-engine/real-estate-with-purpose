@@ -40,7 +40,7 @@ module InvestorsHelper
 
 # nper = loan term, rate = interest_rate, pv = loan amount/mortgage
   def pmt(rate, nper, pv, fv=0, type=0)
-    ((pv * pvif(rate, nper) - fv ) / ((1.0 + rate * type) * fvifa(rate, nper)))
+    ((-pv * pvif(rate, nper) - fv ) / ((1.0 + rate * type) * fvifa(rate, nper)))
   end
 
   def ipmt(rate, per, nper, pv, fv=0, type=0)

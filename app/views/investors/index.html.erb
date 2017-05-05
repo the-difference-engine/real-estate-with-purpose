@@ -25,11 +25,13 @@
       <% if zillow_info['searchresults']['message']['text'] == 'Request successfully processed' %>
         <% if zillow_info['searchresults']['response']['results']['result'].is_a?(Array) %>
           <% if zillow_info['searchresults']['response']['results']['result'][0]['rentzestimate'] %>
-            <p>Rent Zestimate: <%= zillow_rent_estimate = zillow_info['searchresults']['response']['results']['result'][0]['rentzestimate']['amount'] %></p>
+            <% zillow_rent_estimate = zillow_info['searchresults']['response']['results']['result'][0]['rentzestimate']['amount'] %>
+            <p>Rent Zestimate: <%= number_to_currency(zillow_rent_estimate) %></p>
           <% end %>
         <% else %>
           <% if zillow_info['searchresults']['response']['results']['result']['rentzestimate'] %>
-            <p>Rent Zestimate: <%= zillow_rent_estimate = zillow_info['searchresults']['response']['results']['result']['rentzestimate']['amount'] %></p>
+            <% zillow_rent_estimate = zillow_info['searchresults']['response']['results']['result']['rentzestimate']['amount'] %>
+            <p>Rent Zestimate: <%= number_to_currency(zillow_rent_estimate) %></p>
           <% end %>
         <% end %>
       <% end %>
@@ -43,7 +45,7 @@
       <p>Fees: <%= number_to_currency(find_hoa(property["association"]["fee"])) %></p>
       <% operating_expenses = calculate_operating_expenses(@est_insurance, calculate_monthly_tax(property["tax"]["taxAnnualAmount"]), find_hoa(property["association"]["fee"])) %>
       <% total_mortgage = calculate_total_mortgage(property["listPrice"], @down_payment) %>
-      <% mortgage_payment = pmt(@interest_rate.to_i, @loan_term.to_i, total_mortgage.to_i) %>
+      <% mortgage_payment = -pmt(@interest_rate.to_i, @loan_term.to_i, total_mortgage.to_i) %>
       <p>Estimated Monthly cash flow: <%= number_to_currency(calculate_cash_flow(zillow_rent_estimate.to_i, operating_expenses.to_i, mortgage_payment.to_i)) %></p>
         
             </div>
