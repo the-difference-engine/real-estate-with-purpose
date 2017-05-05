@@ -33,18 +33,18 @@
           <% end %>
         <% end %>
       <% end %>
-      <p>Down Payment: <%= @down_payment %></p>
+      <p>Down Payment: <%= number_to_currency(@down_payment) %></p>
       <p>Interest Rate: <%= @interest_rate %></p>
-      <p>Loan Term: <%= @loan_term %></p>
-      <p>Est. Insurance: <%= @est_insurance %></p>
-      <p>Hoa Min: <%= @hoa_min %></p>
-      <p>Hoa Max: <%= @hoa_max %></p>
-      <p>Taxes: <%= calculate_monthly_tax(property["tax"]["taxAnnualAmount"]) %></p>
-      <p>Fees: <%= find_hoa(property["association"]["fee"]) %></p>
+      <p>Loan Term: <%= @loan_term %> years</p>
+      <p>Est. Insurance: <%= number_to_currency(@est_insurance) %></p>
+      <p>Hoa Min: <%= number_to_currency(@hoa_min) %></p>
+      <p>Hoa Max: <%= number_to_currency(@hoa_max) %></p>
+      <p>Taxes: <%= number_to_currency(calculate_monthly_tax(property["tax"]["taxAnnualAmount"])) %></p>
+      <p>Fees: <%= number_to_currency(find_hoa(property["association"]["fee"])) %></p>
       <% operating_expenses = calculate_operating_expenses(@est_insurance, calculate_monthly_tax(property["tax"]["taxAnnualAmount"]), find_hoa(property["association"]["fee"])) %>
       <% total_mortgage = calculate_total_mortgage(property["listPrice"], @down_payment) %>
       <% mortgage_payment = pmt(@interest_rate.to_i, @loan_term.to_i, total_mortgage.to_i) %>
-      <p>Estimated Monthly cash flow: <%= calculate_cash_flow(zillow_rent_estimate.to_i, operating_expenses.to_i, mortgage_payment.to_i) %></p>
+      <p>Estimated Monthly cash flow: <%= number_to_currency(calculate_cash_flow(zillow_rent_estimate.to_i, operating_expenses.to_i, mortgage_payment.to_i)) %></p>
         
             </div>
           </div>
