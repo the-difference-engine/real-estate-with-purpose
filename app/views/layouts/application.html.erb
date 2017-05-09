@@ -21,14 +21,14 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">Real Estate With Purpose</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li class=<%= 'active' if current_page?(controller: 'pages', action: 'findyourhome')%>><a href="/findyourhome/">Find Your Home<span class="sr-only">(current)</span></a></li>
+          <li class=<%= 'active' if current_page?(controller: 'pages', action: 'index')%>><a href="/">HOME</a>
           <li class=<%= 'active' if current_page?(controller: 'pages', action: 'listwithus')%>><a href="/listwithus">List With Us</a></li>
+          <li class=<%= 'active' if current_page?(controller: 'pages', action: 'findyourhome')%>><a href="/findyourhome/">Find Your Home<span class="sr-only">(current)</span></a></li>
           <li class=<%= 'active' if current_page?(controller: 'pages', action: 'company')%>><a href="/company">Company</a></li>
           <li class=<%= 'active' if current_page?(controller: 'charities', action: 'index')%>><a href="/charities/">Charities</a></li>
           <li class=<%= 'active' if current_page?(controller: 'pages', action: 'contact')%>><a href="/contact">Contact</a></li>
@@ -60,14 +60,7 @@
     </div><!-- /.container-fluid -->
   </nav>
 
-  <div class="hero-image">
-    <div class="box-image">
-      <h3>If you could</h3>
-      <%= link_to "BUY", "/findyourhome" %> <strong>or</strong> <%= link_to "SELL", "/listwithus" %>
-      <h3>while helping your community, would you?</h3>
-    </div>
-  </div>
-</div>
+<!-- </div> -->
 
 <% if notice || alert %>
 <p class="notice"><%= notice %></p>
