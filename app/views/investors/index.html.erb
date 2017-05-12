@@ -1,0 +1,49 @@
+<p>zillow:</p>
+<%= @rent_estimate %>
+
+<% if @properties.length.nonzero? %>
+  <div class="container">
+    <div class="properties">
+      <div class="row">
+        <% @properties.each do |property| %>
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+            <% if property["photos"][0] %>
+              <%= image_tag property["photos"][0] %>
+            <% else %>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Home-icon.svg/2000px-Home-icon.svg.png">
+            <% end %>
+              <p align="center"><%= link_to "#{property["address"]["city"]} | #{property["address"]["state"]}", "/properties/#{property['mlsId']}"  %> </p>
+              <p align="center">Price: <%= number_to_currency(property["listPrice"]) %> </p>
+              <p align="center">Address: <%= property["address"]["full"] %></p>
+              <p align="center">Bedrooms: <%= property["property"]["bedrooms"] %> | Full: <%= property["property"]["bathsFull"] %> Half: <%= property["property"]["bathsHalf"] %></p>
+              <p><%= property['address']['full'].split(' #')[0] %></p>
+             <% city_state = property['address']['city'].to_s + ', ' + property['address']['state'].to_s %>
+      <% zillow_response = Unirest.get("http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=X1-ZWz1fp945860p7_1k6qj&rentzestimate=true&address=#{ property['address']['full'].split(' #')[0] }&citystatezip=#{ city_state }").body %>
+      <% zillow_info = Hash.from_xml(zillow_response) %>
+      <% if zillow_info['searchresults']['message']['text'] == 'Request successfully processed' %>
+        <% if zillow_info['searchresults']['response']['results']['result'].is_a?(Array) %>
+          <% if zillow_info['searchresults']['response']['results']['result'][0]['rentzestimate'] %>
+            <p>Rent Zestimate: <%= rent_est = zillow_info['searchresults']['response']['results']['result'][0]['rentzestimate']['amount'] %></p>
+          <% end %>
+        <% else %>
+          <% if zillow_info['searchresults']['response']['results']['result']['rentzestimate'] %>
+            <p>Rent Zestimate: <%= zillow_info['searchresults']['response']['results']['result']['rentzestimate']['amount'] %></p>
+          <% end %>
+        <% end %>
+      <% end %>
+      <p>Down Payment: <%= @down_payment %></p>
+      <p>Interest Rate: <%= @interest_rate %></p>
+      <p>Loan Term: <%= @loan_term %></p>
+      <p>Est. Insurance: <%= @est_insurance %></p>
+      <p>Hoa Min: <%= @hoa_min %></p>
+      <p>Hoa Max: <%= @hoa_max %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <h1>No results found.</h1>
+<% end %>

@@ -21,18 +21,18 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">Real Estate With Purpose</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li class=<%= 'active' if current_page?(controller: 'pages', action: 'findyourhome')%>><a href="/findyourhome/">Find Your Home<span class="sr-only">(current)</span></a></li>
+          <li class=<%= 'active' if current_page?(controller: 'pages', action: 'index')%>><a href="/">HOME</a>
           <li class=<%= 'active' if current_page?(controller: 'pages', action: 'listwithus')%>><a href="/listwithus">List With Us</a></li>
+          <li class=<%= 'active' if current_page?(controller: 'pages', action: 'findyourhome')%>><a href="/findyourhome/">Find Your Home<span class="sr-only">(current)</span></a></li>
           <li class=<%= 'active' if current_page?(controller: 'pages', action: 'company')%>><a href="/company">Company</a></li>
           <li class=<%= 'active' if current_page?(controller: 'charities', action: 'index')%>><a href="/charities/">Charities</a></li>
           <li class=<%= 'active' if current_page?(controller: 'pages', action: 'contact')%>><a href="/contact">Contact</a></li>
-          <li><a href="#">REwP Investor</a></li>
+          <li><a href="#" data-toggle="modal" data-target="#REwPInvestor">REwP Investor</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if current_user %>
@@ -47,13 +47,10 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin Privileges<span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="/properties/new">Add a new property</a></li>
+              <li role="separator" class="divider"></li>
               <li><a href="/charities/new">Add a new charity</a></li>
               <li role="separator" class="divider"></li>
               <li><a href="/users">View all users</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Something else here</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
             </ul>
           </li>
           <% end %>
@@ -63,14 +60,7 @@
     </div><!-- /.container-fluid -->
   </nav>
 
-  <div class="hero-image">
-    <div class="box-image">
-      <h3>If you could</h3>
-      <%= link_to "BUY", "/properties" %> <strong>or</strong> <%= link_to "SELL", "/properties" %>
-      <h3>while helping your community, would you?</h3>
-    </div>
-  </div>
-</div>
+<!-- </div> -->
 
 <% if notice || alert %>
 <p class="notice"><%= notice %></p>
@@ -90,7 +80,7 @@
       <div class="col-md-3 footer-brand animated fadeInLeft">
         <h2>Site Map</h2>
         <p>Suspendisse hendrerit tellus laoreet luctus pharetra. Aliquam porttitor vitae orci nec ultricies. Curabitur vehicula, libero eget faucibus faucibus, purus erat eleifend enim, porta pellentesque ex mi ut sem.</p>
-        <p>© 2016 Bootstrap REwP UI Kit</p>
+        <p>© 2017 REwP UI Penguin Kit</p>
       </div>
 
       <div class="col-md-4 footer-nav animated fadeInUp">
@@ -108,7 +98,7 @@
             <li><a href="#">Office Hours: By Appointment Only</a></li>
           </ul>
         </div>
-        <div class="col-md-3 footer-ns animated fadeInRight">
+        <!-- <div class="col-md-3 footer-ns animated fadeInRight">
           <h4>Newsletter</h4>
           <p>A fuzzy suit doesn’t alarm the real penguins</p>
           <p>
@@ -119,10 +109,126 @@
               </span>
             </div>
           </p>
-        </div>
+        </div> -->
       </div>
     </footer>
   </div>
+   <!-- investor modal -->
+  <div class="modal fade" id="REwPInvestor" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">REwP Investor</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body"> 
+          <%= form_tag '/investors', method: :post do %>
+          <p>KEY DETAILS</p> 
+          <div class="row"> 
+            <div class="col-md-6">
+              <%= text_field_tag :location, nil, placeholder: "Address, neighborhood, zip", style: "width: 200px" %>
+              <div class="sign-up-portion">
+                <%= label_tag :price_min, "Price" %>
+                <%= text_field_tag :price_min, nil, placeholder: "(min.)", style: "width: 60px"%>
+                <%= text_field_tag :price_max, nil, placeholder: "(max.)", style: "width: 60px" %>
+              </div>
+              <div class="sign-up-portion">
+                <%= label_tag :beds_min, "Bedrooms:" %>
+                <%= text_field_tag :beds_min, nil, placeholder: "(min.)", style: "width: 60px" %>
+                <%= text_field_tag :beds_max, nil, placeholder: "(max.)", style: "width: 60px" %>
+              </div>
+              <div class="sign-up-portion">
+                <%= label_tag :baths_min, 'Bathrooms:' %>
+                <%= text_field_tag :baths_min, nil, placeholder: "(min.)", style: "width: 60px"%>
+                <%= text_field_tag :baths_max, nil, placeholder: "(max.)", style: "width: 60px" %>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="sign-up-portion">
+                <%= label_tag :down_payment, 'Down Payment:' %>
+                <%= text_field_tag :down_payment, nil, placeholder: "Price ($)", style: "width: 70px", :required => true %>
+              </div>
+              <div class="sign-up-portion">
+                <%= label_tag :interest_rate, 'Interest Rate:' %>
+                <%= text_field_tag :interest_rate, nil, placeholder: "0.0%", style: "width: 60px", :required => true %>
+              </div>
+              <div class="sign-up-portion">
+                <%= label_tag :loan_term, 'Loan Term:' %>
+                <%= text_field_tag :loan_term, nil, placeholder: "15 or 30", style: "width: 70px", :required => true %>
+              </div>
+              <div class="sign-up-portion">
+                <%= label_tag :est_insurance, 'Est. Insurance:' %>
+                <%= text_field_tag :est_insurance, nil, placeholder: "Price ($)", style: "width: 70px", :required => true %>
+              </div>
+            </div>
+          </div>
+          <p>PROPERTY TYPE</p>
+          <div class="row">
+              <div class="col-md-4">
+                <%= check_box_tag(:single) %>
+                <%= label_tag(:single, "Single Family Home") %>
+              </div>
+              <div class="col-md-3">
+                <%= check_box_tag(:townhouse) %>
+                <%= label_tag(:townhouse, "Townhouse") %>
+              </div>
+              <div class="col-md-2">
+                <%= check_box_tag(:condo) %>
+                <%= label_tag(:condo, "Condo") %>
+              </div>
+              <div class="col-md-3">
+                <%= check_box_tag(:multi) %>
+                <%= label_tag(:multi, "Multi-unit") %>
+              </div>
+          </div>
+          <p>PROPERTY DETAILS</p>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="sign-up-portion">
+                <%= label_tag :sq_feet_min, "Square Feet:" %>
+                <%= text_field_tag :sq_feet_min, nil, placeholder: "(Min)", style: "width: 60px" %>
+                <%= text_field_tag :sq_feet_max, nil, placeholder: "(Max)", style: "width: 60px" %>
+              </div>
+              <div class="sign-up-portion">
+                <%= label_tag :lot_size_min, "Lot Size:" %>
+                <%= text_field_tag :lot_size_min, nil, placeholder: "(Min)", style: "width: 60px" %>
+                <%= text_field_tag :lot_size_max, nil, placeholder: "(Max)", style: "width: 60px" %>
+              </div>
+              <div class="sign-up-portion">
+                <%= label_tag :parking_min, "Parking:" %>
+                <%= text_field_tag :parking_min, nil, placeholder: "(Min)", style: "width: 60px" %>
+                <%= text_field_tag :parking_max, nil, placeholder: "(Max)", style: "width: 60px" %>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="sign-up-portion">
+                <%= label_tag :year_built_min, "Year Built:" %>
+                <%= text_field_tag :year_built_min, nil, placeholder: "(Min)", style: "width: 60px" %>
+                <%= text_field_tag :year_built_max, nil, placeholder: "(Max)", style: "width: 60px" %>
+              </div>
+              <div class="sign-up-portion">
+                <%= label_tag :time_on_market_min, "Time on Market:" %>
+                <%= text_field_tag :time_on_market_min, nil, placeholder: "(Min)", style: "width: 60px" %>
+                <%= text_field_tag :time_on_market_max, nil, placeholder: "(Max)", style: "width: 60px" %>
+              </div>
+              <div class="sign-up-portion">
+                <%= label_tag :hoa_min, "HOAs:" %>
+                <%= text_field_tag :hoa_min, nil, placeholder: "(Min)", style: "width: 60px", :required => true %>
+                <%= text_field_tag :hoa_max, nil, placeholder: "(Max)", style: "width: 60px", :required => true %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <%= submit_tag "Submit", class: "user-submit"  %>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div> <!-- end of investor modal -->
   <div class="modal fade" id="signIn" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -148,7 +254,6 @@
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             <%= submit_tag "Submit", class: "user-submit"  %>
             <% end %>
-
         </div>
       </div>
     </div>

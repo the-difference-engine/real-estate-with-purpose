@@ -12,7 +12,6 @@
   display: flex;
 }
 
-
 .step {
   background-color: #d9e3f7;
   flex: 1;
@@ -27,6 +26,7 @@
   position: relative;
   transition: flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11);
 }
+
 .step:hover {
   background-color: black;
   color: white;

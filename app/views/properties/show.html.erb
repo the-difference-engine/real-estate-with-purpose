@@ -1,5 +1,5 @@
-  <%= form_tag '/properties', method: :post do %>
-<div class="top-search-bar">
+<%= form_tag '/properties', method: :post do %>
+  <div class="top-search-bar">
     <div class="form-item">
       <%= text_field_tag :location, @just_location ? @just_location : nil, placeholder: "Address, neighborhood, zip", style: "width: 200px" %>
     </div>
@@ -21,7 +21,7 @@
     <div class="form-item">
       <%= text_field_tag :baths_max, @baths_max ? @baths_max : nil, placeholder: "Baths (max.)" %>
     </div>
-    <div class="form-item">
+    <div class="submit-btn">
       <%= submit_tag "Submit" %>
     </div>
 </div>
@@ -48,8 +48,8 @@
     </div>
     <p>Image <span class="number-of-photos">1</span> of <%= @property["photos"].length %></p>
     <p>Beds: <%= @beds %> | Baths: <%= @baths %> </p>
-    <p>List Price: <%= number_to_currency(@list_price) %></p>
-    <p>List Date <%= @list_date %> </p>
+    <p>List Price: <%= number_to_currency(@property["listPrice"])%></p>
+    <p>List Date: <%= @list_date %> </p>
   <% if current_user %>
       <div class="favorite">
         <% if @favorite %>
@@ -59,6 +59,7 @@
               <% if @property["photos"][0] %>
                   <%= hidden_field_tag :image, @property["photos"][0] %>
               <% end %>
+
               <%= hidden_field_tag :line_1, @property["address"]["city"] %>
               <%= hidden_field_tag :state, @property["address"]["state"] %>
               <%= hidden_field_tag :api_address, @property["mlsId"] %>
@@ -71,38 +72,49 @@
       <% end %>
       </div>
   <% end %>
-    <h3> ************** PROPERTY OVERVIEW *************** </h3>
 
-    <% if @property["remarks"] != nil %>
-        <%= @property["remarks"] %>
-    <% else %>
-        <%= @property["privateRemarks"] %>
-    <% end %>
+<% reset_counter %>
+<% def iterate_data(input_data) %>
+  <% if input_data.is_a?(String) %>
+   <%= display_string(input_data) %>
+   <% reset_counter %>
+  <% elsif input_data.is_a?(Array) %>
+   <% input_data.each do |array_item| %>
+     <% iterate_data(array_item) %>
+   <% end %>
+  <% elsif input_data.is_a?(Hash) %>
+   <% input_data.each do |key, value| %>
+     <% if !value.is_a?(Hash) && value != nil %>
+       <%= display_key_and_value(key, value) %>
+     <% elsif value.is_a?(Hash) && value %>
+       <%= display_hash_key(key) %>
+       <% increase_counter %>
+       <% iterate_data(value) %>
+     <% end %>
+   <% end %>
+   <% reset_counter %>
+  <% end %>
+<% end %>
 
-    <h3> ************* PROPERTY DETAILS **************** </h3>
+<h3> PROPERTY OVERVIEW </h3>
+  <p> <b> REMARKS: </b> <%= @property["remarks"] %> </p>
+  <p> <b> PRIVATE REMARKS: </b> <%= @property["privateRemarks"] %> </p>
 
-    <% @property.each do |category| %>
-         <% category.each do |information| %>
-            <% if information.nil? %>
-                <p>  NO INFORMATION AVAILABLE </p>
-            <% elsif information.is_a?(Hash) %>
-                 <% information.each do |detail| %>
-                    <% if detail[1] == nil %>
-                        <p> <%= detail[0] %>: NO INFORMATION LISTED </p>
-                    <% else %>
-                        <p> <%= detail[0] %>: <%= detail[1] %> </p>
-                    <% end %>
-                <% end %>
-            <% else %>
-               <p> <%= information %> </p>
-            <% end %>
-        <% end %>
-    <% end %>
+<h3> MLS-FED DATA </h3>
+<% if @other_information %>
+<% iterate_data(@other_information) %>
+<% end %>
+<h3> REALTOR INFORMATION </h3>
+  <% iterate_data(@more_information) %>
+
+<h3> RELEVANT INFORMATION </h3>
+  <% iterate_data(@information) %>
+
+<h3> OTHER INFORMATION </h3>
+  <% iterate_data(@realtor_information) %>
 
 
-    <%= image_tag @map_image %>
+    <p> <%= image_tag @map_image %> </p>
 
-    </div>
-
+  </div>
 </div>
-

@@ -1,7 +1,6 @@
 class CharitiesController < ApplicationController
-
   # Notes for Charities authenticate_admin later
-  # before_action except: [:show, :index, :update, :destroy]
+   # before_action :authenticate_admin!, only: [:index]
 
   def index
     @charities = Charity.all

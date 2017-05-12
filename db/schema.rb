@@ -39,6 +39,11 @@ ActiveRecord::Schema.define(version: 20170207011611) do
     t.integer  "charity_id"
   end
 
+  create_table "maps", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "properties", force: :cascade do |t|
     t.integer  "num_bedrooms"
     t.string   "num_bathrooms"

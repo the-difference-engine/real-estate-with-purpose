@@ -1,12 +1,12 @@
 <div class="container" id="charities">
   <div class="col-md-12">
     <p id="notice"><%= notice %></p>
-
-    <h3>Charities <%= link_to 'Create New Charity', '/charities/new', class: "btn btn-default" %></h3>
+      <% if current_user && current_user.admin %>
+        <h3>Charities <%= link_to 'Create New Charity', '/charities/new', class: "btn btn-default" %></h3>
+      <% end %>
     <br>
-  
     <h4>Wondering where the donations go?</h4>
-    <h4>Many of the charities you see below have now been recipients of multiple donations through Real Estate with Purpose.</h4>
+    <h4>The charities you see below have now been recipients of multiple donations through Real Estate with Purpose.</h4>
     <div class="container-fluid charities-padding-container">
       <div class="row">
         <% @charities.each do |charity| %>
