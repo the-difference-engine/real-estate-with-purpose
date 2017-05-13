@@ -70,28 +70,27 @@
 <%= form_tag '/properties', method: :post do %>
   <div class="top-search-bar">
     <div class="form-item">
+      <%= label_tag "Address, Neighborhood, or Zip" %>
       <%= text_field_tag :location, nil, placeholder: "Address, neighborhood, zip" %>
     </div>
     <div class="form-item">
-      <%= text_field_tag :price_min, nil, placeholder: "Price (min.)"%>
+      <%= label_tag "Price(min.)" %>
+      <%= select_tag(:price_min, options_for_select([['0', 0],['$50,000', 50000], ['$75,000', 75000], ['$100,000', 100000], ['$150,000', 150000], ['$200,000', 200000], ['$250,000', 250000], ['$300,000', 300000], ['$400,000', 400000], ['$500,000', 500000]])) %>
     </div>
     <div class="form-item">
-      <%= text_field_tag :price_max, nil, placeholder: "Price (max.)" %>
+      <%= label_tag "Price(max.)" %>
+      <%= select_tag(:price_min, options_for_select([['$100,000', 100000], ['$200,000', 200000], ['$300,000', 300000], ['$400,000', 400000], ['$500,000', 500000], ['$600,000', 600000], ['$700,000', 700000], ['$800,000', 800000], ['$900,000', 900000]])) %>
     </div>
     <div class="form-item">
-      <%= text_field_tag :beds_min, nil, placeholder: "Beds (min.)" %>
+      <%= label_tag "Beds(min.)" %>
+      <%= select_tag(:beds_min, options_for_select([['0+', 0],['1+', 1], ['2+', 2], ['3+', 3], ['4+', 4], ['5+', 5]])) %>
     </div>
     <div class="form-item">
-      <%= text_field_tag :beds_max, nil, placeholder: "Beds (max.)" %>
-    </div>
-    <div class="form-item">
-      <%= text_field_tag :baths_min, nil, placeholder: "Baths (min.)"%>
-    </div>
-    <div class="form-item">
-      <%= text_field_tag :baths_max, nil, placeholder: "Baths (max.)" %>
+      <%= label_tag "Baths(min.)" %>
+      <%= select_tag(:baths_min, options_for_select([['0+', 0],['1+', 1], ['2+', 2], ['3+', 3], ['4+', 4], ['5+', 5]])) %>
     </div>
     <div class="submit-btn">
-      <%= submit_tag "Submit" %>
+      <%= submit_tag "Search" %>
     </div>
   </div>
 <% end %>
