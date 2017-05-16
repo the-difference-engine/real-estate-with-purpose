@@ -5,6 +5,7 @@ $light-gray: #B1B0B0;
 $royal-blue: #003FC5;
 $light-blue: #CAE2FC;
 $off-white: #F4F7F7;
+$nav-blue: #2C00D0;
 
 // typography variables
 $font-main: 'Heebo', sans-serif;
@@ -42,6 +43,45 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: $font-weight-headings;
+}
+
+img.navbar-brand {
+  height: 55px;
+  width: 55px;
+  margin-left: 1px !important;
+}
+
+#bs-example-navbar-collapse-1 {
+  padding-top: 5px;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: $off-white;
+}
+
+.navbar-fixed-top {
+    min-height: 63px;
+}
+
+.navbar-fixed-top .navbar-collapse {
+    max-height: 63px;
+}
+
+@media (min-width: 768px) {
+    .navbar-fixed-top .navbar-collapse {
+        max-height: 50px;
+    }
+}
+
+nav.navbar.navbar-default.navbar-fixed-top {
+  background-color: $nav-blue;
+}
+
+li.outline-button {
+  border: 2px solid $off-white;
+  border-radius: 15px;
+  padding: 0 10px;
+  margin: 0 5px;
 }
 
 .container-fluid {

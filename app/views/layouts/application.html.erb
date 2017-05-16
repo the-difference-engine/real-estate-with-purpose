@@ -13,7 +13,7 @@
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
 
-        <%= link_to image_tag('/images/mansion.svg', :class => 'navbar-brand'), "/" %>
+        <%= link_to image_tag('/images/mansionWH.svg', :class => 'navbar-brand'), "/" %>
 
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
@@ -32,14 +32,14 @@
           <li class=<%= 'active' if current_page?(controller: 'pages', action: 'company')%>><a href="/company">Company</a></li>
           <li class=<%= 'active' if current_page?(controller: 'charities', action: 'index')%>><a href="/charities/">Charities</a></li>
           <li class=<%= 'active' if current_page?(controller: 'pages', action: 'contact')%>><a href="/contact">Contact</a></li>
-          <li><a href="#" data-toggle="modal" data-target="#REwPInvestor">REwP Investor</a></li>
+          <li class="outline-button"><a href="#" data-toggle="modal" data-target="#REwPInvestor">REwP Investor</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if current_user %>
           <li><%= link_to 'Log Out', '/logout', method: :delete %></li>
           <% else %>
-          <li><a href="#" data-toggle="modal" data-target="#signIn">Sign In</a></li>
-          <li><a href="#" data-toggle="modal" data-target="#signUp">Sign Up</a></li>
+          <li class="outline-button"><a href="#" data-toggle="modal" data-target="#signIn">Sign In</a></li>
+          <li class="outline-button"><a href="#" data-toggle="modal" data-target="#signUp">Sign Up</a></li>
           <% end %>
 
           <% if current_user && current_user.admin %>
