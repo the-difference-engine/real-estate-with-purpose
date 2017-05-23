@@ -4,7 +4,7 @@
     <li><h4>Email: <%= @user.email %></h4></li>
     <li><h4>Home Budget: <%= number_to_currency(@user.home_budget) %></h4></li>
     <%= link_to "Edit", "/users/#{@user.id}/edit", class: "btn btn-default" %>
-    <%= link_to "Delete", "/users/#{@user.id}/", {method: :delete, class: "btn btn-default"} %>
+    <%= link_to "Delete", "/users/#{@user.id}/", {method: :delete, class: "btn btn-default", data: {confirm: "Are you sure you want to delete your account?"}} %>
 </div>
 
 <h1>YOUR FAVORITES</h1>
