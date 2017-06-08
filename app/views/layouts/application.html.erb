@@ -36,6 +36,7 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if current_user %>
+          <li><%= link_to 'Profile', "/users/#{current_user.id}" %></li>
           <li><%= link_to 'Log Out', '/logout', method: :delete %></li>
           <% else %>
           <li class="outline-button"><a href="#" data-toggle="modal" data-target="#signIn">Sign In</a></li>
